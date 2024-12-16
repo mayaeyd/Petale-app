@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Proxima Nova Black";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA BLACK.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Bold Italic";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA BOLD ITALIC.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Extrabold Italic";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA EXTRABOLD ITALIC.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Extrabold";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA EXTRABOLD.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Light";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA LIGHT.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Semibold Italic";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA SEMIBOLD ITALIC.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Semibold";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA SEMIBOLD.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Thin Italic";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA THIN ITALIC.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Thin";
+  src: url("../../public/fonts/Proxima Nova/PROXIMA NOVA THIN.OTF")
+    format("otf");
+}
+
+@font-face {
+  font-family: "Proxima Nova Regular";
+  src: url("../../public/fonts/Proxima Nova/PROXIMANOVA-REGULAR.OTF")
+    format("otf");
+}
