@@ -1,12 +1,13 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RolePage from "./pages/auth/RolePage";
+import "./styles/fonts.css";
 
 const App = () => {
-  return(
+  return (
     <BrowserRouter>
       <Routes>
-        <Route path="/role" element={<RolePage />}/>
+        <Route path="/role" element={<RolePage />} />
       </Routes>
     </BrowserRouter>
   );
