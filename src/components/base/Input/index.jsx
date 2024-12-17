@@ -8,6 +8,7 @@ const Input = ({ placeholder }) => {
       <TextField
         label={placeholder}
         variant="outlined"
+        fullWidth
         sx={{
           "& .MuiOutlinedInput-root": {
             color: "#fff",
