@@ -8,9 +8,23 @@
 }
 
 .form-container {
-  width: 50%;
   height: 90vh;
   background-color: rgba(255, 255, 255, 0.089);
   border-radius: 30px;
   padding-left: 10px;
+  width: 50%;
+  gap: 10px;
+}
+
+.name-container {
+  display: flex;
+  width: 100%;
+}
+
+.inputs-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
