@@ -60,54 +60,45 @@
 
 @font-face {
   font-family: "Cormorant Bold";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Bold.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Bold.ttf");
 }
 
 @font-face {
   font-family: "Cormorant Bold Italic";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-BoldItalic.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-BoldItalic.ttf");
 }
 
 @font-face {
   font-family: "Cormorant Italic";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Italic.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Italic.ttf");
 }
 
 @font-face {
   font-family: "Cormorant Light";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Light.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Light.ttf");
 }
 
 @font-face {
   font-family: "Cormorant Light Italic";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-LightItalic.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-LightItalic.ttf");
 }
 
 @font-face {
   font-family: "Cormorant Medium";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Medium.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Medium.ttf");
 }
 
 @font-face {
   font-family: "Cormorant Medium Italic";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-MediumItalic.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-MediumItalic.ttf");
 }
 
 @font-face {
   font-family: "Cormorant Regular";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Regular.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-Regular.ttf");
 }
 
 @font-face {
   font-family: "Cormorant Semibold";
-  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-SemiBold.ttf")
-    format("ttf");
+  src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-SemiBold.ttf");
 }
