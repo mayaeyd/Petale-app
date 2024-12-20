@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../../../components/base/Input";
 import "./style.css";
+import AuthImage from "../../../assets/AuthImage";
 
 const RolePage = () => {
   return (
@@ -15,7 +16,9 @@ const RolePage = () => {
         <Input placeholder="Password" />
         </div>
       </div>
-      <div className="image-container"></div>
+      <div className="image-container">
+        <AuthImage />
+      </div>
     </div>
   );
 };
