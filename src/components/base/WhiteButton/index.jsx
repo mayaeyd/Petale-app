@@ -12,7 +12,8 @@ const WhiteButton = ({ label }) => {
         backgroundColor:"white",
         color: 'black', 
         borderRadius: '10px', 
-        width: '250px',
+        width: '260px',
+        height: '45px',
         fontFamily: 'Proxima Nova Regular',
         textTransform: 'capitalize',
         '&:hover': {
