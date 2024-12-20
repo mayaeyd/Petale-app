@@ -1,8 +1,10 @@
 import React from "react";
 import Input from "../../../components/base/Input";
 import "./style.css";
-import AuthImage from "../../../assets/AuthImage";
-import LogoNoText from "../../../assets/LogoNoText";
+import AuthImage from "../../../assets/images/AuthImage";
+import LogoNoText from "../../../assets/images/LogoNoText";
+import BigButton from "../../../components/base/BigButton";
+import GardenerIcon from "../../../assets/icons/GardenerIcon"
 
 const RolePage = () => {
   return (
@@ -11,6 +13,9 @@ const RolePage = () => {
         <div className="logo-container">
           <LogoNoText />
           <h1>Sign Up</h1>
+          <BigButton 
+            icon={<GardenerIcon />}
+          />
         </div>
       </div>
       <div className="image-container">

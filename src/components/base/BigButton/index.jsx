@@ -2,11 +2,11 @@ import React from 'react'
 
 const BigButton = ({icon, title, subtitle}) => {
   return (
-    <button>
-        <img src={icon}/>
+    <div>
+        {icon}
         <h1>{title}</h1>
         <p>{subtitle}</p>
-    </button>
+    </div>
   )
 }
 
