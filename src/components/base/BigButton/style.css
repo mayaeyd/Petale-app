@@ -4,8 +4,10 @@
   box-sizing: border-box;
   padding: 20px;
   height: 200px;
+  width: 230px;
   border: 1px solid white;
   border-radius: 10px;
+  gap: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,4 +31,9 @@ p {
   font-family: "Proxima Nova Light";
   color: white;
   font-size: 0.8em;
+  max-width: 140px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+  margin: 0;
 }
