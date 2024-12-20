@@ -4,7 +4,7 @@ import "./style.css";
 import AuthImage from "../../../assets/images/AuthImage";
 import LogoNoText from "../../../assets/images/LogoNoText";
 import BigButton from "../../../components/base/BigButton";
-import GardenerIcon from "../../../assets/icons/GardenerIcon"
+import GardenerIcon from "../../../assets/icons/GardenerIcon";
 
 const RolePage = () => {
   return (
@@ -13,8 +13,10 @@ const RolePage = () => {
         <div className="logo-container">
           <LogoNoText />
           <h1>Sign Up</h1>
-          <BigButton 
+          <BigButton
             icon={<GardenerIcon />}
+            title="As a Gardener"
+            subtitle="I'm here to sell and care for my plants"
           />
         </div>
       </div>
