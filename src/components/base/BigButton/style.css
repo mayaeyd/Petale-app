@@ -1,17 +1,32 @@
 @import url("../../../styles/fonts.css");
 
+.button-container {
+  box-sizing: border-box;
+  padding: 20px;
+  height: 200px;
+  border: 1px solid white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.13);
+  cursor: pointer;
+}
+
 .icon-container {
   width: 56px;
 }
 
-h1{
-    font-family: 'Proxima Nova Light';
-    color: white;
-    font-size: 1.3em;
+h1 {
+  font-family: "Proxima Nova Light";
+  color: white;
+  font-size: 1.3em;
+  margin: 0;
 }
 
-p{
-    font-family: 'Proxima Nova Light';
-    color: white;
-    font-size: 0.8em;
+p {
+  font-family: "Proxima Nova Light";
+  color: white;
+  font-size: 0.8em;
 }
