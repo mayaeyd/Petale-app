@@ -45,3 +45,13 @@
   text-align: center;
   font-size: 2em;
 }
+
+@media (max-width: 1050px) {
+  .image-container {
+    display: none;
+  }
+  .form-container{
+    width: 100%;
+    margin-inline: 20px;
+  }
+}
