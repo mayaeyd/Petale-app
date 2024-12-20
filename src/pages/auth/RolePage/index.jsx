@@ -14,17 +14,17 @@ const RolePage = () => {
         <div className="logo-container">
           <LogoNoText />
           <h1>Sign Up</h1>
-          <BigButton
-            icon={<UserRoleIcon />}
-            title="As a Buyer"
-            subtitle="I'm here to buy plants"
-          />
-          <BigButton
-            icon={<GardenerIcon />}
-            title="As a Gardener"
-            subtitle="I'm here to sell and care for my plants"
-          />
         </div>
+        <BigButton
+          icon={<UserRoleIcon />}
+          title="As a Buyer"
+          subtitle="I'm here to buy plants"
+        />
+        <BigButton
+          icon={<GardenerIcon />}
+          title="As a Gardener"
+          subtitle="I'm here to sell and care for my plants"
+        />
       </div>
       <div className="image-container">
         <AuthImage />
