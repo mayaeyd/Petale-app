@@ -15,19 +15,9 @@
   padding-left: 10px;
   width: 50%;
   gap: 10px;
-}
-
-.name-container {
   display: flex;
-  width: 100%;
-}
-
-.inputs-container {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .image-container {
