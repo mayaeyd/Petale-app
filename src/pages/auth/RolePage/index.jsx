@@ -16,8 +16,8 @@ const RolePage = () => {
           <h1>Sign Up</h1>
           <BigButton
             icon={<UserRoleIcon />}
-            title="As a Gardener"
-            subtitle="I'm here to sell and care for my plants"
+            title="As a Buyer"
+            subtitle="I'm here to buy plants"
           />
           <BigButton
             icon={<GardenerIcon />}
