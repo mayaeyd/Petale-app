@@ -34,7 +34,7 @@
   flex-direction: column;
 }
 
-.logo-container h1 {
+.logo-container > h1 {
   font-family: "Cormorant Semibold";
   color: white;
   margin: 0;
