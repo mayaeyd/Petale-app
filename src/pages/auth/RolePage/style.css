@@ -1,3 +1,5 @@
+@import url("../../../styles/fonts.css");
+
 .main-container {
   background-color: #4b5842;
   height: 100vh;
@@ -25,4 +27,15 @@
   width: 45%;
   padding: 10px;
   padding-left: 20px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container h1 {
+  font-family: "Cormorant Semibold";
+  color: white;
+  margin: 0;
 }

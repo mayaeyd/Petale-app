@@ -8,7 +8,10 @@ const RolePage = () => {
   return (
     <div className="main-container">
       <div className="form-container">
-        <LogoNoText />
+        <div className="logo-container">
+          <LogoNoText />
+          <h1>Sign Up</h1>
+        </div>
       </div>
       <div className="image-container">
         <AuthImage />
