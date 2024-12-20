@@ -7,6 +7,15 @@ const WhiteButton = ({ label }) => {
     <Button
       variant="contained"
       endIcon={<ArrowForward />}
+      sx={{
+        backgroundColor:"white",
+        color: 'black', 
+        borderRadius: '10px', 
+        width: '250px',
+        '&:hover': {
+          backgroundColor: '#f0f0f0',
+        },
+      }}
     >
       {label}
     </Button>
