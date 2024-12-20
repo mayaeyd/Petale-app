@@ -12,7 +12,6 @@ const RolePage = () => {
           <LogoNoText />
           <h1>Sign Up</h1>
         </div>
-        
       </div>
       <div className="image-container">
         <AuthImage />
