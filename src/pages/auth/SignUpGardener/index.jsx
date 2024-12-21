@@ -2,7 +2,7 @@ import React from "react";
 import LogoNoText from "../../../assets/images/LogoNoText";
 import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
-import { Input } from "postcss";
+import Input from "../../../components/base/Input"
 
 const SignUpGardener = () => {
   return (

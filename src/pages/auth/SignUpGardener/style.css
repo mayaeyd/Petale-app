@@ -57,6 +57,19 @@
   overflow-wrap: break-word;
 }
 
+.name-container {
+  display: flex;
+  width: 100%;
+}
+
+.inputs-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 1050px) {
   .image-container {
     display: none;
