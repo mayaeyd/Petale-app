@@ -8,6 +8,17 @@ const initialState = {
   error: null,
 };
 
+export const LoginUser = createAsyncThunk(
+  "login/LoginUser",
+  async (credentials) => {
+    try {
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
