@@ -46,11 +46,22 @@
   font-size: 2em;
 }
 
+.logo-container > p {
+  font-family: "Proxima Nova Thin";
+  color: white;
+  margin: 3px;
+  text-align: center;
+  font-size: 1em;
+  max-width: 370px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 @media (max-width: 1050px) {
   .image-container {
     display: none;
   }
-  .form-container{
+  .form-container {
     width: 100%;
     margin-inline: 20px;
   }
