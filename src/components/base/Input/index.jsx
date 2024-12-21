@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 
 const Input = ({ placeholder, type }) => {
   return (
@@ -10,6 +10,10 @@ const Input = ({ placeholder, type }) => {
         variant="outlined"
         type={type}
         fullWidth
+        inputProps={{
+          maxLength: type === "tel" ? 8 : undefined, 
+          pattern: type === "tel" ? "[0-9]*" : undefined, 
+        }}
         sx={{
           "& .MuiOutlinedInput-root": {
             backgroundColor: "#ffffff21",
@@ -44,6 +48,13 @@ const Input = ({ placeholder, type }) => {
               color: "#fff",
             },
           },
+        }}
+        InputProps={{
+          startAdornment: type === "tel" && (
+            <InputAdornment position="start">
+              🇱🇧 +961
+            </InputAdornment>
+          )
         }}
       />
     </>
