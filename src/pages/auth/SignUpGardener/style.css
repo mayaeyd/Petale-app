@@ -37,7 +37,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid white;
   width: 90%;
 }
 
@@ -73,6 +72,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.inputs-container > p {
+  margin-top: 5px;
+  max-width: 100%;
+}
+
+.inputs-container > p > a {
+  cursor: pointer;
+  font-family: "Proxima Nova Semibold";
 }
 
 @media (max-width: 1050px) {
