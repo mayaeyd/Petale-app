@@ -7,7 +7,9 @@ const Input = ({ placeholder, type }) => {
       label={placeholder}
       variant="outlined"
       type={type}
+      size="small"
       fullWidth
+      margin="dense"
       slotProps={{
         htmlInput: {
           maxLength: type === "tel" ? 8 : undefined,
