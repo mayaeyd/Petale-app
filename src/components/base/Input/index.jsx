@@ -17,15 +17,7 @@ const Input = ({ placeholder, type }) => {
         },
         input: {
           startAdornment: type === "tel" && (
-            <InputAdornment
-              position="start"
-              sx={{
-                color: "#fff",
-                fontFamily: "Proxima Nova Light",
-              }}
-            >
-              🇱🇧 +961
-            </InputAdornment>
+            <InputAdornment position="start">🇱🇧 +961</InputAdornment>
           ),
         },
       }}
@@ -56,6 +48,10 @@ const Input = ({ placeholder, type }) => {
           "&.Mui-focused": {
             color: "#fff",
           },
+        },
+        "& .css-1ro85z9-MuiTypography-root": {
+          color: "#fff !important",
+          fontFamily: "Proxima Nova Light",
         },
       }}
     />
