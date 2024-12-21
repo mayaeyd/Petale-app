@@ -46,6 +46,10 @@
   font-size: 2em;
 }
 
+.btn-container{
+  width: 280px;
+}
+
 @media (max-width: 1050px) {
   .image-container {
     display: none;

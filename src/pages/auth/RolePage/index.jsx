@@ -35,7 +35,9 @@ const RolePage = () => {
           title="As a Gardener"
           subtitle="I'm here to sell and care for my plants"
         />
-        <WhiteButton label="Continue" />
+        <div className="btn-container">
+          <WhiteButton label="Continue" />
+        </div>
       </div>
       <div className="image-container">
         <AuthImage />
