@@ -11,11 +11,22 @@ const Input = ({ placeholder }) => {
         fullWidth
         sx={{
           "& .MuiOutlinedInput-root": {
+            backgroundColor: "#ffffff21",
+            borderRadius: "15px",
             color: "#fff",
             fontFamily: "Proxima Nova Light",
+            "& input": {
+              color: "#fff",
+              opacity: 1,
+            },
             "& .MuiOutlinedInput-notchedOutline": {
               borderColor: "#fff",
               borderWidth: "2px",
+            },
+            "&:hover": {
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#fff",
+              },
             },
             "&.Mui-focused": {
               "& .MuiOutlinedInput-notchedOutline": {
@@ -23,15 +34,11 @@ const Input = ({ placeholder }) => {
                 borderWidth: "3px",
               },
             },
-            "&:hover:not(.Mui-focused)": {
-              "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#ccc",
-              },
-            },
           },
           "& .MuiInputLabel-outlined": {
             color: "#fff",
             fontFamily: "Proxima Nova Thin",
+            opacity: 1, // Label visibility
             "&.Mui-focused": {
               color: "#fff",
             },
