@@ -36,6 +36,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid white;
+  width: 90%;
 }
 
 .logo-container > h1 {
@@ -51,10 +53,11 @@
   color: white;
   margin: 3px;
   text-align: center;
-  font-size: 1em;
-  max-width: 370px;
+  font-size: 0.9em;
+  max-width: 350px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  margin-bottom: 10px;
 }
 
 .name-container {
