@@ -3,6 +3,7 @@ import LogoNoText from "../../../assets/images/LogoNoText";
 import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
 import Input from "../../../components/base/Input";
+import WhiteButton from "../../../components/base/WhiteButton";
 
 const SignUpGardener = () => {
   return (
@@ -28,6 +29,9 @@ const SignUpGardener = () => {
           <Input placeholder="" type="tel" />
           <Input placeholder="Garden Name" type="text" />
           <Input placeholder="Location" type="text" />
+          <WhiteButton 
+            label="Sign Up"
+          />
         </div>
       </div>
       <div className="image-container">
