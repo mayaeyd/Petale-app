@@ -27,11 +27,11 @@ const SignUpGardener = () => {
           <Input placeholder="Password" type="password" />
           <Input placeholder="Confirm Password" type="password" />
           <Input placeholder="" type="tel" />
-          <Input placeholder="Garden Name" type="text" />
-          <Input placeholder="Location" type="text" />
-          <WhiteButton 
-            label="Sign Up"
-          />
+          <div className="name-container">
+            <Input placeholder="Garden Name" type="text" />
+            <Input placeholder="Location" type="text" />
+          </div>
+          <WhiteButton label="Sign Up" />
         </div>
       </div>
       <div className="image-container">

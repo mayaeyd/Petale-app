@@ -9,7 +9,6 @@ const Input = ({ placeholder, type }) => {
       type={type}
       size="small"
       fullWidth
-      margin="dense"
       slotProps={{
         htmlInput: {
           maxLength: type === "tel" ? 8 : undefined,
@@ -22,6 +21,7 @@ const Input = ({ placeholder, type }) => {
         },
       }}
       sx={{
+        marginBottom:"7px",
         "& .MuiOutlinedInput-root": {
           backgroundColor: "#ffffff21",
           borderRadius: "15px",
