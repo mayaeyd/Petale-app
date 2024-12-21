@@ -2,12 +2,13 @@ import React from "react";
 import "./style.css";
 import { TextField } from "@mui/material";
 
-const Input = ({ placeholder }) => {
+const Input = ({ placeholder, type }) => {
   return (
     <>
       <TextField
         label={placeholder}
         variant="outlined"
+        type={type}
         fullWidth
         sx={{
           "& .MuiOutlinedInput-root": {
@@ -38,7 +39,7 @@ const Input = ({ placeholder }) => {
           "& .MuiInputLabel-outlined": {
             color: "#fff",
             fontFamily: "Proxima Nova Thin",
-            opacity: 1, // Label visibility
+            opacity: 1,
             "&.Mui-focused": {
               color: "#fff",
             },
