@@ -8,12 +8,13 @@ const WhiteButton = ({ label }) => {
     <Button
       variant="contained"
       endIcon={<ArrowForward />}
+      fullWidth
       sx={{
         backgroundColor: "white",
         color: "black",
         borderRadius: "10px",
-        width: "260px",
-        height: "45px",
+        marginTop:"10px",
+        height: "35px",
         fontFamily: "Proxima Nova Regular",
         textTransform: "capitalize",
         "&:hover": {
