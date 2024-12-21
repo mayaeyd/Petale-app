@@ -4,6 +4,7 @@ import RolePage from "./pages/auth/RolePage";
 import "./styles/fonts.css";
 import SignUpGardener from "./pages/auth/SignUpGardener";
 import SignUpUser from "./pages/auth/SignUpUser";
+import Login from "./pages/auth/Login";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/role" element={<RolePage />} />
         <Route path="/signup/gardener" element={<SignUpGardener />} />
         <Route path="/signup/user" element={<SignUpUser />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
