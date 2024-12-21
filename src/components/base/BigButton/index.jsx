@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 
 const BigButton = ({ icon, title, subtitle, active, onClick }) => {

@@ -1,0 +1,57 @@
+@import url("../../../styles/fonts.css");
+
+.main-container {
+  background-color: #4b5842;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-container {
+  padding: 20px;
+  height: 90vh;
+  background-color: rgba(255, 255, 255, 0.089);
+  border-radius: 30px;
+  padding-left: 10px;
+  width: 40%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container {
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+  padding: 10px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container > h1 {
+  font-family: "Cormorant Semibold";
+  color: white;
+  margin: 0;
+  text-align: center;
+  font-size: 2em;
+}
+
+@media (max-width: 1050px) {
+  .image-container {
+    display: none;
+  }
+  .form-container{
+    width: 100%;
+    margin-inline: 20px;
+  }
+}
