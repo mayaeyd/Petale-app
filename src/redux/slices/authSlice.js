@@ -12,7 +12,13 @@ export const LoginUser = createAsyncThunk(
   "login/LoginUser",
   async (credentials) => {
     try {
-      
+      const { email, password } = credentials;
+      const response = await axios.post("http://127.0.0.1:8080/auth/login", {
+        email,
+        password,
+      });
+      console.log(response.data);
+      return response.data;
     } catch (error) {
       console.log(error);
     }
