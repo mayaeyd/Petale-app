@@ -2,6 +2,7 @@ import React from "react";
 import LogoNoText from "../../../assets/images/LogoNoText";
 import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
+import { Input } from "postcss";
 
 const SignUpGardener = () => {
   return (
@@ -10,8 +11,21 @@ const SignUpGardener = () => {
         <div className="logo-container">
           <LogoNoText />
           <h1>Sign Up</h1>
-          <p>Join us today to start exploring and caring for your favorite flowers!</p>
+          <p>
+            Join us today to start exploring and caring for your favorite
+            flowers!
+          </p>
         </div>
+
+        <div className="inputs-container">
+          <div className="name-container">
+            <Input placeholder="First Name" />
+            <Input placeholder="Last Name" />
+          </div>
+          <Input placeholder="Email" />
+          <Input placeholder="Password" />
+        </div>
+
       </div>
       <div className="image-container">
         <AuthImage />
