@@ -2,7 +2,7 @@ import React from "react";
 import LogoNoText from "../../../assets/images/LogoNoText";
 import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
-import Input from "../../../components/base/Input"
+import Input from "../../../components/base/Input";
 
 const SignUpGardener = () => {
   return (
@@ -19,13 +19,16 @@ const SignUpGardener = () => {
 
         <div className="inputs-container">
           <div className="name-container">
-            <Input placeholder="First Name" />
-            <Input placeholder="Last Name" />
+            <Input placeholder="First Name" type="text" />
+            <Input placeholder="Last Name" type="text" />
           </div>
-          <Input placeholder="Email" />
-          <Input placeholder="Password" />
+          <Input placeholder="Email" type="email" />
+          <Input placeholder="Password" type="password" />
+          <Input placeholder="Confirm Password" type="password" />
+          <Input placeholder="" type="tel" />
+          <Input placeholder="Garden Name" type="text" />
+          <Input placeholder="Location" type="text" />
         </div>
-
       </div>
       <div className="image-container">
         <AuthImage />
