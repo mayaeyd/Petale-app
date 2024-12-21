@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   user: null,
@@ -36,7 +37,12 @@ const authSlice = createSlice({
       localStorage.removeItem("token");
     },
   },
-  extraReducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(LoginUser.pending, (state) => {})
+      .addCase(LoginUser.fulfilled, (state, action) => {})
+      .addCase(LoginUser.rejected, (state, action) => {});
+  },
 });
 
 export const { logout } = authSlice.actions;
