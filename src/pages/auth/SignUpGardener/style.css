@@ -82,6 +82,8 @@
 .inputs-container > p > a {
   cursor: pointer;
   font-family: "Proxima Nova Semibold";
+  text-decoration: none;
+  color: white;
 }
 
 @media (max-width: 1050px) {

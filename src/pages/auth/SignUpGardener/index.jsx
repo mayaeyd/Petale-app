@@ -32,7 +32,7 @@ const SignUpGardener = () => {
             <Input placeholder="Location" type="text" />
           </div>
           <WhiteButton label="Sign Up" />
-          <p>Already have an account? <a>Login</a></p>
+          <p>Already have an account? <a href="/login">Login</a></p>
         </div>
       </div>
       <div className="image-container">
