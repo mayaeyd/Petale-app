@@ -4,10 +4,16 @@ import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
 import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
+import { LoginUser } from "../../../redux/slices/authSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const credentials = {
+    email,
+    password,
+  }
 
   return (
     <div className="main-container">
@@ -34,7 +40,10 @@ const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <WhiteButton label="Login" />
+          <WhiteButton
+            label="Login"
+            
+          />
           <p>
             Don't have an account? <a href="/role">Sign Up</a>
           </p>
