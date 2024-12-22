@@ -14,12 +14,14 @@ const SignUpUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState(0);
 
   const dispatch = useDispatch();
 
   const location = useLocation();
   const role = location.state.role;
+
+  const phoneNumberAsNumber = Number(phoneNumber); 
 
   const credentials = {
     firstName,
@@ -27,7 +29,7 @@ const SignUpUser = () => {
     email,
     password,
     confirmPassword,
-    phoneNumber,
+    phoneNumber: phoneNumberAsNumber,
     role,
   }
 
