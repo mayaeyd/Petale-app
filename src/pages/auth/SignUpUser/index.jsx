@@ -4,9 +4,10 @@ import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
 import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RegisterUser } from "../../../redux/slices/authSlice";
 import { useLocation } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 const SignUpUser = () => {
   const [firstName, setFirstName] = useState("");
@@ -17,11 +18,12 @@ const SignUpUser = () => {
   const [phoneNumber, setPhoneNumber] = useState(0);
 
   const dispatch = useDispatch();
+  const { loading, error } = useSelector((state) => state.auth);
 
   const location = useLocation();
   const role = location.state.role;
 
-  const phoneNumberAsNumber = Number(phoneNumber); 
+  const phoneNumberAsNumber = Number(phoneNumber);
 
   const credentials = {
     firstName,
@@ -31,7 +33,7 @@ const SignUpUser = () => {
     confirmPassword,
     phoneNumber: phoneNumberAsNumber,
     role,
-  }
+  };
 
   return (
     <div className="main-container">
@@ -78,7 +80,13 @@ const SignUpUser = () => {
             type="tel"
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
-          <WhiteButton label="Sign Up" onClick={()=>dispatch(RegisterUser(credentials))}/>
+          <WhiteButton
+            label={loading ? <CircularProgress color="inherit" /> : "Sign Up"}
+            onClick={() => dispatch(RegisterUser(credentials))}
+          />
+          {error && (
+            <p className="error-message">{error.message}</p>
+          )}
           <p>
             Already have an account? <a href="/login">Login</a>
           </p>
