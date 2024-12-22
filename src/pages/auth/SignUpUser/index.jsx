@@ -76,11 +76,6 @@ const SignUpUser = () => {
             type="tel"
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
-          <Input
-            placeholder="Location"
-            type="text"
-            onChange={(e) => setLocation(e.target.value)}
-          />
           <WhiteButton label="Sign Up" onClick={()=>dispatch(RegisterUser(credentials))}/>
           <p>
             Already have an account? <a href="/login">Login</a>
