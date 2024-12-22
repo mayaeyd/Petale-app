@@ -4,6 +4,8 @@ import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
 import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
+import { useDispatch } from "react-redux";
+import { RegisterUser } from "../../../redux/slices/authSlice";
 
 const SignUpUser = () => {
   const [firstName, setFirstName] = useState("");
@@ -13,6 +15,18 @@ const SignUpUser = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [location, setLocation] = useState("");
+
+  const dispatch = useDispatch();
+
+  const credentials = {
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmPassword,
+    phoneNumber,
+    location
+  }
 
   return (
     <div className="main-container">
@@ -64,7 +78,7 @@ const SignUpUser = () => {
             type="text"
             onChange={(e) => setLocation(e.target.value)}
           />
-          <WhiteButton label="Sign Up" />
+          <WhiteButton label="Sign Up" onClick={()=>dispatch(RegisterUser(credentials))}/>
           <p>
             Already have an account? <a href="/login">Login</a>
           </p>
