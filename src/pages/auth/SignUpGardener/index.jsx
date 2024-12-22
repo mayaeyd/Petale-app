@@ -5,6 +5,8 @@ import "./style.css";
 import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
 import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RegisterUser } from "../../../redux/slices/authSlice";
 
 const SignUpGardener = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,6 +17,9 @@ const SignUpGardener = () => {
   const [phoneNumber, setPhoneNumber] = useState(0);
   const [gardenName, setGardenName] = useState("");
   const [gardenLocation, setGardenlocation] = useState("");
+
+  const dispatch = useDispatch();
+  const { loading, error } = useSelector((state) => state.auth);
 
   const location = useLocation();
   const role = location.state.role;
@@ -90,7 +95,10 @@ const SignUpGardener = () => {
               onChange={(e) => setGardenlocation(e.target.value)}
             />
           </div>
-          <WhiteButton label="Sign Up" />
+          <WhiteButton
+            label="Sign Up"
+            onClick={() => dispatch(RegisterUser(credentials))}
+          />
           <p>
             Already have an account? <a href="/login">Login</a>
           </p>
