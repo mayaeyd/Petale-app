@@ -6,12 +6,24 @@ import BigButton from "../../../components/base/BigButton";
 import GardenerIcon from "../../../assets/icons/GardenerIcon";
 import UserRoleIcon from "../../../assets/icons/UserRoleIcon";
 import WhiteButton from "../../../components/base/WhiteButton";
+import { useNavigate } from "react-router-dom";
 
 const RolePage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const navigate = useNavigate();
+
+  const roles = ["user", "gardener"];
 
   const handleClick = (index) => {
     setActiveIndex(index);
+  };
+
+  const handleContinue = () => {
+    if (activeIndex === null) return;
+    const selectedRole = roles[activeIndex];
+    navigate(`/signup/${roles[selectedRole]}`, {
+      state: { role: selectedRole },
+    });
   };
 
   return (
@@ -36,7 +48,7 @@ const RolePage = () => {
           subtitle="I'm here to sell and care for my plants"
         />
         <div className="btn-container">
-          <WhiteButton label="Continue" />
+          <WhiteButton label="Continue" onClick={handleContinue} />
         </div>
       </div>
       <div className="image-container">
