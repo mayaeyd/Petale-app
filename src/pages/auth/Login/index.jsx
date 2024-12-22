@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LogoNoText from "../../../assets/images/LogoNoText";
 import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
@@ -6,6 +6,9 @@ import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="main-container">
       <div className="image-container">
@@ -21,8 +24,16 @@ const Login = () => {
         </div>
 
         <div className="inputs-container">
-          <Input placeholder="Email" type="email" />
-          <Input placeholder="Password" type="password" />
+          <Input
+            placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            placeholder="Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <WhiteButton label="Login" />
           <p>
             Don't have an account? <a href="/role">Sign Up</a>
