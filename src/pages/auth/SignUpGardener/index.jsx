@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import LogoNoText from "../../../assets/images/LogoNoText";
 import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
 import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
+import React from "react";
 
 const SignUpGardener = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [gardenName, setGardenName] = useState("");
+  const [gardenLocation, setGardenlocation] = useState("");
+
+
   return (
     <div className="main-container">
       <div className="form-container">
@@ -29,7 +40,7 @@ const SignUpGardener = () => {
           <Input placeholder="" type="tel" />
           <div className="name-container">
             <Input placeholder="Garden Name" type="text" />
-            <Input placeholder="Location" type="text" />
+            <Input placeholder="Garden Location" type="text" />
           </div>
           <WhiteButton label="Sign Up" />
           <p>Already have an account? <a href="/login">Login</a></p>
