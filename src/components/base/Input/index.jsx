@@ -1,12 +1,13 @@
 import React from "react";
 import { InputAdornment, TextField } from "@mui/material";
 
-const Input = ({ placeholder, type }) => {
+const Input = ({ placeholder, type, onChange }) => {
   return (
     <TextField
       label={placeholder}
       variant="outlined"
       type={type}
+      onChange={onChange}
       size="small"
       fullWidth
       slotProps={{
