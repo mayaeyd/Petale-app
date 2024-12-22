@@ -28,14 +28,42 @@ const SignUpUser = () => {
 
         <div className="inputs-container">
           <div className="name-container">
-            <Input placeholder="First Name" type="text" />
-            <Input placeholder="Last Name" type="text" />
+            <Input
+              placeholder="First Name"
+              type="text"
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <Input
+              placeholder="Last Name"
+              type="text"
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </div>
-          <Input placeholder="Email" type="email" />
-          <Input placeholder="Password" type="password" />
-          <Input placeholder="Confirm Password" type="password" />
-          <Input placeholder="" type="tel" />
-          <Input placeholder="Location" type="text" />
+          <Input
+            placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            placeholder="Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Input
+            placeholder="Confirm Password"
+            type="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <Input
+            placeholder=""
+            type="tel"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+          <Input
+            placeholder="Location"
+            type="text"
+            onChange={(e) => setLocation(e.target.value)}
+          />
           <WhiteButton label="Sign Up" />
           <p>
             Already have an account? <a href="/login">Login</a>
