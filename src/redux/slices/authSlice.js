@@ -46,19 +46,25 @@ export const RegisterUser = createAsyncThunk(
         return rejectWithValue("Passwords do not match");
       }
 
-      const response = await axios.post("http://127.0.0.1:8080/auth/register", {
+      const requestBody = {
         firstName,
         lastName,
         email,
         password,
+        confirmPassword,
         phoneNumber,
         role,
-        gardenName,
-        gardenLocation,
-      });
+        ...(role === "gardener" && { gardenName, gardenLocation }),
+      };
+
+      const response = await axios.post(
+        "http://127.0.0.1:8080/auth/register",
+        requestBody
+      );
 
       return response.data;
     } catch (error) {
+      console.error(error);
       return rejectWithValue(error.response?.data || error.message);
     }
   }
