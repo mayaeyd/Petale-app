@@ -42,7 +42,7 @@ const Login = () => {
           />
           <WhiteButton
             label="Login"
-            
+            onClick={() => dispatch(LoginUser(credentials))}
           />
           <p>
             Don't have an account? <a href="/role">Sign Up</a>
