@@ -16,7 +16,6 @@ const SignUpGardener = () => {
   const [gardenName, setGardenName] = useState("");
   const [gardenLocation, setGardenlocation] = useState("");
 
-
   return (
     <div className="main-container">
       <div className="form-container">
@@ -31,19 +30,53 @@ const SignUpGardener = () => {
 
         <div className="inputs-container">
           <div className="name-container">
-            <Input placeholder="First Name" type="text" />
-            <Input placeholder="Last Name" type="text" />
+            <Input
+              placeholder="First Name"
+              type="text"
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <Input
+              placeholder="Last Name"
+              type="text"
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </div>
-          <Input placeholder="Email" type="email" />
-          <Input placeholder="Password" type="password" />
-          <Input placeholder="Confirm Password" type="password" />
-          <Input placeholder="" type="tel" />
+          <Input
+            placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            placeholder="Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Input
+            placeholder="Confirm Password"
+            type="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <Input
+            placeholder=""
+            type="tel"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
           <div className="name-container">
-            <Input placeholder="Garden Name" type="text" />
-            <Input placeholder="Garden Location" type="text" />
+            <Input
+              placeholder="Garden Name"
+              type="text"
+              onChange={(e) => setGardenName(e.target.value)}
+            />
+            <Input
+              placeholder="Garden Location"
+              type="text"
+              onChange={(e) => setGardenlocation(e.target.value)}
+            />
           </div>
           <WhiteButton label="Sign Up" />
-          <p>Already have an account? <a href="/login">Login</a></p>
+          <p>
+            Already have an account? <a href="/login">Login</a>
+          </p>
         </div>
       </div>
       <div className="image-container">
