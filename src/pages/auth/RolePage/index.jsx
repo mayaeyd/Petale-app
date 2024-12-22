@@ -21,7 +21,7 @@ const RolePage = () => {
   const handleContinue = () => {
     if (activeIndex === null) return;
     const selectedRole = roles[activeIndex];
-    navigate(`/signup/${roles[selectedRole]}`, {
+    navigate(`/signup/${selectedRole}`, {
       state: { role: selectedRole },
     });
   };
