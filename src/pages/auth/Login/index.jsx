@@ -6,6 +6,7 @@ import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
 import { LoginUser } from "../../../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { CircularProgress } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ const Login = () => {
   const credentials = {
     email,
     password,
-  }
+  };
 
   return (
     <div className="main-container">
@@ -45,7 +46,13 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <WhiteButton
-            label="Login"
+            label={
+              loading ? (
+                <CircularProgress color="inherit" size="20px" />
+              ) : (
+                "Login"
+              )
+            }
             onClick={() => dispatch(LoginUser(credentials))}
           />
           <p>

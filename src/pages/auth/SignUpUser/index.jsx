@@ -81,12 +81,16 @@ const SignUpUser = () => {
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
           <WhiteButton
-            label={loading ? <CircularProgress color="inherit" /> : "Sign Up"}
+            label={
+              loading ? (
+                <CircularProgress color="inherit" size="20px" />
+              ) : (
+                "Sign Up"
+              )
+            }
             onClick={() => dispatch(RegisterUser(credentials))}
           />
-          {error && (
-            <p className="error-message">{error.message}</p>
-          )}
+          {error && <p className="error-message">{error.message}</p>}
           <p>
             Already have an account? <a href="/login">Login</a>
           </p>

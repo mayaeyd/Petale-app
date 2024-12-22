@@ -97,7 +97,13 @@ const SignUpGardener = () => {
             />
           </div>
           <WhiteButton
-            label={loading ? <CircularProgress color="inherit" /> : "Sign Up"}
+            label={
+              loading ? (
+                <CircularProgress color="inherit" size="20px" />
+              ) : (
+                "Sign Up"
+              )
+            }
             onClick={() => dispatch(RegisterUser(credentials))}
           />
           {error && <p className="error-message">{error.message}</p>}
