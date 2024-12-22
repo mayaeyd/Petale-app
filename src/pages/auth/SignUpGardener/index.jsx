@@ -4,7 +4,7 @@ import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
 import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
-import React from "react";
+import { useLocation } from "react-router-dom";
 
 const SignUpGardener = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,6 +15,23 @@ const SignUpGardener = () => {
   const [phoneNumber, setPhoneNumber] = useState(0);
   const [gardenName, setGardenName] = useState("");
   const [gardenLocation, setGardenlocation] = useState("");
+
+  const location = useLocation();
+  const role = location.state.role;
+
+  const phoneNumberAsNumber = Number(phoneNumber);
+
+  const credentials = {
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmPassword,
+    phoneNumber: phoneNumberAsNumber,
+    gardenName,
+    gardenLocation,
+    role,
+  };
 
   return (
     <div className="main-container">
