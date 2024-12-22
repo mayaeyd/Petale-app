@@ -26,7 +26,7 @@ const UserNavbar = () => {
           </li>
         </ul>
       </div>
-      <img src={<LogoText />} />
+      <LogoText />
       <div className="nav-icons">
         <svg
           xmlns="http://www.w3.org/2000/svg"
