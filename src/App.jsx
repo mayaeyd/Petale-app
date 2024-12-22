@@ -5,6 +5,8 @@ import "./styles/fonts.css";
 import SignUpGardener from "./pages/auth/SignUpGardener";
 import SignUpUser from "./pages/auth/SignUpUser";
 import Login from "./pages/auth/Login";
+import UserHomePage from "./pages/UserHomePage";
+import UsersRoutes from "./components/routes/UsersRoutes";
 
 const App = () => {
   return (
@@ -14,6 +16,9 @@ const App = () => {
         <Route path="/signup/gardener" element={<SignUpGardener />} />
         <Route path="/signup/user" element={<SignUpUser />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/user" element={<UsersRoutes />}>
+          <Route path="/user/home" element={<UserHomePage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
