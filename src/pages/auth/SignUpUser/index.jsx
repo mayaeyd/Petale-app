@@ -6,6 +6,7 @@ import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
 import { useDispatch } from "react-redux";
 import { RegisterUser } from "../../../redux/slices/authSlice";
+import { useLocation } from "react-router-dom";
 
 const SignUpUser = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,9 +15,11 @@ const SignUpUser = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(null);
-  const [location, setLocation] = useState("");
 
   const dispatch = useDispatch();
+
+  const location = useLocation();
+  const role = location.state.role;
 
   const credentials = {
     firstName,
@@ -25,7 +28,7 @@ const SignUpUser = () => {
     password,
     confirmPassword,
     phoneNumber,
-    location
+    role,
   }
 
   return (
