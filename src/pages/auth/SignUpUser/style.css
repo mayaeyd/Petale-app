@@ -86,6 +86,12 @@
   color: white;
 }
 
+.error-message {
+  color: #FF6347;
+  margin-top: "3px";
+  font-family: "Proxima Nova Regular";
+}
+
 @media (max-width: 1050px) {
   .image-container {
     display: none;
