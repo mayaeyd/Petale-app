@@ -11,7 +11,7 @@ const initialState = {
 
 export const LoginUser = createAsyncThunk(
   "login/LoginUser",
-  async (credentials) => {
+  async (credentials, { rejectWithValue }) => {
     try {
       const { email, password } = credentials;
       const response = await axios.post("http://127.0.0.1:8080/auth/login", {
@@ -21,7 +21,10 @@ export const LoginUser = createAsyncThunk(
       console.log(response.data);
       return response.data;
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.data) {
+        return rejectWithValue(error.response.data);
+      }
+      return rejectWithValue({ message: "Something went wrong. Please try again." });
     }
   }
 );

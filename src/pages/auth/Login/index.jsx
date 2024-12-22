@@ -55,6 +55,9 @@ const Login = () => {
             }
             onClick={() => dispatch(LoginUser(credentials))}
           />
+          {error && (
+            <p className="error-message">{error.message || "Error occurred"}</p>
+          )}
           <p>
             Don't have an account? <a href="/role">Sign Up</a>
           </p>
