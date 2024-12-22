@@ -1,12 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { Navigate, Outlet, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 
 const GardenersRoutes = () => {
   const navigate = useNavigate();
-  const [check, setCheck] = useState(true);
+  const [check, setCheck] = useState(false);
 
+  const { user, isLoggedIn, token } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (user && isLoggedIn && token && user.role === "gardener") {
+      setCheck(true);
+    } else {
+      setCheck(false);
+    }
+  }, [user, isLoggedIn, token]);
 
   return check ? <Outlet /> : <Navigate to={"/"} />;
-}
+};
 
-export default GardenersRoutes
+export default GardenersRoutes;
