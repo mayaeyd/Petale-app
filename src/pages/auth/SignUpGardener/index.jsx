@@ -7,6 +7,7 @@ import WhiteButton from "../../../components/base/WhiteButton";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RegisterUser } from "../../../redux/slices/authSlice";
+import { CircularProgress } from "@mui/material";
 
 const SignUpGardener = () => {
   const [firstName, setFirstName] = useState("");
@@ -96,9 +97,10 @@ const SignUpGardener = () => {
             />
           </div>
           <WhiteButton
-            label="Sign Up"
+            label={loading ? <CircularProgress color="inherit" /> : "Sign Up"}
             onClick={() => dispatch(RegisterUser(credentials))}
           />
+          {error && <p className="error-message">{error.message}</p>}
           <p>
             Already have an account? <a href="/login">Login</a>
           </p>
