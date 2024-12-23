@@ -81,12 +81,29 @@ const Footer = () => {
       </div>
       <div className="footer-sec-3">
         <div className="footer-links-sec">
-            <h2>Know More</h2>
-          <div className="footer-links"></div>
+          <h2>Know More</h2>
+          <div className="footer-links">
+            <ul>
+              <li>About Us</li>
+              <li>Contact Us</li>
+              <li>Marketplace</li>
+              <li>FAQs</li>
+              <li>Blog</li>
+              <li>Privacy Policy</li>
+              <li>Terms of Service</li>
+            </ul>
+          </div>
         </div>
         <div className="footer-links-sec">
-            <h2>Our Project</h2>
-          <div className="footer-links"></div>
+          <h2>Our Project</h2>
+          <div className="footer-links">
+            <ul>
+              <li>IoT Features</li>
+              <li>Flower Recognition</li>
+              <li>How it Works</li>
+              <li>Support</li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
