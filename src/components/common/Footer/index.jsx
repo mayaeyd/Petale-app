@@ -80,10 +80,12 @@ const Footer = () => {
         </p>
       </div>
       <div className="footer-sec-3">
-        <div className="footer-links-sec-1">
+        <div className="footer-links-sec">
+            <h2>Know More</h2>
           <div className="footer-links"></div>
         </div>
-        <div className="footer-links-sec-2">
+        <div className="footer-links-sec">
+            <h2>Our Project</h2>
           <div className="footer-links"></div>
         </div>
       </div>
