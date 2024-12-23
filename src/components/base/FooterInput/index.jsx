@@ -4,9 +4,9 @@ import { TextField } from "@mui/material";
 const FooterInput = ({ onChange }) => {
   return (
     <TextField
-      label="Sign up for our newsletter!"
+      placeholder="Sign up for our newsletter!"
       variant="outlined"
-      type="text"
+      type="email"
       onChange={onChange}
       fullWidth
       size="medium"
@@ -18,7 +18,6 @@ const FooterInput = ({ onChange }) => {
       }}
       InputLabelProps={{
         style: {
-          color: "black",
           fontFamily: "Proxima Nova Thin",
         },
       }}
