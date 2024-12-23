@@ -44,5 +44,16 @@ nav img {
 .nav-icons {
   color: white;
   display: flex;
-  gap: 30px;
+  gap: 20px;
+}
+
+.nav-icons svg {
+  box-sizing: content-box;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all ease 0.5s;
+}
+
+.nav-icons svg:hover {
+  background-color: rgba(255, 255, 255, 0.13);
 }
