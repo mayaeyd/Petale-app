@@ -7,8 +7,16 @@ import SignUpUser from "./pages/auth/SignUpUser";
 import Login from "./pages/auth/Login";
 import UserHomePage from "./pages/UserHomePage";
 import UsersRoutes from "./components/routes/UsersRoutes";
+import { getSelf } from "./redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getSelf());
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Routes>

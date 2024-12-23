@@ -76,7 +76,7 @@ export const RegisterUser = createAsyncThunk(
       };
 
       const response = await axios.post(
-        "http://127.0.0.1:8080/auth/register",
+        `${BASE_URL}/register`,
         requestBody
       );
 
