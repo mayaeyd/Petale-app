@@ -2,6 +2,7 @@ import React from "react";
 import PinkButtonRound from "../../base/PinkButtonRound";
 import LogoNoText from "../../../assets/images/LogoNoText";
 import "./style.css";
+import FooterInput from "../../base/FooterInput";
 
 const Footer = () => {
   return (
@@ -66,7 +67,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer-sec-2"></div>
+      <div className="footer-sec-2">
+        <FooterInput />
+      </div>
       <div className="footer-sec-3"></div>
     </footer>
   );
