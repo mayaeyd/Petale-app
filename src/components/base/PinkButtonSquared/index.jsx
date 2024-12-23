@@ -15,9 +15,15 @@ const PinkButtonRound = ({ label, onClick }) => {
         border: "2px solid #BE7D86",
         marginTop: "10px",
         height: "35px",
-        borderRadius: "0px",
+        borderRadius : "0px",
         fontFamily: "Proxima Nova Semibold",
         fontSize: "1em",
+        textTransform: "capitalize",
+        "&:hover": {
+          backgroundColor: "#BE7D86",
+          border: "1px solid #F7D6D6",
+          color: "#F7D6D6",
+        },
       }}
     >
       {label}
