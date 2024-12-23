@@ -148,6 +148,11 @@ footer {
   z-index: 10;
 }
 
+.footer-links > ul > li:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .footer-image {
   height: auto;
   width: 400px;
