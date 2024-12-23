@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const BASE_URL = "http://127.0.0.1:8080/auth";
+
 const initialState = {
   user: null,
   token: null,
-  isLoggedIn: false,
   loading: false,
   error: null,
 };
@@ -13,18 +14,13 @@ export const LoginUser = createAsyncThunk(
   "login/LoginUser",
   async (credentials, { rejectWithValue }) => {
     try {
-      const { email, password } = credentials;
-      const response = await axios.post("http://127.0.0.1:8080/auth/login", {
-        email,
-        password,
-      });
-      console.log(response.data);
+      const response = await axios.post(`${BASE_URL}/login`, credentials);
       return response.data;
     } catch (error) {
-      if (error.response && error.response.data) {
-        return rejectWithValue(error.response.data);
+      if (error.response?.data) {
+        return rejectWithValue(error.response.data.message || "Login failed");
       }
-      return rejectWithValue({ message: "Something went wrong. Please try again." });
+      return rejectWithValue("Something went wrong. Please try again.");
     }
   }
 );
@@ -115,7 +111,6 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       });
-  
   },
 });
 
