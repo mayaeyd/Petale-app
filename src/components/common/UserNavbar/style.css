@@ -1,16 +1,25 @@
 @import url("../../../styles/fonts.css");
 
 nav {
-  height: 100px;
+  height: 75px;
   background-color: #4b5842;
   display: flex;
   justify-content: space-between;
   padding-inline: 50px;
+  align-items: center;
+}
+
+nav img, .nav-links ul li, .nav-icons svg{
+    cursor: pointer;
+}
+
+nav img {
+  height: 65%;
 }
 
 .nav-links ul {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 .nav-links li {
   text-decoration: none;
@@ -23,6 +32,8 @@ nav {
   display: flex;
 }
 
-.nav-icons{
-    color:white;
+.nav-icons {
+  color: white;
+  display: flex;
+  gap: 30px;
 }
