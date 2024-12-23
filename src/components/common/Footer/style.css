@@ -23,6 +23,14 @@ footer {
   font-family: "Cormorant Medium";
   font-weight: 100;
   letter-spacing: 2px;
-  font-size: 2em;
+  font-size: 1.8em;
   color: white;
+}
+
+.subtitle p{
+    font-family: 'Proxima Nova Thin';
+    font-size: 1em;
+    max-width: 60%;
+    text-align: end;
+    align-self: flex-end;
 }
