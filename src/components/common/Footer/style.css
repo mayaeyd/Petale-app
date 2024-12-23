@@ -178,15 +178,23 @@ footer {
     flex-direction: column;
     height: auto;
   }
-  .footer-sec-1{
+  .footer-sec-1 {
     flex-direction: row;
     align-items: center;
     gap: 30px;
     margin-bottom: 20px;
   }
-  .footer-sec-2{
+  .footer-sec-2 {
     margin-block: 30px;
     align-self: center;
     width: 80%;
+  }
+}
+
+@media (max-width: 730px) {
+  .footer-sec-1 > p,
+  .footer-sec-1 > button,
+  .social-media-sec {
+    display: none;
   }
 }
