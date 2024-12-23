@@ -7,7 +7,6 @@ footer {
   position: absolute;
   top: 100%;
   padding-block: 35px;
-  padding-inline: 50px;
   display: flex;
 }
 
@@ -44,6 +43,9 @@ footer {
 
 .footer-sec-1, .footer-sec-2{
     flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-sec-3{
@@ -60,4 +62,32 @@ footer {
     font-family: "Proxima Nova Regular";
     color: white;
     max-width: 100%;
+}
+
+.footer-sec-1 > button {
+    width: 160px;
+    height: 50px;
+}
+
+.social-media-sec{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.social-media-sec > p{
+    
+    font-family: "Proxima Nova Light";
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+
+.social-media-icons{
+    display: flex;
+    gap: 10px;
+}
+
+.social-media-icons > svg{
+    color: white;
 }
