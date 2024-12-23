@@ -1,18 +1,28 @@
-footer{
-    background-color: #4B5842;
-    height: 70vh;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    padding-block: 35px;
-    padding-inline: 50px;
+@import url("../../../styles/fonts.css");
+
+footer {
+  background-color: #4b5842;
+  height: 70vh;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  padding-block: 35px;
+  padding-inline: 50px;
 }
 
-.subtitle{
-    display: flex;
-    flex-direction: column;
+.subtitle {
+  display: flex;
+  flex-direction: column;
 }
 
-.logo-subtitle{
-    display: flex;
+.logo-subtitle {
+  display: flex;
+}
+
+.subtitle h2 {
+  font-family: "Cormorant Medium";
+  font-weight: 100;
+  letter-spacing: 2px;
+  font-size: 2em;
+  color: white;
 }
