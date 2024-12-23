@@ -20,11 +20,11 @@ footer {
   display: flex;
 }
 
-.subtitle h2 {
+.subtitle > h2 {
   font-family: "Cormorant Medium";
   font-weight: 100;
   letter-spacing: 2px;
-  font-size: 1.8em;
+  font-size: 2em;
   color: white;
 }
 
@@ -55,7 +55,7 @@ footer {
 .footer-sec-1{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
 }
 
 .footer-sec-1 > p{

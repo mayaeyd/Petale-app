@@ -15,6 +15,7 @@ const Footer = () => {
           <LogoNoText />
         </div>
         <p>Nurture. Bloom. Connect.</p>
+        <PinkButtonRound label="Buy Flowers" />
         <div className="social-media-sec">
           <p>Connect With Us</p>
           <div className="social-media-icons">
@@ -64,7 +65,6 @@ const Footer = () => {
             </svg>
           </div>
         </div>
-        <PinkButtonRound label="Buy Flowers" />
       </div>
       <div className="footer-sec-2"></div>
       <div className="footer-sec-3"></div>
