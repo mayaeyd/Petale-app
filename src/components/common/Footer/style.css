@@ -94,4 +94,17 @@ footer {
 
 .footer-sec-2 {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.subscription-sec{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-sec-2 button {
+    height: 50px;
 }

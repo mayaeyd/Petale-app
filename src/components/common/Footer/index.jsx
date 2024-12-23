@@ -3,6 +3,7 @@ import PinkButtonRound from "../../base/PinkButtonRound";
 import LogoNoText from "../../../assets/images/LogoNoText";
 import "./style.css";
 import FooterInput from "../../base/FooterInput";
+import PinkButtonSquared from "../../base/PinkButtonSquared";
 
 const Footer = () => {
   return (
@@ -68,7 +69,15 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-sec-2">
-        <FooterInput />
+        <div className="subscription-sec">
+          <FooterInput />
+          <PinkButtonSquared label="SUBSCRIBE NOW" />
+        </div>
+        <p>
+          Stay updated with the latest flowers, exclusive deals, and gardening
+          tips delivered straight to your inbox. Join our community of plant
+          lovers today—We promise not to spam!
+        </p>
       </div>
       <div className="footer-sec-3"></div>
     </footer>
