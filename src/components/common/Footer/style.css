@@ -172,3 +172,15 @@ footer {
 .footer-image > img {
   display: block;
 }
+
+@media (max-width: 1000px) {
+  footer {
+    flex-direction: column;
+    height: auto;
+  }
+  footer > div:nth-child(2){
+    margin-block: 30px;
+    align-self: center;
+    width: 80%;
+  }
+}
