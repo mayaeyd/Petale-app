@@ -15,8 +15,14 @@ nav {
 .nav-links li {
   text-decoration: none;
   list-style: none;
+  font-family: "Proxima Nova Regular";
+  color: white;
 }
 
 .nav-links li:nth-child(2) {
   display: flex;
+}
+
+.nav-icons{
+    color:white;
 }
