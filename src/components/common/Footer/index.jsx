@@ -79,7 +79,14 @@ const Footer = () => {
           lovers today—We promise not to spam!
         </p>
       </div>
-      <div className="footer-sec-3"></div>
+      <div className="footer-sec-3">
+        <div className="footer-links-sec-1">
+          <div className="footer-links"></div>
+        </div>
+        <div className="footer-links-sec-2">
+          <div className="footer-links"></div>
+        </div>
+      </div>
     </footer>
   );
 };
