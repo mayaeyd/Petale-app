@@ -4,6 +4,7 @@ import LogoNoText from "../../../assets/images/LogoNoText";
 import "./style.css";
 import FooterInput from "../../base/FooterInput";
 import PinkButtonSquared from "../../base/PinkButtonSquared";
+import FooterFlower from "../../../assets/images/FooterFlower";
 
 const Footer = () => {
   return (
@@ -105,6 +106,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="footer-image">
+        <FooterFlower />
       </div>
     </footer>
   );
