@@ -7,7 +7,7 @@ const PinkButtonRound = ({ label, onClick }) => {
   return (
     <Button
       variant="contained"
-      endIcon={<ArrowForward sx={{ color: "#BE7D86" }} />}
+      endIcon={<ArrowForward sx={{color:"#BE7D86"}}/>}
       onClick={() => onClick()}
       sx={{
         backgroundColor: "#F7D6D6",
@@ -18,6 +18,15 @@ const PinkButtonRound = ({ label, onClick }) => {
         height: "35px",
         fontFamily: "Proxima Nova Regular",
         textTransform: "capitalize",
+        "&:hover": {
+          backgroundColor: "#BE7D86",
+          border: "2px solid #F7D6D6",
+          color: "#F7D6D6",
+          "& .MuiSvgIcon-root": {
+            color: "#F7D6D6", 
+          },
+        },
+        
       }}
     >
       {label}
