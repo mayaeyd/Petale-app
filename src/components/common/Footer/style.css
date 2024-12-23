@@ -1,0 +1,8 @@
+.subtitle{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-subtitle{
+    display: flex;
+}

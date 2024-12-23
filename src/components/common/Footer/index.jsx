@@ -1,6 +1,7 @@
 import React from "react";
 import PinkButtonRound from "../../base/PinkButtonRound";
 import LogoNoText from "../../../assets/images/LogoNoText";
+import "./style.css";
 
 const Footer = () => {
   return (
