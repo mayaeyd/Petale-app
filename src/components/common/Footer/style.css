@@ -1,9 +1,11 @@
 footer{
     background-color: #4B5842;
-    height: 60vh;
+    height: 70vh;
     width: 100%;
     position: absolute;
     top: 100%;
+    padding-block: 35px;
+    padding-inline: 50px;
 }
 
 .subtitle{
