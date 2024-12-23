@@ -1,5 +1,6 @@
 import React from "react";
 import LogoText from "../../../assets/images/LogoText";
+import "./style.css";
 
 const UserNavbar = () => {
   return (
