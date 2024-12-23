@@ -91,6 +91,12 @@ footer {
 
 .social-media-icons > svg {
   color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.social-media-icons > svg:hover {
+  transform: translateY(-5px);
 }
 
 .footer-sec-2 {
