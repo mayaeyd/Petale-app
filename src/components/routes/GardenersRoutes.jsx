@@ -5,15 +5,15 @@ import { Navigate, Outlet } from "react-router-dom";
 const GardenersRoutes = () => {
   const [check, setCheck] = useState(false);
 
-  const { user, isLoggedIn, token } = useSelector((state) => state.auth);
+  const { user, token } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (user && isLoggedIn && token && user.role === "gardener") {
+    if (user && token && user.role === "gardener") {
       setCheck(true);
     } else {
       setCheck(false);
     }
-  }, [user, isLoggedIn, token]);
+  }, [user, token]);
 
   return check ? <Outlet /> : <Navigate to={"/"} />;
 };
