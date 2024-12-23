@@ -9,8 +9,10 @@ nav {
   align-items: center;
 }
 
-nav img, .nav-links ul li, .nav-icons svg{
-    cursor: pointer;
+nav img,
+.nav-links ul li,
+.nav-icons svg {
+  cursor: pointer;
 }
 
 nav img {
@@ -26,10 +28,17 @@ nav img {
   list-style: none;
   font-family: "Proxima Nova Light";
   color: white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all ease 0.5s;
 }
 
 .nav-links li:nth-child(2) {
   display: flex;
+}
+
+.nav-links li:hover {
+  background-color: rgba(255, 255, 255, 0.13);
 }
 
 .nav-icons {
