@@ -130,3 +130,19 @@ footer {
     color: white;
     font-size: 1.5em;
 }
+
+.footer-links > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.footer-links > ul > li{
+    list-style: none;
+    cursor: pointer;
+    font-family: "Proxima Nova Light";
+    letter-spacing: 1px;
+    font-size: 1em;
+    color: white;
+}
