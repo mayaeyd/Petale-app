@@ -96,6 +96,7 @@ footer {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    gap: 50px;
 }
 
 .subscription-sec{
@@ -107,4 +108,12 @@ footer {
 
 .footer-sec-2 button {
     height: 50px;
+}
+
+.footer-sec-2 > p{
+    max-width: 100%;
+    letter-spacing: 1px;
+    text-align: start;
+    font-family: 'Proxima Nova Thin';
+    font-size: 1.1em;
 }
