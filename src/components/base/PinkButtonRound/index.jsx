@@ -12,11 +12,12 @@ const PinkButtonRound = ({ label, onClick }) => {
       sx={{
         backgroundColor: "#F7D6D6",
         color: "#BE7D86",
-        border: "2px solid #BE7D86",
+        border: "3px solid #BE7D86",
         borderRadius: "25px",
         marginTop: "10px",
         height: "35px",
-        fontFamily: "Proxima Nova Regular",
+        fontFamily: "Proxima Nova Semibold",
+        fontSize: "1em",
         textTransform: "capitalize",
         "&:hover": {
           backgroundColor: "#BE7D86",
