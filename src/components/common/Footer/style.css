@@ -178,7 +178,13 @@ footer {
     flex-direction: column;
     height: auto;
   }
-  footer > div:nth-child(2){
+  .footer-sec-1{
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  .footer-sec-2{
     margin-block: 30px;
     align-self: center;
     width: 80%;
