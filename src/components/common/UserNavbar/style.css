@@ -1,7 +1,22 @@
+@import url("../../../styles/fonts.css");
+
 nav {
   height: 100px;
   background-color: #4b5842;
   display: flex;
   justify-content: space-between;
+  padding-inline: 50px;
 }
 
+.nav-links ul {
+  display: flex;
+  gap: 20px;
+}
+.nav-links li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-links li:nth-child(2) {
+  display: flex;
+}
