@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8080/auth"
+const BASE_URL = "http://127.0.0.1:8080/auth";
 
 const initialState = {
   user: null,
@@ -9,25 +9,6 @@ const initialState = {
   loading: false,
   error: null,
 };
-
-export const getSelf = createAsyncThunk('auth/GetSelf', async (_, thunkAPI) => {
-  try {
-    const response = await fetch(`${BASE_URL}/getSelf`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch user');
-    }
-
-    return await response.json();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
 
 export const LoginUser = createAsyncThunk(
   "login/LoginUser",
@@ -37,9 +18,9 @@ export const LoginUser = createAsyncThunk(
       return response.data;
     } catch (error) {
       if (error.response?.data) {
-        return rejectWithValue(error.response.data.message || 'Login failed');
+        return rejectWithValue(error.response.data.message || "Login failed");
       }
-      return rejectWithValue("Something went wrong. Please try again." );
+      return rejectWithValue("Something went wrong. Please try again.");
     }
   }
 );
@@ -75,10 +56,7 @@ export const RegisterUser = createAsyncThunk(
         ...(role === "gardener" && { gardenName, gardenLocation }),
       };
 
-      const response = await axios.post(
-        `${BASE_URL}/register`,
-        requestBody
-      );
+      const response = await axios.post(`${BASE_URL}/register`, requestBody);
 
       return response.data;
     } catch (error) {
@@ -99,23 +77,8 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    // Login User
     builder
-      // Get Self
-      .addCase(getSelf.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(getSelf.fulfilled, (state, action) => {
-        state.loading = false;
-        state.user = action.payload;
-        state.token = localStorage.getItem('token'); 
-      })
-      .addCase(getSelf.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      });
-      // Login User
-      builder
       .addCase(LoginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -130,8 +93,8 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       });
-      // Register User
-      builder
+    // Register User
+    builder
       .addCase(RegisterUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -144,7 +107,6 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       });
-  
   },
 });
 

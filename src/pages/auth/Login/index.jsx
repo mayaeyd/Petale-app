@@ -13,7 +13,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  const { loading, error, token, user } = useSelector((state) => state.auth);
+  const { loading, error } = useSelector((state) => state.auth);
 
   const credentials = {
     email,
