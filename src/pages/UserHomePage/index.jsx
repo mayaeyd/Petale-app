@@ -1,16 +1,23 @@
-import React from 'react'
-import UserNavbar from '../../components/common/UserNavbar'
-import Footer from '../../components/common/Footer'
-import MasonryHero from '../../components/base/MasonryHero'
+import React from "react";
+import UserNavbar from "../../components/common/UserNavbar";
+import Footer from "../../components/common/Footer";
+import MasonryHero from "../../components/base/MasonryHero";
+import "./style.css";
 
 const UserHomePage = () => {
   return (
     <div>
       <UserNavbar />
-      <MasonryHero />
+      <div className="hero-section">
+        <MasonryHero />
+        <div>
+          <h1>PÉTALE</h1>
+          <h3>Nurture. Bloom. Connect</h3>
+        </div>
+      </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default UserHomePage
+export default UserHomePage;
