@@ -1,19 +1,23 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
 const GardenersRoutes = () => {
   const [check, setCheck] = useState(false);
 
-  const { user, token } = useSelector((state) => state.auth);
+  const getAuthUser = async () => {
+    const { data } = await axios.get("http://127.0.0.1:8080/auth/getSelf", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+
+    setCheck(data.user.role === "gardener");
+  };
 
   useEffect(() => {
-    if (user && token && user.role === "gardener") {
-      setCheck(true);
-    } else {
-      setCheck(false);
-    }
-  }, [user, token]);
+    getAuthUser();
+  }, []);
 
   return check ? <Outlet /> : <Navigate to={"/"} />;
 };
