@@ -1,3 +1,5 @@
+@import url(../../../styles/fonts.css);
+
 .gardener-navbar {
   position: fixed;
   top: 0;
@@ -11,10 +13,11 @@
   gap: 40px;
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding-left: 20px;
 }
 
 .gardener-navbar img {
-  width: 140px;
+  width: 160px;
   height: auto;
 }
 
@@ -26,11 +29,20 @@
 
 .gardener-info {
   display: flex;
+  gap: 10px;
 }
 
 .gardener-name {
   display: flex;
   flex-direction: column;
+}
+
+.gardener-name > h3 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Proxima Nova Regular";
+  font-weight: 100;
+  color: white;
 }
 
 .gardener-nav-link {
