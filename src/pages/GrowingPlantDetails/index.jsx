@@ -17,7 +17,9 @@ const GrowingPlantDetails = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  return;
+  const { scientificName, plantedDate, plantType } = selectedPlant.plant;
+
+  return <div>{scientificName}</div>;
 };
 
 export default GrowingPlantDetails;
