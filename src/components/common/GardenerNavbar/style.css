@@ -29,6 +29,7 @@
 
 .gardener-info {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -42,8 +43,18 @@
   flex-direction: column;
   font-family: "Proxima Nova Regular";
   font-weight: 100;
+  font-size: 1.3em;
   color: white;
 }
+
+.gardener-name > p {
+    display: flex;
+    flex-direction: column;
+    font-family: "Proxima Nova Light";
+    font-weight: 100;
+    font-size: 0.9em;
+    color: #A1A1A1;
+  }
 
 .gardener-nav-link {
   display: flex;
