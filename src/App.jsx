@@ -11,6 +11,7 @@ import Login from "./pages/auth/Login";
 import RolePage from "./pages/auth/RolePage";
 import UserHomePage from "./pages/UserHomePage";
 import GrowingPlantsPage from "./pages/GrowingPlantsPage";
+import GrowingPlantDetails from "./pages/GrowingPlantDetails";
 
 import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
@@ -39,7 +40,12 @@ const App = () => {
         </Route>
         <Route path="/gardener" element={<GardenersRoutes />}>
           <Route
-            path="/gardener/growing-plants" element={<GrowingPlantsPage />}
+            path="/gardener/growing-plants"
+            element={<GrowingPlantsPage />}
+          />
+          <Route
+            path="/gardener/growing-plants/:id"
+            element={<GrowingPlantDetails />}
           />
         </Route>
       </Routes>
