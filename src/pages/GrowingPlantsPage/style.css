@@ -1,11 +1,21 @@
-.btn-container{
-    width: 100%;
-    padding-top: 20px;
-    padding-right: 30px;
-    display: flex;
-    justify-content: flex-end;
+@import url(../../styles/fonts.css);
+
+.btn-container {
+  width: 100%;
+  padding-top: 20px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.growing-plants-container{
-    margin-left:250px;
+.growing-plants-container {
+  margin-left: 250px;
+  padding-left: 10px;
+}
+
+.growing-plants-container > h1 {
+  font-family: "Cormorant Semibold";
+  font-size: 2em;
+  color: #b76e79;
+  margin-top: 15px;
 }

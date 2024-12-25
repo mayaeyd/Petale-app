@@ -36,7 +36,7 @@ const GrowingPlantsPage = () => {
         <h2>Plants</h2>
         {plants.map((plant, index) =>
           plant.plantType === "plant" ? (
-            <h1>Plant: {plant.scientificName}</h1>
+            <p>Plant: {plant.scientificName}</p>
           ) : null
         )}
         <h2>Flowers</h2>
