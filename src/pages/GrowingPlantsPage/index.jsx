@@ -6,6 +6,7 @@ import { CircularProgress } from "@mui/material";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
 import AddIcon from "@mui/icons-material/Add";
 import "./style.css";
+import GrowingPlantCard from "../../components/common/GrowingPlantCard";
 
 const GrowingPlantsPage = () => {
   const { plants, loading, error } = useSelector((state) => state.plants);
@@ -36,7 +37,7 @@ const GrowingPlantsPage = () => {
         <h2>Plants</h2>
         {plants.map((plant, index) =>
           plant.plantType === "plant" ? (
-            <p>Plant: {plant.scientificName}</p>
+            <GrowingPlantCard name={plant.scientificName} date={plant.plantedDate}/>
           ) : null
         )}
         <h2>Flowers</h2>
@@ -45,6 +46,7 @@ const GrowingPlantsPage = () => {
             <h1>Plant: {plant.scientificName}</h1>
           ) : null
         )}
+        
       </div>
     </div>
   );
