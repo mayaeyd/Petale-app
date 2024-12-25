@@ -29,7 +29,20 @@ const plantsSlice = createSlice({
       );
     },
   },
-  
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchPlants.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchPlants.fulfilled, (state, action) => {
+        state.loading = false;
+        state.plants = action.payload.plants;
+      })
+      .addCase(fetchPlants.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+  },
 });
 
 export const { addPlant, removePlant } = plantsSlice.actions;
