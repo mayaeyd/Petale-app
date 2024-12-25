@@ -50,9 +50,9 @@
 .gardener-name > h3 {
   display: flex;
   flex-direction: column;
-  font-family: "Proxima Nova Regular";
+  font-family: "Cormorant Regular";
   font-weight: 100;
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: white;
 }
 
