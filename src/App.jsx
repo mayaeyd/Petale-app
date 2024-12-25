@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { GetSelf } from "./redux/slices/authSlice";
 import "./styles/fonts.css";
 
 import SignUpGardener from "./pages/auth/SignUpGardener";
@@ -14,6 +16,17 @@ import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
 
 const App = () => {
+  const state = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(GetSelf());
+  }, [dispatch]);
+
+  if (state.loading) {
+    return;
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -25,7 +38,10 @@ const App = () => {
           <Route path="/user/home" element={<UserHomePage />} />
         </Route>
         <Route path="/gardener" element={<GardenersRoutes />}>
-          <Route path="/growing-plants" element={<GrowingPlantsPage />} />
+          <Route
+            path="/gardener/growing-plants"
+            element={<GrowingPlantsPage />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
