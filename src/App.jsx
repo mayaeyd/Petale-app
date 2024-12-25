@@ -39,8 +39,7 @@ const App = () => {
         </Route>
         <Route path="/gardener" element={<GardenersRoutes />}>
           <Route
-            path="/gardener/growing-plants"
-            element={<GrowingPlantsPage />}
+            path="/gardener/growing-plants" element={<GrowingPlantsPage />}
           />
         </Route>
       </Routes>

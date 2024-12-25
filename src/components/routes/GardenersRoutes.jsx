@@ -3,18 +3,18 @@ import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
 const GardenersRoutes = () => {
-  const { user } = useSelector((state) => state.auth);
-  const [check, setCheck] = useState(null);
+  // const { user,loading } = useSelector((state) => state.auth);
+  // const [check, setCheck] = useState(null);
 
-  if (check === null) {
-    return;
-  }
+  // if (loading) {
+  //   return;
+  // }
 
-  if (user) {
-    setCheck(user.role === "gardener");
-  }
+  // if (user) {
+  //   setCheck(user.role === "gardener");
+  // }
 
-  return check ? <Outlet /> : <Navigate to={"/"} />;
+  return <Outlet />;
 };
 
 export default GardenersRoutes;
