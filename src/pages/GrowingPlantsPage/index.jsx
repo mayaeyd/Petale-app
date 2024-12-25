@@ -34,9 +34,10 @@ const GrowingPlantsPage = () => {
         <h1>Growing Plants</h1>
         <h2>Plants</h2>
         <div className="growing-plt-cards-container">
-          {plants.map((plant, index) =>
+          {plants.map((plant) =>
             plant.plantType === "plant" ? (
               <GrowingPlantCard
+                key={plant._id}
                 name={plant.scientificName}
                 date={plant.plantedDate}
                 id={plant._id}
@@ -46,9 +47,10 @@ const GrowingPlantsPage = () => {
         </div>
         <h2>Flowers</h2>
         <div className="growing-plt-cards-container">
-          {plants.map((plant, index) =>
+          {plants.map((plant) =>
             plant.plantType === "flower" ? (
               <GrowingPlantCard
+                key={plant._id}
                 name={plant.scientificName}
                 date={plant.plantedDate}
                 id={plant._id}
