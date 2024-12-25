@@ -19,19 +19,19 @@ const GardenerNavbar = () => {
       <div>
         <LogoText />
         <div className="gardener-info">
-        <svg
-          width="34"
-          height="34"
-          viewBox="0 0 34 34"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="17" cy="17" r="17" fill="#D9D9D9" />
+          <svg
+            width="34"
+            height="34"
+            viewBox="0 0 34 34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="17" cy="17" r="17" fill="#D9D9D9" style={{zIndex:100, color:"white"}} />
+          </svg>
           <div className="gardener-name">
             <h3>John Doe</h3>
             <p>John Doe Co.</p>
           </div>
-        </svg>
         </div>
       </div>
     </nav>
