@@ -6,7 +6,7 @@ const GrowingPlantCard = ({ name, date, id }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/gardener/plants/${id}`);
+    navigate(`/gardener/growing-plants/${id}`);
   };
 
   return (
