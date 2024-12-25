@@ -35,18 +35,27 @@ const GrowingPlantsPage = () => {
       <div className="growing-plants-container">
         <h1>Growing Plants</h1>
         <h2>Plants</h2>
-        {plants.map((plant, index) =>
-          plant.plantType === "plant" ? (
-            <GrowingPlantCard name={plant.scientificName} date={plant.plantedDate}/>
-          ) : null
-        )}
+        <div className="growing-plt-cards-container">
+          {plants.map((plant, index) =>
+            plant.plantType === "plant" ? (
+              <GrowingPlantCard
+                name={plant.scientificName}
+                date={plant.plantedDate}
+              />
+            ) : null
+          )}
+        </div>
         <h2>Flowers</h2>
-        {plants.map((plant, index) =>
-          plant.plantType === "flower" ? (
-            <h1>Plant: {plant.scientificName}</h1>
-          ) : null
-        )}
-        
+        <div className="growing-plt-cards-container">
+          {plants.map((plant, index) =>
+            plant.plantType === "flower" ? (
+              <GrowingPlantCard
+                name={plant.scientificName}
+                date={plant.plantedDate}
+              />
+            ) : null
+          )}
+        </div>
       </div>
     </div>
   );
