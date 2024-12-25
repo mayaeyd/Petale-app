@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 40px;
+  gap: 30px;
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -25,7 +25,6 @@
 .plants-nav-links,
 .personal-nav-links {
   width: 90%;
-  padding-inline: 20px;
   align-self: center;
 }
 
@@ -33,7 +32,7 @@
 .personal-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
 .gardener-info {
@@ -67,15 +66,22 @@
 
 .gardener-nav-link {
   display: flex;
-  align-items: center;
   gap: 10px;
   color: white;
   width: 100%;
   font-family: "Proxima Nova Light";
   letter-spacing: 1px;
+  padding-left: 20px;
+  padding-block: 5px;
+  cursor: pointer;
 }
 
 .plants-nav-links {
     padding-block: 30px;
     border-block: 0.2px solid #bdbdbd;
+}
+
+.gardener-nav-link:hover {
+    background-color: #f6d1d11b;
+    border-radius: 20px;
 }
