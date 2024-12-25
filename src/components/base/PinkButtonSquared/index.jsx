@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import React from "react";
 import "../../../styles/fonts.css";
 
-const PinkButtonRound = ({ label, onClick }) => {
+const PinkButtonSquared = ({ label, onClick }) => {
   return (
     <Button
       variant="contained"
@@ -30,4 +30,4 @@ const PinkButtonRound = ({ label, onClick }) => {
   );
 };
 
-export default PinkButtonRound;
+export default PinkButtonSquared;
