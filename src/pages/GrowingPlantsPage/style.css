@@ -11,6 +11,9 @@
 .growing-plants-container {
   margin-left: 250px;
   padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .growing-plants-container > h1 {
@@ -26,4 +29,10 @@
     font-size: 1.4em;
     color: #838383;
     margin-top: 5px;
+}
+
+.growing-plt-cards-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
