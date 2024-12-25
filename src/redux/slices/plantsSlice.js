@@ -12,6 +12,15 @@ export const fetchPlants = createAsyncThunk("plants/fetchPlants", async () => {
   return response.data;
 });
 
+export const fetchPlantById = createAsyncThunk("plants/fetchPlantById", async (plantId, { rejectWithValue }) => {
+  const response = await axios.get(`${BASE_URL}/${plantId}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+  return response.data;
+});
+
 const plantsSlice = createSlice({
   name: "plants",
   initialState: {
