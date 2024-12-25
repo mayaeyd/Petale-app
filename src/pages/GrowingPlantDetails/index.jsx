@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchPlantById } from "../../redux/slices/plantsSlice";
 
 const GrowingPlantDetails = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const { selectedPlant, loading, error } = useSelector(
+    (state) => state.plants
+  );
 
-export default GrowingPlantDetails
+  useEffect(() => {
+    dispatch(fetchPlantById(id));
+  }, [dispatch, id]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return;
+};
+
+export default GrowingPlantDetails;
