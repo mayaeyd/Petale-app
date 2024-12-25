@@ -30,9 +30,21 @@ const GrowingPlantsPage = () => {
       <GardenerNavbar />
       <div className="btn-container">
         <PinkButtonRound label="Add Plant" endIcon={<AddIcon />} />
-        {plants.map((plant, index) => (
-          <h1>{plant.scientificName}</h1>
-        ))}
+      </div>
+      <div className="growing-plants-container">
+        <h1>Growing Plants</h1>
+        <h2>Plants</h2>
+        {plants.map((plant, index) =>
+          plant.plantType === "plant" ? (
+            <h1>Plant: {plant.scientificName}</h1>
+          ) : null
+        )}
+        <h2>Flowers</h2>
+        {plants.map((plant, index) =>
+          plant.plantType === "flower" ? (
+            <h1>Plant: {plant.scientificName}</h1>
+          ) : null
+        )}
       </div>
     </div>
   );
