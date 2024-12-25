@@ -13,18 +13,27 @@
   gap: 40px;
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  padding-left: 20px;
 }
 
 .gardener-navbar img {
   width: 160px;
   height: auto;
+  margin-left: 20px;
 }
 
 .gardener-info,
 .plants-nav-links,
 .personal-nav-links {
-  width: 100%;
+  width: 90%;
+  padding-inline: 20px;
+  align-self: center;
+}
+
+.plants-nav-links,
+.personal-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .gardener-info {
@@ -48,13 +57,13 @@
 }
 
 .gardener-name > p {
-    display: flex;
-    flex-direction: column;
-    font-family: "Proxima Nova Light";
-    font-weight: 100;
-    font-size: 0.9em;
-    color: #A1A1A1;
-  }
+  display: flex;
+  flex-direction: column;
+  font-family: "Proxima Nova Light";
+  font-weight: 100;
+  font-size: 0.9em;
+  color: #a1a1a1;
+}
 
 .gardener-nav-link {
   display: flex;
@@ -62,4 +71,11 @@
   gap: 10px;
   color: white;
   width: 100%;
+  font-family: "Proxima Nova Light";
+  letter-spacing: 1px;
+}
+
+.plants-nav-links {
+    padding-block: 30px;
+    border-block: 0.2px solid #bdbdbd;
 }
