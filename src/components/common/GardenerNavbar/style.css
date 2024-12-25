@@ -12,15 +12,22 @@
 }
 
 .gardener-navbar img {
-    width: 140px;
+  width: 140px;
 }
 
 .gardener-info {
-    display: flex;
-    z-index: 100;
+  display: flex;
+  z-index: 100;
 }
 
-.gardener-name{
-    display: flex;
-    flex-direction: column;
+.gardener-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.gardener-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
 }

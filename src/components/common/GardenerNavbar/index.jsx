@@ -36,7 +36,7 @@ const GardenerNavbar = () => {
         </div>
 
         <div className="plants-nav-links">
-          <a className="gardener-nav-link">
+          <div className="gardener-nav-link">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -51,9 +51,9 @@ const GardenerNavbar = () => {
             >
               <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
             </svg>
-            <p>Growing Plants</p>
-          </a>
-          <a className="gardener-nav-link">
+            <a>Growing Plants</a>
+          </div>
+          <div className="gardener-nav-link">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -70,9 +70,9 @@ const GardenerNavbar = () => {
               <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
               <path d="m9 14 2 2 4-4" />
             </svg>
-            <p>Posted Plants</p>
-          </a>
-          <a className="gardener-nav-link">
+            <a>Posted Plants</a>
+          </div>
+          <div className="gardener-nav-link">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -90,8 +90,8 @@ const GardenerNavbar = () => {
               <path d="M7 6h1v4" />
               <path d="m16.71 13.88.7.71-2.82 2.82" />
             </svg>
-            <p>Sold Plants</p>
-          </a>
+            <a>Sold Plants</a>
+          </div>
         </div>
         <div className="personal-nav-links"></div>
       </div>
