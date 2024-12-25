@@ -1,12 +1,15 @@
 import React from "react";
-import LogoText from "../../../assets/images/LogoText"
+import LogoText from "../../../assets/images/LogoText";
+import "./style.css";
 
 const GardenerNavbar = () => {
-  return <nav>
-    <div>
+  return (
+    <nav>
+      <div>
         <LogoText />
-    </div>
-  </nav>;
+      </div>
+    </nav>
+  );
 };
 
 export default GardenerNavbar;
