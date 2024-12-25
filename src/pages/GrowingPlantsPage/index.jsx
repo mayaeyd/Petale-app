@@ -24,8 +24,6 @@ const GrowingPlantsPage = () => {
     console.error(error);
   }
 
-  console.log("Plants data:", plants);
-
   return (
     <div>
       <GardenerNavbar />
@@ -41,6 +39,7 @@ const GrowingPlantsPage = () => {
               <GrowingPlantCard
                 name={plant.scientificName}
                 date={plant.plantedDate}
+                id={plant._id}
               />
             ) : null
           )}
@@ -52,6 +51,7 @@ const GrowingPlantsPage = () => {
               <GrowingPlantCard
                 name={plant.scientificName}
                 date={plant.plantedDate}
+                id={plant._id}
               />
             ) : null
           )}
