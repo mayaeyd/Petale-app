@@ -66,6 +66,26 @@ export const RegisterUser = createAsyncThunk(
   }
 );
 
+export const GetSelf = createAsyncThunk(
+  "getSelf/GetSelf",
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(`${BASE_URL}/getSelf`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message ||
+          "An error occurred while fetching user data"
+      );
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -104,6 +124,22 @@ const authSlice = createSlice({
         state.user = action.payload.user;
       })
       .addCase(RegisterUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+    // Get User
+    builder
+      .addCase(GetSelf.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(GetSelf.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.user;
+        state.error = false;
+        state.token = localStorage.getItem("token");
+      })
+      .addCase(GetSelf.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
