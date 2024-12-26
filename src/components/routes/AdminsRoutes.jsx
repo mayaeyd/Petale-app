@@ -1,22 +1,39 @@
-import React from "react";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
+import { GetSelf } from "../../redux/slices/authSlice";
 
 const AdminsRoutes = () => {
-  const { user } = useSelector((state) => state.auth);
-  const [check, setCheck] = useState(null);
+  const { user, loading, token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
-  if (check === null) {
-    return;
+  useEffect(() => {
+    const checkAuth = async () => {
+      if (localStorage.getItem("token") && !user) {
+        await dispatch(GetSelf());
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  if (loading) {
+    return null;
   }
 
-  if (user) {
-    setCheck(user.role === "admin");
+  if (token && !user) {
+    return null;
   }
 
-  return check ? <Outlet /> : <Navigate to={"/"} />;
+  if (!token || !user) {
+    return <Navigate to="/" />;
+  }
+
+  if (user.role !== "user") {
+    return <Navigate to="/" />;
+  }
+
+  return <Outlet />;
 };
 
 export default AdminsRoutes;
-

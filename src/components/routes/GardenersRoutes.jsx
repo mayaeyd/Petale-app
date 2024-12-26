@@ -1,18 +1,37 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
+import { GetSelf } from "../../redux/slices/authSlice";
 
 const GardenersRoutes = () => {
-  // const { user,loading } = useSelector((state) => state.auth);
-  // const [check, setCheck] = useState(null);
+  const { user, loading, token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
-  // if (loading) {
-  //   return;
-  // }
+  useEffect(() => {
+    const checkAuth = async () => {
+      if (localStorage.getItem("token") && !user) {
+        await dispatch(GetSelf());
+      }
+    };
 
-  // if (user) {
-  //   setCheck(user.role === "gardener");
-  // }
+    checkAuth();
+  }, []);
+
+  if (loading) {
+    return null;
+  }
+
+  if (token && !user) {
+    return null;
+  }
+
+  if (!token || !user) {
+    return <Navigate to="/" />;
+  }
+
+  if (user.role !== "gardener") {
+    return <Navigate to="/" />;
+  }
 
   return <Outlet />;
 };
