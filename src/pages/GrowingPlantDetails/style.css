@@ -1,4 +1,13 @@
+@import url(../../styles/fonts.css);
+
 .plant-details-container{
     margin-left: 250px;
+    padding-left: 20px;
+}
+
+.plant-name-type{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 

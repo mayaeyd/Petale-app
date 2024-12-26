@@ -29,9 +29,10 @@ const GrowingPlantDetails = () => {
     <>
       <GardenerNavbar />
       <div className="plant-details-container">
-        {scientificName}
-        {plantedDate}
-        {plantType}
+        <div className="plant-name-type">
+            <h1>{scientificName}</h1>
+            <h3>{plantType}</h3>
+        </div>
       </div>
     </>
   );
