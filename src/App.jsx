@@ -17,17 +17,6 @@ import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
 
 const App = () => {
-  const state = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(GetSelf());
-  }, [dispatch]);
-
-  if (state.loading) {
-    return;
-  }
-
   return (
     <BrowserRouter>
       <Routes>
