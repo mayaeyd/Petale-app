@@ -21,3 +21,12 @@
     padding-left: 5px;
     width: 40%;
 }
+
+.plant-name-type h3 {
+    font-family: "Cormorant Regular";
+    font-weight: 100;
+    font-size: 1.2em;
+    color: #474747;
+    padding-left: 5px;
+    text-transform: capitalize;
+}
