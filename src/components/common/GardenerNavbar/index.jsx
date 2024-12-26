@@ -1,18 +1,14 @@
 import React, { useEffect } from "react";
 import LogoText from "../../../assets/images/LogoText";
 import "./style.css";
-import { useDispatch, useSelector } from "react-redux";
-import { GetSelf } from "../../../redux/slices/authSlice";
+import { useSelector } from "react-redux";
 
 const GardenerNavbar = () => {
-  //   const state = useSelector((state) => state.auth);
+    const {user} = useSelector((state) => state.auth);
 
-  //   const dispatch = useDispatch();
-
-  //   useEffect(()=>{
-  //       dispatch(GetSelf())
-  //       console.log("fromnavbar", state.user);
-  //   },[])
+    useEffect(()=>{
+        console.log("fromnavbar", user);
+    },[])
 
   return (
     <div className="gardener-navbar">
