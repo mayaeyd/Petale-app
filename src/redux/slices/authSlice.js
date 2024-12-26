@@ -4,11 +4,36 @@ import axios from "axios";
 const BASE_URL = "http://127.0.0.1:8080/auth";
 
 const initialState = {
-  user: null,
-  token: null,
+  user: null, 
+  token: localStorage.getItem("token"), 
   loading: false,
   error: null,
 };
+
+export const GetSelf = createAsyncThunk(
+  "getSelf/GetSelf",
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("No token found");
+      }
+
+      const response = await axios.get(`${BASE_URL}/getSelf`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      localStorage.removeItem("token"); // Clear invalid token
+      return rejectWithValue(
+        error.response?.data?.message ||
+          "An error occurred while fetching user data"
+      );
+    }
+  }
+);
 
 export const LoginUser = createAsyncThunk(
   "login/LoginUser",
@@ -66,26 +91,6 @@ export const RegisterUser = createAsyncThunk(
   }
 );
 
-export const GetSelf = createAsyncThunk(
-  "getSelf/GetSelf",
-  async (_, { rejectWithValue }) => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await axios.get(`${BASE_URL}/getSelf`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(
-        error.response?.data?.message ||
-          "An error occurred while fetching user data"
-      );
-    }
-  }
-);
-
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -112,20 +117,9 @@ const authSlice = createSlice({
       .addCase(LoginUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
-    // Register User
-    builder
-      .addCase(RegisterUser.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(RegisterUser.fulfilled, (state, action) => {
-        state.loading = false;
-        state.user = action.payload.user;
-      })
-      .addCase(RegisterUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.user = null;
+        state.token = null;
+        localStorage.removeItem("token");
       });
     // Get User
     builder
@@ -136,10 +130,25 @@ const authSlice = createSlice({
       .addCase(GetSelf.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload.user;
-        state.error = false;
-        state.token = localStorage.getItem("token");
+        state.error = null;
       })
       .addCase(GetSelf.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.user = null;
+        state.token = null;
+        localStorage.removeItem("token");
+      }); // Register User
+    builder
+      .addCase(RegisterUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(RegisterUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.user;
+      })
+      .addCase(RegisterUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
