@@ -33,6 +33,19 @@ const FormPopup = () => {
         endIcon={<AddIcon />}
         onClick={handleClickOpen}
       />
+
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle></DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description"></DialogContentText>
+        </DialogContent>
+      </Dialog>
     </Fragment>
   );
 };
