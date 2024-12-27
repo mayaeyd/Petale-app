@@ -8,6 +8,7 @@ const initialState = {
   loading: false,
   error: null,
   selectedPlant: null,
+  newPlant : null,
 };
 
 export const fetchPlants = createAsyncThunk("plants/fetchPlants", async () => {
@@ -77,7 +78,18 @@ const plantsSlice = createSlice({
       .addCase(fetchPlantById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
+      })
+      .addCase(addNewPlant.pending, (state)=>{
+        state.loading = true;
+      })
+      .addCase(addNewPlant.fulfilled, (state, action) => {
+        state.loading = false;
+        state.newPlant = action.payload.garden;
+      })
+      .addCase(addNewPlant.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
   },
 });
 
