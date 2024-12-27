@@ -43,8 +43,14 @@ const FormPopup = () => {
       >
         <DialogTitle></DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description"></DialogContentText>
+          <DialogContentText id="alert-dialog-slide-description">
+            
+          </DialogContentText>
         </DialogContent>
+        <DialogActions>
+          <PinkButtonRound onClick={handleClose} label="Close" />
+          <PinkButtonRound onClick={handleClose} label="Add" />
+        </DialogActions>
       </Dialog>
     </Fragment>
   );
