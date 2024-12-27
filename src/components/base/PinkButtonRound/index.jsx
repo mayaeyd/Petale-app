@@ -21,7 +21,7 @@ const PinkButtonRound = ({ label, onClick, endIcon }) => {
         textTransform: "capitalize",
         "&:hover": {
           backgroundColor: "#BE7D86",
-          border: "2px solid #F7D6D6",
+          border: "3px solid #F7D6D6",
           color: "#F7D6D6",
           "& .MuiSvgIcon-root": {
             color: "#F7D6D6", 
