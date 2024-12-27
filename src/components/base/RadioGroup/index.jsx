@@ -6,11 +6,11 @@ const RadioGroup = ({ value1, value2 }) => {
       <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
       <RadioGroup
         aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue=""
+        defaultValue={value1}
         name="radio-buttons-group"
       >
-        <FormControlLabel value="" control={<Radio />} label="" />
-        <FormControlLabel value="" control={<Radio />} label="" />
+        <FormControlLabel value={value1} control={<Radio />} label={value1} />
+        <FormControlLabel value={value2} control={<Radio />} label={value2} />
       </RadioGroup>
     </FormControl>
   );
