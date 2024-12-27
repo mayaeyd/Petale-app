@@ -13,6 +13,8 @@ import "../../../styles/fonts.css";
 import Input from "../../base/Input";
 import DateField from "../../base/DateField";
 import RadioGroup from "../../base/RadioGroup";
+import { useDispatch, useSelector } from "react-redux";
+import { addNewPlant, addPlant } from "../../../redux/slices/plantsSlice.js";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -24,6 +26,9 @@ const FormPopup = () => {
   const [plantedDate, setPlantedDate] = useState("");
   const [plantType, setPlantType] = useState("flower");
 
+  const state = useSelector((state) => state.plants);
+  const dispatch = useDispatch();
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -33,13 +38,12 @@ const FormPopup = () => {
   };
 
   const handleAdd = () => {
-    console.log(
-      plantName,
-      `${plantedDate.$D}/${plantedDate.$M + 1}/${plantedDate.$y}  ${
-        plantedDate.$d
-      }`,
-      plantType
-    );
+    const newPlant = {
+      scientificName: plantName,
+      plantedDate: new Date(plantedDate.$y, plantedDate.$M, plantedDate.$D),
+      plantType,
+    };
+    dispatch(addNewPlant(newPlant));
   };
 
   return (

@@ -35,17 +35,11 @@ export const fetchPlantById = createAsyncThunk(
 export const addNewPlant = createAsyncThunk(
   "plants/addNewPlant",
   async (plantDetails) => {
-    const response = await axios.post(
-      `${BASE_URL}/`,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+    const response = await axios.post(`${BASE_URL}/`, plantDetails, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      {
-        plantDetails,
-      }
-    );
+    });
     return response.data;
   }
 );
