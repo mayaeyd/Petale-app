@@ -27,7 +27,8 @@ const FormPopup = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Fragment>
@@ -41,6 +42,7 @@ const FormPopup = () => {
         open={open}
         TransitionComponent={Transition}
         keepMounted
+        fullScreen={fullScreen}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
         sx={{
