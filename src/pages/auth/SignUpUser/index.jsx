@@ -50,33 +50,33 @@ const SignUpUser = () => {
         <div className="inputs-container">
           <div className="name-container">
             <Input
-              placeholder="First Name"
+              label="First Name"
               type="text"
               onChange={(e) => setFirstName(e.target.value)}
             />
             <Input
-              placeholder="Last Name"
+              label="Last Name"
               type="text"
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
           <Input
-            placeholder="Email"
+            label="Email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
-            placeholder="Password"
+            label="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <Input
-            placeholder="Confirm Password"
+            label="Confirm Password"
             type="password"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <Input
-            placeholder=""
+            label=""
             type="tel"
             onChange={(e) => setPhoneNumber(e.target.value)}
           />

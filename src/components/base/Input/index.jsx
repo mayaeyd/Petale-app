@@ -1,10 +1,11 @@
 import React from "react";
 import { InputAdornment, TextField } from "@mui/material";
 
-const Input = ({ placeholder, type, onChange }) => {
+const Input = ({ label, placeholder, type, onChange }) => {
   return (
     <TextField
-      label={placeholder}
+      label={label}
+      placeholder={placeholder}
       variant="outlined"
       type={type}
       onChange={onChange}

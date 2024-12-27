@@ -83,6 +83,7 @@ const FormPopup = () => {
             maxWidth="100%"
           >
             <Input type="text" placeholder="Plant Name" />
+            
           </DialogContentText>
         </DialogContent>
         <DialogActions

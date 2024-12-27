@@ -62,12 +62,12 @@ const Login = () => {
 
         <div className="inputs-container">
           <Input
-            placeholder="Email"
+            label="Email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
-            placeholder="Password"
+            label="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
