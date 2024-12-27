@@ -3,10 +3,11 @@ import GardenerNavbar from "../../components/common/GardenerNavbar";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPlants } from "../../redux/slices/plantsSlice";
 import { CircularProgress } from "@mui/material";
-import PinkButtonRound from "../../components/base/PinkButtonRound";
-import AddIcon from "@mui/icons-material/Add";
+// import PinkButtonRound from "../../components/base/PinkButtonRound";
+// import AddIcon from "@mui/icons-material/Add";
 import "./style.css";
 import GrowingPlantCard from "../../components/common/GrowingPlantCard";
+import FormPopup from "../../components/common/FormPopup";
 
 const GrowingPlantsPage = () => {
   const { plants, loading, error } = useSelector((state) => state.plants);
@@ -24,15 +25,11 @@ const GrowingPlantsPage = () => {
     console.error(error);
   }
 
-  const handleAddPlant = () => {
-    
-  }
-
   return (
     <div>
       <GardenerNavbar />
       <div className="btn-container">
-        <PinkButtonRound label="Add Plant" endIcon={<AddIcon />} onClick={handleAddPlant} />
+        <FormPopup />
       </div>
       <div className="growing-plants-container">
         <h1>Growing Plants</h1>
