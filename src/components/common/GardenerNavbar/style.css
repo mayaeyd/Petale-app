@@ -53,6 +53,7 @@
   font-weight: 100;
   font-size: 1.5em;
   color: white;
+  text-transform: capitalize;
 }
 
 .gardener-name > p {
@@ -62,6 +63,7 @@
   font-weight: 100;
   font-size: 0.9em;
   color: #a1a1a1;
+  text-transform: capitalize;
 }
 
 .gardener-nav-link {
@@ -77,11 +79,11 @@
 }
 
 .plants-nav-links {
-    padding-block: 30px;
-    border-block: 0.2px solid #bdbdbd;
+  padding-block: 30px;
+  border-block: 0.2px solid #bdbdbd;
 }
 
 .gardener-nav-link:hover {
-    background-color: #f6d1d11b;
-    border-radius: 20px;
+  background-color: #f6d1d11b;
+  border-radius: 20px;
 }
