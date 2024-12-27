@@ -31,6 +31,16 @@ export const fetchPlantById = createAsyncThunk(
   }
 );
 
+export const addNewPlant = createAsyncThunk(
+  "plants/addNewPlant",
+  async (plantDetails) => {
+    const response = await axios.post(`${BASE_URL}/`, {
+      plantDetails,
+    });
+    return response.data;
+  }
+);
+
 const plantsSlice = createSlice({
   name: "plants",
   initialState,
