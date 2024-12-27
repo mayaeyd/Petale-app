@@ -5,6 +5,7 @@ import "./style.css";
 import FooterInput from "../../base/FooterInput";
 import PinkButtonSquared from "../../base/PinkButtonSquared";
 import FooterFlower from "../../../assets/images/FooterFlower";
+import { ArrowForward } from "@mui/icons-material";
 
 const Footer = () => {
   return (
@@ -18,7 +19,10 @@ const Footer = () => {
           <LogoNoText />
         </div>
         <p>Nurture. Bloom. Connect.</p>
-        <PinkButtonRound label="Buy Flowers" />
+        <PinkButtonRound
+          label="Buy Flowers"
+          endIcon={<ArrowForward sx={{ color: "#BE7D86" }} />}
+        />
         <div className="social-media-sec">
           <p>Connect With Us</p>
           <div className="social-media-icons">

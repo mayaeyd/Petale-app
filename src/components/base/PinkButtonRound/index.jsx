@@ -7,7 +7,7 @@ const PinkButtonRound = ({ label, onClick, endIcon }) => {
   return (
     <Button
       variant="contained"
-      endIcon={endIcon ? endIcon : <ArrowForward sx={{color:"#BE7D86"}}/>}
+      endIcon={endIcon ? endIcon : null}
       onClick={() => onClick()}
       sx={{
         backgroundColor: "#F7D6D6",
