@@ -24,11 +24,15 @@ const GrowingPlantsPage = () => {
     console.error(error);
   }
 
+  const handleAddPlant = () => {
+    
+  }
+
   return (
     <div>
       <GardenerNavbar />
       <div className="btn-container">
-        <PinkButtonRound label="Add Plant" endIcon={<AddIcon />} />
+        <PinkButtonRound label="Add Plant" endIcon={<AddIcon />} onClick={handleAddPlant} />
       </div>
       <div className="growing-plants-container">
         <h1>Growing Plants</h1>
