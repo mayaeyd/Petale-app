@@ -15,7 +15,7 @@ const UsersRoutes = () => {
     };
 
     checkAuth();
-  }, []);
+  }, [dispatch, user]);
 
   if (loading) {
     return null;

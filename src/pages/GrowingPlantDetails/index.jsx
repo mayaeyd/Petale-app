@@ -14,7 +14,7 @@ const GrowingPlantDetails = () => {
 
   useEffect(() => {
     dispatch(fetchPlantById(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   if (loading) return <GardenerNavbar />;
   if (error) return <div>Error: {error}</div>;

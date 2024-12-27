@@ -15,7 +15,7 @@ const GardenersRoutes = () => {
     };
 
     checkAuth();
-  }, []);
+  }, [dispatch,user]);
 
   if (loading) {
     return null;

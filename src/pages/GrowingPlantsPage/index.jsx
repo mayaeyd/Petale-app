@@ -15,7 +15,7 @@ const GrowingPlantsPage = () => {
 
   useEffect(() => {
     dispatch(fetchPlants());
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
     return <CircularProgress color="success" />;

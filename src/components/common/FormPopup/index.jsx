@@ -14,6 +14,7 @@ import AddIcon from "@mui/icons-material/Add";
 import "../../../styles/fonts.css";
 import Input from "../../base/Input";
 import DateField from "../../base/DateField";
+import RadioGroup from "../../base/RadioGroup";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -31,6 +32,10 @@ const FormPopup = () => {
   };
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  
+  const handleRadioChange = (value) => {
+    console.log("Selected value:", value);
+  };
 
   return (
     <Fragment>
@@ -84,6 +89,14 @@ const FormPopup = () => {
           >
             <Input type="text" placeholder="Plant Name" />
             <DateField label="Date Planted" />
+            <RadioGroup
+              label="Plant Type"
+              options={[
+                { value: "flower", label: "Flower" },
+                { value: "plant", label: "Plant" },
+              ]}
+              onChange={handleRadioChange}
+            />
           </DialogContentText>
         </DialogContent>
         <DialogActions
