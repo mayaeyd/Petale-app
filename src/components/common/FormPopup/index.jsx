@@ -13,7 +13,7 @@ import PinkButtonRound from "../../base/PinkButtonRound";
 import AddIcon from "@mui/icons-material/Add";
 import "../../../styles/fonts.css";
 import Input from "../../base/Input";
-import FooterInput from "../../base/FooterInput";
+import DateField from "../../base/DateField";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -83,7 +83,7 @@ const FormPopup = () => {
             maxWidth="100%"
           >
             <Input type="text" placeholder="Plant Name" />
-            
+            <DateField label="Date Planted" />
           </DialogContentText>
         </DialogContent>
         <DialogActions
