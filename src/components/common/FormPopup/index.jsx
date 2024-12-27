@@ -5,8 +5,6 @@ import {
   DialogContentText,
   DialogTitle,
   Slide,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import React, { forwardRef, Fragment, useState } from "react";
 import PinkButtonRound from "../../base/PinkButtonRound";
@@ -34,7 +32,15 @@ const FormPopup = () => {
     setOpen(false);
   };
 
-  console.log(plantName, plantedDate, plantType);
+  const handleAdd = () => {
+    console.log(
+      plantName,
+      `${plantedDate.$D}/${plantedDate.$M + 1}/${plantedDate.$y}  ${
+        plantedDate.$d
+      }`,
+      plantType
+    );
+  };
 
   return (
     <Fragment>
@@ -112,7 +118,7 @@ const FormPopup = () => {
           }}
         >
           <PinkButtonRound onClick={handleClose} label="Close" />
-          <PinkButtonRound onClick={handleClose} label="Add" />
+          <PinkButtonRound onClick={handleAdd} label="Add" />
         </DialogActions>
       </Dialog>
     </Fragment>
