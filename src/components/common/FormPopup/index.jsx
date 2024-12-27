@@ -14,7 +14,7 @@ import Input from "../../base/Input";
 import DateField from "../../base/DateField";
 import RadioGroup from "../../base/RadioGroup";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewPlant, addPlant } from "../../../redux/slices/plantsSlice.js";
+import { addNewPlant, addPlant, fetchPlants } from "../../../redux/slices/plantsSlice.js";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -23,10 +23,10 @@ const Transition = forwardRef(function Transition(props, ref) {
 const FormPopup = () => {
   const [open, setOpen] = useState(false);
   const [plantName, setPlantName] = useState("");
-  const [plantedDate, setPlantedDate] = useState("");
+  const [plantedDate, setPlantedDate] = useState(null);
   const [plantType, setPlantType] = useState("flower");
 
-  const state = useSelector((state) => state.plants);
+  const { plants } = useSelector((state) => state.plants);
   const dispatch = useDispatch();
 
   const handleClickOpen = () => {
@@ -37,13 +37,34 @@ const FormPopup = () => {
     setOpen(false);
   };
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
+    if (!plantedDate || !plantedDate.$y || !plantedDate.$M || !plantedDate.$D) {
+      console.error("Invalid plantedDate", plantedDate);
+      return;
+    }
+
     const newPlant = {
       scientificName: plantName,
-      plantedDate: new Date(plantedDate.$y, plantedDate.$M, plantedDate.$D),
+      plantedDate: `${plantedDate.$y}/${plantedDate.$M}/${plantedDate.$D}`,
       plantType,
     };
-    dispatch(addNewPlant(newPlant));
+
+    // Add to local state
+    dispatch(addPlant(newPlant));
+
+    try {
+      // Send to database
+      await dispatch(addNewPlant(newPlant)); 
+
+      // Refetch plants to ensure consistency
+      dispatch(fetchPlants());
+    } catch (error) {
+      console.error("Failed to save plant:", error);
+    }
+
+    setPlantName("");
+    setPlantedDate(null);
+    setPlantType("");
   };
 
   return (
