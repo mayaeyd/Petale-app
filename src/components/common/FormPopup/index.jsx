@@ -22,6 +22,9 @@ const Transition = forwardRef(function Transition(props, ref) {
 
 const FormPopup = () => {
   const [open, setOpen] = useState(false);
+  const [plantName, setPlantName] = useState("");
+  const [plantedDate, setPlantedDate] = useState("");
+  const [plantType, setPlantType] = useState("flower");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,12 +33,8 @@ const FormPopup = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-  
-  const handleRadioChange = (value) => {
-    console.log("Selected value:", value);
-  };
+
+  console.log(plantName, plantedDate, plantType);
 
   return (
     <Fragment>
@@ -49,7 +48,6 @@ const FormPopup = () => {
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        fullScreen={fullScreen}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
         sx={{
@@ -87,15 +85,22 @@ const FormPopup = () => {
             id="alert-dialog-slide-description"
             maxWidth="100%"
           >
-            <Input type="text" placeholder="Plant Name" />
-            <DateField label="Date Planted" />
+            <Input
+              type="text"
+              placeholder="Plant Name"
+              onChange={(e) => setPlantName(e.target.value)}
+            />
+            <DateField
+              label="Date Planted"
+              onChange={(selectedDate) => setPlantedDate(selectedDate)}
+            />
             <RadioGroup
               label="Plant Type"
               options={[
                 { value: "flower", label: "Flower" },
                 { value: "plant", label: "Plant" },
               ]}
-              onChange={handleRadioChange}
+              onChange={(value) => setPlantType(value)}
             />
           </DialogContentText>
         </DialogContent>
