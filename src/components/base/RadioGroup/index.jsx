@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 
 const RadioGroup = ({ label, options, onChange }) => {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
@@ -9,8 +10,8 @@ const RadioGroup = ({ label, options, onChange }) => {
   };
 
   return (
-    <div>
-      <p>{label}</p>
+    <div className="radio-group-container">
+      <p className="radio-group-label">{label}</p>
       <div>
         {options.map((option) => (
           <label key={option.value}>

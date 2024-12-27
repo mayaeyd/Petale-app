@@ -1,0 +1,12 @@
+@import url(../../../styles/fonts.css);
+
+.radio-group-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.radio-group-label {
+  font-size: 1em;
+  font-family: "Proxima Nova Thin";
+}
