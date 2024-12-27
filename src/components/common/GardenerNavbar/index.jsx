@@ -4,11 +4,7 @@ import "./style.css";
 import { useSelector } from "react-redux";
 
 const GardenerNavbar = () => {
-    const {user} = useSelector((state) => state.auth);
-
-    useEffect(()=>{
-        console.log("fromnavbar", user);
-    },[])
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <div className="gardener-navbar">
@@ -25,8 +21,10 @@ const GardenerNavbar = () => {
           <circle cx="17" cy="17" r="17" fill="#D9D9D9" />
         </svg>
         <div className="gardener-name">
-          <h3>John Doe</h3>
-          <p>John Doe Co.</p>
+          <h3>
+            {user.firstName} {user.lastName}
+          </h3>
+          <p>{user.gardenerProfile.garden.name}</p>
         </div>
       </div>
 
