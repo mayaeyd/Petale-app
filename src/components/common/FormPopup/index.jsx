@@ -12,6 +12,8 @@ import React, { forwardRef, Fragment, useState } from "react";
 import PinkButtonRound from "../../base/PinkButtonRound";
 import AddIcon from "@mui/icons-material/Add";
 import "../../../styles/fonts.css";
+import Input from "../../base/Input";
+import FooterInput from "../../base/FooterInput";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -47,16 +49,17 @@ const FormPopup = () => {
         aria-labelledby="responsive-dialog-title"
         sx={{
           "& .MuiPaper-root": {
-            border: "2px solid #BE7D86", // Dialog container border
-            borderRadius: "12px", // Rounded corners
-            backgroundColor: "white",
-            padding: "16px", // Padding inside the dialog
+            border: "2px solid white",
+            borderRadius: "12px",
+            backgroundColor: "#4b5842",
+            padding: "10px",
+            width: "500px",
           },
         }}
       >
         <DialogTitle
           sx={{
-            color: "#BE7D86",
+            color: "white",
             fontFamily: "Cormorant Semibold",
             fontWeight: "500",
             fontSize: "2em",
@@ -69,20 +72,24 @@ const FormPopup = () => {
         <DialogContent
           sx={{
             "& .MuiDialogContentText-root": {
-              fontSize: "16px", // Content text size
-              color: "gray", // Content text color
+              fontSize: "16px",
+              color: "gray",
+              width: "100%",
             },
           }}
         >
-          <DialogContentText id="alert-dialog-slide-description">
-            Customize the content here to guide users.
+          <DialogContentText
+            id="alert-dialog-slide-description"
+            maxWidth="100%"
+          >
+            <Input type="text" placeholder="Plant Name" />
           </DialogContentText>
         </DialogContent>
         <DialogActions
           sx={{
             display: "flex",
-            justifyContent: "space-between", // Space between buttons
-            padding: "8px 16px", // Adjust padding
+            justifyContent: "space-between",
+            padding: "8px 16px",
           }}
         >
           <PinkButtonRound onClick={handleClose} label="Close" />
