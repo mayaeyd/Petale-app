@@ -6,7 +6,28 @@
   margin-top: 10px;
 }
 
-.radio-group-label {
+.radio-group-title {
   font-size: 1em;
   font-family: "Proxima Nova Thin";
+}
+
+.radio-group-label {
+  font-family: "Proxima Nova Thin";
+  accent-color: white;
+  cursor: pointer;
+}
+
+.radio-group-container > div {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.radio-group-container span {
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  font-family: "Proxima Nova Light";
+  margin-left: 5px;
 }

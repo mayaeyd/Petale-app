@@ -11,11 +11,12 @@ const RadioGroup = ({ label, options, onChange }) => {
 
   return (
     <div className="radio-group-container">
-      <p className="radio-group-label">{label}</p>
-      <div>
+      <p className="radio-group-title">{label}</p>
+      <div style={{ display: "flex", gap: "10px" }}>
         {options.map((option) => (
           <label key={option.value}>
             <input
+              className="radio-group-label"
               type="radio"
               name="plant-type-radio"
               value={option.value}
