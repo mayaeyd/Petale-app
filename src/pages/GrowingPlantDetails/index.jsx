@@ -16,7 +16,7 @@ const GrowingPlantDetails = () => {
     dispatch(fetchPlantById(id));
   }, [dispatch]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <GardenerNavbar />;
   if (error) return <div>Error: {error}</div>;
 
   if (!selectedPlant) {
