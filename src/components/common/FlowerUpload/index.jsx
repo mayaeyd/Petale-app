@@ -32,6 +32,13 @@ const FlowerUpload = () => {
     if (file) handleFile(file);
   };
 
+  const formatPlantName = (prediction) => {
+    return prediction
+      .split("_") 
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) 
+      .join(" "); 
+  };
+
   return (
     <div className="upload-container">
       <h1>Flower Recognition</h1>
