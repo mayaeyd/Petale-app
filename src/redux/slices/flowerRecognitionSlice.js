@@ -41,7 +41,22 @@ const flowerRecognitionSlice = createSlice({
       state.error = null;
     },
   },
-  extraReducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(predictFlower.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(predictFlower.fulfilled, (state, payload) => {
+        state.loading = false;
+        state.prediction = action.payload.flower;
+        state.confidence = action.payload.confidence;
+      })
+      .addCase(predictFlower.rejected, (state, payload) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
 export const { clearPrediction } = flowerRecognitionSlice.actions;
