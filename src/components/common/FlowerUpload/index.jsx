@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import { Upload, X } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { predictFlower } from "../../../redux/slices/flowerRecognitionSlice";
 import "./style.css";
@@ -77,12 +76,41 @@ const FlowerUpload = () => {
                   }}
                   className="clear-button"
                 >
-                  <X size={16} />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-x"
+                  >
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </svg>
                 </button>
               </div>
             ) : (
               <>
-                <Upload size={48} className="upload-icon" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-upload upload-icon"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" x2="12" y1="3" y2="15" />
+                </svg>
                 <div className="upload-text">
                   <p className="upload-title">
                     {isDragOver
@@ -112,7 +140,22 @@ const FlowerUpload = () => {
                   Confidence: <span>{(confidence * 100).toFixed(1)}%</span>
                 </p>
               </div>
-              <Upload size={32} className="result-icon" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-upload upload-icon"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" x2="12" y1="3" y2="15" />
+              </svg>
             </div>
           </div>
         )}
