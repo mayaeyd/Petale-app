@@ -19,6 +19,11 @@ const FlowerUpload = () => {
     if (file) handleFile(file);
   };
 
+  const handleChange = (e) => {
+    const file = e.target.files[0];
+    if (file) handleFile(file);
+  };
+
   return (
     <div className="upload-container">
       <h1>Flower Recognition</h1>
@@ -36,7 +41,13 @@ const FlowerUpload = () => {
           }}
           onDrop={handleDrop}
         >
-          <input type="file" className="file-input" />
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleChange}
+            accept="image/*"
+            className="file-input"
+          />
         </div>
       </div>
     </div>
