@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const predictFlower = createAsyncThunk(
   "predict/predictFlower",
@@ -23,3 +23,13 @@ export const predictFlower = createAsyncThunk(
     }
   }
 );
+
+const flowerRecognitionSlice = createSlice({
+    name: 'flower',
+    initialState,
+    reducers:{},
+    extraReducers:{},
+});
+
+
+export default flowerRecognitionSlice.reducer;
