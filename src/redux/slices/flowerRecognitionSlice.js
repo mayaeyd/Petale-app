@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const predictFlower = createAsyncThunk(
   "predict/predictFlower",
-  async (imageFile) => {
+  async (imageFile, { rejectWithValue }) => {
     try {
       const formData = new FormData();
       formData.append("image", imageFile);
@@ -11,15 +12,10 @@ export const predictFlower = createAsyncThunk(
         "http://127.0.0.1:8000/predict/",
         formData
       );
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      const data = await response.json();
-      return data;
+      return response.data;
     } catch (error) {
-      console.log(error);
+      console.log("Error:", error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -47,12 +43,12 @@ const flowerRecognitionSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(predictFlower.fulfilled, (state, payload) => {
+      .addCase(predictFlower.fulfilled, (state, action) => {
         state.loading = false;
         state.prediction = action.payload.flower;
         state.confidence = action.payload.confidence;
       })
-      .addCase(predictFlower.rejected, (state, payload) => {
+      .addCase(predictFlower.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
