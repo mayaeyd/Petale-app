@@ -1,3 +1,25 @@
-.file-upload-container{
-    height: 100vh;
+.flower-recoganition-div {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.file-upload-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.flower-1 {
+  position: absolute;
+  top: 5%;
+  left: -25%;
+}
+
+.flower-2 {
+  position: absolute;
+  top: 5%;
+  right: -25%;
 }
