@@ -69,3 +69,15 @@
   color: #666;
   font-size: 0.875rem;
 }
+
+.preview-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .preview-image {
+    max-height: 256px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
