@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchPlantById } from "../../redux/slices/plantsSlice";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
 import "./style.css";
+import { CircularProgress, Snackbar } from "@mui/material";
 
 const GrowingPlantDetails = () => {
   const { id } = useParams();
@@ -16,8 +17,25 @@ const GrowingPlantDetails = () => {
     dispatch(fetchPlantById(id));
   }, [dispatch, id]);
 
-  if (loading) return <GardenerNavbar />;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) {
+    return (
+      <>
+        <GardenerNavbar />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
+        </div>
+      </>
+    );
+  }
+
+  if (error)
+    return (
+      <Snackbar
+        open={true} 
+        autoHideDuration={6000}
+        message={`Error: ${error || "Something went wrong"}`}
+      />
+    );
 
   if (!selectedPlant) {
     return <div>No plant data available</div>;
