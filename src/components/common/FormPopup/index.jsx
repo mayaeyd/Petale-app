@@ -1,4 +1,5 @@
 import {
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
@@ -14,7 +15,12 @@ import Input from "../../base/Input";
 import DateField from "../../base/DateField";
 import RadioGroup from "../../base/RadioGroup";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewPlant, addPlant, fetchPlants } from "../../../redux/slices/plantsSlice.js";
+import {
+  addNewPlant,
+  addPlant,
+  fetchPlants,
+} from "../../../redux/slices/plantsSlice.js";
+import GardenerNavbar from "../GardenerNavbar/index.jsx";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -26,8 +32,10 @@ const FormPopup = () => {
   const [plantedDate, setPlantedDate] = useState(null);
   const [plantType, setPlantType] = useState("flower");
 
-  const { plants } = useSelector((state) => state.plants);
+  const { loading, error } = useSelector((state) => state.plants);
   const dispatch = useDispatch();
+
+  if(loading) return <GardenerNavbar />;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -54,7 +62,7 @@ const FormPopup = () => {
 
     try {
       // Send to database
-      await dispatch(addNewPlant(newPlant)); 
+      await dispatch(addNewPlant(newPlant));
 
       // Refetch plants to ensure consistency
       dispatch(fetchPlants());
@@ -143,7 +151,16 @@ const FormPopup = () => {
           }}
         >
           <PinkButtonRound onClick={handleClose} label="Close" />
-          <PinkButtonRound onClick={handleAdd} label="Add" />
+          <PinkButtonRound
+            onClick={handleAdd}
+            label={
+              loading ? (
+                <CircularProgress color="inherit" size="20px" />
+              ) : (
+                "Add"
+              )
+            }
+          />
         </DialogActions>
       </Dialog>
     </Fragment>
