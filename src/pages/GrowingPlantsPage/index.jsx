@@ -3,8 +3,6 @@ import GardenerNavbar from "../../components/common/GardenerNavbar";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPlants } from "../../redux/slices/plantsSlice";
 import { CircularProgress } from "@mui/material";
-// import PinkButtonRound from "../../components/base/PinkButtonRound";
-// import AddIcon from "@mui/icons-material/Add";
 import "./style.css";
 import GrowingPlantCard from "../../components/common/GrowingPlantCard";
 import FormPopup from "../../components/common/FormPopup";
@@ -18,7 +16,14 @@ const GrowingPlantsPage = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <CircularProgress color="success" />;
+    return (
+      <>
+        <GardenerNavbar />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
+        </div>
+      </>
+    );
   }
 
   if (error) {
