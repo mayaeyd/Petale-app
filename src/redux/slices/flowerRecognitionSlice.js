@@ -34,9 +34,15 @@ const initialState = {
 const flowerRecognitionSlice = createSlice({
   name: "flower",
   initialState,
-  reducers: {},
+  reducers: {
+    clearPrediction: (state) => {
+      state.prediction = null;
+      state.confidence = null;
+      state.error = null;
+    },
+  },
   extraReducers: {},
 });
 
-export const {} = flowerRecognitionSlice.actions;
+export const { clearPrediction } = flowerRecognitionSlice.actions;
 export default flowerRecognitionSlice.reducer;
