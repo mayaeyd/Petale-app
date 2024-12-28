@@ -94,6 +94,18 @@ const FlowerUpload = () => {
             <p>Analyzing your flower...</p>
           </div>
         )}
+
+        {prediction && !loading && (
+          <div className="result-container">
+            <div className="result-content">
+              <div>
+                <h3>{formatPlantName(prediction)}</h3>
+                <p>Confidence: {(confidence * 100).toFixed(1)}%</p>
+              </div>
+              <Upload size={32} className="result-icon" />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
