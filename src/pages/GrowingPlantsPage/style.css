@@ -36,3 +36,12 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.spinner-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 100vh;
+  margin-left: 250px;
+}
