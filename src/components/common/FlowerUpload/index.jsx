@@ -5,12 +5,20 @@ import { predictFlower } from "../../../redux/slices/flowerRecognitionSlice";
 import "./style.css";
 
 const FlowerUpload = () => {
+  const [preview, setPreview] = useState(null);
   const [isDragOver, setIsDragOver] = useState(false);
 
   const dispatch = useDispatch();
   const { loading, prediction, confidence } = useSelector(
     (state) => state.flower
   );
+
+  const handleFile = async (file) => {
+    if (file && file.type.startsWith("image/")) {
+      setPreview(URL.createObjectURL(file));
+      dispatch(predictFlower(file));
+    }
+  };
 
   const handleDrop = (e) => {
     e.preventDefault();
