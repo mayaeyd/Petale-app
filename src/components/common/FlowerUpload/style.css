@@ -22,7 +22,7 @@
 }
 
 .upload-area {
-  border: 2px dashed #ccc;
+  border: 2px dashed #4b5842;
   border-radius: 8px;
   padding: 32px;
   text-align: center;
@@ -36,7 +36,7 @@
 
 .upload-area.dragover {
   border-color: #be7d86;
-  background-color: #f7d6d6;
+  background-color: #f7d6d669;
 }
 
 .file-input {
@@ -139,12 +139,20 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 8px;
+  font-family: "Cormorant Bold";
+  color: #383838;
 }
 
 .result-content p {
   color: #666;
+  font-family: "Proxima Nova Regular";
+}
+
+.result-content span {
+  color: #666;
+  font-size: 1.2em;
 }
 
 .result-icon {
-  color: #4B5842;
+  color: #383838;
 }
