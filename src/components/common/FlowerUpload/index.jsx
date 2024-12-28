@@ -5,6 +5,8 @@ import { predictFlower } from "../../../redux/slices/flowerRecognitionSlice";
 import "./style.css";
 
 const FlowerUpload = () => {
+  const [isDragOver, setIsDragOver] = useState(false);
+
   const dispatch = useDispatch();
   const { loading, prediction, confidence } = useSelector(
     (state) => state.flower
@@ -15,7 +17,17 @@ const FlowerUpload = () => {
       <h1>Flower Recognition</h1>
 
       <div className="upload-content">
-        <div className={`upload-area ${isDragOver ? "dragover" : ""}`}>
+        <div
+          className={`upload-area ${isDragOver ? "dragover" : ""}`}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragOver(true);
+          }}
+          onDragLeave={(e)=>{
+            e.preventDefault();
+            setIsDragOver(false);
+          }}
+        >
           <input type="file" className="file-input" />
         </div>
       </div>
