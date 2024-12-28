@@ -87,6 +87,13 @@ const FlowerUpload = () => {
             )}
           </div>
         </div>
+
+        {loading && (
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <p>Analyzing your flower...</p>
+          </div>
+        )}
       </div>
     </div>
   );
