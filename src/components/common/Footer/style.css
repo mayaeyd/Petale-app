@@ -4,11 +4,10 @@ footer {
   background-color: #4b5842;
   height: 70vh;
   width: 100%;
-  position: absolute;
-  top: 100%;
   padding-block: 35px;
-  display: flex;
   padding-inline: 50px;
+  display: flex;
+  position: relative;
 }
 
 .subtitle {
