@@ -1,8 +1,17 @@
 import React from "react";
-import ".style.css";
+// import ".style.css";
+import UserNavbar from "../../components/common/UserNavbar";
+import Footer from "../../components/common/Footer";
+import FlowerUpload from "../../components/common/FlowerUpload";
 
 const FlowerRecognition = () => {
-  return <div></div>;
+  return (
+    <>
+      <UserNavbar />
+      <FlowerUpload />
+      <Footer />
+    </>
+  );
 };
 
 export default FlowerRecognition;
