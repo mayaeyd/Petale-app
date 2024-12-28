@@ -29,3 +29,23 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+.upload-area:hover {
+  border-color: #666;
+}
+
+.upload-area.dragover {
+  border-color: #BE7D86;
+  background-color: #F7D6D6;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
