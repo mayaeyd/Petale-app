@@ -35,8 +35,8 @@
 }
 
 .upload-area.dragover {
-  border-color: #BE7D86;
-  background-color: #F7D6D6;
+  border-color: #be7d86;
+  background-color: #f7d6d6;
 }
 
 .file-input {
@@ -48,4 +48,24 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+
+.upload-icon {
+  color: #666;
+}
+
+.upload-text {
+  text-align: center;
+}
+
+.upload-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.upload-subtitle {
+  color: #666;
+  font-size: 0.875rem;
 }
