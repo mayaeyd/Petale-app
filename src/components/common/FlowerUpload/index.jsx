@@ -72,9 +72,19 @@ const FlowerUpload = () => {
                   <X size={16} />
                 </button>
               </div>
-            ) : 
-             
-            }
+            ) : (
+              <>
+                <Upload size={48} className="upload-icon" />
+                <div className="upload-text">
+                  <p className="upload-title">
+                    {isDragOver
+                      ? "Drop your image here"
+                      : "Drag & drop your flower image"}
+                  </p>
+                  <p className="upload-subtitle">or click to browse</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
