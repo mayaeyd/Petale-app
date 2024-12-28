@@ -32,7 +32,7 @@ const FormPopup = () => {
   const [plantedDate, setPlantedDate] = useState(null);
   const [plantType, setPlantType] = useState("flower");
 
-  const { loading, error } = useSelector((state) => state.plants);
+  const { loading } = useSelector((state) => state.plants);
   const dispatch = useDispatch();
 
   if(loading) return <GardenerNavbar />;

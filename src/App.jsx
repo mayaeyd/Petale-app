@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { GetSelf } from "./redux/slices/authSlice";
 import "./styles/fonts.css";
 
 import SignUpGardener from "./pages/auth/SignUpGardener";

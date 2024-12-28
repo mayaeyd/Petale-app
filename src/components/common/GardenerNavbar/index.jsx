@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import LogoText from "../../../assets/images/LogoText";
 import "./style.css";
 import { useSelector } from "react-redux";
