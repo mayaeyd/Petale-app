@@ -48,6 +48,7 @@ const FlowerUpload = () => {
             setIsDragOver(false);
           }}
           onDrop={handleDrop}
+          onClick={() => fileInputRef.current?.click()}
         >
           <input
             type="file"
@@ -56,6 +57,17 @@ const FlowerUpload = () => {
             accept="image/*"
             className="file-input"
           />
+
+          <div className="upload-content-inner">
+            {preview ? (
+              <div className="preview-container">
+                <img src={preview} alt="Preview" className="preview-image" />
+                
+              </div>
+            ) : 
+             
+            }
+          </div>
         </div>
       </div>
     </div>
