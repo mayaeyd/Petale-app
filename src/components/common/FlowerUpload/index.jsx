@@ -62,7 +62,15 @@ const FlowerUpload = () => {
             {preview ? (
               <div className="preview-container">
                 <img src={preview} alt="Preview" className="preview-image" />
-                
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setPreview(null);
+                  }}
+                  className="clear-button"
+                >
+                  <X size={16} />
+                </button>
               </div>
             ) : 
              
