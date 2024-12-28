@@ -17,10 +17,10 @@ const UserNavbar = () => {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevron-down"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-chevron-down"
             >
               <path d="m6 9 6 6 6-6" />
             </svg>
@@ -36,10 +36,10 @@ const UserNavbar = () => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-shopping-cart"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="lucide lucide-shopping-cart"
         >
           <circle cx="8" cy="21" r="1" />
           <circle cx="19" cy="21" r="1" />
@@ -52,10 +52,10 @@ const UserNavbar = () => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-user-round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="lucide lucide-user-round"
         >
           <circle cx="12" cy="8" r="5" />
           <path d="M20 21a8 8 0 0 0-16 0" />
