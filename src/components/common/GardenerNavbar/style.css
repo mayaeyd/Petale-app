@@ -66,12 +66,17 @@
   text-transform: capitalize;
 }
 
+.gardener-nav-link > a {
+  text-decoration: none;
+  font-family: "Proxima Nova Light";
+  color: white;
+}
+
 .gardener-nav-link {
   display: flex;
   gap: 10px;
   color: white;
   width: 100%;
-  font-family: "Proxima Nova Light";
   letter-spacing: 1px;
   padding-left: 20px;
   padding-block: 5px;
