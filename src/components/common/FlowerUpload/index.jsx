@@ -12,6 +12,13 @@ const FlowerUpload = () => {
     (state) => state.flower
   );
 
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    const file = e.dataTransfer?.files[0];
+    if (file) handleFile(file);
+  };
+
   return (
     <div className="upload-container">
       <h1>Flower Recognition</h1>
@@ -23,10 +30,11 @@ const FlowerUpload = () => {
             e.preventDefault();
             setIsDragOver(true);
           }}
-          onDragLeave={(e)=>{
+          onDragLeave={(e) => {
             e.preventDefault();
             setIsDragOver(false);
           }}
+          onDrop={handleDrop}
         >
           <input type="file" className="file-input" />
         </div>
