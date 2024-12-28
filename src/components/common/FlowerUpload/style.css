@@ -1,0 +1,17 @@
+@import url("../../../styles/fonts.css");
+
+.upload-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.upload-container h1 {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  font-family: "Cormorant Semibold";
+}
+

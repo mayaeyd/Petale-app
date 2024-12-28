@@ -7,6 +7,7 @@ import "./style.css";
 const FlowerUpload = () => {
   const [preview, setPreview] = useState(null);
   const [isDragOver, setIsDragOver] = useState(false);
+  const fileInputRef = useRef(null);
 
   const dispatch = useDispatch();
   const { loading, prediction, confidence } = useSelector(
@@ -34,9 +35,9 @@ const FlowerUpload = () => {
 
   const formatPlantName = (prediction) => {
     return prediction
-      .split("_") 
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) 
-      .join(" "); 
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   return (
