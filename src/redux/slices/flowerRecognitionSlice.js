@@ -24,12 +24,19 @@ export const predictFlower = createAsyncThunk(
   }
 );
 
+const initialState = {
+  prediction: null,
+  confidence: null,
+  loading: false,
+  error: null,
+};
+
 const flowerRecognitionSlice = createSlice({
-    name: 'flower',
-    initialState,
-    reducers:{},
-    extraReducers:{},
+  name: "flower",
+  initialState,
+  reducers: {},
+  extraReducers: {},
 });
 
-
+export const {} = flowerRecognitionSlice.actions;
 export default flowerRecognitionSlice.reducer;
