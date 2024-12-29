@@ -1,0 +1,177 @@
+@import url("../../../styles/fonts.css");
+
+.upload-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.upload-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #383838;
+  font-family: "Cormorant Semibold";
+}
+
+.upload-container p {
+  text-align: center;
+  font-size: 1em;
+  color: black;
+  font-family: "Proxima Nova Light";
+  max-width: 600px;
+  align-self: center;
+  margin-bottom: 30px;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.upload-area {
+  border: 2px dashed #4b5842;
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: #666;
+}
+
+.upload-area.dragover {
+  border-color: #be7d86;
+  background-color: #f7d6d669;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.upload-icon {
+  color: #666;
+}
+
+.upload-text {
+  text-align: center;
+}
+
+.upload-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.upload-subtitle {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.preview-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.preview-wrapper {
+  position: relative;
+}
+
+.preview-image {
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.clear-button {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-button:hover {
+  background-color: #cc0000;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 16px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4b5842;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.result-container {
+  background-color: rgba(255, 255, 255, 0.606);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: "Cormorant Bold";
+  color: #383838;
+}
+
+.result-content p {
+  color: #666;
+  font-family: "Proxima Nova Regular";
+}
+
+.result-content span {
+  color: #666;
+  font-size: 1.2em;
+}
+
+.result-icon {
+  color: #383838;
+}
