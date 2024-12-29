@@ -12,14 +12,16 @@ const FlowerRecognition = () => {
   return (
     <div className="flower-recoganition-div">
       <UserNavbar />
-      <div className="flower-1">
-        <BackgroundFlower />
-      </div>
-      <div className="file-upload-container">
-        <FlowerUpload />
-      </div>
-      <div className="flower-2">
-        <BackgroundFlower />
+      <div className="upload-section">
+        <div className="flower-1">
+          <BackgroundFlower />
+        </div>
+        <div className="file-upload-container">
+          <FlowerUpload />
+        </div>
+        <div className="flower-2">
+          <BackgroundFlower />
+        </div>
       </div>
       {prediction ? (
         <div className="predicted-flower-details">
