@@ -4,8 +4,11 @@ import UserNavbar from "../../components/common/UserNavbar";
 import Footer from "../../components/common/Footer";
 import FlowerUpload from "../../components/common/FlowerUpload";
 import BackgroundFlower from "../../assets/images/BackgroundFlower";
+import { useSelector } from "react-redux";
 
 const FlowerRecognition = () => {
+  const { prediction } = useSelector((state) => state.flower);
+
   return (
     <div className="flower-recoganition-div">
       <UserNavbar />
@@ -18,6 +21,13 @@ const FlowerRecognition = () => {
       <div className="flower-2">
         <BackgroundFlower />
       </div>
+      {prediction ? (
+        <div className="predicted-flower-details">
+          <h1>{prediction}</h1>
+        </div>
+      ) : (
+        ""
+      )}
       <Footer />
     </div>
   );
