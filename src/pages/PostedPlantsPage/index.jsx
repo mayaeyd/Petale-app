@@ -8,7 +8,9 @@ const PostedPlantsPage = () => {
     <div>
       <GardenerNavbar />
       <div className="posted-plants-container">
-        <PinkButtonRound label="Post Plant" />
+        <div className="btn-container">
+          <PinkButtonRound label="Post Plant" />
+        </div>
       </div>
     </div>
   );
