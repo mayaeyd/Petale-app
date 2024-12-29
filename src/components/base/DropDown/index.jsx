@@ -13,13 +13,12 @@ const DropDown = ({ options, label, inputColor }) => {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <>
       <FormControl
+        required
         fullWidth
         size="small"
         sx={{
-            
-          marginBottom: "7px",
           "& .MuiOutlinedInput-root": {
             backgroundColor: "#ffffff21",
             borderRadius: "15px",
@@ -74,7 +73,7 @@ const DropDown = ({ options, label, inputColor }) => {
           ))}
         </Select>
       </FormControl>
-    </Box>
+    </>
   );
 };
 

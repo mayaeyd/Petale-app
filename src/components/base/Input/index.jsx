@@ -4,6 +4,7 @@ import { InputAdornment, TextField } from "@mui/material";
 const Input = ({ label, placeholder, type, onChange, inputColor }) => {
   return (
     <TextField
+      required
       label={label}
       placeholder={placeholder}
       variant="outlined"
