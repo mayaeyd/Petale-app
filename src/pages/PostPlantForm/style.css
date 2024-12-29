@@ -3,6 +3,7 @@
 .post-plant-form {
   margin-left: 250px;
   display: flex;
+  flex-direction: column;
 }
 
 .post-plant-form h1 {
@@ -11,8 +12,14 @@
     margin: 50px 20px;
     font-size: 2em;
     border-bottom: 1px solid #383838;
-    width: 100%;
+    width: auto;
     padding-bottom: 10px;
     text-transform: capitalize;
     text-align: center;
+}
+
+.post-inputs-container{
+    padding-inline: 20px;
+    display: flex;
+    gap: 10px;
 }
