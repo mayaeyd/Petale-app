@@ -5,7 +5,7 @@
 }
 
 .file-upload-container {
-  height: 100vh;
+  height: auto;
   width: 100%;
   display: flex;
   position: relative;
@@ -15,7 +15,7 @@
 
 .flower-1 {
   position: absolute;
-  top: 5%;
+  top: 12%;
   left: -25%;
 }
 
