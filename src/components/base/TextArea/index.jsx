@@ -1,8 +1,7 @@
 import React from "react";
-import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 import { styled } from "@mui/system";
 
-const StyledTextarea = styled(TextareaAutosize)`
+const StyledTextarea = styled("textarea")`
   box-sizing: border-box;
   width: 100%;
   font-family: "Proxima Nova Light";
@@ -10,9 +9,12 @@ const StyledTextarea = styled(TextareaAutosize)`
   line-height: 1.5;
   padding: 8px 12px;
   border-radius: 8px;
-  color: #fff;
+  color: #383838;
   background: #ffffff21;
   border: 2px solid #be7d86;
+  resize: vertical;
+  min-height: ${(props) => props.minRows * 24}px;
+  
 
   &:hover {
     border-color: #be7d86;
