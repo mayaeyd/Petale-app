@@ -15,6 +15,7 @@ import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
 import FlowerRecognition from "./pages/FlowerRecognition";
 import PostedPlantsPage from "./pages/PostedPlantsPage";
+import PostPlantForm from "./pages/PostPlantForm";
 
 const App = () => {
   return (
@@ -37,10 +38,11 @@ const App = () => {
             path="/gardener/growing-plants/:id"
             element={<GrowingPlantDetails />}
           />
-          <Route 
+          <Route
             path="/gardener/posted-plants"
             element={<PostedPlantsPage />}
           />
+          <Route path="/gardener/post-plant" element={<PostPlantForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
