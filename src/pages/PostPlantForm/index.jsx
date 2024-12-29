@@ -3,6 +3,7 @@ import GardenerNavbar from "../../components/common/GardenerNavbar";
 import "./style.css";
 import Input from "../../components/base/Input";
 import { DateField } from "@mui/x-date-pickers";
+import DropDown from "../../components/base/DropDown";
 
 const PostPlantForm = () => {
   return (
@@ -12,8 +13,15 @@ const PostPlantForm = () => {
       <div className="post-inputs-container">
         <Input inputColor="#BE7D86" label="Plant Name" />
         <Input inputColor="#BE7D86" label="Price" />
-        <Input inputColor="#BE7D86" label="Type" />
-        <DateField fieldColor="#BE7D86"  />
+        <DropDown
+          label="Date Harvested"
+          options={[
+            { value: "flower" },
+            { value: "plant" },
+          ]}
+          inputColor="#BE7D86"
+        />
+        {/* <DateField fieldColor="#BE7D86" /> */}
       </div>
     </div>
   );
