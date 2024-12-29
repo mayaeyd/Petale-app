@@ -57,7 +57,43 @@ const MultipleImageUpload = () => {
 
           <div className="upload-content-inner">
             {previews.length > 0 ? (
-              <div className="preview-container"></div>
+              <div className="preview-container">
+                {previews.map((preview, index) => (
+                  <div key={index} className="preview-wrapper">
+                    <img
+                      src={preview.url}
+                      alt={`Preview ${index}`}
+                      className="preview-image"
+                    />
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        URL.revokeObjectURL(preview.url);
+                        setPreviews((prev) =>
+                          prev.filter((_, i) => i !== index)
+                        );
+                      }}
+                      className="clear-button"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-x"
+                      >
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                ))}
+              </div>
             ) : (
               <>
                 <svg
