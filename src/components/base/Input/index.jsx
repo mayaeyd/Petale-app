@@ -1,7 +1,7 @@
 import React from "react";
 import { InputAdornment, TextField } from "@mui/material";
 
-const Input = ({ label, placeholder, type, onChange }) => {
+const Input = ({ label, placeholder, type, onChange, inputColor }) => {
   return (
     <TextField
       label={label}
@@ -23,36 +23,36 @@ const Input = ({ label, placeholder, type, onChange }) => {
         },
       }}
       sx={{
-        marginBottom:"7px",
+        marginBottom: "7px",
         "& .MuiOutlinedInput-root": {
           backgroundColor: "#ffffff21",
           borderRadius: "15px",
           fontFamily: "Proxima Nova Light",
           "& input": {
-            color: "#fff",
+            color: inputColor ? inputColor : "#fff",
             opacity: 1,
           },
           "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#fff",
+            borderColor: inputColor ? inputColor : "#fff",
             borderWidth: "2px",
           },
           "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#fff",
+            borderColor: inputColor ? inputColor : "#fff",
           },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#fff",
+            borderColor: inputColor ? inputColor : "#fff",
             borderWidth: "3px",
           },
         },
         "& .MuiInputLabel-outlined": {
-          color: "#fff",
+          color: inputColor ? inputColor : "#fff",
           fontFamily: "Proxima Nova Thin",
           "&.Mui-focused": {
-            color: "#fff",
+            color: inputColor ? inputColor : "#fff",
           },
         },
         "& .css-1ro85z9-MuiTypography-root": {
-          color: "#fff !important",
+          color: inputColor ? inputColor : "#fff",
           fontFamily: "Proxima Nova Light",
         },
       }}
