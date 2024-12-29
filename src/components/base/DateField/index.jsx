@@ -22,6 +22,7 @@ export default function BasicDatePicker({ label, onChange, fieldColor }) {
           value={selectedDate}
           onChange={handleDateChange}
           sx={{
+            width: "100%",
             "& .MuiOutlinedInput-root": {
               backgroundColor: "#ffffff21",
               borderRadius: "15px",

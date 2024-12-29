@@ -4,6 +4,7 @@ import "./style.css";
 import Input from "../../components/base/Input";
 import DropDown from "../../components/base/DropDown";
 import MultipleImageUpload from "../../components/common/MultipleImageUpload";
+import DateField from "../../components/base/DateField";
 
 const PostPlantForm = () => {
   return (
@@ -21,6 +22,7 @@ const PostPlantForm = () => {
       </div>
       <div className="post-images-desc">
         <MultipleImageUpload />
+        <DateField fieldColor="#BE7D86" />
       </div>
     </div>
   );
