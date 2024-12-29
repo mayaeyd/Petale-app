@@ -4,6 +4,7 @@
   margin-left: 250px;
   display: flex;
   flex-direction: column;
+  padding-right: 20px;
 }
 
 .post-plant-form h1 {
@@ -26,4 +27,11 @@
 
 .post-images-desc {
   display: flex;
+  max-width: 100%;
+  margin: 10px;
+}
+
+.css-10o2lyd-MuiStack-root{
+  width: 100%;
+  margin-top: 13px;
 }

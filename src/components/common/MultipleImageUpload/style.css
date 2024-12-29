@@ -1,7 +1,7 @@
 @import url("../../../styles/fonts.css");
 
 .upload-container {
-  max-width: 500px;
+  max-width: 1000px;
   margin: 0;
   padding: 24px;
   display: flex;
