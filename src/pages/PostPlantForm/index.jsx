@@ -5,6 +5,7 @@ import Input from "../../components/base/Input";
 import DropDown from "../../components/base/DropDown";
 import MultipleImageUpload from "../../components/common/MultipleImageUpload";
 import DateField from "../../components/base/DateField";
+import TextArea from "../../components/base/TextArea";
 
 const PostPlantForm = () => {
   return (
@@ -23,6 +24,7 @@ const PostPlantForm = () => {
       <div className="post-images-desc">
         <MultipleImageUpload />
         <DateField fieldColor="#BE7D86" />
+        <TextArea placeholder="Description" minRows={7} minLength={5} />
       </div>
     </div>
   );
