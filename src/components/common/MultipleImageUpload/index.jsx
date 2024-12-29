@@ -1,0 +1,97 @@
+import React, { useState, useRef } from "react";
+import "./style.css";
+
+const MultipleImageUpload = () => {
+  const [previews, setPreviews] = useState([]);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const fileInputRef = useRef(null);
+
+  const handleFile = async (files) => {
+    if (previews.length >= 3) return;
+
+    const validFiles = Array.from(files)
+      .filter((file) => file.type.startsWith("image/"))
+      .slice(0, 3 - previews.length);
+
+    const newPreviews = validFiles.map((file) => ({
+      url: URL.createObjectURL(file),
+      file,
+    }));
+
+    setPreviews((prev) => [...prev, ...newPreviews]);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    handleFile(e.dataTransfer?.files);
+  };
+
+  const handleChange = (e) => {
+    handleFile(e.target.files);
+  };
+
+  return (
+    <div className="upload-container">
+      <div className="upload-content">
+        <div
+          className={`upload-area ${isDragOver ? "dragover" : ""}`}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragOver(true);
+          }}
+          onDragLeave={(e) => {
+            e.preventDefault();
+            setIsDragOver(false);
+          }}
+          onDrop={handleDrop}
+          onClick={() => fileInputRef.current?.click()}
+        >
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleChange}
+            accept="image/*"
+            className="file-input"
+          />
+
+          <div className="upload-content-inner">
+            {previews.length > 0 ? (
+              <div className="preview-container"></div>
+            ) : (
+              <>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-images"
+                >
+                  <path d="M18 22H4a2 2 0 0 1-2-2V6" />
+                  <path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18" />
+                  <circle cx="12" cy="8" r="2" />
+                  <rect width="16" height="16" x="6" y="2" rx="2" />
+                </svg>
+                <div className="upload-text">
+                  <p className="upload-title">
+                    {isDragOver
+                      ? "Drop your image here"
+                      : "Drag & drop your flower image"}
+                  </p>
+                  <p className="upload-subtitle">or click to browse</p>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MultipleImageUpload;
