@@ -6,7 +6,7 @@ const BASE_URL = "http://localhost:8080/plants";
 const initialState = {
   plants: [],
   images: [],
-  plantType: "",
+  plantType: "flower",
   loading: false,
   error: null,
   selectedPlant: null,

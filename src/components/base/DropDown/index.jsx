@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useDispatch, useSelector } from "react-redux";
+import { setPlantType } from "../../../redux/slices/plantsSlice";
 
 const DropDown = ({ options, label, inputColor }) => {
   const [value, setValue] = useState(options[0]?.value || "");
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     setValue(event.target.value);
+    dispatch(setPlantType(event.target.value));
   };
 
   return (
