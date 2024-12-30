@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
 import "./style.css";
 import Input from "../../components/base/Input";
@@ -10,10 +10,10 @@ import { useSelector } from "react-redux";
 
 const PostPlantForm = () => {
   const { images } = useSelector((state) => state.plants);
-
-  useEffect(() => {
-    console.log("from form",images);
-  }, [images]);
+  const [plantName, setPlantName] = useState("");
+  const [price, setPrice] = useState(0);
+  const [harvestedDate, setHarvestedDate] = useState(null);
+  const [description, setDescription] = useState("");
 
   return (
     <div className="post-plant-form">
