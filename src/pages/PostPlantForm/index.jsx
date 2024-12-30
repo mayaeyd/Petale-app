@@ -9,15 +9,16 @@ import TextArea from "../../components/base/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
 import { postNewPlant } from "../../redux/slices/plantsSlice";
+import { CircularProgress } from "@mui/material";
 
 const PostPlantForm = () => {
-  const { images, plantType } = useSelector((state) => state.plants);
+  const { images, plantType, loading } = useSelector((state) => state.plants);
 
   const [plantName, setPlantName] = useState("");
   const [price, setPrice] = useState(0);
   const [harvestDate, setHarvestDate] = useState(null);
   const [description, setDescription] = useState("");
-  const [error, setError] = useState("");
+  const [warning, setWarning] = useState("");
 
   const dispatch = useDispatch();
 
@@ -30,22 +31,22 @@ const PostPlantForm = () => {
       !images ||
       !plantType
     ) {
-      setError("All fields are required");
+      setWarning("All fields are required");
       return;
     }
 
     const formData = new FormData();
 
-  formData.append('plantName', plantName);
-  formData.append('plantType', plantType);
-  formData.append('harvestDate', harvestDate);
-  formData.append('price', price);
-  formData.append('description', description);
-  formData.append('quantity', 3);
+    formData.append("plantName", plantName);
+    formData.append("plantType", plantType);
+    formData.append("harvestDate", harvestDate);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("quantity", 3);
 
-  images.forEach((image, index) => {
-    formData.append('images', image);
-  });  
+    images.forEach((image, index) => {
+      formData.append("images", image);
+    });
 
     dispatch(postNewPlant(formData));
   };
@@ -88,8 +89,13 @@ const PostPlantForm = () => {
           />
         </div>
       </div>
-      <PinkButtonRound label="Submit" onClick={handleSubmit} />
-      {error && <p style={{ color: "#ff4444" }}>{error}</p>}
+      <PinkButtonRound
+        label={
+          loading ? <CircularProgress color="inherit" size="20px" /> : "Post"
+        }
+        onClick={handleSubmit}
+      />
+      {warning && <p style={{ color: "#ff4444" }}>{warning}</p>}
     </div>
   );
 };
