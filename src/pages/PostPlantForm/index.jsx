@@ -16,6 +16,7 @@ const PostPlantForm = () => {
 
   const [plantName, setPlantName] = useState("");
   const [price, setPrice] = useState(0);
+  const [quantity, setQuantity] = useState(0);
   const [harvestDate, setHarvestDate] = useState(null);
   const [description, setDescription] = useState("");
   const [warning, setWarning] = useState("");
@@ -42,7 +43,7 @@ const PostPlantForm = () => {
     formData.append("harvestDate", harvestDate);
     formData.append("price", price);
     formData.append("description", description);
-    formData.append("quantity", 3);
+    formData.append("quantity", quantity);
 
     images.forEach((image, index) => {
       formData.append("images", image);
@@ -66,7 +67,12 @@ const PostPlantForm = () => {
           label="Price"
           onChange={(e) => setPrice(e.target.value)}
         />
-        <Input inputColor="#BE7D86" label="Quantity" type="number" />
+        <Input
+          inputColor="#BE7D86"
+          label="Quantity"
+          type="number"
+          onChange={(e) => setQuantity(e.target.value)}
+        />
         <DropDown
           label="Plant Type"
           options={[{ value: "flower" }, { value: "plant" }]}
