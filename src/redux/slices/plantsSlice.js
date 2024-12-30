@@ -6,6 +6,7 @@ const BASE_URL = "http://localhost:8080/plants";
 const initialState = {
   plants: [],
   images: [],
+  plantType: "",
   loading: false,
   error: null,
   selectedPlant: null,
@@ -58,11 +59,14 @@ const plantsSlice = createSlice({
       );
     },
     setImages: (state, action) => {
-      state.images = action.payload;      
+      state.images = action.payload;
     },
     clearImages: (state) => {
       state.images = [];
-    }
+    },
+    setPlantType: (state, action) => {
+      state.plantType = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -102,6 +106,7 @@ const plantsSlice = createSlice({
   },
 });
 
-export const { addPlant, removePlant, setImages, clearImages } = plantsSlice.actions;
+export const { addPlant, removePlant, setImages, clearImages, setPlantType } =
+  plantsSlice.actions;
 
 export default plantsSlice.reducer;
