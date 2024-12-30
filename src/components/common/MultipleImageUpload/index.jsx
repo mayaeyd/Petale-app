@@ -3,6 +3,7 @@ import "./style.css";
 
 const MultipleImageUpload = () => {
   const [previews, setPreviews] = useState([]);
+  const [files, setFiles] = useState([]);
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
 
@@ -13,12 +14,15 @@ const MultipleImageUpload = () => {
       .filter((file) => file.type.startsWith("image/"))
       .slice(0, 3 - previews.length);
 
+    console.log(validFiles);
+
     const newPreviews = validFiles.map((file) => ({
       url: URL.createObjectURL(file),
       file,
     }));
 
     setPreviews((prev) => [...prev, ...newPreviews]);
+    setFiles((prev) => [...prev, ...validFiles]);    
   };
 
   const handleDrop = (e) => {
