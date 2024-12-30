@@ -16,6 +16,7 @@ const Input = ({ label, placeholder, type, onChange, inputColor }) => {
         htmlInput: {
           maxLength: type === "tel" ? 8 : undefined,
           inputMode: type === "tel" ? "numeric" : undefined,
+          min: type === "number" ? 1 : undefined,
         },
         input: {
           startAdornment: type === "tel" && (

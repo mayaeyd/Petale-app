@@ -66,6 +66,7 @@ const PostPlantForm = () => {
           label="Price"
           onChange={(e) => setPrice(e.target.value)}
         />
+        <Input inputColor="#BE7D86" label="Quantity" type="number" />
         <DropDown
           label="Plant Type"
           options={[{ value: "flower" }, { value: "plant" }]}
