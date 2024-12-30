@@ -27,11 +27,22 @@
 
 .post-images-desc {
   display: flex;
-  max-width: 100%;
-  margin: 10px;
+}
+
+.post-images-desc > div {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section > * {
+  margin-bottom: 20px; 
+}
+
+.form-section > *:last-child {
+  margin-bottom: 0;
 }
 
 .css-10o2lyd-MuiStack-root{
-  width: 100%;
   margin-top: 13px;
 }
