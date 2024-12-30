@@ -46,6 +46,19 @@ export const addNewPlant = createAsyncThunk(
   }
 );
 
+export const postNewPlant = createAsyncThunk(
+  "plants/postPlant",
+  async (plantDetails) => {
+    const response = await axios.post(`${BASE_URL}/plants/post/`, plantDetails, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    console.log(response.data);
+    return response.data;
+  }
+);
+
 const plantsSlice = createSlice({
   name: "plants",
   initialState,
