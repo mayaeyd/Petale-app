@@ -96,13 +96,16 @@ const PostPlantForm = () => {
           />
         </div>
       </div>
-      <PinkButtonRound
-        label={
-          loading ? <CircularProgress color="inherit" size="20px" /> : "Post"
-        }
-        onClick={handleSubmit}
-      />
-      {warning && <p style={{ color: "#ff4444" }}>{warning}</p>}
+      <div>
+        <PinkButtonRound
+          label={
+            loading ? <CircularProgress color="inherit" size="20px" /> : "Post"
+          }
+          onClick={handleSubmit}
+          fullWidth
+        />
+        {warning && <p>{warning}</p>}
+      </div>
     </div>
   );
 };
