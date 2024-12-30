@@ -28,6 +28,14 @@ const MultipleImageUpload = () => {
     dispatch(setImages([...images, ...validFiles]));
   };
 
+  const removeImage = (index) => {
+    URL.revokeObjectURL(previews[index].url);
+    setPreviews((prev) => prev.filter((_, i) => i !== index));
+    dispatch(
+      setImages(previews.filter((_, i) => i !== index).map((p) => p.file))
+    );
+  };
+
   const handleDrop = (e) => {
     e.preventDefault();
     setIsDragOver(false);
