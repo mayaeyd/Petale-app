@@ -8,12 +8,14 @@
   flex-direction: column;
   gap: 20px;
   padding-right: 0;
+  padding-bottom: 0;
 }
 
 .upload-content {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 100%;
 }
 
 .upload-area {
@@ -23,6 +25,7 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  height: 240px;
 }
 
 .upload-area:hover {

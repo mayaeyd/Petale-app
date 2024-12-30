@@ -35,7 +35,11 @@
   flex-direction: column;
 }
 
-.form-section > * {
+.form-section{
+  margin-right: 20px;
+}
+
+.form-section > *:first-child {
   margin-bottom: 20px; 
 }
 

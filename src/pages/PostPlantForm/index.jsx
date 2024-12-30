@@ -27,7 +27,7 @@ const PostPlantForm = () => {
         </div>
         <div className="form-section">
           <DateField fieldColor="#BE7D86" />
-          <TextArea placeholder="Description" minRows={6} minLength={5} />
+          <TextArea placeholder="Description" minRows={7} minLength={5} />
         </div>
       </div>
     </div>
