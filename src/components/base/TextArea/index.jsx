@@ -14,7 +14,6 @@ const StyledTextarea = styled("textarea")`
   border: 2px solid #be7d86;
   resize: vertical;
   min-height: ${(props) => props.minRows * 24}px;
-  
 
   &:hover {
     border-color: #be7d86;
@@ -26,9 +25,10 @@ const StyledTextarea = styled("textarea")`
   }
 `;
 
-const TextArea = ({ minRows, minLength, placeholder, ...props }) => {
+const TextArea = ({ minRows, minLength, placeholder, onChange, ...props }) => {
   return (
     <StyledTextarea
+      onChange={onChange}
       minRows={minRows}
       placeholder={placeholder}
       minLength={minLength}
