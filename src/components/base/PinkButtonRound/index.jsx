@@ -2,12 +2,13 @@ import { Button } from "@mui/material";
 import React from "react";
 import "../../../styles/fonts.css";
 
-const PinkButtonRound = ({ label, onClick, endIcon }) => {
+const PinkButtonRound = ({ label, onClick, endIcon, ...props }) => {
   return (
     <Button
       variant="contained"
       endIcon={endIcon ? endIcon : null}
       onClick={() => onClick()}
+      {...props}
       sx={{
         backgroundColor: "#F7D6D6",
         color: "#BE7D86",
