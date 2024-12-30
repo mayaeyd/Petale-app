@@ -58,7 +58,7 @@ const plantsSlice = createSlice({
       );
     },
     setImages: (state, action) => {
-      state.images = action.payload;
+      state.images = action.payload;      
     },
     clearImages: (state) => {
       state.images = [];
@@ -102,6 +102,6 @@ const plantsSlice = createSlice({
   },
 });
 
-export const { addPlant, removePlant } = plantsSlice.actions;
+export const { addPlant, removePlant, setImages, clearImages } = plantsSlice.actions;
 
 export default plantsSlice.reducer;
