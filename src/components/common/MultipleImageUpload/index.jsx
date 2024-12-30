@@ -1,11 +1,16 @@
 import React, { useState, useRef } from "react";
 import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setImages } from "../../../redux/slices/plantsSlice";
 
 const MultipleImageUpload = () => {
   const [previews, setPreviews] = useState([]);
   const [files, setFiles] = useState([]);
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
+
+  const dispatch = useDispatch();
+  const { images } = useSelector((state) => state.plants);
 
   const handleFile = async (files) => {
     if (previews.length >= 3) return;
@@ -14,15 +19,13 @@ const MultipleImageUpload = () => {
       .filter((file) => file.type.startsWith("image/"))
       .slice(0, 3 - previews.length);
 
-    console.log(validFiles);
-
     const newPreviews = validFiles.map((file) => ({
       url: URL.createObjectURL(file),
       file,
     }));
 
     setPreviews((prev) => [...prev, ...newPreviews]);
-    setFiles((prev) => [...prev, ...validFiles]);    
+    dispatch(setImages([...images, ...validFiles]));
   };
 
   const handleDrop = (e) => {
@@ -73,9 +76,7 @@ const MultipleImageUpload = () => {
                       onClick={(e) => {
                         e.stopPropagation();
                         URL.revokeObjectURL(preview.url);
-                        setPreviews((prev) =>
-                          prev.filter((_, i) => i !== index)
-                        );
+                        removeImage(index);
                       }}
                       className="clear-button"
                     >
