@@ -50,7 +50,7 @@ export const postNewPlant = createAsyncThunk(
   "plants/postPlant",
   async (plantDetails) => {
     const response = await axios.post(
-      `${BASE_URL}/plants/post/`,
+      `${BASE_URL}/post/`,
       plantDetails,
       {
         headers: {

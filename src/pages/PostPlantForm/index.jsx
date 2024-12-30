@@ -6,25 +6,26 @@ import DropDown from "../../components/base/DropDown";
 import MultipleImageUpload from "../../components/common/MultipleImageUpload";
 import DateField from "../../components/base/DateField";
 import TextArea from "../../components/base/TextArea";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
+import { postNewPlant } from "../../redux/slices/plantsSlice";
 
 const PostPlantForm = () => {
-  const { images } = useSelector((state) => state.plants);
-  const { plantType } = useSelector((state) => state.plants);
+  const { images, plantType } = useSelector((state) => state.plants);
 
   const [plantName, setPlantName] = useState("");
   const [price, setPrice] = useState(0);
-  const [harvestedDate, setHarvestedDate] = useState(null);
+  const [harvestDate, setHarvestDate] = useState(null);
   const [description, setDescription] = useState("");
-
   const [error, setError] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
     if (
       !plantName ||
       !price ||
-      !harvestedDate ||
+      !harvestDate ||
       !description ||
       !images ||
       !plantType
@@ -32,6 +33,21 @@ const PostPlantForm = () => {
       setError("All fields are required");
       return;
     }
+
+    const formData = new FormData();
+
+  formData.append('plantName', plantName);
+  formData.append('plantType', plantType);
+  formData.append('harvestDate', harvestDate);
+  formData.append('price', price);
+  formData.append('description', description);
+  formData.append('quantity', 3);
+
+  images.forEach((image, index) => {
+    formData.append('images', image);
+  });  
+
+    dispatch(postNewPlant(formData));
   };
 
   return (
@@ -62,7 +78,7 @@ const PostPlantForm = () => {
         <div className="form-section">
           <DateField
             fieldColor="#BE7D86"
-            onChange={(selectedDate) => setHarvestedDate(selectedDate)}
+            onChange={(selectedDate) => setHarvestDate(selectedDate)}
           />
           <TextArea
             placeholder="Description"
@@ -73,7 +89,7 @@ const PostPlantForm = () => {
         </div>
       </div>
       <PinkButtonRound label="Submit" onClick={handleSubmit} />
-      {error && <p style={{color:"#ff4444"}}>{error}</p>}
+      {error && <p style={{ color: "#ff4444" }}>{error}</p>}
     </div>
   );
 };
