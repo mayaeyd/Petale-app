@@ -30,23 +30,40 @@
 }
 
 .post-images-desc > div {
-  flex: 1; 
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.form-section{
+.form-section {
   margin-right: 20px;
 }
 
 .form-section > *:first-child {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .form-section > *:last-child {
   margin-bottom: 0;
 }
 
-.css-10o2lyd-MuiStack-root{
+.css-10o2lyd-MuiStack-root {
   margin-top: 13px;
+}
+
+.post-plant-form > div:last-child {
+  margin-top: 20px;
+  width: 150px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.post-plant-form > div:last-child > p {
+  color: #ff4444;
+  font-size: 0.9em;
+  font-weight: 400;
+  align-self: center;
+  font-family: "Proxima Nova Regular";
 }
