@@ -18,6 +18,22 @@ const PostPlantForm = () => {
   const [harvestedDate, setHarvestedDate] = useState(null);
   const [description, setDescription] = useState("");
 
+  const [error, setError] = useState("");
+
+  const handleSubmit = () => {
+    if (
+      !plantName ||
+      !price ||
+      !harvestedDate ||
+      !description ||
+      !images ||
+      !plantType
+    ) {
+      setError("All fields are required");
+      return;
+    }
+  };
+
   return (
     <div className="post-plant-form">
       <GardenerNavbar />
@@ -56,12 +72,8 @@ const PostPlantForm = () => {
           />
         </div>
       </div>
-      <PinkButtonRound
-        label="Submit"
-        onClick={() => {
-          console.log({price, plantName, plantType, harvestedDate, images, description});
-        }}
-      />
+      <PinkButtonRound label="Submit" onClick={handleSubmit} />
+      {error && <p style={{color:"#ff4444"}}>{error}</p>}
     </div>
   );
 };
