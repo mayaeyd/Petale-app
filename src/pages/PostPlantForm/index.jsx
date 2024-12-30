@@ -52,6 +52,10 @@ const PostPlantForm = () => {
     dispatch(postNewPlant(formData));
   };
 
+  if (warning) {
+    setInterval(() => setWarning(""), 6000);
+  }
+
   return (
     <div className="post-plant-form">
       <GardenerNavbar />
