@@ -15,23 +15,10 @@ const GardenersRoutes = () => {
     };
 
     checkAuth();
-  }, [dispatch,user]);
+  }, [dispatch, user]);
 
-  if (loading) {
-    return null;
-  }
-
-  if (token && !user) {
-    return null;
-  }
-
-  if (!token || !user) {
-    return <Navigate to="/" />;
-  }
-
-  if (user.role !== "gardener") {
-    return <Navigate to="/" />;
-  }
+  if (loading || (token && !user)) return null;
+  if (!token || !user || user.role !== "gardener") return <Navigate to="/" />;
 
   return <Outlet />;
 };
