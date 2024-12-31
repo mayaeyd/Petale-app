@@ -8,7 +8,7 @@ import DateField from "../../components/base/DateField";
 import TextArea from "../../components/base/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
-import { postNewPlant } from "../../redux/slices/plantsSlice";
+import { clearImages, postNewPlant } from "../../redux/slices/plantsSlice";
 import { CircularProgress } from "@mui/material";
 
 const PostPlantForm = () => {
@@ -19,11 +19,13 @@ const PostPlantForm = () => {
   const [quantity, setQuantity] = useState(0);
   const [harvestDate, setHarvestDate] = useState(null);
   const [description, setDescription] = useState("");
+
   const [warning, setWarning] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (
       !plantName ||
       !price ||
@@ -49,7 +51,19 @@ const PostPlantForm = () => {
       formData.append("images", image);
     });
 
-    dispatch(postNewPlant(formData));
+    await dispatch(postNewPlant(formData));
+
+    setSuccessMessage(
+      `${
+        plantType.charAt(0).toUpperCase() + plantType.slice(1).toLowerCase()
+      } posted successfully!`
+    );
+    setPlantName("");
+    setDescription("");
+    setHarvestDate(null);
+    setPrice(0);
+    setQuantity(0);
+    dispatch(clearImages());
   };
 
   if (warning) {
@@ -108,6 +122,7 @@ const PostPlantForm = () => {
           onClick={handleSubmit}
           fullWidth
         />
+        {successMessage && <p>{successMessage}</p>}
         {warning && <p>{warning}</p>}
       </div>
     </div>

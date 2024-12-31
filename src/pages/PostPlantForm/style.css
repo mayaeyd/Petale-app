@@ -53,15 +53,23 @@
 
 .post-plant-form > div:last-child {
   margin-top: 20px;
-  width: 150px;
+  width: auto;
   align-self: center;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.post-plant-form > div:last-child > p {
+.post-plant-form > div:last-child > p:last-child {
   color: #ff4444;
+  font-size: 0.9em;
+  font-weight: 400;
+  align-self: center;
+  font-family: "Proxima Nova Regular";
+}
+
+.post-plant-form > div:last-child > p:nth-last-child(1) {
+  color: #5cb85c;
   font-size: 0.9em;
   font-weight: 400;
   align-self: center;
