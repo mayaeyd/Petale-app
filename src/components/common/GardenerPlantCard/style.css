@@ -1,6 +1,6 @@
 .card-container {
-  width: 250px;
-  height: auto;
+  width: 240px;
+  height: 350px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
