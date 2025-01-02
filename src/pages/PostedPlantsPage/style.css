@@ -1,4 +1,11 @@
-.posted-plants-container{
-    margin-left: 250px;
-    display: flex;
+.posted-plants-container {
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.posted-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
