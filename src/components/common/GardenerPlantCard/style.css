@@ -1,7 +1,7 @@
 .card-container {
   width: 240px;
   height: 350px;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   background-color: white;
@@ -17,6 +17,8 @@
   background-position: center;
   overflow: hidden;
   height: 200px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .card-info-container {
