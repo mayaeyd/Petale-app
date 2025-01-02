@@ -14,13 +14,15 @@ const initialState = {
 };
 
 export const fetchPostedPlants = createAsyncThunk(
-  "plants/fetchPlants",
+  "plants/fetchPostedPlants",
   async () => {
     const response = await axios.get(`${BASE_URL}/post/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
+    console.log(response.data);
+    
     return response.data;
   }
 );
