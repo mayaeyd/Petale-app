@@ -1,6 +1,6 @@
 .card-container {
   width: 240px;
-  height: 350px;
+  height: 370px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
@@ -27,8 +27,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: content-box;
+  padding-block: 5px;
+  height: 150px;
 }
 
 .card-info-container > h2 {
@@ -50,4 +53,8 @@
   line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card-info-container > p:last-child {
+  justify-self: flex-end;
 }
