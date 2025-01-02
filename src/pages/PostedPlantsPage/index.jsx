@@ -6,13 +6,13 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CircularProgress } from "@mui/material";
+import GardenerPlantCard from "../../components/common/GardenerPlantCard";
 
 const PostedPlantsPage = () => {
   const navigate = useNavigate();
   const { loading, postedPlants } = useSelector((state) => state.postedPlants);
+
   if (loading) return <CircularProgress />;
-  console.log(postedPlants);
-  
 
   return (
     <div>
@@ -25,10 +25,16 @@ const PostedPlantsPage = () => {
             endIcon={<EventAvailableIcon />}
           />
         </div>
-        <div>
-          {/* {postedPlants.map((plant) => (
-            <h2 key={plant.id} plant={plant}>{plant.plantName}</h2>
-          ))} */}
+        <div className="posted-cards-container">
+          {postedPlants.map((plant) => (
+            <GardenerPlantCard
+              key={plant._id}
+              imageSrc={plant.images[0]}
+              title={plant.plantName}
+              description={plant.description}
+              price={plant.price}
+            />
+          ))}
         </div>
       </div>
     </div>
