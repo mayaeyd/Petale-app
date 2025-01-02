@@ -6,8 +6,10 @@ import FooterInput from "../../base/FooterInput";
 import PinkButtonSquared from "../../base/PinkButtonSquared";
 import FooterFlower from "../../../assets/images/FooterFlower";
 import { ArrowForward } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer>
       <div className="footer-sec-1">
@@ -104,7 +106,7 @@ const Footer = () => {
           <div className="footer-links">
             <ul>
               <li>IoT Features</li>
-              <li>Flower Recognition</li>
+              <li onClick={()=>navigate("/user/predict-flower")}>Flower Recognition</li>
               <li>How it Works</li>
               <li>Support</li>
             </ul>
