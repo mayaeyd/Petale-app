@@ -1,6 +1,7 @@
 # Dependency directories
 node_modules/
 npm-packages-offline-cache/
+src/pages/PlantMonitor
 
 # Production build
 /build
