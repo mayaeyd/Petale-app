@@ -12,7 +12,7 @@ const PostedPlantsPage = () => {
   const navigate = useNavigate();
   const { loading, postedPlants } = useSelector((state) => state.postedPlants);
 
-  const handleClick = () => {};
+  const handleClick = (plantId) => {};
 
   if (loading) return <CircularProgress />;
 
