@@ -10,7 +10,7 @@ const GardenerPlantCard = ({ imageSrc, title, description, price }) => {
       ></div>
       <div className="card-info-container">
         <h2>{title}</h2>
-        <p>{description}</p>
+        <p className="card-description">{description}</p>
         <p>From ${price}</p>
       </div>
     </div>

@@ -5,6 +5,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   background-color: white;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -40,4 +41,13 @@
   font-family: "Cormorant Bold";
   font-size: 1em;
   color: #383838;
+}
+
+.card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
