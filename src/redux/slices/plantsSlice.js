@@ -49,15 +49,11 @@ export const addNewPlant = createAsyncThunk(
 export const postNewPlant = createAsyncThunk(
   "plants/postPlant",
   async (plantDetails) => {
-    const response = await axios.post(
-      `${BASE_URL}/post/`,
-      plantDetails,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
+    const response = await axios.post(`${BASE_URL}/post/`, plantDetails, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
     console.log(response.data);
     return response.data;
   }
@@ -117,17 +113,6 @@ const plantsSlice = createSlice({
         state.newPlant = action.payload.garden;
       })
       .addCase(addNewPlant.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
-      .addCase(postNewPlant.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(postNewPlant.fulfilled, (state, action) => {
-        state.loading = false;
-        state.newPlant = action.payload.newPlant;
-      })
-      .addCase(postNewPlant.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

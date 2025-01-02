@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
 import "./style.css";
 import Input from "../../components/base/Input";
@@ -8,11 +8,16 @@ import DateField from "../../components/base/DateField";
 import TextArea from "../../components/base/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
-import { clearImages, postNewPlant } from "../../redux/slices/plantsSlice";
+import {
+  clearImages,
+  postNewPlant,
+} from "../../redux/slices/postedPlantsSlice";
 import { CircularProgress } from "@mui/material";
 
 const PostPlantForm = () => {
-  const { images, plantType, loading } = useSelector((state) => state.plants);
+  const { images, plantType, loading } = useSelector(
+    (state) => state.postedPlants
+  );
 
   const [plantName, setPlantName] = useState("");
   const [price, setPrice] = useState(0);
@@ -37,6 +42,8 @@ const PostPlantForm = () => {
       setWarning("All fields are required");
       return;
     }
+    console.log(plantName, );
+    
 
     const formData = new FormData();
 
@@ -47,7 +54,7 @@ const PostPlantForm = () => {
     formData.append("description", description);
     formData.append("quantity", quantity);
 
-    images.forEach((image, index) => {
+    images.forEach((image) => {
       formData.append("images", image);
     });
 

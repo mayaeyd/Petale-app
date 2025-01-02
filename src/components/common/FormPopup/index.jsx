@@ -57,14 +57,11 @@ const FormPopup = () => {
       plantType,
     };
 
-    // Add to local state
     dispatch(addPlant(newPlant));
 
     try {
-      // Send to database
       await dispatch(addNewPlant(newPlant));
 
-      // Refetch plants to ensure consistency
       dispatch(fetchPlants());
     } catch (error) {
       console.error("Failed to save plant:", error);

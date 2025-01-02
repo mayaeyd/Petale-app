@@ -16,6 +16,7 @@ import GardenersRoutes from "./components/routes/GardenersRoutes";
 import FlowerRecognition from "./pages/FlowerRecognition";
 import PostedPlantsPage from "./pages/PostedPlantsPage";
 import PostPlantForm from "./pages/PostPlantForm";
+import PlantMonitor from "./pages/PlantMonitor";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/signup/gardener" element={<SignUpGardener />} />
         <Route path="/signup/user" element={<SignUpUser />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/plant-info" element={<PlantMonitor />} />
         <Route path="/user" element={<UsersRoutes />}>
           <Route path="/user/home" element={<UserHomePage />} />
           <Route path="/user/predict-flower" element={<FlowerRecognition />} />

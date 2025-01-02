@@ -5,7 +5,6 @@ import { setImages } from "../../../redux/slices/plantsSlice";
 
 const MultipleImageUpload = () => {
   const [previews, setPreviews] = useState([]);
-  const [files, setFiles] = useState([]);
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
 
