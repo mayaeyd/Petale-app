@@ -33,6 +33,9 @@ const PostedPlantsPage = () => {
               title={plant.plantName}
               description={plant.description}
               price={plant.price}
+              onClick={() => {
+                console.log(`Card ${plant._id} is clicked`);
+              }}
             />
           ))}
         </div>

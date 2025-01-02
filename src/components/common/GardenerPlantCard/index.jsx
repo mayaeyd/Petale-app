@@ -1,9 +1,15 @@
 import React from "react";
 import "./style.css";
 
-const GardenerPlantCard = ({ imageSrc, title, description, price }) => {
+const GardenerPlantCard = ({
+  imageSrc,
+  title,
+  description,
+  price,
+  ...props
+}) => {
   return (
-    <div className="card-container">
+    <div className="card-container" {...props}>
       <div
         className="card-img-container"
         style={{ backgroundImage: `url(${imageSrc})` }}
