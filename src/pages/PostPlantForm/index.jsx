@@ -8,16 +8,13 @@ import DateField from "../../components/base/DateField";
 import TextArea from "../../components/base/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
-import {
-  clearImages,
-  postNewPlant,
-} from "../../redux/slices/postedPlantsSlice";
+import { postNewPlant } from "../../redux/slices/postedPlantsSlice";
 import { CircularProgress } from "@mui/material";
 
 const PostPlantForm = () => {
-  const { images, plantType, loading } = useSelector(
-    (state) => state.postedPlants
-  );
+  const { plantType, loading } = useSelector((state) => state.postedPlants);
+
+  const [images, setImages] = useState([]);
 
   const [plantName, setPlantName] = useState("");
   const [price, setPrice] = useState(0);
@@ -29,6 +26,10 @@ const PostPlantForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const dispatch = useDispatch();
+
+  const handleImagesChange = (newImages) => {
+    setImages(newImages);
+  };
 
   const handleSubmit = async () => {
     if (
@@ -42,8 +43,6 @@ const PostPlantForm = () => {
       setWarning("All fields are required");
       return;
     }
-    console.log(plantName, );
-    
 
     const formData = new FormData();
 
@@ -54,23 +53,20 @@ const PostPlantForm = () => {
     formData.append("description", description);
     formData.append("quantity", quantity);
 
-    images.forEach((image) => {
+    images.forEach((image, index) => {
       formData.append("images", image);
     });
 
-    await dispatch(postNewPlant(formData));
-
-    setSuccessMessage(
-      `${
-        plantType.charAt(0).toUpperCase() + plantType.slice(1).toLowerCase()
-      } posted successfully!`
-    );
-    setPlantName("");
-    setDescription("");
-    setHarvestDate(null);
-    setPrice(0);
-    setQuantity(0);
-    dispatch(clearImages());
+    try {
+      await dispatch(postNewPlant(formData));
+      setSuccessMessage(
+        `${
+          plantType.charAt(0).toUpperCase() + plantType.slice(1).toLowerCase()
+        } posted successfully!`
+      );
+    } catch (error) {
+      console.error("Upload error:", error);
+    }
   };
 
   if (warning) {
@@ -106,7 +102,7 @@ const PostPlantForm = () => {
       </div>
       <div className="post-images-desc">
         <div className="image-upload">
-          <MultipleImageUpload />
+          <MultipleImageUpload onImagesChange={handleImagesChange} />
         </div>
         <div className="form-section">
           <DateField

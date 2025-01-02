@@ -21,8 +21,6 @@ export const fetchPostedPlants = createAsyncThunk(
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    console.log(response.data);
-    
     return response.data;
   }
 );

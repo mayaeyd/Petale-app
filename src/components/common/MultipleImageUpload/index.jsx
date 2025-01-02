@@ -1,20 +1,16 @@
 import React, { useState, useRef } from "react";
 import "./style.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setImages } from "../../../redux/slices/plantsSlice";
 
-const MultipleImageUpload = () => {
+const MultipleImageUpload = ({ onImagesChange }) => {
   const [previews, setPreviews] = useState([]);
+  const [files, setFiles] = useState([]);
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
 
-  const dispatch = useDispatch();
-  const { images } = useSelector((state) => state.plants);
-
-  const handleFile = async (files) => {
+  const handleFile = async (newFiles) => {
     if (previews.length >= 3) return;
 
-    const validFiles = Array.from(files)
+    const validFiles = Array.from(newFiles)
       .filter((file) => file.type.startsWith("image/"))
       .slice(0, 3 - previews.length);
 
@@ -24,15 +20,17 @@ const MultipleImageUpload = () => {
     }));
 
     setPreviews((prev) => [...prev, ...newPreviews]);
-    dispatch(setImages([...images, ...validFiles]));
+    const updatedFiles = [...files, ...validFiles];
+    setFiles(updatedFiles);
+    onImagesChange(updatedFiles); // Notify parent component
   };
 
   const removeImage = (index) => {
     URL.revokeObjectURL(previews[index].url);
     setPreviews((prev) => prev.filter((_, i) => i !== index));
-    dispatch(
-      setImages(previews.filter((_, i) => i !== index).map((p) => p.file))
-    );
+    const updatedFiles = files.filter((_, i) => i !== index);
+    setFiles(updatedFiles);
+    onImagesChange(updatedFiles); // Notify parent component
   };
 
   const handleDrop = (e) => {

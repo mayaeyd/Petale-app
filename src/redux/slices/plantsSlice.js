@@ -51,10 +51,10 @@ export const postNewPlant = createAsyncThunk(
   async (plantDetails) => {
     const response = await axios.post(`${BASE_URL}/post/`, plantDetails, {
       headers: {
+        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    console.log(response.data);
     return response.data;
   }
 );
