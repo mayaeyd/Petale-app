@@ -17,6 +17,7 @@ import FlowerRecognition from "./pages/FlowerRecognition";
 import PostedPlantsPage from "./pages/PostedPlantsPage";
 import PostPlantForm from "./pages/PostPlantForm";
 import PlantMonitor from "./pages/PlantMonitor";
+import PostedPlantDetails from "./pages/PostedPlantDetails";
 
 const App = () => {
   return (
@@ -43,6 +44,10 @@ const App = () => {
           <Route
             path="/gardener/posted-plants"
             element={<PostedPlantsPage />}
+          />
+          <Route
+            path="/gardener/posted-plants/:id"
+            element={<PostedPlantDetails />}
           />
           <Route path="/gardener/post-plant" element={<PostPlantForm />} />
         </Route>
