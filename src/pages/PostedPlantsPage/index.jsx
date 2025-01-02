@@ -12,6 +12,8 @@ const PostedPlantsPage = () => {
   const navigate = useNavigate();
   const { loading, postedPlants } = useSelector((state) => state.postedPlants);
 
+  const handleClick = () => {};
+
   if (loading) return <CircularProgress />;
 
   return (
@@ -25,19 +27,35 @@ const PostedPlantsPage = () => {
             endIcon={<EventAvailableIcon />}
           />
         </div>
+        <h1>Plants</h1>
         <div className="posted-cards-container">
-          {postedPlants.map((plant) => (
-            <GardenerPlantCard
-              key={plant._id}
-              imageSrc={plant.images[0]}
-              title={plant.plantName}
-              description={plant.description}
-              price={plant.price}
-              onClick={() => {
-                console.log(`Card ${plant._id} is clicked`);
-              }}
-            />
-          ))}
+          {postedPlants.map((plant) =>
+            plant.plantType === "plant" ? (
+              <GardenerPlantCard
+                key={plant._id}
+                imageSrc={plant.images[0]}
+                title={plant.plantName}
+                description={plant.description}
+                price={plant.price}
+                onClick={handleClick(plant._id)}
+              />
+            ) : null
+          )}
+        </div>
+        <h1>Flowers</h1>
+        <div className="posted-cards-container">
+          {postedPlants.map((plant) =>
+            plant.plantType === "flower" ? (
+              <GardenerPlantCard
+                key={plant._id}
+                imageSrc={plant.images[0]}
+                title={plant.plantName}
+                description={plant.description}
+                price={plant.price}
+                onClick={handleClick(plant._id)}
+              />
+            ) : null
+          )}
         </div>
       </div>
     </div>
