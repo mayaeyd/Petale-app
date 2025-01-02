@@ -2,14 +2,14 @@
   width: 240px;
   height: 370px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px 5px #dbdbdb;
   transition: box-shadow 0.3s ease;
   background-color: white;
   cursor: pointer;
 }
 
-.card:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0);
+.card-container:hover {
+  box-shadow: 0px 0px 20px 8px #c3c3c3;
 }
 
 .card-img-container {
@@ -28,21 +28,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
   box-sizing: content-box;
   padding-block: 5px;
   height: 150px;
+  padding-top: 10px;
 }
 
 .card-info-container > h2 {
-  font-family: "Cormorant Bold";
-  font-size: 1.2em;
-  color: black;
+  font-family: "Cormorant Semibold";
+  font-size: 1.4em;
+  color: #1c1c1c;
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid #be7d86;
 }
 
 .card-info-container > p {
-  font-family: "Cormorant Bold";
-  font-size: 1em;
+  font-family: "Proxima Nova Light";
+  font-size: 0.9em;
   color: #383838;
 }
 
