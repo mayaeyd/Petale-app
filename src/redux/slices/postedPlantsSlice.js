@@ -13,6 +13,18 @@ const initialState = {
   newPlant: null,
 };
 
+export const fetchPostedPlants = createAsyncThunk(
+  "plants/fetchPlants",
+  async()=>{
+    const response = await axios.get(`${BASE_URL}/post/`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return response.data;
+  }
+);
+
 export const postNewPlant = createAsyncThunk(
   "plants/postPlant",
   async (plantDetails) => {
@@ -21,7 +33,6 @@ export const postNewPlant = createAsyncThunk(
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    console.log(response.data);
     return response.data;
   }
 );
