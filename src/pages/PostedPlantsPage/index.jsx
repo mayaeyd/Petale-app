@@ -18,6 +18,7 @@ const PostedPlantsPage = () => {
             endIcon={<EventAvailableIcon />}
           />
         </div>
+        
       </div>
     </div>
   );

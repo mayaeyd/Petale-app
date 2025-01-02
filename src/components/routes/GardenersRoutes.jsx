@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 import { GetSelf } from "../../redux/slices/authSlice";
+import { fetchPostedPlants } from "../../redux/slices/postedPlantsSlice";
 
 const GardenersRoutes = () => {
   const { user, loading, token } = useSelector((state) => state.auth);
@@ -13,6 +14,10 @@ const GardenersRoutes = () => {
         await dispatch(GetSelf());
       }
     };
+
+    if(user?.role === "gardener") { 
+      dispatch(fetchPostedPlants());
+    }
 
     checkAuth();
   }, [dispatch, user]);
