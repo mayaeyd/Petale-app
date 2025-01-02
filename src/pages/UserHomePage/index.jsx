@@ -17,8 +17,6 @@ const UserHomePage = () => {
           <h3>Nurture. Bloom. Connect</h3>
         </div>
       </div>
-      <h1>jhuh</h1>
-      <PinkButtonRound endIcon={<LocalFloristIcon />} label="Know Flower Name by Image" className="pink-btn" />
       <Footer />
     </div>
   );

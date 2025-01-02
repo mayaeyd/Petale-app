@@ -4,6 +4,12 @@
   overflow: hidden;
 }
 
+.upload-section{
+  display: flex;
+  margin-left: 140px;
+  margin-bottom: 40px;
+}
+
 .file-upload-container {
   height: auto;
   width: 100%;
@@ -11,12 +17,14 @@
   position: relative;
   z-index: 1000;
   margin-top: 30px;
+  align-self: center;
+  justify-self: center;
 }
 
 .flower-1 {
   position: absolute;
   top: 12%;
-  left: -25%;
+  left: -20%;
 }
 
 .flower-2 {

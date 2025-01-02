@@ -4,7 +4,7 @@ import "./style.css";
 const BigButton = ({ icon, title, subtitle, active, onClick }) => {
   return (
     <div
-      className={`button-container ${active ? "active" : ""}`}
+      className={`big-button-container ${active ? "active" : ""}`}
       onClick={() => onClick()}
     >
       <div className="icon-container">{icon}</div>

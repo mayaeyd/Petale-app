@@ -29,7 +29,7 @@ const RolePage = () => {
   return (
     <div className="main-container">
       <div className="form-container">
-        <div className="logo-container">
+        <div className="logo-container" style={{marginTop:'10px'}}>
           <LogoNoText />
           <h1>Sign Up</h1>
         </div>

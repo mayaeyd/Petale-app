@@ -33,7 +33,7 @@ const GrowingPlantsPage = () => {
   return (
     <div>
       <GardenerNavbar />
-      <div className="btn-container">
+      <div className="button-container">
         <FormPopup />
       </div>
       <div className="growing-plants-container">
