@@ -15,7 +15,7 @@ const initialState = {
 
 export const fetchPostedPlants = createAsyncThunk(
   "plants/fetchPlants",
-  async()=>{
+  async () => {
     const response = await axios.get(`${BASE_URL}/post/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -61,6 +61,17 @@ const plantsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(fetchPostedPlants.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchPostedPlants.fulfilled, (state, action) => {
+        state.loading = false;
+        state.postedPlants = action.payload.plants;
+      })
+      .addCase(fetchPostedPlants.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
       .addCase(postNewPlant.pending, (state) => {
         state.loading = true;
       })
