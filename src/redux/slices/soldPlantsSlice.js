@@ -15,6 +15,16 @@ export const fetchSoldPlants = createAsyncThunk(
   }
 );
 
+export const fetchSoldPlantById = createAsyncThunk(
+  "plants/fetchSoldPlantById",
+  async (plantId) => {
+    const response = await axios.get(`${BASE_URL}/sold/${plantId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    });
+    return response.data;
+  }
+);
+
 const initialState = {
   soldPlants: [],
   loading: false,
