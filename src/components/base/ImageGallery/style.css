@@ -17,3 +17,29 @@
   object-fit: cover;
   border-radius: 8px;
 }
+
+.thumb-swiper {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.thumb-swiper .swiper-slide {
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.thumb-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.thumb-swiper .swiper-slide img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.main-swiper .swiper-button-prev,
+.main-swiper .swiper-button-next {
+  display: none;
+}
