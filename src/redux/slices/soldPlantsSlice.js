@@ -19,7 +19,9 @@ export const fetchSoldPlantById = createAsyncThunk(
   "plants/fetchSoldPlantById",
   async (plantId) => {
     const response = await axios.get(`${BASE_URL}/sold/${plantId}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     });
     return response.data;
   }
@@ -46,6 +48,17 @@ const soldPlantsSlice = createSlice({
         state.soldPlants = action.payload.plants;
       })
       .addCase(fetchSoldPlants.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchSoldPlantById.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchSoldPlantById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.selectedPlant = action.payload.plant;
+      })
+      .addCase(fetchSoldPlantById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
