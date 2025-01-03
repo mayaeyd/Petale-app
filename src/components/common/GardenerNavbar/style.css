@@ -66,10 +66,11 @@
   text-transform: capitalize;
 }
 
-.gardener-nav-link > a {
-  text-decoration: none;
+.gardener-nav-link > p {
+  text-decoration: none !important;
   font-family: "Proxima Nova Light";
   color: white;
+  font-size: 1em;
 }
 
 .gardener-nav-link {
@@ -81,6 +82,7 @@
   padding-left: 20px;
   padding-block: 5px;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 .plants-nav-links {
@@ -89,6 +91,11 @@
 }
 
 .gardener-nav-link:hover {
+  background-color: #f6d1d11b;
+  border-radius: 20px;
+}
+
+.active {
   background-color: #f6d1d11b;
   border-radius: 20px;
 }
