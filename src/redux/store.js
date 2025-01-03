@@ -3,6 +3,7 @@ import authReducer from "./slices/authSlice";
 import plantsReducer from "./slices/plantsSlice";
 import flowerRecognitionReducer from "./slices/flowerRecognitionSlice";
 import postedPlantsReducer from "./slices/postedPlantsSlice";
+import soldPlantsReducer from "./slices/soldPlantsSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     plants: plantsReducer,
     flower: flowerRecognitionReducer,
     postedPlants: postedPlantsReducer,
+    soldPlants: soldPlantsReducer,
   },
 });
 
