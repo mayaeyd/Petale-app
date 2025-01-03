@@ -25,13 +25,21 @@ const StyledTextarea = styled("textarea")`
   }
 `;
 
-const TextArea = ({ minRows, minLength, placeholder, onChange, ...props }) => {
+const TextArea = ({
+  minRows,
+  minLength,
+  placeholder,
+  onChange,
+  value,
+  ...props
+}) => {
   return (
     <StyledTextarea
       onChange={onChange}
       minRows={minRows}
       placeholder={placeholder}
       minLength={minLength}
+      value={value}
       {...props}
     />
   );

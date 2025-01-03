@@ -8,7 +8,10 @@ import DateField from "../../components/base/DateField";
 import TextArea from "../../components/base/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
-import { postNewPlant } from "../../redux/slices/postedPlantsSlice";
+import {
+  postNewPlant,
+  setPlantType,
+} from "../../redux/slices/postedPlantsSlice";
 import { CircularProgress } from "@mui/material";
 
 const PostPlantForm = () => {
@@ -64,6 +67,12 @@ const PostPlantForm = () => {
           plantType.charAt(0).toUpperCase() + plantType.slice(1).toLowerCase()
         } posted successfully!`
       );
+      setPlantName("");
+      setPrice("");
+      setQuantity(1);
+      setDescription("");
+      setPlantType("flower");
+      setImages([]);
     } catch (error) {
       console.error("Upload error:", error);
     }
@@ -86,14 +95,16 @@ const PostPlantForm = () => {
         />
         <Input
           inputColor="#BE7D86"
-          label="Price"
+          label="Price for One"
           onChange={(e) => setPrice(e.target.value)}
+          value={price}
         />
         <Input
           inputColor="#BE7D86"
           label="Quantity"
           type="number"
           onChange={(e) => setQuantity(e.target.value)}
+          value={quantity}
         />
         <DropDown
           label="Plant Type"
@@ -107,6 +118,7 @@ const PostPlantForm = () => {
         </div>
         <div className="form-section">
           <DateField
+            label="Date Harvested"
             fieldColor="#BE7D86"
             onChange={(selectedDate) => setHarvestDate(selectedDate)}
           />
@@ -115,6 +127,7 @@ const PostPlantForm = () => {
             minRows={7}
             minLength={5}
             onChange={(e) => setDescription(e.target.value)}
+            value={description}
           />
         </div>
       </div>
