@@ -84,6 +84,17 @@ const postedPlantsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+      .addCase(fetchPostedPlantById.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchPostedPlantById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.selectedPlant = action.payload.plant;
+      })
+      .addCase(fetchPostedPlantById.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
       .addCase(postNewPlant.pending, (state) => {
         state.loading = true;
       })
