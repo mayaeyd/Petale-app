@@ -59,3 +59,16 @@
   border-radius: 10px;
   padding: 20px;
 }
+
+.sensor-data-container > h2 {
+  font-family: "Cormorant Semibold";
+  color: #383838;
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid #be7d86;
+}
+
+.sensor-data {
+  display: flex;
+  flex-direction: column;
+}

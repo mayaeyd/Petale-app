@@ -104,6 +104,11 @@ const GrowingPlantDetails = () => {
           </div>
           <div className="sensor-data-container">
             <h2>Environmental Metrics</h2>
+            <div className="sensor-data">
+              <div>
+                <p></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
