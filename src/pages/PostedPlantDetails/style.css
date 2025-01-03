@@ -5,6 +5,7 @@
   max-width: 1200px;
   margin-left: 250px;
   padding-top: 3rem;
+  height: auto;
 }
 
 .posted-plant-details {
@@ -63,7 +64,7 @@
 .posted-plant-description {
   box-sizing: border-box;
   font-family: "Proxima Nova Light";
-  font-size: 1.1em;
+  font-size: 1em;
   color: #383838;
   margin-top: 10px;
   display: block;
@@ -78,15 +79,34 @@
   color: #383838;
   padding-top: 30px;
   font-family: "Proxima Nova Light";
-  font-size: 1em;
   display: flex;
   align-items: center;
   gap: 5px;
+  box-sizing: border-box;
+  font-size: 1em;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: left;
 }
 
 .posted-plant-quantity > span {
   color: #383838;
-  font-family: "Proxima Nova Regular";
+  font-family: "Cormorant Semibold";
   font-weight: 100;
-  font-size: 1.3em;
+  font-size: 1.4em;
+}
+
+.posted-plant-date {
+  box-sizing: border-box;
+  font-family: "Proxima Nova Light";
+  font-size: 1em;
+  color: #383838;
+  margin-top: 5px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: left;
 }

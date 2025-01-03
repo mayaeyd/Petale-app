@@ -20,6 +20,8 @@ const PostedPlantDetails = () => {
     images,
   } = postedPlants.find((plant) => plant._id === id);
 
+  const date = harvestDate.split("T")[0];
+
   return (
     <>
       <GardenerNavbar />
@@ -78,6 +80,7 @@ const PostedPlantDetails = () => {
           <p className="posted-plant-quantity">
             Remaining {plantType}s: <span>{quantity}</span>
           </p>
+          <p className="posted-plant-date">Harvested on {date}</p>
         </div>
       </div>
     </>
