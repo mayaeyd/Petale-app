@@ -9,11 +9,6 @@ import FormPopup from "../../components/common/FormPopup";
 
 const GrowingPlantsPage = () => {
   const { plants, loading, error } = useSelector((state) => state.plants);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchPlants());
-  }, [dispatch]);
 
   if (loading) {
     return (
