@@ -82,6 +82,7 @@ const PostPlantForm = () => {
           inputColor="#BE7D86"
           label="Plant Name"
           onChange={(e) => setPlantName(e.target.value)}
+          value={plantName}
         />
         <Input
           inputColor="#BE7D86"
