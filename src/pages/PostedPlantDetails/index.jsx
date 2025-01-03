@@ -75,6 +75,9 @@ const PostedPlantDetails = () => {
           <p className="posted-plant-price">${price}</p>
           <h3>Description</h3>
           <p className="posted-plant-description">{description}</p>
+          <p className="posted-plant-quantity">
+            Remaining {plantType}s: <span>{quantity}</span>
+          </p>
         </div>
       </div>
     </>
