@@ -1,0 +1,12 @@
+.posted-plant-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin-left: 250px;
+}
+
+.posted-plant-details {
+  flex: 1;
+  padding: 1rem;
+}
