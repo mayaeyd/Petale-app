@@ -1,17 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
 import ImageGallery from "../../components/base/ImageGallery";
+import { fetchSoldPlantById } from "../../redux/slices/soldPlantsSlice";
+import { CircularProgress, default as Snackbar } from "@mui/material";
+import React from "react";
 
 const SoldPlantDetails = () => {
   const { id } = useParams();
-  const { soldPlants, loading, error } = useSelector(
+  const dispatch = useDispatch();
+  const { selectedPlant, loading, error } = useSelector(
     (state) => state.soldPlants
   );
+
+  useEffect(() => {
+    dispatch(fetchSoldPlantById(id));
+  }, [dispatch, id]);
+
+  if (loading || !selectedPlant)
+    return (
+      <>
+        <GardenerNavbar />
+        <div
+          style={{
+            marginLeft: "250px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CircularProgress />
+        </div>
+      </>
+    );
+
+  if (error)
+    return (
+      <>
+        <GardenerNavbar />
+        <Snackbar
+          open={true}
+          autoHideDuration={6000}
+          message={`Error: ${error || "Something went wrong"}`}
+        />
+      </>
+    );
+
   const { plantName, plantType, price, description, harvestDate, images } =
-    soldPlants.find((plant) => plant._id === id);
+    selectedPlant;
 
   const date = harvestDate.split("T")[0];
 
