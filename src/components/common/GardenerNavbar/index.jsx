@@ -52,7 +52,12 @@ const GardenerNavbar = () => {
           </svg>
           <p>Growing Plants</p>
         </NavLink>
-        <NavLink className="gardener-nav-link">
+        <NavLink
+          to="/gardener/posted-plants"
+          className={({ isActive }) =>
+            isActive ? "gardener-nav-link active" : "gardener-nav-link"
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -69,9 +74,14 @@ const GardenerNavbar = () => {
             <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
             <path d="m9 14 2 2 4-4" />
           </svg>
-          <p href="/gardener/posted-plants">Posted Plants</p>
+          <p>Posted Plants</p>
         </NavLink>
-        <NavLink className="gardener-nav-link">
+        <NavLink
+          to="/gardener/sold-plants"
+          className={({ isActive }) =>
+            isActive ? "gardener-nav-link active" : "gardener-nav-link"
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -89,12 +99,17 @@ const GardenerNavbar = () => {
             <path d="M7 6h1v4" />
             <path d="m16.71 13.88.7.71-2.82 2.82" />
           </svg>
-          <p href="/gardener/sold-plants">Sold Plants</p>
+          <p>Sold Plants</p>
         </NavLink>
       </div>
 
       <div className="personal-nav-links">
-        <NavLink className="gardener-nav-link">
+        <NavLink
+          to="gardener/profile"
+          className={({ isActive }) =>
+            isActive ? "gardener-nav-link active" : "gardener-nav-link"
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -112,7 +127,12 @@ const GardenerNavbar = () => {
           </svg>
           <p>Profile</p>
         </NavLink>
-        <NavLink className="gardener-nav-link">
+        <NavLink
+          to="gardener/revenue"
+          className={({ isActive }) =>
+            isActive ? "gardener-nav-link active" : "gardener-nav-link"
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
