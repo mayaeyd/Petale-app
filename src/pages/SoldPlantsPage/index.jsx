@@ -11,7 +11,7 @@ const SoldPlantsPage = () => {
   const { loading, soldPlants } = useSelector((state) => state.soldPlants);
 
   const handleClick = (plantId) => {
-    navigate(`/gardener/posted-plants/${plantId}`);
+    navigate(`/gardener/sold-plants/${plantId}`);
   };
 
   if (loading) return <CircularProgress />;
