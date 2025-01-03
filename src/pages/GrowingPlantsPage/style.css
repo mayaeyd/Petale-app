@@ -10,7 +10,7 @@
 
 .growing-plants-container {
   margin-left: 250px;
-  padding-left: 10px;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -27,9 +27,11 @@
 }
 
 .growing-plt-cards-container {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .spinner-container {

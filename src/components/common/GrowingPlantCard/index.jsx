@@ -9,10 +9,12 @@ const GrowingPlantCard = ({ name, date, id }) => {
     navigate(`/gardener/growing-plants/${id}`);
   };
 
+  const plantedDate = date?.split("T")[0];
+
   return (
     <div className="growing-plt-card" onClick={handleClick}>
       <h2>{name}</h2>
-      <p>{date}</p>
+      <p>{plantedDate}</p>
     </div>
   );
 };

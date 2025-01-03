@@ -1,13 +1,12 @@
 .growing-plt-card {
   border: 1px solid #b76e79;
   background-color: #b76e7918;
-  height: 100px;
-  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  height: 100px;
 }
 
 .growing-plt-card > h2 {
