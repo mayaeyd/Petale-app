@@ -6,15 +6,7 @@ import Select from "@mui/material/Select";
 import { useDispatch, useSelector } from "react-redux";
 import { setPlantType } from "../../../redux/slices/plantsSlice";
 
-const DropDown = ({ options, label, inputColor }) => {
-  const [value, setValue] = useState(options[0]?.value || "");
-  const dispatch = useDispatch();
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-    dispatch(setPlantType(event.target.value));
-  };
-
+const DropDown = ({ options, label, inputColor, value, onChange }) => {
   return (
     <>
       <FormControl
@@ -62,7 +54,7 @@ const DropDown = ({ options, label, inputColor }) => {
           id="demo-simple-select"
           value={value}
           label={label}
-          onChange={handleChange}
+          onChange={onChange}
           sx={{ color: inputColor ? inputColor : "#fff" }}
         >
           {options.map((option) => (

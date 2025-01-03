@@ -52,12 +52,17 @@
 }
 
 .post-plant-form > div:last-child {
-  margin-top: 20px;
-  width: auto;
+  margin-top: 30px;
+  width: 280px;
   align-self: center;
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.post-plant-form > div:last-child > div {
+  display: flex;
+  gap: 20px;
 }
 
 .post-plant-form > div:last-child > p:last-child {

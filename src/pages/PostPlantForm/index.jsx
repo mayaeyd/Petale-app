@@ -8,20 +8,18 @@ import DateField from "../../components/base/DateField";
 import TextArea from "../../components/base/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
-import {
-  postNewPlant,
-  setPlantType,
-} from "../../redux/slices/postedPlantsSlice";
+import { postNewPlant } from "../../redux/slices/postedPlantsSlice";
 import { CircularProgress } from "@mui/material";
 
 const PostPlantForm = () => {
-  const { plantType, loading } = useSelector((state) => state.postedPlants);
+  const { loading } = useSelector((state) => state.postedPlants);
 
   const [images, setImages] = useState([]);
 
   const [plantName, setPlantName] = useState("");
-  const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(0);
+  const [plantType, setPlantType] = useState("flower");
+  const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
   const [harvestDate, setHarvestDate] = useState(null);
   const [description, setDescription] = useState("");
 
@@ -78,6 +76,14 @@ const PostPlantForm = () => {
     }
   };
 
+  const handleReset = () => {
+    setPlantName("");
+    setPrice("");
+    setQuantity("");
+    setDescription("");
+    setPlantType("flower");
+  };
+
   if (warning) {
     setInterval(() => setWarning(""), 6000);
   }
@@ -110,6 +116,8 @@ const PostPlantForm = () => {
           label="Plant Type"
           options={[{ value: "flower" }, { value: "plant" }]}
           inputColor="#666"
+          onChange={(event) => setPlantType(event.target.value)}
+          value={plantType}
         />
       </div>
       <div className="post-images-desc">
@@ -132,13 +140,20 @@ const PostPlantForm = () => {
         </div>
       </div>
       <div>
-        <PinkButtonRound
-          label={
-            loading ? <CircularProgress color="inherit" size="20px" /> : "Post"
-          }
-          onClick={handleSubmit}
-          fullWidth
-        />
+        <div>
+          <PinkButtonRound label="Reset" onClick={handleReset} fullWidth />
+          <PinkButtonRound
+            label={
+              loading ? (
+                <CircularProgress color="inherit" size="20px" />
+              ) : (
+                "Post"
+              )
+            }
+            onClick={handleSubmit}
+            fullWidth
+          />
+        </div>
         {successMessage && <p>{successMessage}</p>}
         {warning && <p>{warning}</p>}
       </div>
