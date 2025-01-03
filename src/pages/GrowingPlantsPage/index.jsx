@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPlants } from "../../redux/slices/plantsSlice";
+import { useSelector } from "react-redux";
 import { CircularProgress } from "@mui/material";
 import "./style.css";
 import GrowingPlantCard from "../../components/common/GrowingPlantCard";
@@ -32,8 +31,7 @@ const GrowingPlantsPage = () => {
         <FormPopup />
       </div>
       <div className="growing-plants-container">
-        <h1>Growing Plants</h1>
-        <h2>Plants</h2>
+        <h1>Plants</h1>
         <div className="growing-plt-cards-container">
           {plants.map((plant) =>
             plant.plantType === "plant" ? (
@@ -46,7 +44,7 @@ const GrowingPlantsPage = () => {
             ) : null
           )}
         </div>
-        <h2>Flowers</h2>
+        <h1>Flowers</h1>
         <div className="growing-plt-cards-container">
           {plants.map((plant) =>
             plant.plantType === "flower" ? (
