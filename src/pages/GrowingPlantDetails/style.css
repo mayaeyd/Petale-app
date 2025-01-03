@@ -45,3 +45,17 @@
   font-size: 1em;
   white-space: nowrap;
 }
+
+.plant-details-container > div:last-child {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin-right: 20px;
+}
+
+.sensor-data-container {
+  background-color: #4b58421d;
+  border: 0.5px solid #383838;
+  border-radius: 10px;
+  padding: 20px;
+}
