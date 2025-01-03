@@ -11,16 +11,16 @@ const StyledTextarea = styled("textarea")`
   border-radius: 8px;
   color: #383838;
   background: #ffffff21;
-  border: 2px solid #be7d86;
+  border: 2px solid #666;
   resize: vertical;
   min-height: ${(props) => props.minRows * 24}px;
 
   &:hover {
-    border-color: #be7d86;
+    border-color: #666;
   }
 
   &:focus {
-    border: 3px solid #be7d86;
+    border: 3px solid #666;
     outline: 0;
   }
 `;

@@ -88,19 +88,19 @@ const PostPlantForm = () => {
       <h1>Post your plant for sale</h1>
       <div className="post-inputs-container">
         <Input
-          inputColor="#BE7D86"
+          inputColor="#666"
           label="Plant Name"
           onChange={(e) => setPlantName(e.target.value)}
           value={plantName}
         />
         <Input
-          inputColor="#BE7D86"
+          inputColor="#666"
           label="Price for One"
           onChange={(e) => setPrice(e.target.value)}
           value={price}
         />
         <Input
-          inputColor="#BE7D86"
+          inputColor="#666"
           label="Quantity"
           type="number"
           onChange={(e) => setQuantity(e.target.value)}
@@ -109,7 +109,7 @@ const PostPlantForm = () => {
         <DropDown
           label="Plant Type"
           options={[{ value: "flower" }, { value: "plant" }]}
-          inputColor="#BE7D86"
+          inputColor="#666"
         />
       </div>
       <div className="post-images-desc">
@@ -119,7 +119,7 @@ const PostPlantForm = () => {
         <div className="form-section">
           <DateField
             label="Date Harvested"
-            fieldColor="#BE7D86"
+            fieldColor="#666"
             onChange={(selectedDate) => setHarvestDate(selectedDate)}
           />
           <TextArea
