@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
 import ImageGallery from "../../components/base/ImageGallery";
 import { fetchSoldPlantById } from "../../redux/slices/soldPlantsSlice";
-import { CircularProgress, default as Snackbar } from "@mui/material";
-import React from "react";
+import { CircularProgress, Snackbar } from "@mui/material";
 
 const SoldPlantDetails = () => {
   const { id } = useParams();
