@@ -4,20 +4,31 @@ import { useNavigate } from "react-router-dom";
 import GardenerPlantCard from "../../components/common/GardenerPlantCard";
 import { CircularProgress } from "@mui/material";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
+import "./style.css";
 
 const SoldPlantsPage = () => {
   const navigate = useNavigate();
   const { loading, soldPlants } = useSelector((state) => state.soldPlants);
 
+  const handleClick = (plantId) => {
+    navigate(`/gardener/posted-plants/${plantId}`);
+  };
+
   if (loading) return <CircularProgress />;
-  if (soldPlants) return <div>No sold plants yet</div>;
+  if (soldPlants.length === 0)
+    return (
+      <>
+        <GardenerNavbar />
+        <div style={{ marginLeft: "250px" }}>No sold plants yet</div>
+      </>
+    );
 
   return (
     <div>
       <GardenerNavbar />
       <div className="sold-plants-container">
         <h1>Plants</h1>
-        <div className="posted-cards-container">
+        <div className="sold-cards-container">
           {soldPlants.map((plant) =>
             plant.plantType === "plant" ? (
               <GardenerPlantCard
@@ -32,7 +43,7 @@ const SoldPlantsPage = () => {
           )}
         </div>
         <h1>Flowers</h1>
-        <div className="posted-cards-container">
+        <div className="sold-cards-container">
           {soldPlants.map((plant) =>
             plant.plantType === "flower" ? (
               <GardenerPlantCard
