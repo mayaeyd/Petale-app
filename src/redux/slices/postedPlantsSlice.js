@@ -25,6 +25,18 @@ export const fetchPostedPlants = createAsyncThunk(
   }
 );
 
+export const fetchPostedPlantById = createAsyncThunk(
+  "plants/fetchPostedPlantById",
+  async (plantId) => {
+    const response = await axios.get(`${BASE_URL}/post/${plantId}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return response.data;
+  }
+);
+
 export const postNewPlant = createAsyncThunk(
   "plants/postPlant",
   async (plantDetails) => {
