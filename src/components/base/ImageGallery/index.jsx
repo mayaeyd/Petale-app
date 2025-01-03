@@ -28,6 +28,23 @@ const ImageGallery = ({ images }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Thumbnail Swiper */}
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        spaceBetween={10}
+        slidesPerView={3}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Thumbs]}
+        className="thumb-swiper"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img src={image} alt={`Thumbnail ${index + 1}`} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
