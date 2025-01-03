@@ -12,7 +12,9 @@ const PostedPlantsPage = () => {
   const navigate = useNavigate();
   const { loading, postedPlants } = useSelector((state) => state.postedPlants);
 
-  const handleClick = (plantId) => {};
+  const handleClick = (plantId) => {
+    navigate(`/gardener/posted-plants/${plantId}`);
+  };
 
   if (loading) return <CircularProgress />;
 
@@ -37,7 +39,7 @@ const PostedPlantsPage = () => {
                 title={plant.plantName}
                 description={plant.description}
                 price={plant.price}
-                onClick={handleClick(plant._id)}
+                onClick={() => handleClick(plant._id)}
               />
             ) : null
           )}
@@ -52,7 +54,7 @@ const PostedPlantsPage = () => {
                 title={plant.plantName}
                 description={plant.description}
                 price={plant.price}
-                onClick={handleClick(plant._id)}
+                onClick={() => handleClick(plant._id)}
               />
             ) : null
           )}
