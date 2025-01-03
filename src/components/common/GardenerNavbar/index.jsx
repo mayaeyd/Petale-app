@@ -83,7 +83,7 @@ const GardenerNavbar = () => {
             <path d="M7 6h1v4" />
             <path d="m16.71 13.88.7.71-2.82 2.82" />
           </svg>
-          <a>Sold Plants</a>
+          <a href="/gardener/sold-plants">Sold Plants</a>
         </div>
       </div>
 

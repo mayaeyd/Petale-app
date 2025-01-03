@@ -18,6 +18,7 @@ import PostedPlantsPage from "./pages/PostedPlantsPage";
 import PostPlantForm from "./pages/PostPlantForm";
 import PlantMonitor from "./pages/PlantMonitor";
 import PostedPlantDetails from "./pages/PostedPlantDetails";
+import SoldPlantsPage from "./pages/SoldPlantsPage";
 
 const App = () => {
   return (
@@ -50,6 +51,7 @@ const App = () => {
             element={<PostedPlantDetails />}
           />
           <Route path="/gardener/post-plant" element={<PostPlantForm />} />
+          <Route path="/gardener/sold-plants" element={<SoldPlantsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
