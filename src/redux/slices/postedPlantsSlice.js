@@ -37,7 +37,7 @@ export const postNewPlant = createAsyncThunk(
   }
 );
 
-const plantsSlice = createSlice({
+const postedPlantsSlice = createSlice({
   name: "postedPlants",
   initialState,
   reducers: {
@@ -87,6 +87,6 @@ const plantsSlice = createSlice({
 });
 
 export const { addPlant, removePlant, setImages, clearImages, setPlantType } =
-  plantsSlice.actions;
+  postedPlantsSlice.actions;
 
-export default plantsSlice.reducer;
+export default postedPlantsSlice.reducer;
