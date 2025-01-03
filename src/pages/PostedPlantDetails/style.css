@@ -4,9 +4,19 @@
   padding: 2rem;
   max-width: 1200px;
   margin-left: 250px;
+  padding-top: 3rem;
 }
 
 .posted-plant-details {
   flex: 1;
   padding: 1rem;
+}
+
+.posted-plant-details > h2 {
+  font-family: "Cormorant Semibold";
+  font-size: 2em;
+  padding-bottom: 4px;
+  border-bottom: 0.5px solid #383838;
+  color: #383838;
+  text-align: center;
 }
