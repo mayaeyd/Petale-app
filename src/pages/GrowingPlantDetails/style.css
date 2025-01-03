@@ -1,32 +1,47 @@
 @import url(../../styles/fonts.css);
 
-.plant-details-container{
-    margin-left: 250px;
-    padding-left: 20px;
+.plant-details-container {
+  margin-left: 250px;
+  padding-left: 20px;
 }
 
-.plant-name-type{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.plant-name-type {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.plant-name-type h1 {
-    font-family: "Cormorant Semibold";
-    font-size: 3em;
-    color: rgb(32, 32, 32);
-    border-bottom: 1px solid black;
-    padding-bottom: 10px;
-    padding-top: 30px;
-    padding-left: 5px;
-    width: 40%;
+.plant-name-type > h1 {
+  font-family: "Cormorant Semibold";
+  font-size: 2.7em;
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid #be7d86;
+  color: #383838;
+  width: fit-content;
+  margin-top: 50px;
 }
 
-.plant-name-type h3 {
-    font-family: "Cormorant Regular";
-    font-weight: 100;
-    font-size: 1.2em;
-    color: #474747;
-    padding-left: 5px;
-    text-transform: capitalize;
+.plant-name-type > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.plant-name-type > span > svg {
+  margin-top: 10px;
+}
+
+.plant-name-type > span > p {
+  margin-top: 10px;
+  text-transform: capitalize;
+  color: #777777;
+  font-size: 1.2em;
+  font-family: "Proxima Nova Light";
+}
+
+.planted-date {
+  margin-block: 40px;
+  color: #383838;
+  font-size: 1em;
+  white-space: nowrap;
 }
