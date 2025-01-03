@@ -27,7 +27,18 @@ const soldPlantsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder;
+    builder
+      .addCase(fetchSoldPlants.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchSoldPlants.fulfilled, (state, action) => {
+        state.loading = false;
+        state.soldPlants = action.payload.plants;
+      })
+      .addCase(fetchSoldPlants.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 
