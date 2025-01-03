@@ -4,6 +4,7 @@ import "./style.css";
 import { useSelector } from "react-redux";
 
 const GardenerNavbar = () => {
+  const [active, setActive] = useState(false);
   const { user } = useSelector((state) => state.auth);
 
   return (
@@ -29,7 +30,7 @@ const GardenerNavbar = () => {
       </div>
 
       <div className="plants-nav-links">
-        <div className="gardener-nav-link">
+        <div className={`gardener-nav-link ${active ? "isActive" : ""}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -46,7 +47,7 @@ const GardenerNavbar = () => {
           </svg>
           <a href="/gardener/growing-plants">Growing Plants</a>
         </div>
-        <div className="gardener-nav-link">
+        <div className={`gardener-nav-link ${active ? "isActive" : ""}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -65,7 +66,7 @@ const GardenerNavbar = () => {
           </svg>
           <a href="/gardener/posted-plants">Posted Plants</a>
         </div>
-        <div className="gardener-nav-link">
+        <div className={`gardener-nav-link ${active ? "isActive" : ""}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -88,7 +89,7 @@ const GardenerNavbar = () => {
       </div>
 
       <div className="personal-nav-links">
-        <div className="gardener-nav-link">
+        <div className={`gardener-nav-link ${active ? "isActive" : ""}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -106,7 +107,7 @@ const GardenerNavbar = () => {
           </svg>
           <a>Profile</a>
         </div>
-        <div className="gardener-nav-link">
+        <div className={`gardener-nav-link ${active ? "isActive" : ""}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
