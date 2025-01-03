@@ -18,23 +18,6 @@ const PostedPlantDetails = () => {
     dispatch(fetchPostedPlantById(id));
   }, [dispatch, id]);
 
-  if (loading || !selectedPlant)
-    return (
-      <>
-        <GardenerNavbar />
-        <div
-          style={{
-            marginLeft: "250px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <CircularProgress />
-        </div>
-      </>
-    );
-
   if (error)
     return (
       <>
@@ -44,6 +27,16 @@ const PostedPlantDetails = () => {
           autoHideDuration={6000}
           message={`Error: ${error || "Something went wrong"}`}
         />
+      </>
+    );
+
+  if (loading || !selectedPlant)
+    return (
+      <>
+        <GardenerNavbar />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
+        </div>
       </>
     );
 

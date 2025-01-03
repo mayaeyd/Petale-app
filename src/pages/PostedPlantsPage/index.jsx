@@ -16,7 +16,15 @@ const PostedPlantsPage = () => {
     navigate(`/gardener/posted-plants/${plantId}`);
   };
 
-  if (loading) return <CircularProgress />;
+  if (loading)
+    return (
+      <>
+        <GardenerNavbar />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
+        </div>
+      </>
+    );
 
   return (
     <div>

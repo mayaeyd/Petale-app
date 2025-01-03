@@ -22,15 +22,8 @@ const SoldPlantDetails = () => {
     return (
       <>
         <GardenerNavbar />
-        <div
-          style={{
-            marginLeft: "250px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <CircularProgress />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
         </div>
       </>
     );
