@@ -10,9 +10,9 @@ const PinkButtonRound = ({ label, onClick, endIcon, ...props }) => {
       onClick={() => onClick()}
       {...props}
       sx={{
-        backgroundColor: "#F7D6D6",
-        color: "#BE7D86",
-        border: "3px solid #BE7D86",
+        boxShadow: 0,
+        backgroundColor: "#BE7D86",
+        color: "#F7D6D6",
         borderRadius: "25px",
         marginTop: "10px",
         height: "35px",
@@ -20,14 +20,10 @@ const PinkButtonRound = ({ label, onClick, endIcon, ...props }) => {
         fontSize: "1em",
         textTransform: "capitalize",
         "&:hover": {
-          backgroundColor: "#BE7D86",
-          border: "3px solid #F7D6D6",
-          color: "#F7D6D6",
           "& .MuiSvgIcon-root": {
-            color: "#F7D6D6", 
+            color: "#F7D6D6",
           },
         },
-        
       }}
     >
       {label}
