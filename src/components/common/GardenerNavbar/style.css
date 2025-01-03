@@ -83,6 +83,7 @@
   padding-block: 5px;
   cursor: pointer;
   text-decoration: none !important;
+  transition: all ease 0.5s;
 }
 
 .plants-nav-links {
@@ -91,11 +92,11 @@
 }
 
 .gardener-nav-link:hover {
-  background-color: #f6d1d11b;
+  background-color: #f6d1d117;
   border-radius: 20px;
 }
 
 .active {
-  background-color: #f6d1d11b;
+  background-color: #f6d1d12b;
   border-radius: 20px;
 }
