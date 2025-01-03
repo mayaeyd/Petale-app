@@ -70,6 +70,7 @@ const PostedPlantDetails = () => {
                 <path d="M14.12 14.12 16 16" />
               </svg>
             )}
+            <p>{plantType}</p>
           </span>
         </div>
       </div>

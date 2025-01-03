@@ -18,5 +18,23 @@
   padding-bottom: 5px;
   border-bottom: 0.5px solid #383838;
   color: #383838;
-  text-align: center;
+  width: fit-content;
+}
+
+.posted-plant-details > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.posted-plant-details > span > svg {
+  margin-top: 10px;
+}
+
+.posted-plant-details > span > p {
+  margin-top: 10px;
+  text-transform: capitalize;
+  color: #777777;
+  font-size: 1em;
+  font-family: "Proxima Nova Light";
 }
