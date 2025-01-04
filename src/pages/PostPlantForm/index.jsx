@@ -8,11 +8,17 @@ import DateField from "../../components/base/DateField";
 import TextArea from "../../components/base/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import PinkButtonRound from "../../components/base/PinkButtonRound";
-import { postNewPlant } from "../../redux/slices/postedPlantsSlice";
+import {
+  postExistingPlant,
+  postNewPlant,
+} from "../../redux/slices/postedPlantsSlice";
 import { CircularProgress } from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
 
 const PostPlantForm = ({ newPlant }) => {
   const { loading } = useSelector((state) => state.postedPlants);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const [images, setImages] = useState([]);
 
@@ -45,7 +51,7 @@ const PostPlantForm = ({ newPlant }) => {
     const formData = new FormData();
 
     formData.append("plantName", plantName || newPlant.scientificName);
-    formData.append("plantType", plantType || newPlant.plantType);
+    formData.append("plantType", newPlant.plantType || plantType);
     formData.append("harvestDate", harvestDate);
     formData.append("price", price);
     formData.append("description", description);
@@ -56,7 +62,11 @@ const PostPlantForm = ({ newPlant }) => {
     });
 
     try {
-      await dispatch(postNewPlant(formData));
+      newPlant
+        ? await dispatch(
+            postExistingPlant({ plantDetails: formData, plantId: id })
+          )
+        : await dispatch(postNewPlant(formData));
       setSuccessMessage(
         `${
           plantType.charAt(0).toUpperCase() + plantType.slice(1).toLowerCase()
@@ -68,6 +78,7 @@ const PostPlantForm = ({ newPlant }) => {
       setDescription("");
       setPlantType("flower");
       setImages([]);
+      if (newPlant) navigate("/gardener/growing-plants");
     } catch (error) {
       console.error("Upload error:", error);
     }
