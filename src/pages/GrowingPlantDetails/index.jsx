@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchPlantById, harvestPlant } from "../../redux/slices/plantsSlice";
+import { fetchPlantById } from "../../redux/slices/plantsSlice";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
 import "./style.css";
 import { CircularProgress, Snackbar } from "@mui/material";
-import PinkButtonRound from "../../components/base/PinkButtonRound";
-import AgricultureIcon from "@mui/icons-material/Agriculture";
+import PostPlantForm from "../PostPlantForm";
+import GrowingPlantInfo from "../../components/common/GrowingPlantInfo";
 
 const GrowingPlantDetails = () => {
   const { id } = useParams();
@@ -47,8 +47,6 @@ const GrowingPlantDetails = () => {
     selectedPlant.plant;
 
   const date = plantedDate?.split("T")[0];
-
-  console.log(selectedPlant.plant);
 
   return (
     <>
@@ -103,37 +101,14 @@ const GrowingPlantDetails = () => {
           </span>
         </div>
         <p className="planted-date">Planted on {date}</p>
-        <div>
-          <div className="sensor-data-container">
-            <h2>Environmental Metrics</h2>
-            <div className="sensor-data">
-              <div>
-                <p>Soil Moisture</p>
-                <p>50%</p>
-              </div>
-              <div>
-                <p>Temperature</p>
-                <p>20°C</p>
-              </div>
-              <div>
-                <p>Humidity</p>
-                <p>50%</p>
-              </div>
-            </div>
-          </div>
-          <div className="sensor-data-container">
-            <h2>Automated Watering Schedule</h2>
-          </div>
-        </div>
-        <div>
-          <PinkButtonRound
-            endIcon={<AgricultureIcon />}
-            label="Harvest"
-            fullWidth
-            onClick={() => dispatch(harvestPlant(id))}
-          />
-        </div>
       </div>
+      {isHarvested ? (
+        <PostPlantForm
+          newPlant={{ isHarvested, scientificName, plantedDate, plantType }}
+        />
+      ) : (
+        <GrowingPlantInfo plant={selectedPlant.plant} />
+      )}
     </>
   );
 };
