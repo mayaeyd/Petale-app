@@ -1,5 +1,3 @@
-@import url(../../styles/fonts.css);
-
 .plant-details-container {
   margin-left: 250px;
   padding-left: 20px;
@@ -40,7 +38,7 @@
 }
 
 .planted-date {
-  margin-block: 35px;
+  margin-block: 25px;
   color: #383838;
   font-size: 1em;
   white-space: nowrap;
@@ -51,42 +49,6 @@
   gap: 40px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-right: 20px;
-}
-
-.sensor-data-container {
-  background-color: #be7d861e;
-  border: 0.5px solid #383838;
-  border-radius: 10px;
-  padding-inline: 20px;
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
-
-.sensor-data-container > h2 {
-  font-family: "Cormorant Semibold";
-  color: #383838;
-  text-align: center;
-  padding-bottom: 5px;
-  border-bottom: 0.5px solid #be7d86;
-}
-
-.sensor-data {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
-  padding-inline: 20px;
-}
-
-.sensor-data > div {
-  display: flex;
-  justify-content: space-between;
-}
-
-.sensor-data > div > p {
-  color: #383838;
-  font-family: "Proxima Nova Regular";
-  font-size: 1.1em;
 }
 
 .plant-details-container > div:last-child {
