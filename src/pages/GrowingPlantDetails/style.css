@@ -40,13 +40,13 @@
 }
 
 .planted-date {
-  margin-block: 40px;
+  margin-block: 35px;
   color: #383838;
   font-size: 1em;
   white-space: nowrap;
 }
 
-.plant-details-container > div:last-child {
+.plant-details-container > div:nth-child(3) {
   display: grid;
   gap: 40px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -54,10 +54,12 @@
 }
 
 .sensor-data-container {
-  background-color: #4b58421d;
+  background-color: #be7d861e;
   border: 0.5px solid #383838;
   border-radius: 10px;
-  padding: 20px;
+  padding-inline: 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .sensor-data-container > h2 {
@@ -71,4 +73,18 @@
 .sensor-data {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  padding-inline: 20px;
+}
+
+.sensor-data > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sensor-data > div > p {
+  color: #383838;
+  font-family: "Proxima Nova Regular";
+  font-size: 1.1em;
 }

@@ -5,6 +5,8 @@ import { fetchPlantById } from "../../redux/slices/plantsSlice";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
 import "./style.css";
 import { CircularProgress, Snackbar } from "@mui/material";
+import PinkButtonRound from "../../components/base/PinkButtonRound";
+import AgricultureIcon from "@mui/icons-material/Agriculture";
 
 const GrowingPlantDetails = () => {
   const { id } = useParams();
@@ -101,15 +103,27 @@ const GrowingPlantDetails = () => {
         <div>
           <div className="sensor-data-container">
             <h2>Environmental Metrics</h2>
-          </div>
-          <div className="sensor-data-container">
-            <h2>Environmental Metrics</h2>
             <div className="sensor-data">
               <div>
-                <p></p>
+                <p>Soil Moisture</p>
+                <p>50%</p>
+              </div>
+              <div>
+                <p>Temperature</p>
+                <p>20°C</p>
+              </div>
+              <div>
+                <p>Humidity</p>
+                <p>50%</p>
               </div>
             </div>
           </div>
+          <div className="sensor-data-container">
+            <h2>Automated Watering Schedule</h2>
+          </div>
+        </div>
+        <div>
+          <PinkButtonRound endIcon={<AgricultureIcon />} label="Harvest" />
         </div>
       </div>
     </>
