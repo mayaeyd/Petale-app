@@ -51,7 +51,7 @@
   flex-direction: column;
   font-family: "Cormorant Regular";
   font-weight: 100;
-  font-size: 1.5em;
+  font-size: 1.4em;
   color: white;
   text-transform: capitalize;
 }
@@ -64,6 +64,7 @@
   font-size: 0.9em;
   color: #a1a1a1;
   text-transform: capitalize;
+  width: fit-content;
 }
 
 .gardener-nav-link > p {
