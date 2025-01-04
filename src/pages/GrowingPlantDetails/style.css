@@ -88,3 +88,9 @@
   font-family: "Proxima Nova Regular";
   font-size: 1.1em;
 }
+
+.plant-details-container > div:last-child {
+  width: 200px;
+  justify-self: center;
+  margin-top: 40px;
+}

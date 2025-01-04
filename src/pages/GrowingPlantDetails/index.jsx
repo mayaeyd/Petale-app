@@ -123,7 +123,11 @@ const GrowingPlantDetails = () => {
           </div>
         </div>
         <div>
-          <PinkButtonRound endIcon={<AgricultureIcon />} label="Harvest" />
+          <PinkButtonRound
+            endIcon={<AgricultureIcon />}
+            label="Harvest"
+            fullWidth
+          />
         </div>
       </div>
     </>
