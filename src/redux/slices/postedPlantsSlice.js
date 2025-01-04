@@ -51,7 +51,7 @@ export const postNewPlant = createAsyncThunk(
 
 export const postExistingPlant = createAsyncThunk(
   "plants/postExistingPlant",
-  async (plantDetails, plantId) => {
+  async ({ plantDetails, plantId }) => {
     const response = await axios.post(
       `${BASE_URL}/post/${plantId}`,
       plantDetails,
