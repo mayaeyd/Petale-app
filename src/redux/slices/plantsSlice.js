@@ -127,6 +127,17 @@ const plantsSlice = createSlice({
       .addCase(addNewPlant.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(harvestPlant.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(harvestPlant.fulfilled, (state, action) => {
+        state.loading = false;
+        state.newPlant = action.payload.plant;
+      })
+      .addCase(harvestPlant.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
