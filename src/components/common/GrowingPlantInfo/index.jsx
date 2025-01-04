@@ -6,7 +6,7 @@ import AgricultureIcon from "@mui/icons-material/Agriculture";
 import PinkButtonRound from "../../base/PinkButtonRound";
 import { harvestPlant } from "../../../redux/slices/plantsSlice";
 
-const GrowingPlantInfo = ({ plant }) => {
+const GrowingPlantInfo = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
