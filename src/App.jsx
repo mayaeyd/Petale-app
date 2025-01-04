@@ -7,19 +7,19 @@ import SignUpUser from "./pages/auth/SignUpUser";
 import Login from "./pages/auth/Login";
 
 import RolePage from "./pages/auth/RolePage";
-import UserHomePage from "./pages/UserHomePage";
-import GrowingPlantsPage from "./pages/GrowingPlantsPage";
-import GrowingPlantDetails from "./pages/GrowingPlantDetails";
+import UserHomePage from "./pages/user/UserHomePage";
+import GrowingPlantsPage from "./pages/gardener/GrowingPlantsPage";
+import GrowingPlantDetails from "./pages/gardener/GrowingPlantDetails";
 
 import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
-import FlowerRecognition from "./pages/FlowerRecognition";
-import PostedPlantsPage from "./pages/PostedPlantsPage";
-import PostPlantForm from "./pages/PostPlantForm";
-import PlantMonitor from "./pages/PlantMonitor";
-import PostedPlantDetails from "./pages/PostedPlantDetails";
-import SoldPlantsPage from "./pages/SoldPlantsPage";
-import SoldPlantDetails from "./pages/SoldPlantDetails";
+import FlowerRecognition from "./pages/user/FlowerRecognition";
+import PostedPlantsPage from "./pages/gardener/PostedPlantsPage";
+import PostPlantForm from "./pages/gardener/PostPlantForm";
+import PlantMonitor from "./pages/gardener/PlantMonitor";
+import PostedPlantDetails from "./pages/gardener/PostedPlantDetails";
+import SoldPlantsPage from "./pages/gardener/SoldPlantsPage";
+import SoldPlantDetails from "./pages/gardener/SoldPlantDetails";
 
 const App = () => {
   return (

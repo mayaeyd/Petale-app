@@ -1,5 +1,3 @@
-@import url("../../../styles/fonts.css");
-
 .main-container {
   background-color: #4b5842;
   height: 100vh;
@@ -87,7 +85,7 @@
 }
 
 .error-message {
-  color: #FF6347;
+  color: #ff6347;
   margin-top: "3px";
   font-family: "Proxima Nova Regular";
 }

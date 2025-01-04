@@ -1,12 +1,12 @@
 import React from "react";
-import GardenerNavbar from "../../components/common/GardenerNavbar";
-import PinkButtonRound from "../../components/base/PinkButtonRound";
+import GardenerNavbar from "../../../components/common/GardenerNavbar";
+import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CircularProgress } from "@mui/material";
-import GardenerPlantCard from "../../components/common/GardenerPlantCard";
+import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
 
 const PostedPlantsPage = () => {
   const navigate = useNavigate();

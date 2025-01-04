@@ -1,22 +1,32 @@
 import React, { useEffect } from "react";
 import "./style.css";
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import GardenerNavbar from "../../components/common/GardenerNavbar";
-import ImageGallery from "../../components/base/ImageGallery";
-import { fetchPostedPlantById } from "../../redux/slices/postedPlantsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import GardenerNavbar from "../../../components/common/GardenerNavbar";
+import ImageGallery from "../../../components/base/ImageGallery";
+import { fetchSoldPlantById } from "../../../redux/slices/soldPlantsSlice";
 import { CircularProgress, Snackbar } from "@mui/material";
 
-const PostedPlantDetails = () => {
+const SoldPlantDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { selectedPlant, loading, error } = useSelector(
-    (state) => state.postedPlants
+    (state) => state.soldPlants
   );
 
   useEffect(() => {
-    dispatch(fetchPostedPlantById(id));
+    dispatch(fetchSoldPlantById(id));
   }, [dispatch, id]);
+
+  if (loading || !selectedPlant)
+    return (
+      <>
+        <GardenerNavbar />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
+        </div>
+      </>
+    );
 
   if (error)
     return (
@@ -30,25 +40,8 @@ const PostedPlantDetails = () => {
       </>
     );
 
-  if (loading || !selectedPlant)
-    return (
-      <>
-        <GardenerNavbar />
-        <div className="spinner-container">
-          <CircularProgress color="success" />
-        </div>
-      </>
-    );
-
-  const {
-    plantName,
-    plantType,
-    price,
-    description,
-    harvestDate,
-    quantity,
-    images,
-  } = selectedPlant;
+  const { plantName, plantType, price, description, harvestDate, images } =
+    selectedPlant;
 
   const date = harvestDate.split("T")[0];
 
@@ -56,9 +49,9 @@ const PostedPlantDetails = () => {
     <>
       <GardenerNavbar />
 
-      <div className="posted-plant-container">
+      <div className="sold-plant-container">
         <ImageGallery images={images} />
-        <div className="posted-plant-details">
+        <div className="sold-plant-details">
           <h2>{plantName}</h2>
           <span>
             {plantType === "plant" ? (
@@ -104,17 +97,14 @@ const PostedPlantDetails = () => {
             )}
             <p>{plantType}</p>
           </span>
-          <p className="posted-plant-price">${price}</p>
+          <p className="sold-plant-price">${price}</p>
           <h3>Description</h3>
-          <p className="posted-plant-description">{description}</p>
-          <p className="posted-plant-quantity">
-            Remaining {plantType}s: <span>{quantity}</span>
-          </p>
-          <p className="posted-plant-date">Harvested on {date}</p>
+          <p className="sold-plant-description">{description}</p>
+          <p className="sold-plant-date">Harvested on {date}</p>
         </div>
       </div>
     </>
   );
 };
 
-export default PostedPlantDetails;
+export default SoldPlantDetails;

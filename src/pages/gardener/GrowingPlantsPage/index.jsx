@@ -1,10 +1,10 @@
 import React from "react";
-import GardenerNavbar from "../../components/common/GardenerNavbar";
+import GardenerNavbar from "../../../components/common/GardenerNavbar";
 import { useSelector } from "react-redux";
 import { CircularProgress } from "@mui/material";
 import "./style.css";
-import GrowingPlantCard from "../../components/common/GrowingPlantCard";
-import FormPopup from "../../components/common/FormPopup";
+import GrowingPlantCard from "../../../components/common/GrowingPlantCard";
+import FormPopup from "../../../components/common/FormPopup";
 
 const GrowingPlantsPage = () => {
   const { plants, loading, error } = useSelector((state) => state.plants);

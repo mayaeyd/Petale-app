@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
-import UserNavbar from "../../components/common/UserNavbar";
-import Footer from "../../components/common/Footer";
-import FlowerUpload from "../../components/common/FlowerUpload";
-import BackgroundFlower from "../../assets/images/BackgroundFlower";
+import UserNavbar from "../../../components/common/UserNavbar";
+import Footer from "../../../components/common/Footer";
+import FlowerUpload from "../../../components/common/FlowerUpload";
+import BackgroundFlower from "../../../assets/images/BackgroundFlower";
 import { useSelector } from "react-redux";
 
 const FlowerRecognition = () => {

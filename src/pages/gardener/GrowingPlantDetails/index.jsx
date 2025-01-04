@@ -1,24 +1,25 @@
 import React, { useEffect } from "react";
-import "./style.css";
-import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import GardenerNavbar from "../../components/common/GardenerNavbar";
-import ImageGallery from "../../components/base/ImageGallery";
-import { fetchSoldPlantById } from "../../redux/slices/soldPlantsSlice";
+import { useParams } from "react-router-dom";
+import { fetchPlantById } from "../../../redux/slices/plantsSlice";
+import GardenerNavbar from "../../../components/common/GardenerNavbar";
+import "./style.css";
 import { CircularProgress, Snackbar } from "@mui/material";
+import PostPlantForm from "../PostPlantForm";
+import GrowingPlantInfo from "../../../components/common/GrowingPlantInfo";
 
-const SoldPlantDetails = () => {
+const GrowingPlantDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { selectedPlant, loading, error } = useSelector(
-    (state) => state.soldPlants
+  const { selectedPlant, loading, error, newPlant } = useSelector(
+    (state) => state.plants
   );
 
   useEffect(() => {
-    dispatch(fetchSoldPlantById(id));
-  }, [dispatch, id]);
+    dispatch(fetchPlantById(id));
+  }, [dispatch, id, newPlant]);
 
-  if (loading || !selectedPlant)
+  if (loading) {
     return (
       <>
         <GardenerNavbar />
@@ -27,32 +28,33 @@ const SoldPlantDetails = () => {
         </div>
       </>
     );
+  }
 
   if (error)
     return (
-      <>
-        <GardenerNavbar />
-        <Snackbar
-          open={true}
-          autoHideDuration={6000}
-          message={`Error: ${error || "Something went wrong"}`}
-        />
-      </>
+      <Snackbar
+        open={true}
+        autoHideDuration={6000}
+        message={`Error: ${error || "Something went wrong"}`}
+      />
     );
 
-  const { plantName, plantType, price, description, harvestDate, images } =
-    selectedPlant;
+  if (!selectedPlant) {
+    return <div>No plant data available</div>;
+  }
 
-  const date = harvestDate.split("T")[0];
+  const { isHarvested, scientificName, plantedDate, plantType } =
+    selectedPlant.plant;
+
+  const date = plantedDate?.split("T")[0];
 
   return (
     <>
       <GardenerNavbar />
+      <div className="plant-details-container">
+        <div className="plant-name-type">
+          <h1>{scientificName}</h1>
 
-      <div className="sold-plant-container">
-        <ImageGallery images={images} />
-        <div className="sold-plant-details">
-          <h2>{plantName}</h2>
           <span>
             {plantType === "plant" ? (
               <svg
@@ -97,14 +99,18 @@ const SoldPlantDetails = () => {
             )}
             <p>{plantType}</p>
           </span>
-          <p className="sold-plant-price">${price}</p>
-          <h3>Description</h3>
-          <p className="sold-plant-description">{description}</p>
-          <p className="sold-plant-date">Harvested on {date}</p>
         </div>
+        <p className="planted-date">Planted on {date}</p>
       </div>
+      {isHarvested ? (
+        <PostPlantForm
+          newPlant={{ isHarvested, scientificName, plantedDate, plantType }}
+        />
+      ) : (
+        <GrowingPlantInfo plant={selectedPlant.plant} />
+      )}
     </>
   );
 };
 
-export default SoldPlantDetails;
+export default GrowingPlantDetails;

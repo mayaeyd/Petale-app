@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import GardenerPlantCard from "../../components/common/GardenerPlantCard";
+import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
 import { CircularProgress } from "@mui/material";
-import GardenerNavbar from "../../components/common/GardenerNavbar";
+import GardenerNavbar from "../../../components/common/GardenerNavbar";
 import "./style.css";
 
 const SoldPlantsPage = () => {

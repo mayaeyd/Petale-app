@@ -1,10 +1,10 @@
 import React from "react";
-import UserNavbar from "../../components/common/UserNavbar";
-import Footer from "../../components/common/Footer";
-import MasonryHero from "../../components/base/MasonryHero";
+import UserNavbar from "../../../components/common/UserNavbar";
+import Footer from "../../../components/common/Footer";
+import MasonryHero from "../../../components/base/MasonryHero";
 import "./style.css";
-import PinkButtonRound from "../../components/base/PinkButtonRound";
-import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
+import PinkButtonRound from "../../../components/base/PinkButtonRound";
+import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
 
 const UserHomePage = () => {
   return (

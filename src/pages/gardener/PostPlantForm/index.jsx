@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import GardenerNavbar from "../../components/common/GardenerNavbar";
+import GardenerNavbar from "../../../components/common/GardenerNavbar";
 import "./style.css";
-import Input from "../../components/base/Input";
-import DropDown from "../../components/base/DropDown";
-import MultipleImageUpload from "../../components/common/MultipleImageUpload";
-import DateField from "../../components/base/DateField";
-import TextArea from "../../components/base/TextArea";
+import Input from "../../../components/base/Input";
+import DropDown from "../../../components/base/DropDown";
+import MultipleImageUpload from "../../../components/common/MultipleImageUpload";
+import DateField from "../../../components/base/DateField";
+import TextArea from "../../../components/base/TextArea";
 import { useDispatch, useSelector } from "react-redux";
-import PinkButtonRound from "../../components/base/PinkButtonRound";
+import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import {
   postExistingPlant,
   postNewPlant,
-} from "../../redux/slices/postedPlantsSlice";
+} from "../../../redux/slices/postedPlantsSlice";
 import { CircularProgress } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 
