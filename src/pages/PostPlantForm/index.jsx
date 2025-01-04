@@ -33,22 +33,19 @@ const PostPlantForm = ({ newPlant }) => {
   };
 
   const handleSubmit = async () => {
-    if (
-      !plantName ||
-      !price ||
-      !harvestDate ||
-      !description ||
-      !images ||
-      !plantType
-    ) {
+    if (!price || !harvestDate || !description || !images || !plantType) {
+      setWarning("All fields are required");
+      return;
+    }
+    if (!newPlant && !plantName) {
       setWarning("All fields are required");
       return;
     }
 
     const formData = new FormData();
 
-    formData.append("plantName", plantName);
-    formData.append("plantType", plantType);
+    formData.append("plantName", plantName || newPlant.scientificName);
+    formData.append("plantType", plantType || newPlant.plantType);
     formData.append("harvestDate", harvestDate);
     formData.append("price", price);
     formData.append("description", description);
