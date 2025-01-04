@@ -11,7 +11,7 @@ import PinkButtonRound from "../../components/base/PinkButtonRound";
 import { postNewPlant } from "../../redux/slices/postedPlantsSlice";
 import { CircularProgress } from "@mui/material";
 
-const PostPlantForm = () => {
+const PostPlantForm = ({ newPlant }) => {
   const { loading } = useSelector((state) => state.postedPlants);
 
   const [images, setImages] = useState([]);
@@ -91,13 +91,15 @@ const PostPlantForm = () => {
   return (
     <div className="post-plant-form">
       <GardenerNavbar />
-      <h1>Post your plant for sale</h1>
+      <h1 style={newPlant ? { display: "none" } : null}>
+        Post your plant for sale
+      </h1>
       <div className="post-inputs-container">
         <Input
           inputColor="#666"
           label="Plant Name"
           onChange={(e) => setPlantName(e.target.value)}
-          value={plantName}
+          value={newPlant ? newPlant.scientificName : plantName}
         />
         <Input
           inputColor="#666"
@@ -117,7 +119,7 @@ const PostPlantForm = () => {
           options={[{ value: "flower" }, { value: "plant" }]}
           inputColor="#666"
           onChange={(event) => setPlantType(event.target.value)}
-          value={plantType}
+          value={newPlant ? newPlant.plantType : plantType}
         />
       </div>
       <div className="post-images-desc">
@@ -147,7 +149,7 @@ const PostPlantForm = () => {
               loading ? (
                 <CircularProgress color="inherit" size="20px" />
               ) : (
-                "Post"
+                "Post for sale"
               )
             }
             onClick={handleSubmit}
