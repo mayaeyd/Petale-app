@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchPlantById } from "../../redux/slices/plantsSlice";
+import { fetchPlantById, harvestPlant } from "../../redux/slices/plantsSlice";
 import GardenerNavbar from "../../components/common/GardenerNavbar";
 import "./style.css";
 import { CircularProgress, Snackbar } from "@mui/material";
@@ -11,13 +11,13 @@ import AgricultureIcon from "@mui/icons-material/Agriculture";
 const GrowingPlantDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { selectedPlant, loading, error } = useSelector(
+  const { selectedPlant, loading, error, newPlant } = useSelector(
     (state) => state.plants
   );
 
   useEffect(() => {
     dispatch(fetchPlantById(id));
-  }, [dispatch, id]);
+  }, [dispatch, id, newPlant]);
 
   if (loading) {
     return (
@@ -43,9 +43,12 @@ const GrowingPlantDetails = () => {
     return <div>No plant data available</div>;
   }
 
-  const { scientificName, plantedDate, plantType } = selectedPlant.plant;
+  const { isHarvested, scientificName, plantedDate, plantType } =
+    selectedPlant.plant;
 
   const date = plantedDate?.split("T")[0];
+
+  console.log(selectedPlant.plant);
 
   return (
     <>
@@ -127,6 +130,7 @@ const GrowingPlantDetails = () => {
             endIcon={<AgricultureIcon />}
             label="Harvest"
             fullWidth
+            onClick={() => dispatch(harvestPlant(id))}
           />
         </div>
       </div>
