@@ -53,32 +53,38 @@ const SignUpUser = () => {
               label="First Name"
               type="text"
               onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
             />
             <Input
               label="Last Name"
               type="text"
               onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
             />
           </div>
           <Input
             label="Email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <Input
             label="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           <Input
             label="Confirm Password"
             type="password"
             onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
           />
           <Input
             label=""
             type="tel"
             onChange={(e) => setPhoneNumber(e.target.value)}
+            value={phoneNumber}
           />
           <WhiteButton
             label={

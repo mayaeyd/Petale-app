@@ -65,11 +65,13 @@ const Login = () => {
             label="Email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <Input
             label="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           <WhiteButton
             label={
