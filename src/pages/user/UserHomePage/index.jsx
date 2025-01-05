@@ -5,11 +5,15 @@ import "./style.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroSection from "../../../components/base/HeroSection";
+import { useSelector } from "react-redux";
+import { CircularProgress } from "@mui/material";
+import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const UserHomePage = () => {
   const textRef = useRef(null);
+  const { loading, trendingPosts } = useSelector((state) => state.marketplace);
 
   useEffect(() => {
     gsap.from(textRef.current, {
@@ -28,6 +32,8 @@ const UserHomePage = () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
+
+  if (loading) return <CircularProgress color="success" />;
 
   return (
     <div>
@@ -52,7 +58,17 @@ const UserHomePage = () => {
         </div>
       </section>
       <section className="trending-flowers">
-        <div></div>
+        <div>
+          {trendingPosts.map((post) => (
+            <GardenerPlantCard
+              key={post._id}
+              imageSrc={post.images[0]}
+              title={post.plantName}
+              description={post.description}
+              price={post.price}
+            />
+          ))}
+        </div>
       </section>
       <Footer />
     </div>
