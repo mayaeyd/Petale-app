@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
+import { useSelector } from "react-redux";
 import UserNavbar from "../../../components/common/UserNavbar";
 import Footer from "../../../components/common/Footer";
-import FlowerUpload from "../../../components/common/FlowerUpload";
 import BackgroundFlower from "../../../assets/images/BackgroundFlower";
-import { useSelector } from "react-redux";
+import FlowerUpload from "../../../components/common/FlowerUpload";
 
 const FlowerRecognition = () => {
   const { prediction } = useSelector((state) => state.flower);
