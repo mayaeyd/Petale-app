@@ -1,13 +1,12 @@
-import { ShoppingCart } from "@mui/icons-material";
+import { Fab } from "@mui/material";
+import { ShoppingCart } from "lucide-react";
 import React from "react";
 
 const CartButton = ({ ...props }) => {
   return (
-    <div className="cart-button-container">
-      <button>
-        <ShoppingCart strokeWidth="1" />
-      </button>
-    </div>
+    <Fab sx={{ backgroundColor: "black", height: "40px", width: "40px" }}>
+      <ShoppingCart color="#fff" />
+    </Fab>
   );
 };
 

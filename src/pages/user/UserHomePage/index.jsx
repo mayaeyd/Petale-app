@@ -8,6 +8,7 @@ import HeroSection from "../../../components/base/HeroSection";
 import { useSelector } from "react-redux";
 import { CircularProgress } from "@mui/material";
 import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
+import CartButton from "../../../components/base/CartButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,7 +67,9 @@ const UserHomePage = () => {
               title={post.plantName}
               description={post.description}
               price={post.price}
-            />
+            >
+              <CartButton />
+            </GardenerPlantCard>
           ))}
         </div>
       </section>
