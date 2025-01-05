@@ -4,7 +4,6 @@ import Footer from "../../../components/common/Footer";
 import "./style.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroimage from "../../../assets/images/HeroImage/hero-image.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,9 +11,12 @@ const UserHomePage = () => {
   const heroRef = useRef(null);
   const imageRef = useRef(null);
   const titleRef = useRef(null);
+  const subTitleRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({
+    gsap.to(imageRef.current, {
+      yPercent: 30,
+      ease: "none",
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
@@ -23,58 +25,40 @@ const UserHomePage = () => {
       },
     });
 
-    tl.to(imageRef.current, {
-      yPercent: 50,
+    gsap.to(titleRef.current, {
+      yPercent: 250,
       ease: "none",
-    }).to(
-      titleRef.current,
-      {
-        yPercent: 100,
-        ease: "none",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
       },
-      0
-    );
+    });
+
+    gsap.to(subTitleRef.current, {
+      yPercent: 900,
+      ease: "none",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
 
     return () => {
-      tl.kill();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
+
   return (
     <div>
       <UserNavbar />
-      <section
-        ref={heroRef}
-        style={{
-          height: "90vh",
-          overflow: "hidden",
-          position: "relative",
-        }}
-      >
-        <div
-          ref={imageRef}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backgroundImage: `url(${heroimage})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundColor: "#E4E5E7",
-          }}
-        />
-        <h1
-          ref={titleRef}
-          style={{
-            position: "absolute",
-            width: "100%",
-            textAlign: "center",
-            top: "20%",
-            color: "black",
-          }}
-        >
-          PETALE
-        </h1>
+      <section ref={heroRef} className="hero-section">
+        <div ref={imageRef} className="hero-image" />
+        <h1 ref={titleRef}>PÉTALE</h1>
+        <h2 ref={subTitleRef}>Experience the Pétale Island</h2>
       </section>
       <section
         style={{ height: "100vh", backgroundColor: "#be8d86" }}
