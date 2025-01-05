@@ -4,7 +4,17 @@ import React from "react";
 
 const CartButton = ({ ...props }) => {
   return (
-    <Fab sx={{ backgroundColor: "black", height: "40px", width: "40px" }}>
+    <Fab
+      sx={{
+        backgroundColor: "black",
+        height: "40px",
+        width: "40px",
+        transition: "background-color 0.5s ease",
+        "&:hover": {
+          backgroundColor: "#383838",
+        },
+      }}
+    >
       <ShoppingCart color="#fff" />
     </Fab>
   );
