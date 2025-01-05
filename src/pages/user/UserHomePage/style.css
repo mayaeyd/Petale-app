@@ -38,3 +38,11 @@
   font-size: 1.5em;
   letter-spacing: 10px;
 }
+
+.trending-flowers {
+  background-image: url("../../../assets/images/TrendingFlowers/trending-flowers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}

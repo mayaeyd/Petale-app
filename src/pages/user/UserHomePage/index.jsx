@@ -60,9 +60,7 @@ const UserHomePage = () => {
         <h1 ref={titleRef}>PÉTALE</h1>
         <h2 ref={subTitleRef}>Experience the Pétale Island</h2>
       </section>
-      <section
-        style={{ height: "100vh", backgroundColor: "#be8d86" }}
-      ></section>
+      <section className="trending-flowers"></section>
       <Footer />
     </div>
   );
