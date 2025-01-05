@@ -60,7 +60,10 @@ const UserHomePage = () => {
         <h1 ref={titleRef}>PÉTALE</h1>
         <h2 ref={subTitleRef}>Experience the Pétale Island</h2>
       </section>
-      <section className="trending-flowers"></section>
+
+      <section className="trending-flowers">
+        <div></div>
+      </section>
       <Footer />
     </div>
   );

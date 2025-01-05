@@ -39,10 +39,24 @@
   letter-spacing: 10px;
 }
 
+.welcome-section {
+  background-color: #4b58429a;
+  height: 100vh;
+}
+
 .trending-flowers {
   background-image: url("../../../assets/images/TrendingFlowers/trending-flowers.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trending-flowers > div {
+  width: 70%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.424);
 }
