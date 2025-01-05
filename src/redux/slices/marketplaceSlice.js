@@ -7,6 +7,16 @@ const initialState = {
   error: null,
 };
 
+export const getAllPosts = createAsyncThunk(
+  "marketplace/getAllPosts",
+  async () => {
+    try {
+    } catch (error) {
+      return error.message;
+    }
+  }
+);
+
 const marketplaceSlice = createSlice({
   name: "marketplace",
   initialState,
