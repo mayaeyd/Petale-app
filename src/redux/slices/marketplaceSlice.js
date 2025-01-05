@@ -30,7 +30,18 @@ const marketplaceSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder;
+    builder
+      .addCase(getAllPosts.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getAllPosts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.posts = action.payload.allListings;
+      })
+      .addCase(getAllPosts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
