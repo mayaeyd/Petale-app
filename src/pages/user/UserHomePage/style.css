@@ -1,47 +1,32 @@
-.hero-section {
-  height: 90vh;
-  overflow: hidden;
-  position: relative;
-}
-
-.hero-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("../../../assets/images/HeroImage/hero-image.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  background-color: #e4e5e7;
-}
-
-.hero-section > h1 {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: 15%;
-  color: #383838;
-  font-family: "Cormorant Regular";
-  font-weight: 100;
-  font-size: 5em;
-  letter-spacing: 30px;
-}
-
-.hero-section > h2 {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: 28%;
-  color: #383838;
-  font-family: "Cormorant Regular";
-  font-weight: 100;
-  font-size: 1.5em;
-  letter-spacing: 10px;
-}
-
 .welcome-section {
   background-color: #4b58429a;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-section > div {
+  height: 80vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-section > div > h1 {
+}
+
+.welcome-section > div > p {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
+  font-family: "Proxima Nova Thin";
+  font-size: 1.3em;
+  line-height: 35px;
 }
 
 .trending-flowers {
