@@ -14,6 +14,7 @@ const CartButton = ({ ...props }) => {
           backgroundColor: "#383838",
         },
       }}
+      {...props}
     >
       <ShoppingCart color="#fff" />
     </Fab>
