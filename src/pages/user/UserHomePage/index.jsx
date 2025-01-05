@@ -18,7 +18,7 @@ const UserHomePage = () => {
       duration: 1,
       scrollTrigger: {
         trigger: textRef.current,
-        start: "top bottom-=100",
+        start: "top bottom-=200",
         end: "top center",
         toggleActions: "play none none reverse",
       },
@@ -35,7 +35,7 @@ const UserHomePage = () => {
       <HeroSection />
       <section className="welcome-section">
         <div ref={textRef}>
-          <h1>Welcome to Petale, where nature meets technology</h1>
+          <h1>Welcome to Pétale, where nature meets technology</h1>
           <p>
             Discover our carefully curated collection of plants and flowers,
             each ready to bring life to your space. Whether you're an
