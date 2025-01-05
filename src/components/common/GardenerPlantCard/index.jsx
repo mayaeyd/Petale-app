@@ -6,6 +6,7 @@ const GardenerPlantCard = ({
   title,
   description,
   price,
+  children,
   ...props
 }) => {
   return (
@@ -13,7 +14,9 @@ const GardenerPlantCard = ({
       <div
         className="card-img-container"
         style={{ backgroundImage: `url(${imageSrc})` }}
-      ></div>
+      >
+        <div className="cart-button">{children}</div>
+      </div>
       <div className="card-info-container">
         <h2>{title}</h2>
         <p className="card-description">{description}</p>
