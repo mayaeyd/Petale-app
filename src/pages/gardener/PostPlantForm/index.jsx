@@ -51,7 +51,7 @@ const PostPlantForm = ({ newPlant }) => {
     const formData = new FormData();
 
     formData.append("plantName", plantName || newPlant.scientificName);
-    formData.append("plantType", newPlant.plantType || plantType);
+    formData.append("plantType", newPlant?.plantType || plantType);
     formData.append("harvestDate", harvestDate);
     formData.append("price", price);
     formData.append("description", description);
