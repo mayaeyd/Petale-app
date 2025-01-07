@@ -10,6 +10,8 @@ import Login from "./pages/auth/Login";
 import UserHomePage from "./pages/user/UserHomePage";
 import FlowerRecognition from "./pages/user/FlowerRecognition";
 
+import AdminDashboard from "./pages/admin/AdminDashboard";
+
 import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
 import AdminRoutes from "./components/routes/AdminsRoutes";
@@ -60,7 +62,9 @@ const App = () => {
             element={<SoldPlantDetails />}
           />
         </Route>
-        <Route path="/admin" element={<AdminRoutes />}></Route>
+        <Route path="/admin" element={<AdminRoutes />}>
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
