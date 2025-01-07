@@ -2,18 +2,20 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./styles/fonts.css";
 
+import RolePage from "./pages/auth/RolePage";
 import SignUpGardener from "./pages/auth/SignUpGardener";
 import SignUpUser from "./pages/auth/SignUpUser";
 import Login from "./pages/auth/Login";
 
-import RolePage from "./pages/auth/RolePage";
 import UserHomePage from "./pages/user/UserHomePage";
-import GrowingPlantsPage from "./pages/gardener/GrowingPlantsPage";
-import GrowingPlantDetails from "./pages/gardener/GrowingPlantDetails";
+import FlowerRecognition from "./pages/user/FlowerRecognition";
 
 import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
-import FlowerRecognition from "./pages/user/FlowerRecognition";
+import AdminRoutes from "./components/routes/AdminsRoutes";
+
+import GrowingPlantsPage from "./pages/gardener/GrowingPlantsPage";
+import GrowingPlantDetails from "./pages/gardener/GrowingPlantDetails";
 import PostedPlantsPage from "./pages/gardener/PostedPlantsPage";
 import PostPlantForm from "./pages/gardener/PostPlantForm";
 import PlantMonitor from "./pages/gardener/PlantMonitor";
@@ -58,6 +60,7 @@ const App = () => {
             element={<SoldPlantDetails />}
           />
         </Route>
+        <Route path="/admin" element={<AdminRoutes />}></Route>
       </Routes>
     </BrowserRouter>
   );
