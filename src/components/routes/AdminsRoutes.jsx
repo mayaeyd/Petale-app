@@ -15,23 +15,10 @@ const AdminsRoutes = () => {
     };
 
     checkAuth();
-  }, []);
+  }, [dispatch, user]);
 
-  if (loading) {
-    return null;
-  }
-
-  if (token && !user) {
-    return null;
-  }
-
-  if (!token || !user) {
-    return <Navigate to="/" />;
-  }
-
-  if (user.role !== "user") {
-    return <Navigate to="/" />;
-  }
+  if (loading || (token && !user)) return null;
+  if (!token || !user || user.role !== "admin") return <Navigate to="/" />;
 
   return <Outlet />;
 };
