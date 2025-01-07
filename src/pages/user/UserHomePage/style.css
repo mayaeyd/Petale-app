@@ -44,6 +44,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.trending-flowers > h1 {
+  font-family: "Cormorant Semibold";
+  font-size: 3.5em;
+  color: #383838;
+  position: absolute;
+  top: 7%;
 }
 
 .trending-flowers > div {

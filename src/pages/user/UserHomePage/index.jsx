@@ -59,6 +59,7 @@ const UserHomePage = () => {
         </div>
       </section>
       <section className="trending-flowers">
+        <h1>Trending Plants</h1>
         <div>
           {trendingPosts.map((post) => (
             <GardenerPlantCard
