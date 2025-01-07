@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css";
+import { NavLink } from "react-router-dom";
+import LogoText from "../../../assets/images/LogoText";
 
 const AdminNavbar = () => {
   return (
@@ -81,7 +83,7 @@ const AdminNavbar = () => {
 
       <div className="personal-nav-links">
         <NavLink
-          to="admin/profile"
+          to="/admin/profile"
           className={({ isActive }) =>
             isActive ? "admin-nav-link active" : "admin-nav-link"
           }
