@@ -166,26 +166,31 @@ const adminSlice = createSlice({
 export const { clearErrors, clearSelectedItems } = adminSlice.actions;
 
 export const selectAllUsers = (state) => state.admin.users.items;
+export const selectUsersCount = (state) => state.admin.users.count;
 export const selectSelectedUser = (state) => state.admin.users.selectedUser;
 export const selectUsersLoading = (state) => state.admin.users.loading;
 export const selectUsersError = (state) => state.admin.users.error;
 
 export const selectAllPosts = (state) => state.admin.posts.items;
+export const selectPostsCount = (state) => state.admin.posts.count;
 export const selectSelectedPost = (state) => state.admin.posts.selectedPost;
 export const selectPostsLoading = (state) => state.admin.posts.loading;
 export const selectPostsError = (state) => state.admin.posts.error;
 
 export const selectAllOrders = (state) => state.admin.orders.items;
+export const selectOrdersCount = (state) => state.admin.orders.count;
 export const selectSelectedOrder = (state) => state.admin.orders.selectedOrder;
 export const selectOrdersLoading = (state) => state.admin.orders.loading;
 export const selectOrdersError = (state) => state.admin.orders.error;
 
 export const selectAllPlants = (state) => state.admin.plants.items;
+export const selectPlantsCount = (state) => state.admin.plants.count;
 export const selectSelectedPlant = (state) => state.admin.plants.selectedPlant;
 export const selectPlantsLoading = (state) => state.admin.plants.loading;
 export const selectPlantsError = (state) => state.admin.plants.error;
 
 export const selectSalesData = (state) => state.admin.sales.data;
+export const selectSalesCount = (state) => state.admin.sales.count;
 export const selectSalesLoading = (state) => state.admin.sales.loading;
 export const selectSalesError = (state) => state.admin.sales.error;
 
