@@ -54,7 +54,7 @@ const adminSlice = createSlice({
       state.plants.selectedPlant = null;
     },
   },
-  extraReducers:
+  extraReducers: (builder) => {
     // Users
     builder
       .addCase(userThunks.fetchUsers.pending, (state) => {
@@ -149,7 +149,8 @@ const adminSlice = createSlice({
       .addCase(orderThunks.fetchSales.rejected, (state, action) => {
         state.sales.loading = false;
         state.sales.error = action.error.message;
-      }),
+      });
+  },
 });
 
 export const { clearErrors, clearSelectedItems } = adminSlice.actions;
