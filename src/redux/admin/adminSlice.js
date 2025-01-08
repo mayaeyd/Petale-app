@@ -97,6 +97,25 @@ const adminSlice = createSlice({
         state.posts.items = state.posts.items.filter(
           (post) => post._id !== action.payload.postId
         );
+      })
+
+      // Orders
+      .addCase(orderThunks.fetchOrders.pending, (state) => {
+        state.orders.loading = true;
+        state.orders.error = null;
+      })
+      .addCase(orderThunks.fetchOrders.fulfilled, (state, action) => {
+        state.orders.loading = false;
+        if (Array.isArray(action.payload.data)) {
+          state.orders.items = action.payload.data;
+          state.orders.selectedOrder = null;
+        } else {
+          state.orders.selectedOrder = action.payload.data;
+        }
+      })
+      .addCase(orderThunks.fetchOrders.rejected, (state, action) => {
+        state.orders.loading = false;
+        state.orders.error = action.error.message;
       }),
 });
 
