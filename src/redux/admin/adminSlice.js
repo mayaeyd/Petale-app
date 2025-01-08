@@ -73,6 +73,30 @@ const adminSlice = createSlice({
       .addCase(userThunks.fetchUsers.rejected, (state, action) => {
         state.users.loading = false;
         state.users.error = action.error.message;
+      })
+
+      // Posts
+      .addCase(postThunks.fetchPosts.pending, (state) => {
+        state.posts.loading = true;
+        state.posts.error = null;
+      })
+      .addCase(postThunks.fetchPosts.fulfilled, (state, action) => {
+        state.posts.loading = false;
+        if (Array.isArray(action.payload.data)) {
+          state.posts.items = action.payload.data;
+          state.posts.selectedPost = null;
+        } else {
+          state.posts.selectedPost = action.payload.data;
+        }
+      })
+      .addCase(postThunks.fetchPosts.rejected, (state, action) => {
+        state.posts.loading = false;
+        state.posts.error = action.error.message;
+      })
+      .addCase(postThunks.deletePost.fulfilled, (state, action) => {
+        state.posts.items = state.posts.items.filter(
+          (post) => post._id !== action.payload.postId
+        );
       }),
 });
 
