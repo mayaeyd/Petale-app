@@ -135,6 +135,20 @@ const adminSlice = createSlice({
       .addCase(plantThunks.fetchPlants.rejected, (state, action) => {
         state.plants.loading = false;
         state.plants.error = action.error.message;
+      })
+
+      // Sales
+      .addCase(orderThunks.fetchSales.pending, (state) => {
+        state.sales.loading = true;
+        state.sales.error = null;
+      })
+      .addCase(orderThunks.fetchSales.fulfilled, (state, action) => {
+        state.sales.loading = false;
+        state.sales.data = action.payload.data;
+      })
+      .addCase(orderThunks.fetchSales.rejected, (state, action) => {
+        state.sales.loading = false;
+        state.sales.error = action.error.message;
       }),
 });
 
