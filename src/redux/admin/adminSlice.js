@@ -54,7 +54,26 @@ const adminSlice = createSlice({
       state.plants.selectedPlant = null;
     },
   },
-  extraReducers: builder,
+  extraReducers:
+    // Users
+    builder
+      .addCase(userThunks.fetchUsers.pending, (state) => {
+        state.users.loading = true;
+        state.users.error = null;
+      })
+      .addCase(userThunks.fetchUsers.fulfilled, (state, action) => {
+        state.users.loading = false;
+        if (Array.isArray(action.payload.data)) {
+          state.users.items = action.payload.data;
+          state.users.selectedUser = null;
+        } else {
+          state.users.selectedUser = action.payload.data;
+        }
+      })
+      .addCase(userThunks.fetchUsers.rejected, (state, action) => {
+        state.users.loading = false;
+        state.users.error = action.error.message;
+      }),
 });
 
 export const { clearErrors, clearSelectedItems } = adminSlice.actions;
