@@ -6,7 +6,7 @@ import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
 import { useDispatch, useSelector } from "react-redux";
 import { RegisterUser } from "../../../redux/slices/authSlice";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 
 const SignUpUser = () => {
@@ -17,6 +17,7 @@ const SignUpUser = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(0);
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.auth);
 
@@ -94,7 +95,10 @@ const SignUpUser = () => {
                 "Sign Up"
               )
             }
-            onClick={() => dispatch(RegisterUser(credentials))}
+            onClick={() => {
+              dispatch(RegisterUser(credentials));
+              navigate("/login");
+            }}
           />
           {error && <p className="error-message">{error.message}</p>}
           <p>

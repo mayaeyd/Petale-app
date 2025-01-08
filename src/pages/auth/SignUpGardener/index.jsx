@@ -22,6 +22,7 @@ const SignUpGardener = () => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.auth);
 
+  const navigate = useNavigate();
   const location = useLocation();
   const role = location.state.role;
 
@@ -112,7 +113,10 @@ const SignUpGardener = () => {
                 "Sign Up"
               )
             }
-            onClick={() => dispatch(RegisterUser(credentials))}
+            onClick={() => {
+              dispatch(RegisterUser(credentials));
+              navigate("/login");
+            }}
           />
           {error && <p className="error-message">{error.message}</p>}
           <p>
