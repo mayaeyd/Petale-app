@@ -7,6 +7,7 @@ import {
 } from "../../../redux/admin/adminSlice";
 import { useSelector } from "react-redux";
 import StickyTable from "../../../components/base/Table";
+import "./style.css";
 
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
@@ -30,10 +31,6 @@ const AdminDashboard = () => {
     { id: "createdat", label: "Created At", minWidth: 100 },
   ];
 
-  function createData(name, role, email, tel, banned, createdat) {
-    return { name, role, email, tel, banned, createdat };
-  }
-
   const rows = users.map((user) =>
     createData(
       `${user.firstName} ${user.lastName}`,
@@ -41,14 +38,25 @@ const AdminDashboard = () => {
       user.email,
       user.phoneNumber,
       user.isBanned.toString(),
-      user.createdAt
+      formatDateTime(user.createdAt)
     )
   );
+
+  function createData(name, role, email, tel, banned, createdat) {
+    return { name, role, email, tel, banned, createdat };
+  }
+
+  function formatDateTime(timestamp) {
+    const dateObj = new Date(timestamp);
+    const formattedDate = dateObj.toISOString().split("T")[0]; // Get date
+    const formattedTime = dateObj.toTimeString().split(" ")[0]; // Get time
+    return `${formattedDate} ${formattedTime}`; // Combine
+  }
 
   return (
     <>
       <AdminNavbar />
-      <div style={{ marginLeft: "250px" }}>
+      <div className="dashboard-info">
         <StickyTable rows={rows} columns={columns} />
       </div>
     </>
