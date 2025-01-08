@@ -39,7 +39,7 @@ const AdminDashboard = () => {
       user.role.charAt(0).toUpperCase() + String(user.role).slice(1),
       user.email,
       user.phoneNumber,
-      user.isBanned.toString(),
+      `${user.isBanned ? "Yes" : "No"}`,
       formatDateTime(user.createdAt)
     )
   );
