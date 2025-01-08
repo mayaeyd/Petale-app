@@ -116,6 +116,25 @@ const adminSlice = createSlice({
       .addCase(orderThunks.fetchOrders.rejected, (state, action) => {
         state.orders.loading = false;
         state.orders.error = action.error.message;
+      })
+
+      // Plants
+      .addCase(plantThunks.fetchPlants.pending, (state) => {
+        state.plants.loading = true;
+        state.plants.error = null;
+      })
+      .addCase(plantThunks.fetchPlants.fulfilled, (state, action) => {
+        state.plants.loading = false;
+        if (Array.isArray(action.payload.data)) {
+          state.plants.items = action.payload.data;
+          state.plants.selectedPlant = null;
+        } else {
+          state.plants.selectedPlant = action.payload.data;
+        }
+      })
+      .addCase(plantThunks.fetchPlants.rejected, (state, action) => {
+        state.plants.loading = false;
+        state.plants.error = action.error.message;
       }),
 });
 
