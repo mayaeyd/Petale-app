@@ -6,4 +6,10 @@ export const userThunks = {
     "admin/fetchUsers",
     async (id = null) => await adminApi.get("users", id)
   ),
+
+  banUser: createAsyncThunk(
+    "admin/banUser",
+    async ({ userId, isBanned }) =>
+      await adminApi.patch("users", userId, { isBanned })
+  ),
 };
