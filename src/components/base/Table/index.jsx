@@ -34,6 +34,11 @@ export default function StickyTable({ columns, rows }) {
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
+                  sx={{
+                    fontFamily: "Cormorant Semibold",
+                    fontSize: "1.1em",
+                    textAlign: "center",
+                  }}
                 >
                   {column.label}
                 </TableCell>
@@ -49,7 +54,14 @@ export default function StickyTable({ columns, rows }) {
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <TableCell
+                          key={column.id}
+                          sx={{
+                            fontFamily: "Proxima Nova Light",
+                            fontSize: "0.9em",
+                            textAlign: "center",
+                          }}
+                        >
                           {column.format && typeof value === "number"
                             ? column.format(value)
                             : value}
