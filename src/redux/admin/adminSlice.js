@@ -35,3 +35,10 @@ const initialState = {
     error: null,
   },
 };
+
+const adminSlice = createSlice({
+  name: "admin",
+  initialState,
+  reducers: {},
+  extraReducers: builder,
+});
