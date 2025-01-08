@@ -11,6 +11,8 @@ import "./style.css";
 
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
+  const firstThreeUsers = users.slice(0, 3);
+
   const usersLoading = useSelector(selectUsersLoading);
   if (usersLoading)
     return (
@@ -31,7 +33,7 @@ const AdminDashboard = () => {
     { id: "createdat", label: "Created At", minWidth: 100 },
   ];
 
-  const rows = users.map((user) =>
+  const rows = firstThreeUsers.map((user) =>
     createData(
       `${user.firstName} ${user.lastName}`,
       user.role.charAt(0).toUpperCase() + String(user.role).slice(1),

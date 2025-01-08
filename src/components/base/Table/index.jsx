@@ -35,9 +35,11 @@ export default function StickyTable({ columns, rows }) {
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
                   sx={{
+                    backgroundColor: "#4b5842",
                     fontFamily: "Cormorant Semibold",
                     fontSize: "1.1em",
                     textAlign: "center",
+                    color: "white",
                   }}
                 >
                   {column.label}
@@ -60,6 +62,7 @@ export default function StickyTable({ columns, rows }) {
                             fontFamily: "Proxima Nova Light",
                             fontSize: "0.9em",
                             textAlign: "center",
+                            color: "#383838",
                           }}
                         >
                           {column.format && typeof value === "number"
