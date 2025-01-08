@@ -7,30 +7,35 @@ import { plantThunks } from "./thunks/plantThunks";
 const initialState = {
   users: {
     items: [],
+    count: 0,
     selectedUser: null,
     loading: false,
     error: null,
   },
   posts: {
     items: [],
+    count: 0,
     selectedPost: null,
     loading: false,
     error: null,
   },
   orders: {
     items: [],
+    count: 0,
     selectedOrder: null,
     loading: false,
     error: null,
   },
   plants: {
     items: [],
+    count: 0,
     selectedPlant: null,
     loading: false,
     error: null,
   },
   sales: {
     data: [],
+    count: 0,
     loading: false,
     error: null,
   },
@@ -65,6 +70,7 @@ const adminSlice = createSlice({
         state.users.loading = false;
         if (Array.isArray(action.payload.data)) {
           state.users.items = action.payload.data;
+          state.users.count = action.payload.count;
           state.users.selectedUser = null;
         } else {
           state.users.selectedUser = action.payload.data;
@@ -84,6 +90,7 @@ const adminSlice = createSlice({
         state.posts.loading = false;
         if (Array.isArray(action.payload.data)) {
           state.posts.items = action.payload.data;
+          state.posts.count = action.payload.count;
           state.posts.selectedPost = null;
         } else {
           state.posts.selectedPost = action.payload.data;
@@ -108,6 +115,7 @@ const adminSlice = createSlice({
         state.orders.loading = false;
         if (Array.isArray(action.payload.data)) {
           state.orders.items = action.payload.data;
+          state.orders.count = action.payload.count;
           state.orders.selectedOrder = null;
         } else {
           state.orders.selectedOrder = action.payload.data;
@@ -127,6 +135,7 @@ const adminSlice = createSlice({
         state.plants.loading = false;
         if (Array.isArray(action.payload.data)) {
           state.plants.items = action.payload.data;
+          state.plants.count = action.payload.count;
           state.plants.selectedPlant = null;
         } else {
           state.plants.selectedPlant = action.payload.data;
@@ -145,6 +154,7 @@ const adminSlice = createSlice({
       .addCase(orderThunks.fetchSales.fulfilled, (state, action) => {
         state.sales.loading = false;
         state.sales.data = action.payload.data;
+        state.sales.count = action.payload.count;
       })
       .addCase(orderThunks.fetchSales.rejected, (state, action) => {
         state.sales.loading = false;
