@@ -63,6 +63,7 @@ export default function StickyTable({ columns, rows, paginate }) {
                             fontSize: "0.9em",
                             textAlign: "center",
                             color: "#383838",
+                            cursor: "pointer",
                           }}
                         >
                           {column.format && typeof value === "number"

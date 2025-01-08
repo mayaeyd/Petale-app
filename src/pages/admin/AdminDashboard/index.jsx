@@ -50,15 +50,16 @@ const AdminDashboard = () => {
 
   function formatDateTime(timestamp) {
     const dateObj = new Date(timestamp);
-    const formattedDate = dateObj.toISOString().split("T")[0]; // Get date
-    const formattedTime = dateObj.toTimeString().split(" ")[0]; // Get time
-    return `${formattedDate} ${formattedTime}`; // Combine
+    const formattedDate = dateObj.toISOString().split("T")[0];
+    const formattedTime = dateObj.toTimeString().split(" ")[0];
+    return `${formattedDate} ${formattedTime}`;
   }
 
   return (
     <>
       <AdminNavbar />
       <div className="dashboard-info">
+        <h1>Recent Users</h1>
         <StickyTable rows={rows} columns={columns} />
       </div>
     </>
