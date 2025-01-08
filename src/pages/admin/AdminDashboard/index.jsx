@@ -14,7 +14,13 @@ import { useSelector } from "react-redux";
 import StickyTable from "../../../components/base/Table";
 import "./style.css";
 import AdminCard from "../../../components/base/AdminCard";
-import { Users } from "lucide-react";
+import {
+  BadgeDollarSign,
+  ClipboardCheck,
+  ShoppingBag,
+  Sprout,
+  Users,
+} from "lucide-react";
 
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
@@ -72,11 +78,33 @@ const AdminDashboard = () => {
     <>
       <AdminNavbar />
       <div className="dashboard-info">
-        <AdminCard
-          label="Total Users"
-          value={usersCount}
-          icon={<Users strokeWidth="1" color="white" />}
-        />
+        <div className="admin-cards-container">
+          <AdminCard
+            label="Total Users"
+            value={usersCount}
+            icon={<Users strokeWidth="1" color="white" />}
+          />
+          <AdminCard
+            label="Active Listings"
+            value={postsCount}
+            icon={<ClipboardCheck strokeWidth="1" color="white" />}
+          />
+          <AdminCard
+            label="Growing Plants"
+            value={plantsCount}
+            icon={<Sprout strokeWidth="1" color="white" />}
+          />
+          <AdminCard
+            label="Total Orders"
+            value={ordersCount}
+            icon={<ShoppingBag strokeWidth="1" color="white" />}
+          />
+          <AdminCard
+            label="Total Sales"
+            value={salesCount}
+            icon={<BadgeDollarSign strokeWidth="1" color="white" />}
+          />
+        </div>
         <h1>Recent Users</h1>
         <StickyTable rows={rows} columns={columns} />
       </div>

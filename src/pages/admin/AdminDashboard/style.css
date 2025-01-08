@@ -15,3 +15,9 @@
   width: fit-content;
   align-self: center;
 }
+
+.admin-cards-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
