@@ -10,4 +10,9 @@ export const postThunks = {
     const response = await adminApi.delete("posts", postId);
     return { postId, ...response };
   }),
+  editPost: createAsyncThunk(
+    "admin/editPost",
+    async ({ postId, postData }) =>
+      await adminApi.put("posts", postId, postData)
+  ),
 };
