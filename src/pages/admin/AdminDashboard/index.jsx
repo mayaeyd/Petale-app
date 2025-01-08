@@ -3,14 +3,18 @@ import AdminNavbar from "../../../components/common/AdminNavbar";
 import { CircularProgress } from "@mui/material";
 import {
   selectAllUsers,
+  selectUsersCount,
   selectUsersLoading,
 } from "../../../redux/admin/adminSlice";
 import { useSelector } from "react-redux";
 import StickyTable from "../../../components/base/Table";
 import "./style.css";
+import AdminCard from "../../../components/base/AdminCard";
+import { Users } from "lucide-react";
 
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
+  const usersCount = useSelector(selectUsersCount);
   const firstThreeUsers = users.slice(0, 3);
 
   const usersLoading = useSelector(selectUsersLoading);
@@ -59,6 +63,11 @@ const AdminDashboard = () => {
     <>
       <AdminNavbar />
       <div className="dashboard-info">
+        <AdminCard
+          label="Total Users"
+          value={usersCount}
+          icon={<Users strokeWidth="1" color="white" />}
+        />
         <h1>Recent Users</h1>
         <StickyTable rows={rows} columns={columns} />
       </div>
