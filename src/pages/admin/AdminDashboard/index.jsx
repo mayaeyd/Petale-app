@@ -3,6 +3,10 @@ import AdminNavbar from "../../../components/common/AdminNavbar";
 import { CircularProgress } from "@mui/material";
 import {
   selectAllUsers,
+  selectOrdersCount,
+  selectPlantsCount,
+  selectPostsCount,
+  selectSalesCount,
   selectUsersCount,
   selectUsersLoading,
 } from "../../../redux/admin/adminSlice";
@@ -15,6 +19,11 @@ import { Users } from "lucide-react";
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
   const usersCount = useSelector(selectUsersCount);
+  const postsCount = useSelector(selectPostsCount);
+  const ordersCount = useSelector(selectOrdersCount);
+  const plantsCount = useSelector(selectPlantsCount);
+  const salesCount = useSelector(selectSalesCount);
+
   const firstThreeUsers = users.slice(0, 3);
 
   const usersLoading = useSelector(selectUsersLoading);
