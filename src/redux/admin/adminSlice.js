@@ -39,6 +39,22 @@ const initialState = {
 const adminSlice = createSlice({
   name: "admin",
   initialState,
-  reducers: {},
+  reducers: {
+    clearErrors: (state) => {
+      state.users.error = null;
+      state.posts.error = null;
+      state.orders.error = null;
+      state.plants.error = null;
+      state.sales.error = null;
+    },
+    clearSelectedItems: (state) => {
+      state.users.selectedUser = null;
+      state.posts.selectedPost = null;
+      state.orders.selectedOrder = null;
+      state.plants.selectedPlant = null;
+    },
+  },
   extraReducers: builder,
 });
+
+export const { clearErrors, clearSelectedItems } = adminSlice.actions;
