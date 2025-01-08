@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-export default function Table({ columns, rows }) {
+export default function StickyTable({ columns, rows }) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
