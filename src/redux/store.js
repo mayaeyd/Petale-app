@@ -5,6 +5,7 @@ import flowerRecognitionReducer from "./slices/flowerRecognitionSlice";
 import postedPlantsReducer from "./slices/postedPlantsSlice";
 import soldPlantsReducer from "./slices/soldPlantsSlice";
 import marketplaceReducer from "./slices/marketplaceSlice";
+import adminReducer from "./admin/adminSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     postedPlants: postedPlantsReducer,
     soldPlants: soldPlantsReducer,
     marketplace: marketplaceReducer,
+    admin: adminReducer,
   },
 });
 
