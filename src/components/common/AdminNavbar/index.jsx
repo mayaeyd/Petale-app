@@ -10,7 +10,7 @@ const AdminNavbar = () => {
       <LogoText />
       <div className="plants-nav-links">
         <NavLink
-          to="/admin/overview"
+          to="/admin/dashboard"
           className={({ isActive }) =>
             isActive ? "admin-nav-link active" : "admin-nav-link"
           }
