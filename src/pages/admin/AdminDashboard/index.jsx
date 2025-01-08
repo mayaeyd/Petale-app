@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AdminNavbar from "../../../components/common/AdminNavbar";
 import { CircularProgress } from "@mui/material";
 import {
@@ -11,21 +11,46 @@ import StickyTable from "../../../components/base/Table";
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
   const usersLoading = useSelector(selectUsersLoading);
-  if (usersLoading) return <CircularProgress />;
+  if (usersLoading)
+    return (
+      <div>
+        <AdminNavbar />
+        <div className="spinner-container">
+          <CircularProgress />
+        </div>
+      </div>
+    );
 
-  console.log(users);
   const columns = [
-    { id: "name", label: "Name", minWidth: 170 },
-    { id: "role", label: "Role", minWidth: 170 },
+    { id: "name", label: "Name", minWidth: 100 },
+    { id: "role", label: "Role", minWidth: 100 },
     { id: "email", label: "Email", minWidth: 100 },
     { id: "tel", label: "Phone Number", minWidth: 100 },
-    { id: "banned", label: "Banned", minWidth: 170 },
-    { id: "createdat", label: "Created At", minWidth: 170 },
+    { id: "banned", label: "Banned", minWidth: 100 },
+    { id: "createdat", label: "Created At", minWidth: 100 },
   ];
+
+  function createData(name, role, email, tel, banned, createdat) {
+    return { name, role, email, tel, banned, createdat };
+  }
+
+  const rows = users.map((user) =>
+    createData(
+      `${user.firstName} ${user.lastName}`,
+      user.role.charAt(0).toUpperCase() + String(user.role).slice(1),
+      user.email,
+      user.phoneNumber,
+      user.isBanned.toString(),
+      user.createdAt
+    )
+  );
 
   return (
     <>
       <AdminNavbar />
+      <div style={{ marginLeft: "250px" }}>
+        <StickyTable rows={rows} columns={columns} />
+      </div>
     </>
   );
 };
