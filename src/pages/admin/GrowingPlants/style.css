@@ -33,8 +33,13 @@ td {
 
 th {
   background-color: #f8f9fa;
-  color: #2c3e50;
+  color: #4b5842;
+  font-family: "Proxima Nova Regular";
   font-weight: 600;
+}
+
+td {
+  font-family: "Proxima Nova Thin";
 }
 
 th.sortable {
