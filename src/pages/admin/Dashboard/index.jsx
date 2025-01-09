@@ -98,8 +98,6 @@ const AdminDashboard = () => {
     )
   );
 
-  console.log("rows ", ordersRows, "columns ", ordersColumns);
-
   function createData(name, role, email, tel, banned, createdat) {
     return { name, role, email, tel, banned, createdat };
   }
