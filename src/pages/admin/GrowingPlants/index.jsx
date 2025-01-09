@@ -23,6 +23,23 @@ const GrowingPlants = () => {
     setSortConfig({ key, direction });
   };
 
+  // Apply sorting to data
+  const sortedGardeners = [...gardeners].sort((a, b) => {
+    if (!sortConfig.key) return 0;
+
+    let aVal = a[sortConfig.key];
+    let bVal = b[sortConfig.key];
+
+    if (sortConfig.key === "plants") {
+      aVal = getGrowingPlantsCount(a.plants);
+      bVal = getGrowingPlantsCount(b.plants);
+    }
+
+    if (aVal < bVal) return sortConfig.direction === "ascending" ? -1 : 1;
+    if (aVal > bVal) return sortConfig.direction === "ascending" ? 1 : -1;
+    return 0;
+  });
+
   return (
     <>
       <AdminNavbar />
