@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AdminNavbar from "../../../components/common/AdminNavbar";
+import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import "./style.css";
 import { useSelector } from "react-redux";
 import { selectAllPlants } from "../../../redux/admin/adminSlice";
@@ -98,14 +99,7 @@ const GrowingPlants = () => {
                   <td>{gardener.location}</td>
                   <td>{getGrowingPlantsCount(gardener.plants)}</td>
                   <td>
-                    <button
-                      className="view-details-btn"
-                      onClick={() => {
-                        /* Navigate to details page */
-                      }}
-                    >
-                      View Details
-                    </button>
+                    <PinkButtonRound label="View Details" />
                   </td>
                 </tr>
               ))}
