@@ -10,7 +10,8 @@ import Login from "./pages/auth/Login";
 import UserHomePage from "./pages/user/UserHomePage";
 import FlowerRecognition from "./pages/user/FlowerRecognition";
 
-import AdminDashboard from "./pages/admin/AdminDashboard";
+import Dashboard from "./pages/admin/Dashboard";
+import Users from "./pages/admin/Users";
 
 import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
@@ -24,7 +25,6 @@ import PlantMonitor from "./pages/gardener/PlantMonitor";
 import PostedPlantDetails from "./pages/gardener/PostedPlantDetails";
 import SoldPlantsPage from "./pages/gardener/SoldPlantsPage";
 import SoldPlantDetails from "./pages/gardener/SoldPlantDetails";
-import UsersPage from "./pages/admin/UsersPage";
 
 const App = () => {
   return (
@@ -64,8 +64,8 @@ const App = () => {
           />
         </Route>
         <Route path="/admin" element={<AdminRoutes />}>
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/users" element={<UsersPage />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/users" element={<Users />} />
         </Route>
       </Routes>
     </BrowserRouter>

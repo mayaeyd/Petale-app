@@ -1,8 +1,8 @@
 import React from "react";
-import "./style.css";
 import AdminNavbar from "../../../components/common/AdminNavbar";
+import "./style.css";
 
-const UsersPage = () => {
+const GrowingPlants = () => {
   return (
     <>
       <AdminNavbar />
@@ -10,4 +10,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default GrowingPlants;
