@@ -3,6 +3,7 @@ import AdminNavbar from "../../../components/common/AdminNavbar";
 import { CircularProgress } from "@mui/material";
 import {
   selectAllListings,
+  selectAllOrders,
   selectAllUsers,
   selectOrdersCount,
   selectPlantsCount,
@@ -31,6 +32,7 @@ const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
   const salesData = useSelector(selectSalesData);
   const listings = useSelector(selectAllListings);
+  const orders = useSelector(selectAllOrders);
 
   const usersCount = useSelector(selectUsersCount);
   const postsCount = useSelector(selectPostsCount);
@@ -40,6 +42,7 @@ const AdminDashboard = () => {
 
   const firstThreeUsers = users.slice(0, 3);
   const firstThreePosts = listings.slice(0, 3);
+  const firstThreeOrders = orders.slice(0, 3);
 
   const salesLoading = useSelector(selectSalesLoading);
   const usersLoading = useSelector(selectUsersLoading);
@@ -53,7 +56,7 @@ const AdminDashboard = () => {
       </div>
     );
 
-  const columns = [
+  const usersColumns = [
     { id: "name", label: "Name", minWidth: 100 },
     { id: "role", label: "Role", minWidth: 100 },
     { id: "email", label: "Email", minWidth: 100 },
@@ -62,7 +65,7 @@ const AdminDashboard = () => {
     { id: "createdat", label: "Created At", minWidth: 100 },
   ];
 
-  const rows = firstThreeUsers.map((user) =>
+  const usersRows = firstThreeUsers.map((user) =>
     createData(
       `${user.firstName} ${user.lastName}`,
       user.role.charAt(0).toUpperCase() + String(user.role).slice(1),
@@ -72,6 +75,15 @@ const AdminDashboard = () => {
       formatDateTime(user.createdAt)
     )
   );
+
+  const ordersColumns = [
+    { id: "name", label: "Buyer Name", minWidth: 100 },
+    { id: "email", label: "Buyer Email", minWidth: 100 },
+    { id: "address", label: "Address", minWidth: 100 },
+    { id: "quantity", label: "Quantity", minWidth: 100 },
+    { id: "price", label: "Total Value", minWidth: 100 },
+    { id: "purchaseDate", label: "Purchase Date", minWidth: 100 },
+  ];
 
   function createData(name, role, email, tel, banned, createdat) {
     return { name, role, email, tel, banned, createdat };
@@ -119,7 +131,7 @@ const AdminDashboard = () => {
         <h1>Analytics</h1>
         <AnalyticsDashboard salesData={salesData} loading={salesLoading} />
         <h1>Recent Users</h1>
-        <StickyTable rows={rows} columns={columns} />
+        <StickyTable rows={usersRows} columns={usersColumns} />
         <h1>Recent Marketplace Listings</h1>
         <div className="recent-listings-container">
           {firstThreePosts.map((post) => (

@@ -30,5 +30,6 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  row-gap: 35px;
   color: #727b6b;
 }
