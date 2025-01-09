@@ -22,6 +22,7 @@ const AdminsRoutes = () => {
         dispatch(plantThunks.fetchPlants());
         dispatch(postThunks.fetchPosts());
         dispatch(orderThunks.fetchOrders());
+        dispatch(orderThunks.fetchSales());
       }
     };
 
