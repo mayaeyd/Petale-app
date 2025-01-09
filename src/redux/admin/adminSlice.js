@@ -13,7 +13,9 @@ const initialState = {
     error: null,
   },
   posts: {
+    // posts with seller's data
     items: [],
+    // posts without seller's data
     listings: [],
     count: 0,
     selectedPost: null,

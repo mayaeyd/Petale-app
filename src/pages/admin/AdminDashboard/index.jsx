@@ -38,8 +38,7 @@ const AdminDashboard = () => {
   const salesCount = useSelector(selectSalesCount);
 
   const firstThreeUsers = users.slice(0, 3);
-  // const firstThreePosts = listings.slice(0, 3);
-  console.log(listings);
+  const firstThreePosts = listings.slice(0, 3);
 
   const usersLoading = useSelector(selectUsersLoading);
   if (usersLoading)
@@ -118,9 +117,17 @@ const AdminDashboard = () => {
         <h1>Recent Users</h1>
         <StickyTable rows={rows} columns={columns} />
         <h1>Recent Marketplace Listings</h1>
-        {/* {firstThreePosts.map((post) => {
-          console.log(post);
-        })} */}
+        <div style={{ display: "flex", width: "100%" }}>
+          {firstThreePosts.map((post) => (
+            <GardenerPlantCard
+              title={post.plantName}
+              price={post.price}
+              description={post.description}
+              imageSrc={post.images[0]}
+              key={post._id}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
