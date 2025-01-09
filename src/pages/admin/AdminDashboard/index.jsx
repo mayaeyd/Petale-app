@@ -2,11 +2,14 @@ import React from "react";
 import AdminNavbar from "../../../components/common/AdminNavbar";
 import { CircularProgress } from "@mui/material";
 import {
+  selectAllOrders,
+  selectAllPosts,
   selectAllUsers,
   selectOrdersCount,
   selectPlantsCount,
   selectPostsCount,
   selectSalesCount,
+  selectSalesData,
   selectUsersCount,
   selectUsersLoading,
 } from "../../../redux/admin/adminSlice";
@@ -78,6 +81,7 @@ const AdminDashboard = () => {
     <>
       <AdminNavbar />
       <div className="dashboard-info">
+        <h1>Overview</h1>
         <div className="admin-cards-container">
           <AdminCard
             label="Total Users"

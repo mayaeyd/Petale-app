@@ -35,7 +35,7 @@ const FormPopup = () => {
   const { loading } = useSelector((state) => state.plants);
   const dispatch = useDispatch();
 
-  if(loading) return <GardenerNavbar />;
+  if (loading) return <GardenerNavbar />;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -46,14 +46,19 @@ const FormPopup = () => {
   };
 
   const handleAdd = async () => {
-    if (!plantedDate || !plantedDate.$y || !plantedDate.$M || !plantedDate.$D) {
+    if (
+      !plantedDate ||
+      !plantedDate.$y ||
+      !(plantedDate.$M + 1) ||
+      !plantedDate.$D
+    ) {
       console.error("Invalid plantedDate", plantedDate);
       return;
     }
 
     const newPlant = {
       scientificName: plantName,
-      plantedDate: `${plantedDate.$y}/${plantedDate.$M}/${plantedDate.$D}`,
+      plantedDate: `${plantedDate.$y}/${plantedDate.$M + 1}/${plantedDate.$D}`,
       plantType,
     };
 
@@ -124,6 +129,7 @@ const FormPopup = () => {
             <Input
               type="text"
               placeholder="Plant Name"
+              value={plantName}
               onChange={(e) => setPlantName(e.target.value)}
             />
             <DateField
@@ -151,11 +157,7 @@ const FormPopup = () => {
           <PinkButtonRound
             onClick={handleAdd}
             label={
-              loading ? (
-                <CircularProgress color="inherit" size="20px" />
-              ) : (
-                "Add"
-              )
+              loading ? <CircularProgress color="inherit" size="20px" /> : "Add"
             }
           />
         </DialogActions>

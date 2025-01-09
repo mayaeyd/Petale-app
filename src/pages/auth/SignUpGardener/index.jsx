@@ -4,7 +4,7 @@ import AuthImage from "../../../assets/images/AuthImage";
 import "./style.css";
 import Input from "../../../components/base/Input";
 import WhiteButton from "../../../components/base/WhiteButton";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RegisterUser } from "../../../redux/slices/authSlice";
 import { CircularProgress } from "@mui/material";
