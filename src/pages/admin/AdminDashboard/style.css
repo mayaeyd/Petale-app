@@ -16,9 +16,12 @@
   align-self: center;
 }
 
+.dashboard-info > h1:not(:first-of-type) {
+  margin-top: 50px;
+}
+
 .admin-cards-container {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  margin-bottom: 40px;
 }

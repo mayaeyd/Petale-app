@@ -111,6 +111,7 @@ const AdminDashboard = () => {
         </div>
         <h1>Recent Users</h1>
         <StickyTable rows={rows} columns={columns} />
+        <h1>Recent Marketplace Listings</h1>
       </div>
     </>
   );
