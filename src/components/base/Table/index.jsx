@@ -67,7 +67,7 @@ export default function StickyTable({ columns, rows, paginate }) {
           disabled={!selectedColumn}
           inputColor="#4b5842"
           height="55px"
-          width="70%"
+          width="280%"
           sx={{ flex: 3 }}
         />
       </Box>

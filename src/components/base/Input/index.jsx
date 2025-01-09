@@ -37,6 +37,7 @@ const Input = ({
       }}
       sx={{
         marginBottom: "7px",
+        width: { width },
         "& .MuiOutlinedInput-root": {
           backgroundColor: "#ffffff21",
           borderRadius: "15px",
