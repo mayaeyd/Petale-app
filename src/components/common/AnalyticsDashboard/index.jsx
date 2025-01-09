@@ -48,6 +48,23 @@ const AnalyticsDashboard = ({ salesData, loading }) => {
           </ResponsiveContainer>
         </div>
       </div>
+
+      <div className="card">
+        <div className="card-header">
+          <h3 className="card-title">Monthly Orders</h3>
+        </div>
+        <div className="card-content">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={revenueData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="orders" fill="#b76e79" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
     </div>
   );
 };
