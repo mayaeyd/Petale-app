@@ -8,10 +8,11 @@ const Input = ({
   onChange,
   inputColor,
   value = "",
+  height,
+  ...props
 }) => {
   return (
     <TextField
-      required
       label={label}
       placeholder={placeholder}
       variant="outlined"
@@ -20,6 +21,7 @@ const Input = ({
       onChange={onChange}
       size="small"
       fullWidth
+      {...props}
       slotProps={{
         htmlInput: {
           maxLength: type === "tel" ? 8 : undefined,
@@ -37,6 +39,7 @@ const Input = ({
         "& .MuiOutlinedInput-root": {
           backgroundColor: "#ffffff21",
           borderRadius: "15px",
+          height: { height },
           fontFamily: "Proxima Nova Light",
           "& input": {
             color: inputColor ? inputColor : "#fff",
