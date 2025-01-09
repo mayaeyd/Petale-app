@@ -14,6 +14,7 @@ const initialState = {
   },
   posts: {
     items: [],
+    listings: [],
     count: 0,
     selectedPost: null,
     loading: false,
@@ -92,6 +93,9 @@ const adminSlice = createSlice({
         if (Array.isArray(action.payload.data)) {
           state.posts.items = action.payload.data;
           state.posts.count = action.payload.count;
+          state.posts.listings = action.payload.data.flatMap(
+            (item) => item.listings
+          );
           state.posts.selectedPost = null;
         } else {
           state.posts.selectedPost = action.payload.data;
@@ -174,6 +178,7 @@ export const selectUsersLoading = (state) => state.admin.users.loading;
 export const selectUsersError = (state) => state.admin.users.error;
 
 export const selectAllPosts = (state) => state.admin.posts.items;
+export const selectAllListings = (state) => state.admin.posts.listings;
 export const selectPostsCount = (state) => state.admin.posts.count;
 export const selectSelectedPost = (state) => state.admin.posts.selectedPost;
 export const selectPostsLoading = (state) => state.admin.posts.loading;

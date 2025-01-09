@@ -2,6 +2,7 @@ import React from "react";
 import AdminNavbar from "../../../components/common/AdminNavbar";
 import { CircularProgress } from "@mui/material";
 import {
+  selectAllListings,
   selectAllOrders,
   selectAllPosts,
   selectAllUsers,
@@ -17,6 +18,7 @@ import { useSelector } from "react-redux";
 import StickyTable from "../../../components/base/Table";
 import "./style.css";
 import AdminCard from "../../../components/base/AdminCard";
+import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
 import {
   BadgeDollarSign,
   ClipboardCheck,
@@ -27,6 +29,8 @@ import {
 
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
+  const listings = useSelector(selectAllListings);
+
   const usersCount = useSelector(selectUsersCount);
   const postsCount = useSelector(selectPostsCount);
   const ordersCount = useSelector(selectOrdersCount);
@@ -34,6 +38,8 @@ const AdminDashboard = () => {
   const salesCount = useSelector(selectSalesCount);
 
   const firstThreeUsers = users.slice(0, 3);
+  // const firstThreePosts = listings.slice(0, 3);
+  console.log(listings);
 
   const usersLoading = useSelector(selectUsersLoading);
   if (usersLoading)
@@ -112,6 +118,9 @@ const AdminDashboard = () => {
         <h1>Recent Users</h1>
         <StickyTable rows={rows} columns={columns} />
         <h1>Recent Marketplace Listings</h1>
+        {/* {firstThreePosts.map((post) => {
+          console.log(post);
+        })} */}
       </div>
     </>
   );
