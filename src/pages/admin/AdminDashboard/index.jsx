@@ -3,14 +3,13 @@ import AdminNavbar from "../../../components/common/AdminNavbar";
 import { CircularProgress } from "@mui/material";
 import {
   selectAllListings,
-  selectAllOrders,
-  selectAllPosts,
   selectAllUsers,
   selectOrdersCount,
   selectPlantsCount,
   selectPostsCount,
   selectSalesCount,
   selectSalesData,
+  selectSalesLoading,
   selectUsersCount,
   selectUsersLoading,
 } from "../../../redux/admin/adminSlice";
@@ -26,9 +25,11 @@ import {
   Sprout,
   Users,
 } from "lucide-react";
+import AnalyticsDashboard from "../../../components/common/AnalyticsDashboard";
 
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
+  const salesData = useSelector(selectSalesData);
   const listings = useSelector(selectAllListings);
 
   const usersCount = useSelector(selectUsersCount);
@@ -40,6 +41,7 @@ const AdminDashboard = () => {
   const firstThreeUsers = users.slice(0, 3);
   const firstThreePosts = listings.slice(0, 3);
 
+  const salesLoading = useSelector(selectSalesLoading);
   const usersLoading = useSelector(selectUsersLoading);
   if (usersLoading)
     return (
@@ -114,6 +116,8 @@ const AdminDashboard = () => {
             icon={<BadgeDollarSign strokeWidth="1" color="white" />}
           />
         </div>
+        <h1>Analytics</h1>
+        <AnalyticsDashboard salesData={salesData} loading={salesLoading} />
         <h1>Recent Users</h1>
         <StickyTable rows={rows} columns={columns} />
         <h1>Recent Marketplace Listings</h1>

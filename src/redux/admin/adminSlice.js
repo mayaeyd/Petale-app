@@ -162,7 +162,7 @@ const adminSlice = createSlice({
         state.sales.loading = false;
         state.sales.data = action.payload.data;
         state.sales.totalRevenue = action.payload.data.totalRevenue;
-        state.sales.count = action.payload.data.totalSales;
+        state.sales.count = action.payload.count;
       })
       .addCase(orderThunks.fetchSales.rejected, (state, action) => {
         state.sales.loading = false;
