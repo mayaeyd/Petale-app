@@ -25,6 +25,9 @@ import PlantMonitor from "./pages/gardener/PlantMonitor";
 import PostedPlantDetails from "./pages/gardener/PostedPlantDetails";
 import SoldPlantsPage from "./pages/gardener/SoldPlantsPage";
 import SoldPlantDetails from "./pages/gardener/SoldPlantDetails";
+import Marketplace from "./pages/admin/Marketplace";
+import Orders from "./pages/admin/Orders";
+import GrowingPlants from "./pages/admin/GrowingPlants";
 
 const App = () => {
   return (
@@ -66,6 +69,9 @@ const App = () => {
         <Route path="/admin" element={<AdminRoutes />}>
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/users" element={<Users />} />
+          <Route path="/admin/marketplace" element={<Marketplace />} />
+          <Route path="/admin/orders" element={<Orders />} />
+          <Route path="/admin/growing-plants" element={<GrowingPlants />} />
         </Route>
       </Routes>
     </BrowserRouter>
