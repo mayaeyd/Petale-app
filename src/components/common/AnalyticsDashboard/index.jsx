@@ -32,11 +32,11 @@ const AnalyticsDashboard = ({ salesData, loading }) => {
 
   return (
     <div className="dashboard-grid">
-      <div className="card">
-        <div className="card-header">
-          <h3 className="card-title">Revenue Over Time</h3>
+      <div className="analytics-card">
+        <div className="analytics-card-header">
+          <h3 className="analytics-card-title">Revenue Over Time</h3>
         </div>
-        <div className="card-content">
+        <div className="analytics-card-content">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={revenueData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -49,11 +49,11 @@ const AnalyticsDashboard = ({ salesData, loading }) => {
         </div>
       </div>
 
-      <div className="card">
-        <div className="card-header">
-          <h3 className="card-title">Monthly Orders</h3>
+      <div className="analytics-card">
+        <div className="analytics-card-header">
+          <h3 className="analytics-card-title">Monthly Orders</h3>
         </div>
-        <div className="card-content">
+        <div className="analytics-card-content">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={revenueData}>
               <CartesianGrid strokeDasharray="3 3" />
