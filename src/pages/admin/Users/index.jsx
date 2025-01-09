@@ -44,7 +44,12 @@ const Users = () => {
       <AdminNavbar />
       <div className="users-container">
         <h1>Users</h1>
-        <StickyTable rows={usersRows} columns={usersColumns} paginate />
+        <StickyTable
+          rows={usersRows}
+          columns={usersColumns}
+          paginate
+          setFilter
+        />
       </div>
     </>
   );
