@@ -85,8 +85,34 @@ const AdminDashboard = () => {
     { id: "purchaseDate", label: "Purchase Date", minWidth: 100 },
   ];
 
+  const ordersRows = firstThreeOrders.flatMap((buyer) =>
+    buyer.orders.map((order) =>
+      createOrderData(
+        buyer.buyerName,
+        buyer.buyerEmail,
+        order.buyerAddress,
+        order.quantity,
+        order.totalPrice,
+        formatDateTime(order.purchaseDate)
+      )
+    )
+  );
+
+  console.log("rows ", ordersRows, "columns ", ordersColumns);
+
   function createData(name, role, email, tel, banned, createdat) {
     return { name, role, email, tel, banned, createdat };
+  }
+
+  function createOrderData(
+    name,
+    email,
+    address,
+    quantity,
+    price,
+    purchaseDate
+  ) {
+    return { name, email, address, quantity, price, purchaseDate };
   }
 
   function formatDateTime(timestamp) {
@@ -132,6 +158,8 @@ const AdminDashboard = () => {
         <AnalyticsDashboard salesData={salesData} loading={salesLoading} />
         <h1>Recent Users</h1>
         <StickyTable rows={usersRows} columns={usersColumns} />
+        <h1>Recent Orders</h1>
+        <StickyTable rows={ordersRows} columns={ordersColumns} />
         <h1>Recent Marketplace Listings</h1>
         <div className="recent-listings-container">
           {firstThreePosts.map((post) => (
