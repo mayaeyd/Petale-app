@@ -25,3 +25,9 @@
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
+
+.recent-listings-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

@@ -117,7 +117,7 @@ const AdminDashboard = () => {
         <h1>Recent Users</h1>
         <StickyTable rows={rows} columns={columns} />
         <h1>Recent Marketplace Listings</h1>
-        <div style={{ display: "flex", width: "100%" }}>
+        <div className="recent-listings-container">
           {firstThreePosts.map((post) => (
             <GardenerPlantCard
               title={post.plantName}
