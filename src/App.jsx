@@ -24,6 +24,7 @@ import PlantMonitor from "./pages/gardener/PlantMonitor";
 import PostedPlantDetails from "./pages/gardener/PostedPlantDetails";
 import SoldPlantsPage from "./pages/gardener/SoldPlantsPage";
 import SoldPlantDetails from "./pages/gardener/SoldPlantDetails";
+import UsersPage from "./pages/admin/UsersPage";
 
 const App = () => {
   return (
@@ -64,6 +65,7 @@ const App = () => {
         </Route>
         <Route path="/admin" element={<AdminRoutes />}>
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<UsersPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
