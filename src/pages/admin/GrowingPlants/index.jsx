@@ -90,6 +90,26 @@ const GrowingPlants = () => {
                 <th>Actions</th>
               </tr>
             </thead>
+            <tbody>
+              {sortedGardeners.map((gardener) => (
+                <tr key={gardener.gardenerId}>
+                  <td>{gardener.gardenerName}</td>
+                  <td>{gardener.gardenName}</td>
+                  <td>{gardener.location}</td>
+                  <td>{getGrowingPlantsCount(gardener.plants)}</td>
+                  <td>
+                    <button
+                      className="view-details-btn"
+                      onClick={() => {
+                        /* Navigate to details page */
+                      }}
+                    >
+                      View Details
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
       </div>
