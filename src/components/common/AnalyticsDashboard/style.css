@@ -26,7 +26,8 @@
 
 .analytics-card-title {
   margin: 0;
-  font-family: "Cormorant Semibold";
+  font-family: "Proxima Nova Thin";
+  color: #383838;
 }
 
 .analytics-card-content {

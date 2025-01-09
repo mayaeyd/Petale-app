@@ -40,7 +40,13 @@ const AnalyticsDashboard = ({ salesData, loading }) => {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={revenueData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
+              <XAxis
+                dataKey="month"
+                tick={{
+                  fontFamily: "Proxima Nova Thin",
+                  fill: "#333",
+                }}
+              />
               <YAxis />
               <Tooltip />
               <Line type="monotone" dataKey="revenue" stroke="#b76e79" />
@@ -57,7 +63,13 @@ const AnalyticsDashboard = ({ salesData, loading }) => {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={revenueData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
+              <XAxis
+                dataKey="month"
+                tick={{
+                  fontFamily: "Proxima Nova Thin",
+                  fill: "#333",
+                }}
+              />
               <YAxis />
               <Tooltip />
               <Bar dataKey="orders" fill="#b76e79" />

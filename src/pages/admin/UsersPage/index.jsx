@@ -1,8 +1,13 @@
 import React from "react";
 import "./style.css";
+import AdminNavbar from "../../../components/common/AdminNavbar";
 
 const UsersPage = () => {
-  return <div></div>;
+  return (
+    <>
+      <AdminNavbar />
+    </>
+  );
 };
 
 export default UsersPage;
