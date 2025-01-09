@@ -6,6 +6,9 @@ const GrowingPlants = () => {
   return (
     <>
       <AdminNavbar />
+      <div className="admin-growing-plants">
+        <h1>Growing Plants</h1>
+      </div>
     </>
   );
 };

@@ -1,0 +1,12 @@
+.admin-growing-plants {
+  margin-left: 250px;
+  padding: 40px 20px;
+}
+
+.admin-growing-plants > h1 {
+  font-family: "Cormorant Semibold";
+  font-size: 1.9em;
+  color: #383838;
+  margin-bottom: 20px;
+  width: fit-content;
+}
