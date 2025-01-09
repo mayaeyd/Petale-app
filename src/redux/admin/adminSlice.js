@@ -36,6 +36,7 @@ const initialState = {
   sales: {
     data: [],
     count: 0,
+    totalRevenue: 0,
     loading: false,
     error: null,
   },
@@ -154,7 +155,8 @@ const adminSlice = createSlice({
       .addCase(orderThunks.fetchSales.fulfilled, (state, action) => {
         state.sales.loading = false;
         state.sales.data = action.payload.data;
-        state.sales.count = action.payload.count;
+        state.sales.totalRevenue = action.payload.data.totalRevenue;
+        state.sales.count = action.payload.data.totalSales;
       })
       .addCase(orderThunks.fetchSales.rejected, (state, action) => {
         state.sales.loading = false;
