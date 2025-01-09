@@ -1,20 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useDispatch, useSelector } from "react-redux";
-import { setPlantType } from "../../../redux/slices/plantsSlice";
 
-const DropDown = ({ options, label, inputColor, value, onChange }) => {
+const DropDown = ({
+  options,
+  label,
+  inputColor,
+  value,
+  onChange,
+  width,
+  ...props
+}) => {
   return (
     <>
       <FormControl
-        required
         fullWidth
         size="small"
+        {...props}
         sx={{
+          "MuiFormControl-root": {
+            width: { width },
+          },
           "& .MuiOutlinedInput-root": {
+            height: "55px",
             backgroundColor: "#ffffff21",
             borderRadius: "15px",
             fontFamily: "Proxima Nova Light",

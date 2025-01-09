@@ -9,6 +9,7 @@ const Input = ({
   inputColor,
   value = "",
   height,
+  width,
   ...props
 }) => {
   return (
