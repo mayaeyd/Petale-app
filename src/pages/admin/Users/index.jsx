@@ -4,8 +4,10 @@ import AdminNavbar from "../../../components/common/AdminNavbar";
 import { selectAllUsers } from "../../../redux/admin/adminSlice";
 import StickyTable from "../../../components/base/Table";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
+  const navigate = useNavigate();
   const users = useSelector(selectAllUsers);
 
   const usersColumns = [
@@ -19,6 +21,7 @@ const Users = () => {
 
   const usersRows = users.map((user) =>
     createData(
+      user._id,
       `${user.firstName} ${user.lastName}`,
       user.role.charAt(0).toUpperCase() + String(user.role).slice(1),
       user.email,
@@ -28,8 +31,8 @@ const Users = () => {
     )
   );
 
-  function createData(name, role, email, tel, banned, createdat) {
-    return { name, role, email, tel, banned, createdat };
+  function createData(id, name, role, email, tel, banned, createdat) {
+    return { id, name, role, email, tel, banned, createdat };
   }
 
   function formatDateTime(timestamp) {
@@ -38,6 +41,10 @@ const Users = () => {
     const formattedTime = dateObj.toTimeString().split(" ")[0];
     return `${formattedDate} ${formattedTime}`;
   }
+
+  const handleRowClick = (userId) => {
+    navigate(`/admin/userDetails/${userId}`);
+  };
 
   return (
     <>
@@ -49,6 +56,7 @@ const Users = () => {
           columns={usersColumns}
           paginate
           setFilter
+          onClick={handleRowClick}
         />
       </div>
     </>
