@@ -8,6 +8,9 @@ import {
 } from "../../../redux/admin/adminSlice";
 import { CircularProgress } from "@mui/material";
 import AdminNavbar from "../../../components/common/AdminNavbar";
+import "./style.css";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -16,7 +19,7 @@ const UserDetails = () => {
   const user = useSelector(selectSelectedUser);
 
   useEffect(() => {
-    dispatch(userThunks.fetchUsers(id));
+    dispatch(userThunks.fetchUserById(id));
   }, [dispatch, id]);
 
   if (loading)
@@ -31,6 +34,21 @@ const UserDetails = () => {
   return (
     <>
       <AdminNavbar />
+      <div className="user-details-container">
+        <h1>
+          {user?.firstName} {user?.lastName}
+        </h1>
+        {user.role === "gardener" ? (
+          <span>
+            <LocalFloristIcon />
+          </span>
+        ) : (
+          <span>
+            <ShoppingCartIcon />
+          </span>
+        )}
+        <p>{user.role}</p>
+      </div>
     </>
   );
 };
