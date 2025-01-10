@@ -33,6 +33,11 @@ const GrowingPlants = () => {
       <AdminNavbar />
       <div className="admin-growing-plants">
         <h1>Growing Plants</h1>
+        <SortableTable
+          headers={headers}
+          rows={rows}
+          rowActions={(row) => <PinkButtonRound label="View Details" />}
+        />
       </div>
     </>
   );
