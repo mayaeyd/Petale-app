@@ -27,6 +27,14 @@ const Orders = () => {
   return (
     <>
       <AdminNavbar />
+      <div className="orders-container">
+        <h1>Growing Plants</h1>
+        <SortableTable
+          headers={headers}
+          rows={rows}
+          rowActions={(row) => <PinkButtonRound label="View Details" />}
+        />
+      </div>
     </>
   );
 };
