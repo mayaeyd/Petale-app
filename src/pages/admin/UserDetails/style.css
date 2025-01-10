@@ -27,3 +27,25 @@
   padding-bottom: 20px;
   border-bottom: 0.5px solid #bdbdbd;
 }
+
+.user-detail-title {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.user-credentials {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.user-credentials p {
+  max-width: 100%;
+  letter-spacing: 1px;
+  text-align: start;
+  font-family: "Proxima Nova Thin";
+  font-size: 1em;
+  color: #383838;
+}

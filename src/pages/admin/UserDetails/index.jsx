@@ -12,6 +12,8 @@ import "./style.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
 import PinkButtonRound from "../../../components/base/PinkButtonRound";
+import { AccessTime, AccountCircle, Email } from "@mui/icons-material";
+import { PhoneIcon } from "lucide-react";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -58,7 +60,34 @@ const UserDetails = () => {
             <PinkButtonRound label="Ban User" />
           </div>
         </div>
-        <div className="user-credentials"></div>
+        <div className="user-credentials">
+          <div>
+            <div className="user-detail-title">
+              <AccountCircle />
+              {user.role} ID
+            </div>
+            <div className="user-detail-title">
+              <PhoneIcon />
+              Phone number
+            </div>
+            <div className="user-detail-title">
+              <Email />
+              Email Address
+            </div>
+            <div className="user-detail-title">
+              <AccessTime />
+              User since
+            </div>
+          </div>
+          <div>
+            <div>
+              <p>{user._id}</p>
+              <p>{user.phoneNumber}</p>
+              <p>{user.email}</p>
+              <p>{user.createdAt}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
