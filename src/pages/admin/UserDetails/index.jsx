@@ -34,6 +34,11 @@ const UserDetails = () => {
 
   console.log(user);
 
+  const date = new Date(user.createdAt);
+
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
+
   return (
     <>
       <AdminNavbar />
@@ -60,31 +65,33 @@ const UserDetails = () => {
             <PinkButtonRound label="Ban User" />
           </div>
         </div>
-        <div className="user-credentials">
-          <div>
-            <div className="user-detail-title">
-              <AccountCircle />
-              {user.role} ID
-            </div>
-            <div className="user-detail-title">
-              <PhoneIcon />
-              Phone number
-            </div>
-            <div className="user-detail-title">
-              <Email />
-              Email Address
-            </div>
-            <div className="user-detail-title">
-              <AccessTime />
-              User since
-            </div>
-          </div>
-          <div>
+        <div>
+          <div className="user-credentials">
             <div>
-              <p>{user._id}</p>
-              <p>{user.phoneNumber}</p>
-              <p>{user.email}</p>
-              <p>{user.createdAt}</p>
+              <div className="user-detail-title">
+                <AccountCircle />
+                {user.role} ID
+              </div>
+              <div className="user-detail-title">
+                <PhoneIcon />
+                Phone number
+              </div>
+              <div className="user-detail-title">
+                <Email />
+                Email Address
+              </div>
+              <div className="user-detail-title">
+                <AccessTime />
+                User since
+              </div>
+            </div>
+            <div>
+              <div>
+                <p>{user._id}</p>
+                <p>{user.phoneNumber}</p>
+                <p>{user.email}</p>
+                <p>{formattedDate}</p>
+              </div>
             </div>
           </div>
         </div>
