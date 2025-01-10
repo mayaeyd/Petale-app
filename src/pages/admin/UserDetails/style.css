@@ -42,6 +42,7 @@
   justify-content: space-between;
   width: 40%;
   margin-top: 15px;
+  padding-left: 20px;
 }
 
 .user-credentials > div:nth-child(1) {
@@ -68,4 +69,11 @@
 .user-details-container > div:nth-child(2) {
   border-bottom: 0.5px solid #d7d6d6;
   padding-bottom: 20px;
+}
+
+.user-details-container > h2 {
+  font-family: "Cormorant Semibold";
+  color: #383838;
+  font-size: 1.5em;
+  margin-block: 20px;
 }

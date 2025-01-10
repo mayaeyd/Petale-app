@@ -95,6 +95,9 @@ const UserDetails = () => {
             </div>
           </div>
         </div>
+        <h2>{user.firstName}'s Growing Plants</h2>
+        <h2>{user.firstName}'s Posts</h2>
+        <h2>{user.firstName}'s Sold Plants</h2>
       </div>
     </>
   );
