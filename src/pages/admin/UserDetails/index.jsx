@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userThunks } from "../../../redux/admin/thunks/userThunks";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   selectSelectedUser,
   selectUsersLoading,
@@ -20,6 +20,7 @@ const UserDetails = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectUsersLoading);
   const user = useSelector(selectSelectedUser);
+  const navigate = useNavigate(0);
 
   useEffect(() => {
     dispatch(userThunks.fetchUserById(id));
@@ -38,6 +39,16 @@ const UserDetails = () => {
 
   const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
+
+  const handleBanUser = async () => {
+    await dispatch(
+      userThunks.banUser({
+        userId: user._id,
+        isBanned: !user.isBanned,
+      })
+    );
+    navigate(0);
+  };
 
   return (
     <>
@@ -62,7 +73,18 @@ const UserDetails = () => {
             </div>
           </div>
           <div className="user-action-buttons">
-            <PinkButtonRound label="Ban User" />
+            <PinkButtonRound
+              label={
+                loading ? (
+                  <CircularProgress color="inherit" size="20px" />
+                ) : user.isBanned ? (
+                  "Unban User"
+                ) : (
+                  "Ban User"
+                )
+              }
+              onClick={handleBanUser}
+            />
           </div>
         </div>
         <div>
@@ -95,9 +117,16 @@ const UserDetails = () => {
             </div>
           </div>
         </div>
-        <h2>{user.firstName}'s Growing Plants</h2>
-        <h2>{user.firstName}'s Posts</h2>
-        <h2>{user.firstName}'s Sold Plants</h2>
+        {user.role === "gardener" ? (
+          <>
+            <h2>{user.firstName}'s Growing Plants</h2>
+            <div className="gardener-growing-plants"></div>
+            <h2>{user.firstName}'s Posts</h2>
+            <h2>{user.firstName}'s Sold Plants</h2>
+          </>
+        ) : (
+          <h2>{user.firstName}'s Purchases</h2>
+        )}
       </div>
     </>
   );
