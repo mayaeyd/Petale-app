@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SortableTable = ({ headers, rows, onRowClick, rowActions }) => {
+  const [sortConfig, setSortConfig] = useState({
+    key: null,
+    direction: "ascending",
+  });
+
+  const handleSort = (key) => {
+    let direction = "ascending";
+    if (sortConfig.key === key && sortConfig.direction === "ascending") {
+      direction = "descending";
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const sortedRows = [...rows].sort((a, b) => {
+    if (!sortConfig.key) return 0;
+
+    const aVal = a[sortConfig.key];
+    const bVal = b[sortConfig.key];
+
+    if (aVal < bVal) return sortConfig.direction === "ascending" ? -1 : 1;
+    if (aVal > bVal) return sortConfig.direction === "ascending" ? 1 : -1;
+    return 0;
+  });
+
   return (
     <div className="table-container">
       <table>
