@@ -11,6 +11,7 @@ import AdminNavbar from "../../../components/common/AdminNavbar";
 import "./style.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
+import PinkButtonRound from "../../../components/base/PinkButtonRound";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const UserDetails = () => {
     dispatch(userThunks.fetchUserById(id));
   }, [dispatch, id]);
 
-  if (loading)
+  if (loading || !user)
     return (
       <div className="spinner-container">
         <CircularProgress />
@@ -35,19 +36,29 @@ const UserDetails = () => {
     <>
       <AdminNavbar />
       <div className="user-details-container">
-        <h1>
-          {user?.firstName} {user?.lastName}
-        </h1>
-        {user.role === "gardener" ? (
-          <span>
-            <LocalFloristIcon />
-          </span>
-        ) : (
-          <span>
-            <ShoppingCartIcon />
-          </span>
-        )}
-        <p>{user.role}</p>
+        <div className="user-info">
+          <div>
+            <h1 className="user-name">
+              {user?.firstName} {user?.lastName}
+            </h1>
+            <div className="user-role">
+              {user?.role === "gardener" ? (
+                <span>
+                  <LocalFloristIcon style={{ color: "#858585" }} />
+                </span>
+              ) : (
+                <span>
+                  <ShoppingCartIcon style={{ color: "#858585" }} />
+                </span>
+              )}
+              <p>{user.role}</p>
+            </div>
+          </div>
+          <div className="user-action-buttons">
+            <PinkButtonRound label="Ban User" />
+          </div>
+        </div>
+        <div className="user-credentials"></div>
       </div>
     </>
   );
