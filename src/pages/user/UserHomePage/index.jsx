@@ -61,7 +61,7 @@ const UserHomePage = () => {
       <section className="trending-flowers">
         <h1>Trending Plants</h1>
         <div>
-          {trendingPosts.map((post) => (
+          {/* {trendingPosts.map((post) => (
             <GardenerPlantCard
               key={post._id}
               imageSrc={post.images[0]}
@@ -71,7 +71,7 @@ const UserHomePage = () => {
             >
               <CartButton />
             </GardenerPlantCard>
-          ))}
+          ))} */}
         </div>
       </section>
       <Footer />

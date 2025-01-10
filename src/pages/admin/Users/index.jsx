@@ -43,7 +43,7 @@ const Users = () => {
   }
 
   const handleRowClick = (userId) => {
-    navigate(`/admin/userDetails/${userId}`);
+    navigate(`/admin/users/${userId}`);
   };
 
   return (
