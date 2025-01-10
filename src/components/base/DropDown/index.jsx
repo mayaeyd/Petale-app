@@ -11,6 +11,7 @@ const DropDown = ({
   value,
   onChange,
   width,
+  height,
   ...props
 }) => {
   return (
@@ -24,7 +25,7 @@ const DropDown = ({
             width: { width },
           },
           "& .MuiOutlinedInput-root": {
-            height: "55px",
+            height: { height },
             backgroundColor: "#ffffff21",
             borderRadius: "15px",
             fontFamily: "Proxima Nova Light",

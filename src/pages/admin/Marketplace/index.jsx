@@ -7,7 +7,6 @@ import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
 
 const Marketplace = () => {
   const listings = useSelector(selectAllListings);
-  console.log(listings);
 
   return (
     <>

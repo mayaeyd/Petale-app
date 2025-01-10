@@ -50,7 +50,7 @@ export default function StickyTable({ columns, rows, paginate, setFilter }) {
             inputColor="#666"
             onChange={(event) => setSelectedColumn(event.target.value)}
             value={selectedColumn}
-            height="55px"
+            height="45px"
             width="30%"
             sx={{ flex: 1 }}
           />
@@ -62,7 +62,7 @@ export default function StickyTable({ columns, rows, paginate, setFilter }) {
             onChange={(e) => setFilterText(e.target.value)}
             disabled={!selectedColumn}
             inputColor="#4b5842"
-            height="55px"
+            height="45px"
             width="280%"
             sx={{ flex: 3 }}
           />
