@@ -4,7 +4,13 @@ import { adminApi } from "../api/adminApi";
 export const userThunks = {
   fetchUsers: createAsyncThunk(
     "admin/fetchUsers",
-    async (id = null) => await adminApi.get("users", id)
+    async () => await adminApi.get("users")
+  ),
+
+  // For fetching a single user
+  fetchUserById: createAsyncThunk(
+    "admin/fetchUserById",
+    async (id) => await adminApi.get("users", id)
   ),
 
   banUser: createAsyncThunk(

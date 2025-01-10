@@ -72,17 +72,16 @@ const adminSlice = createSlice({
       })
       .addCase(userThunks.fetchUsers.fulfilled, (state, action) => {
         state.users.loading = false;
-        if (Array.isArray(action.payload.data)) {
-          state.users.items = action.payload.data;
-          state.users.count = action.payload.count;
-          state.users.selectedUser = null;
-        } else {
-          state.users.selectedUser = action.payload.data;
-        }
+        state.users.items = action.payload.data;
+        state.users.count = action.payload.count;
       })
       .addCase(userThunks.fetchUsers.rejected, (state, action) => {
         state.users.loading = false;
         state.users.error = action.error.message;
+      })
+      .addCase(userThunks.fetchUserById.fulfilled, (state, action) => {
+        state.users.loading = false;
+        state.users.selectedUser = action.payload.data;
       })
 
       // Posts
