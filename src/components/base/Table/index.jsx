@@ -13,7 +13,13 @@ import { useState } from "react";
 import Input from "../Input";
 import DropDown from "../DropDown";
 
-export default function StickyTable({ columns, rows, paginate, setFilter }) {
+export default function StickyTable({
+  columns,
+  rows,
+  paginate,
+  setFilter,
+  onClick,
+}) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [filterText, setFilterText] = useState("");
@@ -95,7 +101,13 @@ export default function StickyTable({ columns, rows, paginate, setFilter }) {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    key={row.code}
+                    onClick={() => onClick(row.id)}
+                  >
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
