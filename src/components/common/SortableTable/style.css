@@ -1,0 +1,55 @@
+.table-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #4b5842;
+  font-family: "Proxima Nova Regular";
+  font-weight: 600;
+}
+
+td {
+  font-family: "Proxima Nova Thin";
+}
+
+th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+th.sortable:hover {
+  background-color: #e9ecef;
+}
+
+.sort-indicator {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  th,
+  td {
+    padding: 10px;
+  }
+}
