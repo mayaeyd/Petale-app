@@ -30,8 +30,6 @@ const GrowingPlants = () => {
     id: gardener.gardenerId,
   }));
 
-  console.log(gardeners);
-
   const handleViewDetails = (row) => {
     navigate(`/admin/growing-plants/${row.id}`);
   };
@@ -48,7 +46,6 @@ const GrowingPlants = () => {
             <PinkButtonRound
               label="View Details"
               onClick={(e) => {
-                // e.stopPropagation();
                 handleViewDetails(row);
               }}
             />

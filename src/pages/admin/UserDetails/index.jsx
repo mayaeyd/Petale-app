@@ -69,7 +69,6 @@ const UserDetails = () => {
     date: formatDate(order.purchaseDate),
     id: order.listingId,
   }));
-  console.log(user.gardenerProfile.marketplaceListings);
 
   return (
     <>

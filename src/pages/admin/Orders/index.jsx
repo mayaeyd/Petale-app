@@ -5,9 +5,11 @@ import { useSelector } from "react-redux";
 import { selectAllOrders } from "../../../redux/admin/adminSlice";
 import SortableTable from "../../../components/common/SortableTable";
 import PinkButtonRound from "../../../components/base/PinkButtonRound";
+import { useNavigate } from "react-router-dom";
 
 const Orders = () => {
   const orders = useSelector(selectAllOrders);
+  const navigate = useNavigate();
 
   const headers = [
     { key: "buyerName", label: "Buyer Name", sortable: true },
@@ -23,6 +25,11 @@ const Orders = () => {
     address: order.orders[0].buyerAddress,
     id: order.buyerId,
   }));
+  console.log(orders);
+
+  const handleViewDetails = (row) => {
+    navigate(`/admin/orders/${row.id}`);
+  };
 
   return (
     <>
@@ -32,7 +39,14 @@ const Orders = () => {
         <SortableTable
           headers={headers}
           rows={rows}
-          rowActions={(row) => <PinkButtonRound label="View Details" />}
+          rowActions={(row) => (
+            <PinkButtonRound
+              label="View Details"
+              onClick={(e) => {
+                handleViewDetails(row);
+              }}
+            />
+          )}
         />
       </div>
     </>

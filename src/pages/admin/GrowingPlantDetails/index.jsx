@@ -36,7 +36,6 @@ const GrowingPlantDetails = () => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Intl.DateTimeFormat("en-US", options).format(dateformat);
   };
-  console.log(gardener);
 
   return (
     <>
@@ -60,7 +59,6 @@ const GrowingPlantDetails = () => {
               <span className="email">{gardener.email}</span>
             </div>
             <div className="plants-container">
-              <h3>Plants</h3>
               {plants
                 .filter((plant) => plant.isHarvested === false)
                 .map((plant) => (
