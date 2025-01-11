@@ -10,6 +10,7 @@ const PinkButtonRound = ({ label, onClick, endIcon, ...props }) => {
       onClick={() => onClick()}
       {...props}
       sx={{
+        lineHeight: 1.2,
         boxShadow: 0,
         backgroundColor: "#BE7D86",
         color: "#F7D6D6",

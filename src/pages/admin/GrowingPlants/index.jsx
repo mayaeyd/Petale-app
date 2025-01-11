@@ -5,9 +5,11 @@ import "./style.css";
 import { useSelector } from "react-redux";
 import { selectAllPlants } from "../../../redux/admin/adminSlice";
 import SortableTable from "../../../components/common/SortableTable";
+import { useNavigate } from "react-router-dom";
 
 const GrowingPlants = () => {
   const gardeners = useSelector(selectAllPlants);
+  const navigate = useNavigate();
 
   const headers = [
     { key: "gardenerName", label: "Gardener Name", sortable: true },
@@ -30,6 +32,10 @@ const GrowingPlants = () => {
 
   console.log(gardeners);
 
+  const handleViewDetails = (row) => {
+    navigate(`/admin/growing-plants/${row.id}`);
+  };
+
   return (
     <>
       <AdminNavbar />
@@ -38,7 +44,14 @@ const GrowingPlants = () => {
         <SortableTable
           headers={headers}
           rows={rows}
-          rowActions={(row) => <PinkButtonRound label="View Details" />}
+          rowActions={(row) => (
+            <PinkButtonRound
+              label="View Details"
+              onClick={(e) => {
+                handleViewDetails(row);
+              }}
+            />
+          )}
         />
       </div>
     </>
