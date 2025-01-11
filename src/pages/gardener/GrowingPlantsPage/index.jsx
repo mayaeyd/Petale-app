@@ -5,9 +5,11 @@ import { CircularProgress } from "@mui/material";
 import "./style.css";
 import GrowingPlantCard from "../../../components/common/GrowingPlantCard";
 import FormPopup from "../../../components/common/FormPopup";
+import { useNavigate } from "react-router-dom";
 
 const GrowingPlantsPage = () => {
   const { plants, loading, error } = useSelector((state) => state.plants);
+  const navigate = useNavigate();
 
   if (loading) {
     return (
@@ -39,7 +41,9 @@ const GrowingPlantsPage = () => {
                 key={plant._id}
                 name={plant.scientificName}
                 date={plant.plantedDate}
-                id={plant._id}
+                onClick={() =>
+                  navigate(`/gardener/growing-plants/${plant._id}`)
+                }
               />
             ) : null
           )}
@@ -52,7 +56,9 @@ const GrowingPlantsPage = () => {
                 key={plant._id}
                 name={plant.scientificName}
                 date={plant.plantedDate}
-                id={plant._id}
+                onClick={() =>
+                  navigate(`/gardener/growing-plants/${plant._id}`)
+                }
               />
             ) : null
           )}
