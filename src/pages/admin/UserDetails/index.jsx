@@ -15,6 +15,7 @@ import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import { AccessTime, AccountCircle, Email } from "@mui/icons-material";
 import { PhoneIcon } from "lucide-react";
 import GrowingPlantCard from "../../../components/common/GrowingPlantCard";
+import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -142,6 +143,27 @@ const UserDetails = () => {
               )}
             </div>
             <h2>{user.firstName}'s Posts</h2>
+            <div className="gardener-posts">
+              {user.gardenerProfile.marketplaceListings ? (
+                user.gardenerProfile.marketplaceListings
+                  .filter((post) => post.status === "available")
+                  .map((post) => (
+                    <GardenerPlantCard
+                      key={post._id}
+                      title={post.plantName}
+                      description={post.description}
+                      price={post.price}
+                      imageSrc={post.images[0]}
+                    />
+                  ))
+              ) : (
+                <p
+                  style={{ color: "#383838", fontFamily: "Proxima Nova Thin" }}
+                >
+                  "No growing plants yet"
+                </p>
+              )}
+            </div>
             <h2>{user.firstName}'s Sold Plants</h2>
           </>
         ) : (

@@ -40,7 +40,7 @@
 .user-credentials {
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  width: 400px;
   margin-top: 15px;
   padding-left: 20px;
 }
@@ -79,4 +79,13 @@
 }
 
 .gardener-growing-plants {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gardener-posts {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
