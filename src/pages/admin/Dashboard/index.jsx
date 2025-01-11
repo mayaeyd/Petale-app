@@ -27,6 +27,7 @@ import {
   Users,
 } from "lucide-react";
 import AnalyticsDashboard from "../../../components/common/AnalyticsDashboard";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
@@ -46,6 +47,9 @@ const AdminDashboard = () => {
 
   const salesLoading = useSelector(selectSalesLoading);
   const usersLoading = useSelector(selectUsersLoading);
+
+  const navigate = useNavigate();
+
   if (usersLoading)
     return (
       <div>
@@ -67,6 +71,7 @@ const AdminDashboard = () => {
 
   const usersRows = firstThreeUsers.map((user) =>
     createData(
+      user._id,
       `${user.firstName} ${user.lastName}`,
       user.role.charAt(0).toUpperCase() + String(user.role).slice(1),
       user.email,
@@ -98,8 +103,8 @@ const AdminDashboard = () => {
     )
   );
 
-  function createData(name, role, email, tel, banned, createdat) {
-    return { name, role, email, tel, banned, createdat };
+  function createData(id, name, role, email, tel, banned, createdat) {
+    return { id, name, role, email, tel, banned, createdat };
   }
 
   function createOrderData(
@@ -119,6 +124,10 @@ const AdminDashboard = () => {
     const formattedTime = dateObj.toTimeString().split(" ")[0];
     return `${formattedDate} ${formattedTime}`;
   }
+
+  const handleRowClick = (userId) => {
+    navigate(`/admin/users/${userId}`);
+  };
 
   return (
     <>
@@ -155,7 +164,11 @@ const AdminDashboard = () => {
         <h1>Analytics</h1>
         <AnalyticsDashboard salesData={salesData} loading={salesLoading} />
         <h1>Recent Users</h1>
-        <StickyTable rows={usersRows} columns={usersColumns} />
+        <StickyTable
+          rows={usersRows}
+          columns={usersColumns}
+          onClick={handleRowClick}
+        />
         <h1>Recent Orders</h1>
         <StickyTable rows={ordersRows} columns={ordersColumns} />
         <h1>Recent Marketplace Listings</h1>
