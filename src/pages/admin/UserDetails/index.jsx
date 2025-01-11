@@ -69,6 +69,7 @@ const UserDetails = () => {
     date: formatDate(order.purchaseDate),
     id: order.listingId,
   }));
+  console.log(user.gardenerProfile.marketplaceListings);
 
   return (
     <>
@@ -141,7 +142,7 @@ const UserDetails = () => {
           <>
             <h2>{user.firstName}'s Growing Plants</h2>
             <div className="gardener-growing-plants">
-              {user.gardenerProfile.garden.plants ? (
+              {user.gardenerProfile.garden.plants.length > 0 ? (
                 user.gardenerProfile.garden.plants.map((plant) => (
                   <GrowingPlantCard
                     key={plant._id}
@@ -160,7 +161,9 @@ const UserDetails = () => {
             </div>
             <h2>{user.firstName}'s Posts</h2>
             <div className="gardener-posts">
-              {user.gardenerProfile.marketplaceListings ? (
+              {user.gardenerProfile.marketplaceListings.filter(
+                (post) => post.status === "available"
+              ).length > 0 ? (
                 user.gardenerProfile.marketplaceListings
                   .filter((post) => post.status === "available")
                   .map((post) => (
@@ -182,7 +185,9 @@ const UserDetails = () => {
             </div>
             <h2>{user.firstName}'s Sold Plants</h2>
             <div className="gardener-posts">
-              {user.gardenerProfile.marketplaceListings ? (
+              {user.gardenerProfile.marketplaceListings.filter(
+                (post) => post.status === "sold"
+              ).length > 0 ? (
                 user.gardenerProfile.marketplaceListings
                   .filter((post) => post.status === "sold")
                   .map((post) => (
@@ -198,7 +203,7 @@ const UserDetails = () => {
                 <p
                   style={{ color: "#383838", fontFamily: "Proxima Nova Thin" }}
                 >
-                  "No growing plants yet"
+                  No sold plants yet
                 </p>
               )}
             </div>
