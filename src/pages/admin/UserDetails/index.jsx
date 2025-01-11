@@ -165,6 +165,27 @@ const UserDetails = () => {
               )}
             </div>
             <h2>{user.firstName}'s Sold Plants</h2>
+            <div className="gardener-posts">
+              {user.gardenerProfile.marketplaceListings ? (
+                user.gardenerProfile.marketplaceListings
+                  .filter((post) => post.status === "sold")
+                  .map((post) => (
+                    <GardenerPlantCard
+                      key={post._id}
+                      title={post.plantName}
+                      description={post.description}
+                      price={post.price}
+                      imageSrc={post.images[0]}
+                    />
+                  ))
+              ) : (
+                <p
+                  style={{ color: "#383838", fontFamily: "Proxima Nova Thin" }}
+                >
+                  "No growing plants yet"
+                </p>
+              )}
+            </div>
           </>
         ) : (
           <h2>{user.firstName}'s Purchases</h2>
