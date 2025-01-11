@@ -11,6 +11,13 @@ import {
 import { CircularProgress } from "@mui/material";
 import ImageGallery from "../../../components/base/ImageGallery";
 import { Flower, Leaf } from "lucide-react";
+import {
+  AccountCircleOutlined,
+  EmailOutlined,
+  Fingerprint,
+  LocationOnOutlined,
+  YardOutlined,
+} from "@mui/icons-material";
 
 const ListingDetails = () => {
   const { id } = useParams();
@@ -65,6 +72,43 @@ const ListingDetails = () => {
             <p>{post.plantType}</p>
           </span>
           <p className="posted-plant-price">${post.price}</p>
+          <div className="seller-details-container">
+            <div>
+              <div className="user-credentials">
+                <div>
+                  <div className="user-detail-title">
+                    <Fingerprint />
+                    Seller ID
+                  </div>
+                  <div className="user-detail-title">
+                    <AccountCircleOutlined />
+                    Seller Name
+                  </div>
+                  <div className="user-detail-title">
+                    <EmailOutlined />
+                    Seller Email
+                  </div>
+                  <div className="user-detail-title">
+                    <YardOutlined />
+                    Garden Name
+                  </div>
+                  <div className="user-detail-title">
+                    <LocationOnOutlined />
+                    Garden Location
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <p>{sellerId}</p>
+                    <p>{sellerName}</p>
+                    <p>{sellerEmail}</p>
+                    <p>{gardenName}</p>
+                    <p>{gardenLocation}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <h3>Description</h3>
           <p className="posted-plant-description">{post.description}</p>
           <p className="posted-plant-quantity">

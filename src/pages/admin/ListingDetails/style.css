@@ -1,12 +1,6 @@
-.listing-details {
-  margin-left: 250px;
-  padding: 40px 20px;
-}
-
-.listing-details > h1 {
-  font-family: "Cormorant Semibold";
-  font-size: 1.9em;
-  color: #383838;
-  margin-bottom: 20px;
-  width: fit-content;
+.seller-details-container {
+  width: auto;
+  height: 200px;
+  border-block: 0.5px solid #dddddd;
+  margin-top: 15px;
 }
