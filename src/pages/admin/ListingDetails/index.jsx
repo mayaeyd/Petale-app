@@ -9,31 +9,43 @@ import {
   selectSelectedPost,
 } from "../../../redux/admin/adminSlice";
 import { CircularProgress } from "@mui/material";
+import ImageGallery from "../../../components/base/ImageGallery";
 
 const ListingDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const loading = useSelector(selectPostsLoading);
-  const post = useSelector(selectSelectedPost);
+  const postDetails = useSelector(selectSelectedPost);
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(postThunks.fetchPosts(id));
   }, [dispatch, id]);
 
-  if (loading || !post)
+  if (loading || !postDetails)
     return (
-      <div className="spinner-container">
-        <CircularProgress />
-      </div>
+      <>
+        <AdminNavbar />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
+        </div>
+      </>
     );
-  console.log(post);
+
+  const {
+    gardenLocation,
+    gardenName,
+    post,
+    sellerEmail,
+    sellerId,
+    sellerName,
+  } = postDetails;
 
   return (
     <>
       <AdminNavbar />
       <div className="listing-details">
-        <h1>Listing Details</h1>
+        <ImageGallery images={post.images} />
       </div>
     </>
   );
