@@ -48,6 +48,7 @@ const GrowingPlants = () => {
             <PinkButtonRound
               label="View Details"
               onClick={(e) => {
+                // e.stopPropagation();
                 handleViewDetails(row);
               }}
             />

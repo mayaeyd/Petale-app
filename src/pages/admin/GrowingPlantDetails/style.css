@@ -1,0 +1,153 @@
+.growing-plants {
+  padding: 40px 20px;
+  margin-left: 250px;
+}
+
+.growing-plants > h1 {
+  font-family: "Cormorant Semibold";
+  font-size: 1.9em;
+  color: #383838;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.gardener-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gardener-header {
+  margin-bottom: 15px;
+}
+
+.gardener-header h2 {
+  color: #2c3e50;
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+  font-family: "Cormorant Semibold";
+}
+
+.location {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-family: "Proxima Nova Thin";
+}
+
+.garden-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.garden-name {
+  color: #34495e;
+  font-size: 1.1rem;
+  font-family: "Cormorant Semibold";
+}
+
+.email {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-family: "Proxima Nova Thin";
+}
+
+.plants-container h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-family: "Cormorant Semibold";
+  font-size: 1.2rem;
+}
+
+.plant-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.plant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.plant-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-family: "Cormorant Semibold";
+}
+
+.plant-type,
+.planted-date {
+  font-family: "Proxima Nova Thin";
+}
+
+.plant-status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-family: "Proxima Nova Thin";
+}
+
+.plant-status.growing {
+  background: #e3fcef;
+  color: #00875a;
+}
+
+.plant-status.harvested {
+  background: #ffebe6;
+  color: #de350b;
+}
+
+.plant-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #596574;
+}
+
+.sensor-data {
+  background: white;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: "Proxima Nova Thin";
+}
+
+.sensor-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.sensor-label {
+  color: #7f8c8d;
+}
+
+.sensor-value {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .growing-plants-container {
+    padding: 10px;
+  }
+}
