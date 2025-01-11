@@ -25,9 +25,9 @@
 }
 
 .growing-plt-cards-container {
-  display: grid;
+  display: flex;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  flex-wrap: wrap;
   margin-right: 20px;
   margin-bottom: 20px;
 }

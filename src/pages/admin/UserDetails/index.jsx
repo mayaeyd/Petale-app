@@ -14,13 +14,14 @@ import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
 import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import { AccessTime, AccountCircle, Email } from "@mui/icons-material";
 import { PhoneIcon } from "lucide-react";
+import GrowingPlantCard from "../../../components/common/GrowingPlantCard";
 
 const UserDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const loading = useSelector(selectUsersLoading);
   const user = useSelector(selectSelectedUser);
-  const navigate = useNavigate(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(userThunks.fetchUserById(id));
@@ -35,10 +36,12 @@ const UserDetails = () => {
 
   console.log(user);
 
-  const date = new Date(user.createdAt);
+  const formatDate = (date) => {
+    const dateformat = new Date(date);
 
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Intl.DateTimeFormat("en-US", options).format(dateformat);
+  };
 
   const handleBanUser = async () => {
     await dispatch(
@@ -112,7 +115,7 @@ const UserDetails = () => {
                 <p>{user._id}</p>
                 <p>{user.phoneNumber}</p>
                 <p>{user.email}</p>
-                <p>{formattedDate}</p>
+                <p>{formatDate(user.createdAt)}</p>
               </div>
             </div>
           </div>
@@ -120,7 +123,24 @@ const UserDetails = () => {
         {user.role === "gardener" ? (
           <>
             <h2>{user.firstName}'s Growing Plants</h2>
-            <div className="gardener-growing-plants"></div>
+            <div className="gardener-growing-plants">
+              {user.gardenerProfile.garden.plants ? (
+                user.gardenerProfile.garden.plants.map((plant) => (
+                  <GrowingPlantCard
+                    key={plant._id}
+                    id={plant._id}
+                    name={plant.scientificName}
+                    date={formatDate(plant.plantedDate)}
+                  />
+                ))
+              ) : (
+                <p
+                  style={{ color: "#383838", fontFamily: "Proxima Nova Thin" }}
+                >
+                  "No growing plants yet"
+                </p>
+              )}
+            </div>
             <h2>{user.firstName}'s Posts</h2>
             <h2>{user.firstName}'s Sold Plants</h2>
           </>
