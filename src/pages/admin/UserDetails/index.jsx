@@ -16,6 +16,7 @@ import { AccessTime, AccountCircle, Email } from "@mui/icons-material";
 import { PhoneIcon } from "lucide-react";
 import GrowingPlantCard from "../../../components/common/GrowingPlantCard";
 import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
+import SortableTable from "../../../components/common/SortableTable";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -35,7 +36,7 @@ const UserDetails = () => {
       </div>
     );
 
-  console.log(user);
+  const orders = user.purchaseHistory;
 
   const formatDate = (date) => {
     const dateformat = new Date(date);
@@ -53,6 +54,21 @@ const UserDetails = () => {
     );
     navigate(0);
   };
+
+  const headers = [
+    { key: "quantity", label: "Quantity", sortable: true },
+    { key: "total", label: "Total", sortable: true },
+    { key: "address", label: "Buyer Address", sortable: true },
+    { key: "date", label: "Purchase Date", sortable: true },
+  ];
+
+  const rows = orders.map((order) => ({
+    quantity: order.quantity,
+    total: `$${order.totalPrice}`,
+    address: order.buyerAddress,
+    date: formatDate(order.purchaseDate),
+    id: order.listingId,
+  }));
 
   return (
     <>
@@ -188,7 +204,14 @@ const UserDetails = () => {
             </div>
           </>
         ) : (
-          <h2>{user.firstName}'s Purchases</h2>
+          <>
+            <h2>{user.firstName}'s Purchases</h2>
+            <SortableTable
+              headers={headers}
+              rows={rows}
+              rowActions={(row) => <PinkButtonRound label="View Details" />}
+            />
+          </>
         )}
       </div>
     </>
