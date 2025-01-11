@@ -28,6 +28,8 @@ const GrowingPlants = () => {
     id: gardener.gardenerId,
   }));
 
+  console.log(gardeners);
+
   return (
     <>
       <AdminNavbar />

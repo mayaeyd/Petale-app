@@ -16,6 +16,7 @@ import UserDetails from "./pages/admin/UserDetails";
 import Marketplace from "./pages/admin/Marketplace";
 import Orders from "./pages/admin/Orders";
 import GrowingPlants from "./pages/admin/GrowingPlants";
+import AdminGrowingPlantDetails from "./pages/admin/GrowingPlantDetails";
 
 import UsersRoutes from "./components/routes/UsersRoutes";
 import GardenersRoutes from "./components/routes/GardenersRoutes";
@@ -76,6 +77,10 @@ const App = () => {
           <Route path="/admin/marketplace/:id" element={<ListingDetails />} />
           <Route path="/admin/orders" element={<Orders />} />
           <Route path="/admin/growing-plants" element={<GrowingPlants />} />
+          <Route
+            path="/admin/growing-plants/:id"
+            element={<AdminGrowingPlantDetails />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

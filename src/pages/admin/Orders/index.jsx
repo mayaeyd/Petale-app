@@ -28,7 +28,7 @@ const Orders = () => {
     <>
       <AdminNavbar />
       <div className="orders-container">
-        <h1>Growing Plants</h1>
+        <h1>Orders</h1>
         <SortableTable
           headers={headers}
           rows={rows}
