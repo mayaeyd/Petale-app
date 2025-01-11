@@ -31,9 +31,12 @@ const UserDetails = () => {
 
   if (loading || !user)
     return (
-      <div className="spinner-container">
-        <CircularProgress />
-      </div>
+      <>
+        <AdminNavbar />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
+        </div>
+      </>
     );
 
   const orders = user.purchaseHistory;

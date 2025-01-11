@@ -23,9 +23,12 @@ const GrowingPlantDetails = () => {
 
   if (loading || !gardener)
     return (
-      <div className="spinner-container">
-        <CircularProgress />
-      </div>
+      <>
+        <AdminNavbar />
+        <div className="spinner-container">
+          <CircularProgress color="success" />
+        </div>
+      </>
     );
 
   const plants = gardener.gardenerProfile.garden.plants;
