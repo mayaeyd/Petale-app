@@ -4,9 +4,11 @@ import "./style.css";
 import { useSelector } from "react-redux";
 import { selectAllListings } from "../../../redux/admin/adminSlice";
 import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
+import { useNavigate } from "react-router-dom";
 
 const Marketplace = () => {
   const listings = useSelector(selectAllListings);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -21,6 +23,7 @@ const Marketplace = () => {
               description={post.description}
               imageSrc={post.images[0]}
               key={post._id}
+              onClick={() => navigate(`/admin/marketplace/${post._id}`)}
             />
           ))}
         </div>
