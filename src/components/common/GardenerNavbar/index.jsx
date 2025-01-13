@@ -1,11 +1,14 @@
 import React from "react";
 import LogoText from "../../../assets/images/LogoText";
 import "./style.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import PinkButtonRound from "../../base/PinkButtonRound";
+import { logout } from "../../../redux/slices/authSlice";
 
 const GardenerNavbar = () => {
   const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   return (
     <div className="gardener-navbar">
@@ -105,7 +108,7 @@ const GardenerNavbar = () => {
 
       <div className="personal-nav-links">
         <NavLink
-          to="gardener/profile"
+          to="/gardener/profile"
           className={({ isActive }) =>
             isActive ? "gardener-nav-link active" : "gardener-nav-link"
           }
@@ -128,7 +131,7 @@ const GardenerNavbar = () => {
           <p>Profile</p>
         </NavLink>
         <NavLink
-          to="gardener/revenue"
+          to="/gardener/revenue"
           className={({ isActive }) =>
             isActive ? "gardener-nav-link active" : "gardener-nav-link"
           }
@@ -155,6 +158,13 @@ const GardenerNavbar = () => {
           <p>Track Revenue</p>
         </NavLink>
       </div>
+      <PinkButtonRound
+        label="Logout"
+        color="#4b5842"
+        backgroundColor="white"
+        onClick={() => dispatch(logout())}
+        className="logout-btn"
+      />
     </div>
   );
 };

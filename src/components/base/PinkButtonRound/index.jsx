@@ -2,7 +2,14 @@ import { Button } from "@mui/material";
 import React from "react";
 import "../../../styles/fonts.css";
 
-const PinkButtonRound = ({ label, onClick, endIcon, ...props }) => {
+const PinkButtonRound = ({
+  label,
+  onClick,
+  endIcon,
+  backgroundColor,
+  color,
+  ...props
+}) => {
   return (
     <Button
       variant="contained"
@@ -12,8 +19,8 @@ const PinkButtonRound = ({ label, onClick, endIcon, ...props }) => {
       sx={{
         lineHeight: 1.2,
         boxShadow: 0,
-        backgroundColor: "#BE7D86",
-        color: "#F7D6D6",
+        backgroundColor: backgroundColor || "#BE7D86",
+        color: color || "#F7D6D6",
         borderRadius: "25px",
         marginTop: "10px",
         height: "35px",
@@ -22,7 +29,7 @@ const PinkButtonRound = ({ label, onClick, endIcon, ...props }) => {
         textTransform: "capitalize",
         "&:hover": {
           "& .MuiSvgIcon-root": {
-            color: "#F7D6D6",
+            color: color || "#F7D6D6",
           },
         },
       }}
