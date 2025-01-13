@@ -2,14 +2,14 @@
   width: 240px;
   height: 370px;
   border-radius: 10px;
-  box-shadow: 0px 0px 20px 5px #dbdbdb;
+  box-shadow: 0px 0px 20px 5px #ebebeb;
   transition: box-shadow 0.3s ease;
   background-color: white;
   cursor: pointer;
 }
 
 .card-container:hover {
-  box-shadow: 0px 0px 20px 8px #c3c3c3;
+  box-shadow: 0px 0px 20px 5px #e1e1e1;
 }
 
 .card-img-container {
@@ -67,7 +67,4 @@
   top: 10px;
   right: 10px;
   cursor: pointer;
-}
-
-.cart-button:hover {
 }
