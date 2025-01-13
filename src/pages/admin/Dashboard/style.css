@@ -30,4 +30,11 @@
   flex-wrap: wrap;
   row-gap: 35px;
   color: #727b6b;
+  column-gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-info {
+    margin-left: 0;
+  }
 }

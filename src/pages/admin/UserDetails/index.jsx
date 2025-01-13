@@ -58,6 +58,10 @@ const UserDetails = () => {
     navigate(0);
   };
 
+  const handleRowClick = (row) => {
+    navigate(`/admin/orders/${row.id}`);
+  };
+
   const headers = [
     { key: "quantity", label: "Quantity", sortable: true },
     { key: "total", label: "Total", sortable: true },
@@ -223,7 +227,12 @@ const UserDetails = () => {
             <SortableTable
               headers={headers}
               rows={rows}
-              rowActions={(row) => <PinkButtonRound label="View Details" />}
+              rowActions={(row) => (
+                <PinkButtonRound
+                  label="View Details"
+                  onClick={(e) => handleRowClick(row)}
+                />
+              )}
             />
           </>
         )}

@@ -10,3 +10,9 @@
   margin-bottom: 20px;
   width: fit-content;
 }
+
+@media (max-width: 900px) {
+  .orders-container {
+    margin-left: 0;
+  }
+}

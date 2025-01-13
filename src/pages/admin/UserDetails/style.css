@@ -89,3 +89,9 @@
   gap: 20px;
   flex-wrap: wrap;
 }
+
+@media (max-width: 900px) {
+  .user-details-container {
+    margin-left: 0;
+  }
+}
