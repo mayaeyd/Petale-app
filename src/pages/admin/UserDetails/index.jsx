@@ -73,6 +73,10 @@ const UserDetails = () => {
     id: order.listingId,
   }));
 
+  const handleViewDetails = () => {
+    navigate(`/admin/growing-plants/${user._id}`);
+  };
+
   return (
     <>
       <AdminNavbar />
@@ -151,13 +155,14 @@ const UserDetails = () => {
                     id={plant._id}
                     name={plant.scientificName}
                     date={formatDate(plant.plantedDate)}
+                    onClick={handleViewDetails}
                   />
                 ))
               ) : (
                 <p
                   style={{ color: "#383838", fontFamily: "Proxima Nova Thin" }}
                 >
-                  "No growing plants yet"
+                  No growing plants yet
                 </p>
               )}
             </div>
@@ -175,13 +180,14 @@ const UserDetails = () => {
                       description={post.description}
                       price={post.price}
                       imageSrc={post.images[0]}
+                      onClick={() => navigate(`/admin/marketplace/${post._id}`)}
                     />
                   ))
               ) : (
                 <p
                   style={{ color: "#383838", fontFamily: "Proxima Nova Thin" }}
                 >
-                  "No growing plants yet"
+                  No posted plants yet
                 </p>
               )}
             </div>
@@ -199,6 +205,7 @@ const UserDetails = () => {
                       description={post.description}
                       price={post.price}
                       imageSrc={post.images[0]}
+                      onClick={() => navigate(`/admin/marketplace/${post._id}`)}
                     />
                   ))
               ) : (
