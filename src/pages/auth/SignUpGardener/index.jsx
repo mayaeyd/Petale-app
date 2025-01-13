@@ -15,7 +15,7 @@ const SignUpGardener = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [phoneNumber, setPhoneNumber] = useState(null);
   const [gardenName, setGardenName] = useState("");
   const [gardenLocation, setGardenlocation] = useState("");
 
@@ -24,7 +24,7 @@ const SignUpGardener = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const role = location.state.role;
+  const role = location.state?.role || "gardener";
 
   const phoneNumberAsNumber = Number(phoneNumber);
 

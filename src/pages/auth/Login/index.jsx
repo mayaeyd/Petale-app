@@ -54,8 +54,8 @@ const Login = () => {
       <div className="image-container">
         <AuthImage />
       </div>
-      <div className="form-container">
-        <div className="logo-container">
+      <div className="form-container-login">
+        <div className="logo-container-login">
           <LogoNoText />
           <h1>Login</h1>
           <p>
@@ -63,7 +63,7 @@ const Login = () => {
           </p>
         </div>
 
-        <div className="inputs-container">
+        <div className="inputs-container-login">
           <Input
             label="Email"
             type="email"

@@ -10,17 +10,18 @@
 
 .form-container {
   padding: 20px;
-  height: 90vh;
+  height: 97vh;
   background-color: rgba(255, 255, 255, 0.089);
   border-radius: 30px;
   padding-left: 10px;
   width: 40%;
-  gap: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 0;
+  padding-top: 20px;
+  gap: 20px;
 }
 
 .image-container {
@@ -70,6 +71,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5px;
 }
 
 .inputs-container > p {

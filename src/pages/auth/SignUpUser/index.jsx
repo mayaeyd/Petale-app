@@ -15,14 +15,14 @@ const SignUpUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [phoneNumber, setPhoneNumber] = useState(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.auth);
 
   const location = useLocation();
-  const role = location.state.role;
+  const role = location.state?.role || "user";
 
   const phoneNumberAsNumber = Number(phoneNumber);
 

@@ -8,19 +8,20 @@
   gap: 20px;
 }
 
-.form-container {
+.form-container-login {
   padding: 20px;
-  height: 90vh;
+  height: 97vh;
   background-color: rgba(255, 255, 255, 0.089);
   border-radius: 30px;
   padding-left: 10px;
   width: 40%;
-  gap: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 0;
+  padding-top: 30px;
+  gap: 40px;
 }
 
 .image-container {
@@ -30,7 +31,7 @@
   padding: 10px;
 }
 
-.logo-container {
+.logo-container-login {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +39,7 @@
   width: 90%;
 }
 
-.logo-container > h1 {
+.logo-container-login > h1 {
   font-family: "Cormorant Semibold";
   color: white;
   margin: 0;
@@ -46,7 +47,7 @@
   font-size: 1.6em;
 }
 
-.logo-container > p {
+.logo-container-login > p {
   font-family: "Proxima Nova Thin";
   color: white;
   margin: 3px;
@@ -58,20 +59,21 @@
   margin-bottom: 10px;
 }
 
-.inputs-container {
+.inputs-container-login {
   width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5px;
 }
 
-.inputs-container > p {
+.inputs-container-login > p {
   margin-top: 5px;
   max-width: 100%;
 }
 
-.inputs-container > p > a {
+.inputs-container-login > p > a {
   cursor: pointer;
   font-family: "Proxima Nova Semibold";
   text-decoration: none;
@@ -82,7 +84,7 @@
   .image-container {
     display: none;
   }
-  .form-container {
+  .form-container-login {
     width: 100%;
     margin-inline: 20px;
   }
