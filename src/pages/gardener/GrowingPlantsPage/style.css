@@ -38,3 +38,9 @@
   height: 100vh;
   margin-left: 250px;
 }
+
+@media (max-width: 900px) {
+  .growing-plants-container {
+    margin-left: 0;
+  }
+}

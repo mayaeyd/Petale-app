@@ -20,3 +20,9 @@
   margin: 20px;
   width: fit-content;
 }
+
+@media (max-width: 900px) {
+  .posted-plants-container {
+    margin-left: 0;
+  }
+}

@@ -86,3 +86,19 @@
   overflow: hidden;
   text-align: left;
 }
+
+@media (max-width: 900px) {
+  .sold-plant-container {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sold-plant-container {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .sold-plant-details {
+    margin-left: 0px;
+  }
+}

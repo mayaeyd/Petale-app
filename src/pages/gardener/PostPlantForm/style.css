@@ -74,3 +74,9 @@
   align-self: center;
   font-family: "Proxima Nova Regular";
 }
+
+@media (max-width: 900px) {
+  .post-plant-form {
+    margin-left: 0;
+  }
+}

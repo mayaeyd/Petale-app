@@ -56,3 +56,10 @@
   justify-self: center;
   margin-top: 40px;
 }
+
+@media (max-width: 900px) {
+  .plant-details-container {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+}
