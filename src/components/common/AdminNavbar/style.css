@@ -21,14 +21,13 @@
   margin-left: 20px;
 }
 
-.plants-nav-links,
-.personal-nav-links {
+.admin-nav-links {
   width: 90%;
   align-self: center;
+  margin-bottom: 200px;
 }
 
-.plants-nav-links,
-.personal-nav-links {
+.admin-nav-links {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -54,7 +53,7 @@
   transition: all ease 0.5s;
 }
 
-.plants-nav-links {
+.admin-nav-links {
   padding-block: 30px;
   border-block: 0.2px solid #bdbdbd;
 }

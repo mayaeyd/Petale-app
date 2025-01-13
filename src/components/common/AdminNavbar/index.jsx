@@ -3,12 +3,17 @@ import "./style.css";
 import { NavLink } from "react-router-dom";
 import LogoText from "../../../assets/images/LogoText";
 import { BarChart3, Flower, Package, ShoppingBag, Users } from "lucide-react";
+import PinkButtonRound from "../../base/PinkButtonRound";
+import { logout } from "../../../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 const AdminNavbar = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="admin-navbar">
       <LogoText />
-      <div className="plants-nav-links">
+      <div className="admin-nav-links">
         <NavLink
           to="/admin/dashboard"
           className={({ isActive }) =>
@@ -59,6 +64,13 @@ const AdminNavbar = () => {
           <p>Orders</p>
         </NavLink>
       </div>
+      <PinkButtonRound
+        label="Logout"
+        color="#4b5842"
+        backgroundColor="white"
+        onClick={() => dispatch(logout())}
+        className="logout-btn"
+      />
     </div>
   );
 };
