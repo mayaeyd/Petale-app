@@ -37,36 +37,56 @@ const PostedPlantsPage = () => {
             endIcon={<EventAvailableIcon />}
           />
         </div>
-        <h1>Plants</h1>
-        <div className="posted-cards-container">
-          {postedPlants.map((plant) =>
-            plant.plantType === "plant" ? (
-              <GardenerPlantCard
-                key={plant._id}
-                imageSrc={plant.images[0]}
-                title={plant.plantName}
-                description={plant.description}
-                price={plant.price}
-                onClick={() => handleClick(plant._id)}
-              />
-            ) : null
-          )}
-        </div>
-        <h1>Flowers</h1>
-        <div className="posted-cards-container">
-          {postedPlants.map((plant) =>
-            plant.plantType === "flower" ? (
-              <GardenerPlantCard
-                key={plant._id}
-                imageSrc={plant.images[0]}
-                title={plant.plantName}
-                description={plant.description}
-                price={plant.price}
-                onClick={() => handleClick(plant._id)}
-              />
-            ) : null
-          )}
-        </div>
+        {postedPlants.length > 0 ? (
+          <>
+            {postedPlants.filter((plant) => plant.plantType === "plant")
+              .length > 0 ? (
+              <>
+                <h1>Plants</h1>
+                <div className="posted-cards-container">
+                  {postedPlants.map((plant) =>
+                    plant.plantType === "plant" ? (
+                      <GardenerPlantCard
+                        key={plant._id}
+                        imageSrc={plant.images[0]}
+                        title={plant.plantName}
+                        description={plant.description}
+                        price={plant.price}
+                        onClick={() => handleClick(plant._id)}
+                      />
+                    ) : null
+                  )}
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+            {postedPlants.filter((plant) => plant.plantType === "flower")
+              .length > 0 ? (
+              <>
+                <h1>Flowers</h1>
+                <div className="posted-cards-container">
+                  {postedPlants.map((plant) =>
+                    plant.plantType === "flower" ? (
+                      <GardenerPlantCard
+                        key={plant._id}
+                        imageSrc={plant.images[0]}
+                        title={plant.plantName}
+                        description={plant.description}
+                        price={plant.price}
+                        onClick={() => handleClick(plant._id)}
+                      />
+                    ) : null
+                  )}
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+          </>
+        ) : (
+          <p>No plants posted yet</p>
+        )}
       </div>
     </div>
   );

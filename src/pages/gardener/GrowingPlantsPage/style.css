@@ -15,13 +15,11 @@
 }
 
 .growing-plants-container > h1 {
-  color: #383838;
   font-family: "Cormorant Semibold";
-  font-size: 2em;
-  margin-block: 15px;
-  border-bottom: 0.5px solid #383838;
+  font-size: 1.9em;
+  color: #383838;
+  margin-bottom: 20px;
   width: fit-content;
-  align-self: center;
 }
 
 .growing-plt-cards-container {

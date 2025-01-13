@@ -6,15 +6,11 @@
 }
 
 .post-plant-form h1 {
-  font-family: "Cormorant Semibold";
-  color: #383838;
   margin: 50px 20px;
-  font-size: 2em;
-  border-bottom: 1px solid #383838;
-  width: auto;
-  padding-bottom: 10px;
-  text-transform: capitalize;
-  text-align: center;
+  font-family: "Cormorant Semibold";
+  font-size: 1.9em;
+  color: #383838;
+  width: fit-content;
 }
 
 .post-inputs-container {

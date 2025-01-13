@@ -14,11 +14,9 @@
 }
 
 .sold-plants-container > h1 {
-  color: #383838;
   font-family: "Cormorant Semibold";
-  font-size: 2em;
-  margin-top: 15px;
-  border-bottom: 0.5px solid #383838;
+  font-size: 1.9em;
+  color: #383838;
+  margin: 20px;
   width: fit-content;
-  align-self: center;
 }

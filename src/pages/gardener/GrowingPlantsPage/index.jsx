@@ -33,36 +33,56 @@ const GrowingPlantsPage = () => {
         <FormPopup />
       </div>
       <div className="growing-plants-container">
-        <h1>Plants</h1>
-        <div className="growing-plt-cards-container">
-          {plants.map((plant) =>
-            plant.plantType === "plant" ? (
-              <GrowingPlantCard
-                key={plant._id}
-                name={plant.scientificName}
-                date={plant.plantedDate}
-                onClick={() =>
-                  navigate(`/gardener/growing-plants/${plant._id}`)
-                }
-              />
-            ) : null
-          )}
-        </div>
-        <h1>Flowers</h1>
-        <div className="growing-plt-cards-container">
-          {plants.map((plant) =>
-            plant.plantType === "flower" ? (
-              <GrowingPlantCard
-                key={plant._id}
-                name={plant.scientificName}
-                date={plant.plantedDate}
-                onClick={() =>
-                  navigate(`/gardener/growing-plants/${plant._id}`)
-                }
-              />
-            ) : null
-          )}
-        </div>
+        {plants.length > 0 ? (
+          <>
+            {plants.filter((plant) => plant.plantType === "plant").length >
+            0 ? (
+              <>
+                <h1>Plants</h1>
+                <div className="growing-plt-cards-container">
+                  {plants.map((plant) =>
+                    plant.plantType === "plant" ? (
+                      <GrowingPlantCard
+                        key={plant._id}
+                        name={plant.scientificName}
+                        date={plant.plantedDate}
+                        onClick={() =>
+                          navigate(`/gardener/growing-plants/${plant._id}`)
+                        }
+                      />
+                    ) : null
+                  )}
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+            {plants.filter((plant) => plant.plantType === "flower").length >
+            0 ? (
+              <>
+                <h1>Flowers</h1>
+                <div className="growing-plt-cards-container">
+                  {plants.map((plant) =>
+                    plant.plantType === "flower" ? (
+                      <GrowingPlantCard
+                        key={plant._id}
+                        name={plant.scientificName}
+                        date={plant.plantedDate}
+                        onClick={() =>
+                          navigate(`/gardener/growing-plants/${plant._id}`)
+                        }
+                      />
+                    ) : null
+                  )}
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+          </>
+        ) : (
+          <p>No growing plants yet</p>
+        )}
       </div>
     </div>
   );

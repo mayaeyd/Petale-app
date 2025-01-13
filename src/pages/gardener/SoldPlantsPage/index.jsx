@@ -34,38 +34,57 @@ const SoldPlantsPage = () => {
   return (
     <div>
       <GardenerNavbar />
-      <div className="sold-plants-container">
-        <h1>Plants</h1>
-        <div className="sold-cards-container">
-          {soldPlants.map((plant) =>
-            plant.plantType === "plant" ? (
-              <GardenerPlantCard
-                key={plant._id}
-                imageSrc={plant.images[0]}
-                title={plant.plantName}
-                description={plant.description}
-                price={plant.price}
-                onClick={() => handleClick(plant._id)}
-              />
-            ) : null
+      {soldPlants.length > 0 ? (
+        <div className="sold-plants-container">
+          {soldPlants.filter((plant) => plant.plantType === "plant").length >
+          0 ? (
+            <>
+              <h1>Plants</h1>
+              <div className="sold-cards-container">
+                {soldPlants.map((plant) =>
+                  plant.plantType === "plant" ? (
+                    <GardenerPlantCard
+                      key={plant._id}
+                      imageSrc={plant.images[0]}
+                      title={plant.plantName}
+                      description={plant.description}
+                      price={plant.price}
+                      onClick={() => handleClick(plant._id)}
+                    />
+                  ) : null
+                )}
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+
+          {soldPlants.filter((plant) => plant.plantType === "flower").length >
+          0 ? (
+            <>
+              <h1>Flowers</h1>
+              <div className="sold-cards-container">
+                {soldPlants.map((plant) =>
+                  plant.plantType === "flower" ? (
+                    <GardenerPlantCard
+                      key={plant._id}
+                      imageSrc={plant.images[0]}
+                      title={plant.plantName}
+                      description={plant.description}
+                      price={plant.price}
+                      onClick={() => handleClick(plant._id)}
+                    />
+                  ) : null
+                )}
+              </div>
+            </>
+          ) : (
+            ""
           )}
         </div>
-        <h1>Flowers</h1>
-        <div className="sold-cards-container">
-          {soldPlants.map((plant) =>
-            plant.plantType === "flower" ? (
-              <GardenerPlantCard
-                key={plant._id}
-                imageSrc={plant.images[0]}
-                title={plant.plantName}
-                description={plant.description}
-                price={plant.price}
-                onClick={() => handleClick(plant._id)}
-              />
-            ) : null
-          )}
-        </div>
-      </div>
+      ) : (
+        <p>No sold plants yet</p>
+      )}
     </div>
   );
 };
