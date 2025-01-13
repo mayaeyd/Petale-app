@@ -180,6 +180,7 @@ const AdminDashboard = () => {
               description={post.description}
               imageSrc={post.images[0]}
               key={post._id}
+              onClick={() => navigate(`/admin/marketplace/${post._id}`)}
             />
           ))}
         </div>
