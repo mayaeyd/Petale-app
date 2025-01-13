@@ -67,3 +67,9 @@
   background-color: #f6d1d12b;
   border-radius: 20px;
 }
+
+@media (max-width: 900px) {
+  .admin-navbar {
+    display: none;
+  }
+}

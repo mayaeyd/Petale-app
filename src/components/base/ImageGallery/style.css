@@ -44,3 +44,19 @@
 .main-swiper .swiper-button-next {
   display: none;
 }
+
+@media (max-width: 900px) {
+  .gallery-section {
+    max-width: 100%;
+    padding-right: 60px;
+    padding-left: 60px;
+    position: static;
+  }
+}
+
+@media (max-width: 1200px) {
+  .gallery-section {
+    position: static;
+    max-width: 100%;
+  }
+}

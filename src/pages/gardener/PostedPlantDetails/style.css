@@ -119,3 +119,22 @@
   overflow: hidden;
   text-align: left;
 }
+
+@media (max-width: 900px) {
+  .posted-plant-container {
+    margin-left: 0;
+  }
+  .spinner-container {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .posted-plant-container {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .posted-plant-details {
+    margin-left: 0px;
+  }
+}
