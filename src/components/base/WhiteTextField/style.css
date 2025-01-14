@@ -1,0 +1,22 @@
+.white-input-container > h3 {
+  font-family: "Proxima Nova Light";
+  font-size: 1em;
+  margin-block: 10px;
+  color: #535353;
+}
+
+.white-input-container > input {
+  background-color: white;
+  border: 1px solid #ccc;
+  height: 40px;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+  font-family: "Proxima Nova Light";
+  width: 100%;
+  font-size: 1em;
+}
+
+.white-input-container > input:focus {
+  border: 2px solid #4b5845;
+}
