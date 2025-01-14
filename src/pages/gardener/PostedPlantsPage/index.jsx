@@ -85,7 +85,9 @@ const PostedPlantsPage = () => {
             )}
           </>
         ) : (
-          <p>No plants posted yet</p>
+          <div className="empty-state-container">
+            <p>No Plants Yet</p>
+          </div>
         )}
       </div>
     </div>
