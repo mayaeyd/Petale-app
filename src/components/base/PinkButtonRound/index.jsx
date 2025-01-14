@@ -8,6 +8,7 @@ const PinkButtonRound = ({
   endIcon,
   backgroundColor,
   color,
+  fontFamily,
   ...props
 }) => {
   return (
@@ -24,7 +25,7 @@ const PinkButtonRound = ({
         borderRadius: "25px",
         marginTop: "10px",
         height: "35px",
-        fontFamily: "Proxima Nova Semibold",
+        fontFamily: fontFamily || "Proxima Nova Semibold",
         fontSize: "1em",
         textTransform: "capitalize",
         "&:hover": {
