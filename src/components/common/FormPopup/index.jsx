@@ -98,6 +98,7 @@ const FormPopup = () => {
             backgroundColor: "#4b5842",
             padding: "10px",
             width: "500px",
+            marginBottom: "100px",
           },
         }}
       >

@@ -130,7 +130,7 @@ const GardenerNavbar = () => {
           </NavLink>
         </div>
 
-        <div className="personal-nav-links">
+        <div className="personal-nav-links" style={{ visibility: "hidden" }}>
           <NavLink
             to="/gardener/profile"
             className={({ isActive }) =>
