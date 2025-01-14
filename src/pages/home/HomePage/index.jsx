@@ -6,6 +6,8 @@ import tulip from "../../../assets/images/Frame 126.png";
 import "./style.css";
 import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import { ArrowRight } from "lucide-react";
+import Footer from "../../../components/common/Footer";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const flowers = [
@@ -26,6 +28,8 @@ const HomePage = () => {
       category: "... to Tulips",
     },
   ];
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -55,12 +59,14 @@ const HomePage = () => {
                   color="white"
                   fontFamily="Kobe Regular"
                   endIcon={<ArrowRight color="white" />}
+                  onClick={() => navigate("/login")}
                 />
               </div>
             </div>
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

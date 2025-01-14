@@ -4,6 +4,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
+  margin-bottom: 20px;
 }
 
 .guest-trending-flowers h1 {
@@ -24,10 +25,6 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-}
-
-.guest-flower-item {
-  margin-bottom: -50px;
 }
 
 .guest-flower-image {
@@ -72,13 +69,6 @@
 
 .guest-flower-content > button {
   width: fit-content;
-}
-
-@media (min-width: 768px) {
-  .guest-trending-flowers {
-    padding-bottom: 0px;
-    margin-bottom: 0;
-  }
 }
 
 @media (min-width: 768px) {
