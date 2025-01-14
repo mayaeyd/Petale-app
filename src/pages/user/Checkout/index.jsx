@@ -4,6 +4,8 @@ import "./style.css";
 import CustomInput from "../../../components/base/WhiteTextField";
 import WhiteTextField from "../../../components/base/WhiteTextField";
 import DeliveryMethodCard from "../../../components/base/DeliveryMethodCard";
+import OrderSummaryCard from "../../../components/base/OrderSummaryCard";
+import flower from "../../../assets/images/Frame11.png";
 
 const Checkout = () => {
   const [selectedDelivery, setSelectedDelivery] = useState(null);
@@ -36,7 +38,17 @@ const Checkout = () => {
             />
           </div>
         </div>
-        <div></div>
+        <div>
+          <div>
+            <OrderSummaryCard
+              image={flower}
+              type="flower"
+              name="Tulip"
+              price="50.00"
+              quantity="3"
+            />
+          </div>
+        </div>
       </div>
     </>
   );
