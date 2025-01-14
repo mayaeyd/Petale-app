@@ -3,8 +3,11 @@ import LogoText from "../../../assets/images/LogoText";
 import PinkButtonRound from "../../base/PinkButtonRound";
 import OutlinedButton from "../../base/OutlinedButton";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const GuestNavbar = () => {
+  const navigate = useNavigate();
+
   return (
     <nav>
       <LogoText />
@@ -14,12 +17,14 @@ const GuestNavbar = () => {
           borderColor="white"
           fontFamily="Kobe Regular"
           label="Login"
+          onClick={() => navigate("/login")}
         />
         <PinkButtonRound
           color="#4b5842"
           backgroundColor="white"
           fontFamily="Kobe Regular"
           label="Sign Up"
+          onClick={() => navigate("/role")}
         />
       </div>
     </nav>
