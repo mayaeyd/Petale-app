@@ -26,13 +26,13 @@ import GrowingPlantsPage from "./pages/gardener/GrowingPlantsPage";
 import GrowingPlantDetails from "./pages/gardener/GrowingPlantDetails";
 import PostedPlantsPage from "./pages/gardener/PostedPlantsPage";
 import PostPlantForm from "./pages/gardener/PostPlantForm";
-import PlantMonitor from "./pages/gardener/PlantMonitor";
 import PostedPlantDetails from "./pages/gardener/PostedPlantDetails";
 import SoldPlantsPage from "./pages/gardener/SoldPlantsPage";
 import SoldPlantDetails from "./pages/gardener/SoldPlantDetails";
 import ListingDetails from "./pages/admin/ListingDetails";
 import OrderDetails from "./pages/admin/OrderDetails";
 import HomePage from "./pages/home/HomePage";
+import Checkout from "./pages/user/Checkout";
 
 const App = () => {
   return (
@@ -46,6 +46,7 @@ const App = () => {
         <Route path="/user" element={<UsersRoutes />}>
           <Route path="/user/home" element={<UserHomePage />} />
           <Route path="/user/predict-flower" element={<FlowerRecognition />} />
+          <Route path="/user/checkout" element={<Checkout />} />
         </Route>
         <Route path="/gardener" element={<GardenersRoutes />}>
           <Route
