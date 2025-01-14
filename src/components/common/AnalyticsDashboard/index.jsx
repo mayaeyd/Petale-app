@@ -16,19 +16,41 @@ import "./style.css";
 const AnalyticsDashboard = ({ salesData, loading }) => {
   if (loading) return <CircularProgress />;
 
-  const revenueData = salesData.map((sale) => {
-    // Get listing dates from the listings array
-    const listingDates = sale.listings.map(
-      (listing) => new Date(listing.listingDate)
-    );
-    return {
-      month: new Date(listingDates[0]).toLocaleString("default", {
-        month: "short",
-      }),
-      revenue: sale.totalRevenue,
-      orders: sale.totalGardenerSales,
-    };
-  });
+  const monthlyData = salesData.reduce((acc, sale) => {
+    const date =
+      sale.listings && sale.listings.length > 0
+        ? new Date(sale.listings[0].listingDate)
+        : new Date();
+
+    const monthYear = date.toLocaleString("default", {
+      month: "short",
+      year: "numeric",
+    });
+
+    if (!acc[monthYear]) {
+      acc[monthYear] = {
+        monthYear,
+        month: date.toLocaleString("default", { month: "short" }),
+        year: date.getFullYear(),
+        revenue: 0,
+        orders: 0,
+        date: date,
+      };
+    }
+
+    acc[monthYear].revenue += sale.totalRevenue;
+    acc[monthYear].orders += sale.totalGardenerSales;
+
+    return acc;
+  }, {});
+
+  const revenueData = Object.values(monthlyData)
+    .sort((a, b) => a.date - b.date)
+    .map((data) => ({
+      month: `${data.month} ${data.year}`,
+      revenue: data.revenue,
+      orders: data.orders,
+    }));
 
   return (
     <div className="dashboard-grid">
