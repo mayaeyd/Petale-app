@@ -24,7 +24,10 @@
   border-radius: 10px;
   padding-inline: 20px;
   padding-top: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .sensor-data-container > h2 {
@@ -53,6 +56,48 @@
   color: #383838;
   font-family: "Proxima Nova Regular";
   font-size: 1.1em;
+}
+
+.schedule-controls {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 70%;
+  gap: 10px;
+}
+
+.schedule-controls > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.enable-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #383838;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+}
+
+.enable-checkbox:checked {
+  background-color: #383838;
+}
+
+.enable-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 4.5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 @media (max-width: 900px) {

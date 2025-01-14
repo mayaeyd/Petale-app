@@ -7,6 +7,8 @@ import PinkButtonRound from "../../base/PinkButtonRound";
 import { harvestPlant } from "../../../redux/slices/plantsSlice";
 import { io } from "socket.io-client";
 import { Droplets } from "lucide-react";
+import WhiteTextField from "../../base/WhiteTextField";
+import Input from "../../base/Input";
 
 const GrowingPlantInfo = () => {
   const dispatch = useDispatch();
@@ -83,8 +85,10 @@ const GrowingPlantInfo = () => {
             <h2>Automated Watering Schedule</h2>
             <div className="schedule-controls">
               <div>
-                <label>Hour: </label>
-                <input
+                <Input
+                  label="Hour"
+                  inputColor="#383838"
+                  height="40px"
                   type="number"
                   min="0"
                   max="23"
@@ -98,8 +102,9 @@ const GrowingPlantInfo = () => {
                 />
               </div>
               <div>
-                <label>Minute: </label>
-                <input
+                <Input
+                  label="Minute"
+                  inputColor="#383838"
                   type="number"
                   min="0"
                   max="59"
@@ -113,8 +118,9 @@ const GrowingPlantInfo = () => {
                 />
               </div>
               <div>
-                <label>Duration (seconds): </label>
-                <input
+                <Input
+                  label="Duration (seconds)"
+                  inputColor="#383838"
                   type="number"
                   min="1"
                   value={schedule.duration}
@@ -127,9 +133,12 @@ const GrowingPlantInfo = () => {
                 />
               </div>
               <div>
-                <label>Enabled: </label>
+                <label style={{ fontFamily: "Proxima Nova Thin" }}>
+                  Enabled:{" "}
+                </label>
                 <input
                   type="checkbox"
+                  className="enable-checkbox"
                   checked={schedule.enabled}
                   onChange={(e) =>
                     handleScheduleUpdate({
