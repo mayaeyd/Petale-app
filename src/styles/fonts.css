@@ -102,3 +102,8 @@
   font-family: "Cormorant Semibold";
   src: url("../../public/fonts/Cormorant Garamound/CormorantGaramond-SemiBold.ttf");
 }
+
+@font-face {
+  font-family: "Kobe Regular";
+  src: url("../../public/fonts/Kobe11/kobe11-regular.ttf");
+}
