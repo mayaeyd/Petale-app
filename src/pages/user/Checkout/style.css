@@ -1,0 +1,38 @@
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 20px;
+}
+
+.checkout-container > div:first-child {
+  flex: 2;
+  background-color: #f5f5f3;
+  border-radius: 10px;
+  border: 0.3px solid #d3d3d3;
+  padding: 40px 20px;
+}
+
+.checkout-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.checkout-container > div:first-child > h2 {
+  font-family: "Proxima Nova Regular";
+  color: #383838;
+  font-size: 1.3em;
+}
+
+.checkout-container > div:last-child {
+  flex: 1;
+}
+
+.checkout-label {
+  margin-top: 30px;
+}
