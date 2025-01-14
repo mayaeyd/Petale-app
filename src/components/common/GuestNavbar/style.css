@@ -1,0 +1,11 @@
+.guest-buttons-container {
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guest-buttons-container > button {
+  width: 100px;
+  margin: 0;
+}
