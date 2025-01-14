@@ -32,11 +32,13 @@ import SoldPlantsPage from "./pages/gardener/SoldPlantsPage";
 import SoldPlantDetails from "./pages/gardener/SoldPlantDetails";
 import ListingDetails from "./pages/admin/ListingDetails";
 import OrderDetails from "./pages/admin/OrderDetails";
+import HomePage from "./pages/home/HomePage";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/role" element={<RolePage />} />
         <Route path="/signup/gardener" element={<SignUpGardener />} />
         <Route path="/signup/user" element={<SignUpUser />} />
