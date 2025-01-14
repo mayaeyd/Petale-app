@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import UserNavbar from "../../../components/common/UserNavbar";
 import "./style.css";
-import CustomInput from "../../../components/base/WhiteTextField";
 import WhiteTextField from "../../../components/base/WhiteTextField";
 import DeliveryMethodCard from "../../../components/base/DeliveryMethodCard";
 import OrderSummaryCard from "../../../components/base/OrderSummaryCard";
@@ -39,15 +38,13 @@ const Checkout = () => {
           </div>
         </div>
         <div>
-          <div>
-            <OrderSummaryCard
-              image={flower}
-              type="flower"
-              name="Tulip"
-              price="50.00"
-              quantity="3"
-            />
-          </div>
+          <OrderSummaryCard
+            image={flower}
+            type="flower"
+            name="Tulip"
+            price="50.00"
+            quantity="3"
+          />
         </div>
       </div>
     </>

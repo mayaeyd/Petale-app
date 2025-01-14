@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "../../../components/base/HeroSection";
 import GuestNavbar from "../../../components/common/GuestNavbar";
-import whiteLily from "../../../assets/images/Frame 11.png";
+import whiteLily from "../../../assets/images/Frame11.png";
 import tulip from "../../../assets/images/Frame 126.png";
 import "./style.css";
 import PinkButtonRound from "../../../components/base/PinkButtonRound";
