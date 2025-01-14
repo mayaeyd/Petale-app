@@ -25,18 +25,23 @@ const Login = () => {
   // useEffect to handle navigation after successful login
   useEffect(() => {
     if (user && user.role) {
-      switch (user.role) {
-        case "gardener":
-          navigate("/gardener/growing-plants");
-          break;
-        case "user":
-          navigate("/user/home");
-          break;
-        case "admin":
-          navigate("/admin/dashboard");
-          break;
-        default:
-          navigate("/");
+      if (!user.isBanned) {
+        switch (user.role) {
+          case "gardener":
+            navigate("/gardener/growing-plants");
+            break;
+          case "user":
+            navigate("/user/home");
+            break;
+          case "admin":
+            navigate("/admin/dashboard");
+            break;
+          default:
+            navigate("/");
+        }
+      } else {
+        navigate("/");
+        localStorage.clear();
       }
     }
   }, [user, navigate]);
