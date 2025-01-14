@@ -13,6 +13,10 @@
   width: fit-content;
 }
 
+.image-upload {
+  margin-right: 20px;
+}
+
 .post-inputs-container {
   padding-inline: 20px;
   display: flex;

@@ -43,7 +43,6 @@ const App = () => {
         <Route path="/signup/gardener" element={<SignUpGardener />} />
         <Route path="/signup/user" element={<SignUpUser />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/plant-info" element={<PlantMonitor />} />
         <Route path="/user" element={<UsersRoutes />}>
           <Route path="/user/home" element={<UserHomePage />} />
           <Route path="/user/predict-flower" element={<FlowerRecognition />} />
