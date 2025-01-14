@@ -1,0 +1,36 @@
+.delivery-method-card {
+  width: 300px;
+  background-color: white;
+  border: 0.3px solid #d3d3d3;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.deliver-active {
+  border: 1px solid #4b5845;
+}
+
+.delivery-method-card > h3 {
+  font-family: "Proxima Nova Thin";
+  color: #383838;
+  font-size: 1em;
+}
+
+.delivery-method-card > p:nth-child(2) {
+  font-family: "Proxima Nova Thin";
+  color: #676767;
+  font-size: 0.9em;
+  width: fit-content;
+  margin-top: 5px;
+}
+
+.delivery-method-card > p:nth-child(3) {
+  font-family: "Proxima Nova Regular";
+  color: #383838;
+  font-size: 1.2em;
+  width: fit-content;
+  margin-top: 30px;
+}
