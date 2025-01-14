@@ -1,48 +1,91 @@
-.flower-recoganition-div {
+.flower-recognition-div {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-.upload-section{
+.upload-section {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
   display: flex;
-  margin-left: 140px;
-  margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-block: 20px;
+}
+
+.background-flowers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flower-left,
+.flower-right {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+.flower-left {
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.flower-right {
+  right: 0;
+  transform: translateX(50%);
 }
 
 .file-upload-container {
-  height: auto;
-  width: 100%;
-  display: flex;
   position: relative;
-  z-index: 1000;
-  margin-top: 30px;
-  align-self: center;
-  justify-self: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 1;
 }
 
-.flower-1 {
-  position: absolute;
-  top: 12%;
-  left: -20%;
-}
+@media (max-width: 1200px) {
+  .flower-left {
+    transform: translateX(-60%);
+  }
 
-.flower-2 {
-  position: absolute;
-  top: 5%;
-  right: -25%;
+  .flower-right {
+    transform: translateX(60%);
+  }
 }
 
 @media (max-width: 920px) {
-  .flower-1 {
-    position: absolute;
-    top: 5%;
-    left: -60%;
+  .flower-left {
+    transform: translateX(-70%);
   }
 
-  .flower-2 {
-    position: absolute;
-    top: 5%;
-    right: -60%;
+  .flower-right {
+    transform: translateX(70%);
+  }
+}
+
+@media (max-width: 768px) {
+  .flower-left {
+    transform: translateX(-80%);
+  }
+
+  .flower-right {
+    transform: translateX(80%);
+  }
+}
+
+@media (max-width: 480px) {
+  .flower-left {
+    transform: translateX(-85%);
+  }
+
+  .flower-right {
+    transform: translateX(85%);
   }
 }

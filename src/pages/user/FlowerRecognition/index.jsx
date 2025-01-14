@@ -10,25 +10,25 @@ const FlowerRecognition = () => {
   const { prediction } = useSelector((state) => state.flower);
 
   return (
-    <div className="flower-recoganition-div">
+    <div className="flower-recognition-div">
       <UserNavbar />
       <div className="upload-section">
-        <div className="flower-1">
-          <BackgroundFlower />
+        <div className="background-flowers">
+          <div className="flower-left">
+            <BackgroundFlower />
+          </div>
+          <div className="flower-right">
+            <BackgroundFlower />
+          </div>
         </div>
         <div className="file-upload-container">
           <FlowerUpload />
         </div>
-        <div className="flower-2">
-          <BackgroundFlower />
-        </div>
       </div>
-      {prediction ? (
+      {prediction && (
         <div className="predicted-flower-details">
           <h1>{prediction}</h1>
         </div>
-      ) : (
-        ""
       )}
       <Footer />
     </div>
