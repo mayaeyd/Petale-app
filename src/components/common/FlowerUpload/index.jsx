@@ -40,7 +40,7 @@ const FlowerUpload = () => {
   };
 
   return (
-    <div className="upload-container">
+    <div className="flower-upload-container">
       <h1>Flower Recognition</h1>
       <p>
         Upload a photo of any flower you'd like to identify, and let our AI help
@@ -50,9 +50,9 @@ const FlowerUpload = () => {
         the flower's petals and color for the best results.
       </p>
 
-      <div className="upload-content">
+      <div className="flower-upload-content">
         <div
-          className={`upload-area ${isDragOver ? "dragover" : ""}`}
+          className={`flower-upload-area ${isDragOver ? "dragover" : ""}`}
           onDragOver={(e) => {
             e.preventDefault();
             setIsDragOver(true);
@@ -69,19 +69,23 @@ const FlowerUpload = () => {
             ref={fileInputRef}
             onChange={handleChange}
             accept="image/*"
-            className="file-input"
+            className="flower-file-input"
           />
 
-          <div className="upload-content-inner">
+          <div className="flower-upload-content-inner">
             {preview ? (
-              <div className="preview-container">
-                <img src={preview} alt="Preview" className="preview-image" />
+              <div className="flower-preview-container">
+                <img
+                  src={preview}
+                  alt="Preview"
+                  className="flower-preview-image"
+                />
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     setPreview(null);
                   }}
-                  className="clear-button"
+                  className="flower-clear-button"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -118,13 +122,13 @@ const FlowerUpload = () => {
                   <polyline points="17 8 12 3 7 8" />
                   <line x1="12" x2="12" y1="3" y2="15" />
                 </svg>
-                <div className="upload-text">
-                  <p className="upload-title">
+                <div className="flower-upload-text">
+                  <p className="flower-upload-title">
                     {isDragOver
                       ? "Drop your image here"
                       : "Drag & drop your flower image"}
                   </p>
-                  <p className="upload-subtitle">or click to browse</p>
+                  <p className="flower-upload-subtitle">or click to browse</p>
                 </div>
               </>
             )}
@@ -132,15 +136,15 @@ const FlowerUpload = () => {
         </div>
 
         {loading && (
-          <div className="loading-container">
+          <div className="flower-loading-container">
             <div className="spinner"></div>
             <p>Analyzing your flower...</p>
           </div>
         )}
 
         {prediction && !loading && (
-          <div className="result-container">
-            <div className="result-content">
+          <div className="flower-result-container">
+            <div className="flower-result-content">
               <div>
                 <h3>{formatPlantName(prediction)}</h3>
                 <p>
