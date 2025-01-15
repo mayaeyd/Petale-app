@@ -23,7 +23,8 @@ const Footer = () => {
         <p>Nurture. Bloom. Connect.</p>
         <PinkButtonRound
           label="Buy Flowers"
-          endIcon={<ArrowForward sx={{ color: "#BE7D86" }} />}
+          endIcon={<ArrowForward />}
+          onClick={() => navigate("/login")}
         />
         <div className="social-media-sec">
           <p>Connect With Us</p>
@@ -106,7 +107,9 @@ const Footer = () => {
           <div className="footer-links">
             <ul>
               <li>IoT Features</li>
-              <li onClick={()=>navigate("/user/predict-flower")}>Flower Recognition</li>
+              <li onClick={() => navigate("/user/predict-flower")}>
+                Flower Recognition
+              </li>
               <li>How it Works</li>
               <li>Support</li>
             </ul>

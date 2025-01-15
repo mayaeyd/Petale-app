@@ -1,0 +1,111 @@
+.features-container {
+  margin: 0;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+
+.features-container > h1 {
+  font-family: "Cormorant Light Italic";
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  background-color: #4b5845;
+  color: white;
+  padding-block: 10px;
+}
+
+.features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  opacity: 0;
+}
+
+.features-column {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.features-item {
+  position: relative;
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.features-column:last-child .features-item {
+  transform: translateX(100px);
+}
+
+.features-image-container {
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.features-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.features-image-container:hover img {
+  transform: scale(1.05);
+}
+
+.features-text-content {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.features-text-content > div:first-child {
+  display: flex;
+  gap: 20px;
+  color: #383838;
+  font-family: "Proxima Nova Regular";
+  align-self: flex-end;
+}
+
+.features-text-content > p {
+  color: #4e4e4e;
+  font-family: "Cormorant Light Italic";
+  max-width: 60%;
+  text-align: end;
+  align-self: flex-end;
+  font-size: 1.2em;
+}
+
+.features-column:first-child .features-arrow {
+  right: 20px;
+}
+
+.features-column:last-child .features-arrow {
+  left: 20px;
+}
+
+.features-container > h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.features-container > p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-column:last-child .features-item {
+    transform: translateX(-100px);
+  }
+}
