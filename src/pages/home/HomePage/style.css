@@ -1,10 +1,12 @@
 @import url(../../../styles/fonts.css);
 
 .guest-trending-flowers {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 24px;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
+  background-color: #f8f4e3;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .guest-trending-flowers h1 {
@@ -19,6 +21,8 @@
 
 .guest-flowers-container {
   position: relative;
+  max-width: 1200px;
+  align-self: center;
 }
 
 .guest-flower-item {

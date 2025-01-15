@@ -8,6 +8,7 @@ import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/common/Footer";
 import { useNavigate } from "react-router-dom";
+import FeaturesSection from "../../../components/common/FeaturesSection";
 
 const HomePage = () => {
   const flowers = [
@@ -66,6 +67,7 @@ const HomePage = () => {
           ))}
         </div>
       </div>
+      <FeaturesSection />
       <Footer />
     </>
   );
