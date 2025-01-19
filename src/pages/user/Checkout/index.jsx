@@ -1,13 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserNavbar from "../../../components/common/UserNavbar";
 import "./style.css";
 import WhiteTextField from "../../../components/base/WhiteTextField";
 import DeliveryMethodCard from "../../../components/base/DeliveryMethodCard";
 import OrderSummaryCard from "../../../components/base/OrderSummaryCard";
-import flower from "../../../assets/images/Frame11.png";
+import { useDispatch, useSelector } from "react-redux";
+import PinkButtonSquared from "../../../components/base/PinkButtonSquared";
+import { CreateOrder } from "../../../redux/slices/orderSlice";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const [address, setAddress] = useState("");
   const [selectedDelivery, setSelectedDelivery] = useState(null);
+
+  const { items, totalPrice } = useSelector((state) => state.cart);
+  const { success } = useSelector((state) => state.order);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handlePlaceOrder = () => {
+    console.log(address, selectedDelivery);
+
+    if (!address || !selectedDelivery) {
+      alert("Please fill out all fields and select a delivery method.");
+      return;
+    }
+
+    const orderData = {
+      deliveryAddress: address,
+      deliveryMethod: selectedDelivery,
+      orderItems: items.map(({ id, name, quantity, price }) => ({
+        id,
+        name,
+        quantity,
+        price,
+      })),
+      totalAmount: totalPrice,
+    };
+
+    dispatch(CreateOrder(orderData));
+  };
+
+  useEffect(() => {
+    if (success) {
+      navigate(`/user/order`);
+    }
+  }, [success]);
 
   return (
     <>
@@ -16,8 +55,10 @@ const Checkout = () => {
         <div>
           <h2>Shipping Information</h2>
           <div className="checkout-inputs-container">
-            <WhiteTextField label="Address" />
-            <WhiteTextField label="Apartment, suite, etc." />
+            <WhiteTextField
+              onChange={(e) => setAddress(e.target.value)}
+              label="Address"
+            />
           </div>
           <h2 className="checkout-label">Delivery Method</h2>
           <div className="delivery-cards-container">
@@ -38,13 +79,22 @@ const Checkout = () => {
           </div>
         </div>
         <div>
-          <OrderSummaryCard
-            image={flower}
-            type="flower"
-            name="Tulip"
-            price="50.00"
-            quantity="3"
-          />
+          <div>
+            {items.map((item) => {
+              return (
+                <OrderSummaryCard
+                  image={item.image}
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                />
+              );
+            })}
+            <PinkButtonSquared
+              label={"Place Order"}
+              onClick={handlePlaceOrder}
+            />
+          </div>
         </div>
       </div>
     </>
