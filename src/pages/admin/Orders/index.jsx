@@ -2,30 +2,41 @@ import React from "react";
 import AdminNavbar from "../../../components/common/AdminNavbar";
 import "./style.css";
 import { useSelector } from "react-redux";
-import { selectAllOrders } from "../../../redux/admin/adminSlice";
 import SortableTable from "../../../components/common/SortableTable";
 import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import { useNavigate } from "react-router-dom";
 
 const Orders = () => {
-  const orders = useSelector(selectAllOrders);
+  const { orders } = useSelector((state) => state.order);
   const navigate = useNavigate();
 
   const headers = [
+    { key: "orderDate", label: "Order Date", sortable: true },
     { key: "buyerName", label: "Buyer Name", sortable: true },
     { key: "buyerEmail", label: "Buyer Email", sortable: true },
-    { key: "numberofOrders", label: "Number of Orders", sortable: true },
-    { key: "address", label: "Buyer Address", sortable: true },
+    { key: "gardenerName", label: "Gardener Name", sortable: true },
+    { key: "gardenName", label: "Garden Name", sortable: true },
+    { key: "plantName", label: "Plant Name", sortable: true },
+    { key: "quantity", label: "Quantity", sortable: true },
+    { key: "totalPrice", label: "Total Price", sortable: true },
+    { key: "address", label: "Delivery Address", sortable: true },
   ];
 
-  const rows = orders.map((order) => ({
-    buyerName: order.buyerName,
-    buyerEmail: order.buyerEmail,
-    numberofOrders: order.orders.length,
-    address: order.orders[0].buyerAddress,
-    id: order.buyerId,
-  }));
-  console.log(orders);
+  // Flatten the nested orders structure into a single array of orders
+  const rows = orders?.flatMap((gardener) =>
+    gardener.orders.map((order) => ({
+      id: order._id,
+      orderDate: new Date(order.orderDate).toLocaleDateString(),
+      buyerName: order.buyerInfo.name,
+      buyerEmail: order.buyerInfo.email,
+      gardenerName: order.gardenerName,
+      gardenName: order.gardenName,
+      plantName: order.name,
+      quantity: order.quantity,
+      totalPrice: `$${order.totalPrice}`,
+      address: order.deliveryAddress,
+    }))
+  );
 
   const handleViewDetails = (row) => {
     navigate(`/admin/orders/${row.id}`);
@@ -36,18 +47,7 @@ const Orders = () => {
       <AdminNavbar />
       <div className="orders-container">
         <h1>Orders</h1>
-        <SortableTable
-          headers={headers}
-          rows={rows}
-          rowActions={(row) => (
-            <PinkButtonRound
-              label="View Details"
-              onClick={(e) => {
-                handleViewDetails(row);
-              }}
-            />
-          )}
-        />
+        <SortableTable headers={headers} rows={rows || []} />
       </div>
     </>
   );

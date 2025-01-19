@@ -6,6 +6,7 @@ import { userThunks } from "../../redux/admin/thunks/userThunks";
 import { orderThunks } from "../../redux/admin/thunks/orderThunks";
 import { plantThunks } from "../../redux/admin/thunks/plantThunks";
 import { postThunks } from "../../redux/admin/thunks/postThunks";
+import { GetAllGardenersOrders } from "../../redux/slices/orderSlice";
 
 const AdminsRoutes = () => {
   const { user, loading, token } = useSelector((state) => state.auth);
@@ -23,6 +24,7 @@ const AdminsRoutes = () => {
         dispatch(postThunks.fetchPosts());
         dispatch(orderThunks.fetchOrders());
         dispatch(orderThunks.fetchSales());
+        dispatch(GetAllGardenersOrders());
       }
     };
 
