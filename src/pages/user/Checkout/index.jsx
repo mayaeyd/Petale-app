@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 const Checkout = () => {
   const [address, setAddress] = useState("");
   const [selectedDelivery, setSelectedDelivery] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const { items, totalPrice } = useSelector((state) => state.cart);
   const { success } = useSelector((state) => state.order);
@@ -23,7 +24,9 @@ const Checkout = () => {
     console.log(address, selectedDelivery);
 
     if (!address || !selectedDelivery) {
-      alert("Please fill out all fields and select a delivery method.");
+      setErrorMessage(
+        "Please fill out all fields and select a delivery method"
+      );
       return;
     }
 
@@ -80,20 +83,34 @@ const Checkout = () => {
         </div>
         <div>
           <div>
-            {items.map((item) => {
-              return (
-                <OrderSummaryCard
-                  image={item.image}
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
-                />
-              );
-            })}
+            <div className="order-summary-cards">
+              {items.map((item) => {
+                return (
+                  <OrderSummaryCard
+                    image={item.image}
+                    name={item.name}
+                    price={item.price}
+                    quantity={item.quantity}
+                  />
+                );
+              })}
+            </div>
             <PinkButtonSquared
               label={"Place Order"}
               onClick={handlePlaceOrder}
             />
+            {errorMessage && (
+              <p
+                style={{
+                  width: "100%",
+                  maxWidth: "100%",
+                  color: "#ff4444",
+                  marginTop: "10px",
+                }}
+              >
+                {errorMessage}
+              </p>
+            )}
           </div>
         </div>
       </div>
