@@ -33,7 +33,6 @@ const AdminDashboard = () => {
   const users = useSelector(selectAllUsers);
   const salesData = useSelector(selectSalesData);
   const listings = useSelector(selectAllListings);
-  const orders = useSelector(selectAllOrders);
 
   const usersCount = useSelector(selectUsersCount);
   const postsCount = useSelector(selectPostsCount);
@@ -41,9 +40,10 @@ const AdminDashboard = () => {
   const plantsCount = useSelector(selectPlantsCount);
   const salesCount = useSelector(selectSalesCount);
 
+  const { orders } = useSelector((state) => state.order);
+
   const firstThreeUsers = users.slice(0, 3);
   const firstThreePosts = listings.slice(0, 3);
-  const firstThreeOrders = orders.slice(0, 3);
 
   const salesLoading = useSelector(selectSalesLoading);
   const usersLoading = useSelector(selectUsersLoading);
@@ -59,6 +59,17 @@ const AdminDashboard = () => {
         </div>
       </div>
     );
+
+  const lastThreeOrders = orders
+    ?.flatMap((gardener) =>
+      gardener.orders.map((order) => ({
+        ...order,
+        gardenerName: gardener.gardenerName,
+        gardenName: gardener.gardenName,
+      }))
+    )
+    .sort((a, b) => new Date(b.orderDate) - new Date(a.orderDate))
+    .slice(0, 3);
 
   const usersColumns = [
     { id: "name", label: "Name", minWidth: 100 },
@@ -82,40 +93,50 @@ const AdminDashboard = () => {
   );
 
   const ordersColumns = [
-    { id: "name", label: "Buyer Name", minWidth: 100 },
-    { id: "email", label: "Buyer Email", minWidth: 100 },
-    { id: "address", label: "Address", minWidth: 100 },
+    { id: "buyerName", label: "Buyer Name", minWidth: 100 },
+    { id: "buyerEmail", label: "Buyer Email", minWidth: 100 },
+    { id: "plantName", label: "Plant Name", minWidth: 100 },
+    { id: "gardenerName", label: "Gardener Name", minWidth: 100 },
     { id: "quantity", label: "Quantity", minWidth: 100 },
-    { id: "price", label: "Total Value", minWidth: 100 },
-    { id: "purchaseDate", label: "Purchase Date", minWidth: 100 },
+    { id: "price", label: "Total Price", minWidth: 100 },
+    { id: "orderDate", label: "Order Date", minWidth: 100 },
   ];
 
-  const ordersRows = firstThreeOrders.flatMap((buyer) =>
-    buyer.orders.map((order) =>
+  const ordersRows =
+    lastThreeOrders?.map((order) =>
       createOrderData(
-        buyer.buyerName,
-        buyer.buyerEmail,
-        order.buyerAddress,
+        order.buyerInfo.name,
+        order.buyerInfo.email,
+        order.name,
+        order.gardenerName,
         order.quantity,
-        order.totalPrice,
-        formatDateTime(order.purchaseDate)
+        `$${order.totalPrice.toFixed(2)}`,
+        formatDateTime(order.orderDate)
       )
-    )
-  );
+    ) || [];
 
   function createData(id, name, role, email, tel, banned, createdat) {
     return { id, name, role, email, tel, banned, createdat };
   }
 
   function createOrderData(
-    name,
-    email,
-    address,
+    buyerName,
+    buyerEmail,
+    plantName,
+    gardenerName,
     quantity,
     price,
-    purchaseDate
+    orderDate
   ) {
-    return { name, email, address, quantity, price, purchaseDate };
+    return {
+      buyerName,
+      buyerEmail,
+      plantName,
+      gardenerName,
+      quantity,
+      price,
+      orderDate,
+    };
   }
 
   function formatDateTime(timestamp) {
