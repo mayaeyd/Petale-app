@@ -41,9 +41,11 @@ export default function CartPage() {
         <div className="cart-page-header">
           <div>
             <h1>Shopping Cart</h1>
-            <h4>
-              <span>{cart?.totalQuantity} items</span> in your cart
-            </h4>
+            {cart?.totalQuantity > 0 && (
+              <h4>
+                <span>{cart?.totalQuantity} items</span> in your cart
+              </h4>
+            )}
           </div>
 
           <div>
