@@ -7,11 +7,16 @@ const getAuthHeader = () => ({
 });
 
 export const adminApi = {
-  get: async (endpoint, id = null) => {
-    const response = await axios.get(
-      `${BASE_URL}/${endpoint}${id ? `/${id}` : ""}`,
-      { headers: getAuthHeader() }
-    );
+  get: async (endpoint, id = null, ids = null) => {
+    let url = `${BASE_URL}/${endpoint}`;
+
+    if (id) {
+      url += `/${id}`;
+    } else if (ids) {
+      url += `?ids=${ids.join(",")}`;
+    }
+
+    const response = await axios.get(url, { headers: getAuthHeader() });
     return response.data;
   },
   post: async (endpoint, data) => {

@@ -17,6 +17,7 @@ const initialState = {
     items: [],
     // posts without seller's data
     listings: [],
+    selectedPosts: null,
     count: 0,
     selectedPost: null,
     loading: false,
@@ -106,6 +107,19 @@ const adminSlice = createSlice({
         state.posts.loading = false;
         state.posts.error = action.error.message;
       })
+      .addCase(postThunks.fetchPostsByIds.pending, (state) => {
+        state.posts.loading = true;
+        state.posts.error = null;
+      })
+      .addCase(postThunks.fetchPostsByIds.fulfilled, (state, action) => {
+        state.posts.selectedPosts = action.payload.data;
+        state.posts.loading = false;
+        state.posts.error = null;
+      })
+      .addCase(postThunks.fetchPostsByIds.rejected, (state, action) => {
+        state.posts.error = action.payload;
+        state.posts.loading = false;
+      })
       .addCase(postThunks.deletePost.fulfilled, (state, action) => {
         state.posts.items = state.posts.items.filter(
           (post) => post._id !== action.payload.postId
@@ -184,6 +198,7 @@ export const selectPostsCount = (state) => state.admin.posts.count;
 export const selectSelectedPost = (state) => state.admin.posts.selectedPost;
 export const selectPostsLoading = (state) => state.admin.posts.loading;
 export const selectPostsError = (state) => state.admin.posts.error;
+export const selectSelectedPosts = (state) => state.admin.posts.selectedPosts;
 
 export const selectAllOrders = (state) => state.admin.orders.items;
 export const selectOrdersCount = (state) => state.admin.orders.count;
