@@ -16,6 +16,7 @@ const Checkout = () => {
 
   const { items, totalPrice } = useSelector((state) => state.cart);
   const { success } = useSelector((state) => state.order);
+  const cart = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -94,6 +95,26 @@ const Checkout = () => {
                   />
                 );
               })}
+            </div>
+            <div className="checkout-order-pricing">
+              <div>
+                {cart?.items.map((item) => (
+                  <p>
+                    {item.name} x {item.quantity}
+                  </p>
+                ))}
+                <p>Total</p>
+              </div>
+              <div>
+                {cart?.items.map((item) => (
+                  <p style={{ fontFamily: "Proxima Nova Regular" }}>
+                    {item.totalPrice.toFixed(2)}
+                  </p>
+                ))}
+                <p style={{ fontFamily: "Proxima Nova Regular" }}>
+                  {cart?.totalPrice}
+                </p>
+              </div>
             </div>
             <PinkButtonSquared
               label={"Place Order"}

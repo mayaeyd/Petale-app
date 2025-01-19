@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 export default function CartPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart); // Access the cart state from Redux store
+  const cart = useSelector((state) => state.cart);
 
   const handleIncreaseQuantity = (id) => {
     const item = cart.items.find((item) => item.id === id);
