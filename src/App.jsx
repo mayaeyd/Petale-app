@@ -30,7 +30,6 @@ import PostedPlantDetails from "./pages/gardener/PostedPlantDetails";
 import SoldPlantsPage from "./pages/gardener/SoldPlantsPage";
 import SoldPlantDetails from "./pages/gardener/SoldPlantDetails";
 import ListingDetails from "./pages/admin/ListingDetails";
-import OrderDetails from "./pages/admin/OrderDetails";
 import Checkout from "./pages/user/Checkout";
 import HomePage from "./pages/home/HomePage";
 import UserMarketPlace from "./pages/user/UserMarketPlace";
@@ -89,7 +88,6 @@ const App = () => {
           <Route path="/admin/marketplace" element={<Marketplace />} />
           <Route path="/admin/marketplace/:id" element={<ListingDetails />} />
           <Route path="/admin/orders" element={<Orders />} />
-          <Route path="/admin/orders/:id" element={<OrderDetails />} />
           <Route path="/admin/growing-plants" element={<GrowingPlants />} />
           <Route
             path="/admin/growing-plants/:id"
