@@ -27,4 +27,88 @@ export default function ViewPlant() {
   const [giftMessage, setGiftMessage] = useState("");
 
   const existingItem = items?.find((item) => item.id === id);
+  return (
+    <main>
+      <UserNavbar />
+      <div className="user-posted-plant-container">
+        <ImageGallery images={singlePost?.post?.images ?? []} isStatic />
+        <div className="user-posted-plant-details">
+          <h2>{singlePost?.post?.plantName}</h2>
+          <span>
+            {singlePost?.post?.plantType === "plant" ? (
+              <Leaf color="#878787" strokeWidth="1" />
+            ) : (
+              <Flower color="#878787" strokeWidth="1" />
+            )}
+            <p>{singlePost?.post?.plantType}</p>
+          </span>
+          <p className="user-posted-plant-price">${singlePost?.post?.price}</p>
+
+          <p className="user-posted-plant-description">
+            {singlePost?.post?.description}
+          </p>
+
+          <div className="gift-message-container">
+            <label className="gift-message-label">Add a gift message</label>
+            <select
+              className="gift-message-input"
+              value={addGiftMessage}
+              onChange={(e) => {
+                setAddGiftMessage(e.target.value);
+              }}
+            >
+              <option value={"No"}>No</option>
+              <option value={"Yes"}>Yes</option>
+            </select>
+          </div>
+
+          {addGiftMessage === "Yes" && (
+            <div>
+              <textarea
+                style={{
+                  padding: 10,
+                  width: 300,
+                  resize: "none",
+                }}
+                placeholder=""
+                rows={5}
+                onChange={(e) => {
+                  setGiftMessage(e.target.value);
+                }}
+                value={giftMessage}
+              />
+            </div>
+          )}
+
+          <div className="addons-container">
+            <span className="addons-label">Send it with little something</span>
+            <div className="addons-checkbox-container">
+              <input
+                className="addons-checkbox-input"
+                type="checkbox"
+                name="subscribe"
+                value="yes"
+              />
+              <label className="addons-checkbox-label">
+                {" "}
+                Add Chocolate Box (24 pcs){" "}
+              </label>
+            </div>
+            <div className="addons-checkbox-container">
+              <input
+                className="addons-checkbox-input"
+                type="checkbox"
+                name="subscribe"
+                value="yes"
+              />
+              <label className="addons-checkbox-label">
+                {" "}
+                Add Balloons (3 red)
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }
