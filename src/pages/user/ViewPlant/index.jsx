@@ -15,8 +15,10 @@ import {
 
 export default function ViewPlant() {
   const { id } = useParams();
+
   const { singlePost, posts } = useSelector((state) => state.marketplace);
   const dispatch = useDispatch();
+
   const { items } = useSelector((state) => state.cart);
 
   useEffect(() => {
@@ -24,9 +26,11 @@ export default function ViewPlant() {
   }, [dispatch, id, posts]);
 
   const [addGiftMessage, setAddGiftMessage] = useState("No");
+
   const [giftMessage, setGiftMessage] = useState("");
 
   const existingItem = items?.find((item) => item.id === id);
+
   return (
     <main>
       <UserNavbar />
@@ -106,6 +110,27 @@ export default function ViewPlant() {
                 Add Balloons (3 red)
               </label>
             </div>
+          </div>
+
+          <div className="add-to-cart-container">
+            <PinkButtonSquared
+              onClick={() => {
+                if (existingItem) {
+                  dispatch(removeItemFromCart(id));
+                } else {
+                  dispatch(
+                    addItemToCart({
+                      id,
+                      name: singlePost?.post?.plantName,
+                      price: singlePost?.post?.price,
+                      quantity: 1,
+                      image: singlePost?.post?.images[0],
+                    })
+                  );
+                }
+              }}
+              label={existingItem ? "Remove From Cart" : "Add to Cart"}
+            />
           </div>
         </div>
       </div>
