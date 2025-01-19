@@ -49,7 +49,6 @@ export const GetUserOrders = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("bla", response.data?.user?.orders);
       return response.data?.user?.orders;
     } catch (error) {
       return rejectWithValue(
@@ -84,7 +83,6 @@ export const GetGardenerOrders = createAsyncThunk(
   }
 );
 
-// Update Order Status
 export const UpdateOrderStatus = createAsyncThunk(
   "orders/UpdateOrderStatus",
   async ({ userId, orderId, status }, { rejectWithValue }) => {
@@ -108,6 +106,30 @@ export const UpdateOrderStatus = createAsyncThunk(
       return rejectWithValue(
         error.response?.data?.message ||
           "An error occurred while updating order status"
+      );
+    }
+  }
+);
+
+export const GetAllGardenersOrders = createAsyncThunk(
+  "orders/GetAllGardenersOrders",
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Unauthorized: No token found");
+      }
+
+      const response = await axios.get(`http://localhost:8080/admin/orders/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data.orders;
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message ||
+          "An error occurred while fetching all gardeners' orders"
       );
     }
   }
@@ -193,6 +215,21 @@ const orderSlice = createSlice({
         }
       })
       .addCase(UpdateOrderStatus.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+
+    builder
+      .addCase(GetAllGardenersOrders.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(GetAllGardenersOrders.fulfilled, (state, action) => {
+        state.loading = false;
+        state.orders = action.payload;
+        state.success = true;
+      })
+      .addCase(GetAllGardenersOrders.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
