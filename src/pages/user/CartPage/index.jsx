@@ -9,6 +9,7 @@ import {
   updateItemQuantity,
 } from "../../../redux/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
+import PinkButtonRound from "../../../components/base/PinkButtonRound";
 
 export default function CartPage() {
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ export default function CartPage() {
 
           <div>
             {cart && cart.items.length > 0 && (
-              <PinkButtonSquared
+              <PinkButtonRound
                 onClick={() => {
                   navigate("/user/checkout");
                 }}
