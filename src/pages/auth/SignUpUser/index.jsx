@@ -97,7 +97,7 @@ const SignUpUser = () => {
             }
             onClick={() => {
               dispatch(RegisterUser(credentials));
-              navigate("/login");
+              navigate("/");
             }}
           />
           {error && <p className="error-message">{error.message}</p>}

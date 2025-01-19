@@ -7,6 +7,11 @@ export const postThunks = {
     async (id = null) => await adminApi.get("posts", id)
   ),
 
+  fetchPostsByIds: createAsyncThunk(
+    "admin/fetchPostsByIds",
+    async (ids) => await adminApi.get("posts", null, ids)
+  ),
+
   deletePost: createAsyncThunk("admin/deletePost", async (postId) => {
     const response = await adminApi.delete("posts", postId);
     return { postId, ...response };
