@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import PinkButtonRound from "../../base/PinkButtonRound";
 import { logout } from "../../../redux/slices/authSlice";
-import { Menu, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
 
 const GardenerNavbar = () => {
   const { user } = useSelector((state) => state.auth);
@@ -103,6 +103,16 @@ const GardenerNavbar = () => {
             <p>Posted Plants</p>
           </NavLink>
           <NavLink
+            to="/gardener/orders"
+            className={({ isActive }) =>
+              isActive ? "gardener-nav-link active" : "gardener-nav-link"
+            }
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <ShoppingBag strokeWidth="1" />
+            <p>Orders</p>
+          </NavLink>
+          <NavLink
             to="/gardener/sold-plants"
             className={({ isActive }) =>
               isActive ? "gardener-nav-link active" : "gardener-nav-link"
@@ -184,13 +194,14 @@ const GardenerNavbar = () => {
             <p>Track Revenue</p>
           </NavLink>
         </div>
-        <PinkButtonRound
-          label="Logout"
-          color="#4b5842"
-          backgroundColor="white"
-          onClick={() => dispatch(logout())}
-          className="logout-btn"
-        />
+        <div className="logout-button">
+          <PinkButtonRound
+            label="Logout"
+            color="#4b5842"
+            backgroundColor="white"
+            onClick={() => dispatch(logout())}
+          />
+        </div>
       </div>
     </>
   );

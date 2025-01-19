@@ -134,11 +134,13 @@
   border-radius: 20px;
 }
 
-.logout-btn {
-  width: auto;
-  margin-inline: 10px !important;
-  margin-top: auto;
-  margin-bottom: 20px !important;
+.logout-button {
+  margin-top: -70px !important;
+  padding: 15px;
+}
+
+.logout-button button {
+  width: 100%;
 }
 
 .personal-nav-links {
