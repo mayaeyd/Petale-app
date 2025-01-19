@@ -56,27 +56,15 @@ const GrowingPlantInfo = () => {
             <div className="sensor-data">
               <div>
                 <p>Soil Moisture</p>
-                <p>
-                  {id == "677f0aab0fd919dd992f1a6b"
-                    ? `${sensorData.soil_moisture}%`
-                    : "50%"}
-                </p>
+                <p>{sensorData.soil_moisture}%</p>
               </div>
               <div>
                 <p>Temperature</p>
-                <p>
-                  {id == "677f0aab0fd919dd992f1a6b"
-                    ? `${sensorData.temperature}°C`
-                    : "20°C"}
-                </p>
+                <p>{sensorData.temperature}°C</p>
               </div>
               <div>
                 <p>Humidity</p>
-                <p>
-                  {id == "677f0aab0fd919dd992f1a6b"
-                    ? `${sensorData.humidity}%`
-                    : "50%"}
-                </p>
+                <p>{sensorData.humidity}%</p>
               </div>
             </div>
           </div>
