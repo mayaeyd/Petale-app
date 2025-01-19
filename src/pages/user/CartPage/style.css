@@ -89,3 +89,54 @@
 .cart-page-table-item {
   border-bottom: 0.7px solid white;
 }
+
+.cart-page-table-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+}
+
+.cart-page-table-quantity button {
+  padding: 5px 8px;
+  background: none;
+  outline: none;
+  color: #fff;
+  border: 0.5px solid #fff;
+}
+
+.cart-page-table-product-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-page-table-product-info div h5,
+div h2 {
+  font-family: "Proxima Nova Light";
+}
+
+.cart-page-table-product-info img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.cart-page-table-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.no-items-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.no-items-cart-container h2 {
+  color: black;
+}
