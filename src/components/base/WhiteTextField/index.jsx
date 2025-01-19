@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
 
-const WhiteTextField = ({ label }) => {
+const WhiteTextField = ({ label, ...props }) => {
   return (
     <div className="white-input-container">
       <h3>{label}</h3>
-      <input />
+      <input {...props} />
     </div>
   );
 };
