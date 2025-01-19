@@ -1,8 +1,13 @@
 import React from "react";
 import LogoText from "../../../assets/images/LogoText";
 import "./style.css";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const UserNavbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <nav>
       <div className="nav-links">
@@ -27,9 +32,12 @@ const UserNavbar = () => {
           </li>
         </ul>
       </div>
-      <LogoText role="user"/>
+      <LogoText role="user" />
       <div className="nav-icons">
         <svg
+          onClick={() => {
+            navigate("/user/cart");
+          }}
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -46,6 +54,9 @@ const UserNavbar = () => {
           <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
         </svg>
         <svg
+          onClick={() => {
+            dispatch(logout());
+          }}
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
