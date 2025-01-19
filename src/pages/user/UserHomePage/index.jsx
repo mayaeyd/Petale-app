@@ -5,16 +5,22 @@ import "./style.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroSection from "../../../components/base/HeroSection";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CircularProgress } from "@mui/material";
 import GardenerPlantCard from "../../../components/common/GardenerPlantCard";
 import CartButton from "../../../components/base/CartButton";
+import PinkButtonRound from "../../../components/base/PinkButtonRound";
+import { useNavigate } from "react-router-dom";
+import { addItemToCart } from "../../../redux/slices/cartSlice";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const UserHomePage = () => {
   const textRef = useRef(null);
   const { loading, trendingPosts } = useSelector((state) => state.marketplace);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     gsap.from(textRef.current, {
@@ -61,18 +67,35 @@ const UserHomePage = () => {
       <section className="trending-flowers">
         <h1>Trending Plants</h1>
         <div>
-          {/* {trendingPosts.map((post) => (
+          {trendingPosts.map((post) => (
             <GardenerPlantCard
               key={post._id}
               imageSrc={post.images[0]}
               title={post.plantName}
               description={post.description}
               price={post.price}
+              onClick={() => {
+                dispatch(
+                  addItemToCart({
+                    id: post._id,
+                    name: post.plantName,
+                    price: post.price,
+                    quantity: 1,
+                    image: post.image,
+                  })
+                );
+              }}
             >
               <CartButton />
             </GardenerPlantCard>
-          ))} */}
+          ))}
         </div>
+        <PinkButtonRound
+          onClick={() => {
+            navigate("/user/marketplace");
+          }}
+          label={"View More"}
+        />
       </section>
       <Footer />
     </div>
