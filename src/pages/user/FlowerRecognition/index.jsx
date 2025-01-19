@@ -25,11 +25,6 @@ const FlowerRecognition = () => {
           <FlowerUpload />
         </div>
       </div>
-      {prediction && (
-        <div className="predicted-flower-details">
-          <h1>{prediction}</h1>
-        </div>
-      )}
       <Footer />
     </div>
   );

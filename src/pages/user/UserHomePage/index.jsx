@@ -12,6 +12,9 @@ import CartButton from "../../../components/base/CartButton";
 import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import { useNavigate } from "react-router-dom";
 import { addItemToCart } from "../../../redux/slices/cartSlice";
+import { Camera } from "lucide-react";
+import OutlinedButton from "../../../components/base/OutlinedButton";
+import FlowerUploadDemo from "../../../assets/images/FlowerUploadDemo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,20 +51,19 @@ const UserHomePage = () => {
       <HeroSection />
       <section className="welcome-section">
         <div ref={textRef}>
-          <h1>Welcome to Pétale, where nature meets technology</h1>
+          <h1>Discover the Beauty of Flowers</h1>
           <p>
-            Discover our carefully curated collection of plants and flowers,
-            each ready to bring life to your space. Whether you're an
-            experienced plant parent or just starting your green journey, our
-            selection caters to all. What makes us unique? Our innovative plant
-            recognition feature brings the power of AI to your fingertips.
-            Simply snap a photo of any flower that catches your eye, and let our
-            technology reveal its identity. From garden discoveries to planning
-            your next purchase, identifying flowers has never been easier.
-            Explore our collection, learn about new species, and transform your
-            space into a natural sanctuary. Every plant has a story - let us
-            help you find yours.
+            Take a photo of any flower and instantly learn its name, species,
+            and fascinating details.
           </p>
+          <OutlinedButton
+            borderColor="white"
+            color="white"
+            label="Identify Flowers"
+            endIcon={<Camera />}
+            onClick={() => navigate("/user/predict-flower")}
+          />
+          <FlowerUploadDemo />
         </div>
       </section>
       <section className="trending-flowers">

@@ -64,13 +64,15 @@ const AdminNavbar = () => {
           <p>Orders</p>
         </NavLink>
       </div>
-      <PinkButtonRound
-        label="Logout"
-        color="#4b5842"
-        backgroundColor="white"
-        onClick={() => dispatch(logout())}
-        className="logout-btn"
-      />
+      <div>
+        <PinkButtonRound
+          label="Logout"
+          color="#4b5842"
+          backgroundColor="white"
+          onClick={() => dispatch(logout())}
+          className="logout-btn"
+        />
+      </div>
     </div>
   );
 };

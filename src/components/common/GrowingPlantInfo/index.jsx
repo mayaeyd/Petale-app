@@ -7,7 +7,6 @@ import PinkButtonRound from "../../base/PinkButtonRound";
 import { harvestPlant } from "../../../redux/slices/plantsSlice";
 import { io } from "socket.io-client";
 import { Droplets } from "lucide-react";
-import WhiteTextField from "../../base/WhiteTextField";
 import Input from "../../base/Input";
 
 const GrowingPlantInfo = () => {
@@ -28,7 +27,7 @@ const GrowingPlantInfo = () => {
   });
 
   useEffect(() => {
-    const newSocket = io("http://192.168.0.196:8080");
+    const newSocket = io("http://192.168.44.162:8080");
 
     newSocket.on("sensor_data", (data) => {
       setSensorData(data);
@@ -67,7 +66,7 @@ const GrowingPlantInfo = () => {
                 <p>Temperature</p>
                 <p>
                   {id == "677f0aab0fd919dd992f1a6b"
-                    ? `${sensorData.temperature}%`
+                    ? `${sensorData.temperature}°C`
                     : "20°C"}
                 </p>
               </div>

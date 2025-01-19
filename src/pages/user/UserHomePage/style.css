@@ -12,8 +12,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 50px;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .welcome-section > div > h1 {
@@ -28,6 +28,7 @@
   display: block;
   width: 100%;
   max-width: 100%;
+  padding-inline: 100px;
   overflow: hidden;
   text-align: center;
   font-family: "Proxima Nova Thin";
@@ -53,7 +54,7 @@
   font-size: 3.5em;
   color: #383838;
   position: absolute;
-  top: 7%;
+  top: 3.2%;
 }
 
 .trending-flowers > div {

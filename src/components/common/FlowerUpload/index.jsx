@@ -44,9 +44,7 @@ const FlowerUpload = () => {
       <h1>Flower Recognition</h1>
       <p>
         Upload a photo of any flower you'd like to identify, and let our AI help
-        you discover its name and details. Whether you're exploring nature,
-        gardening, or just curious about a beautiful bloom, we'll help you learn
-        more about the flowers around you. Simply choose a clear photo showing
+        you discover its name and details. Simply choose a clear photo showing
         the flower's petals and color for the best results.
       </p>
 

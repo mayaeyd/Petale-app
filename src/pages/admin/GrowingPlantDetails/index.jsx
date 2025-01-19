@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AdminNavbar from "../../../components/common/AdminNavbar";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,13 +9,31 @@ import {
   selectUsersLoading,
 } from "../../../redux/admin/adminSlice";
 import "./style.css";
+import { io } from "socket.io-client";
 
 const GrowingPlantDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const loading = useSelector(selectUsersLoading);
   const gardener = useSelector(selectSelectedUser);
-  const navigate = useNavigate();
+  const [socket, setSocket] = useState(null);
+  const [sensorData, setSensorData] = useState({
+    temperature: 0,
+    humidity: 0,
+    soil_moisture: 0,
+  });
+
+  useEffect(() => {
+    const newSocket = io("http://192.168.44.162:8080");
+
+    newSocket.on("sensor_data", (data) => {
+      setSensorData(data);
+    });
+
+    setSocket(newSocket);
+
+    return () => newSocket.close();
+  }, []);
 
   useEffect(() => {
     dispatch(userThunks.fetchUserById(id));
@@ -86,19 +104,28 @@ const GrowingPlantDetails = () => {
                       <div className="sensor-item">
                         <span className="sensor-label">Moisture:</span>
                         <span className="sensor-value">
-                          {plant.sensorData.currentMoisture}%
+                          {plant._id == "677f0aab0fd919dd992f1a6b"
+                            ? sensorData.soil_moisture
+                            : plant.sensorData.currentMoisture}
+                          %
                         </span>
                       </div>
                       <div className="sensor-item">
                         <span className="sensor-label">Humidity:</span>
                         <span className="sensor-value">
-                          {plant.sensorData.currentHumidity}%
+                          {plant._id == "677f0aab0fd919dd992f1a6b"
+                            ? sensorData.humidity
+                            : plant.sensorData.currentHumidity}
+                          %
                         </span>
                       </div>
                       <div className="sensor-item">
                         <span className="sensor-label">Temperature:</span>
                         <span className="sensor-value">
-                          {plant.sensorData.currentTemperature}°C
+                          {plant._id == "677f0aab0fd919dd992f1a6b"
+                            ? sensorData.temperature
+                            : plant.sensorData.currentTemperature}
+                          °C
                         </span>
                       </div>
                     </div>

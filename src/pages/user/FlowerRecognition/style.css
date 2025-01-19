@@ -7,11 +7,11 @@
 .upload-section {
   position: relative;
   width: 100%;
-  min-height: 400px;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-block: 20px;
+  height: auto;
 }
 
 .background-flowers {

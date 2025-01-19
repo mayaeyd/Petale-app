@@ -68,6 +68,15 @@
   border-radius: 20px;
 }
 
+.admin-navbar > div:last-child {
+  width: 80%;
+  align-self: center;
+}
+
+.admin-navbar > div:last-child > button {
+  width: 100%;
+}
+
 @media (max-width: 900px) {
   .admin-navbar {
     display: none;
