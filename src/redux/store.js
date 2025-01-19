@@ -6,6 +6,8 @@ import postedPlantsReducer from "./slices/postedPlantsSlice";
 import soldPlantsReducer from "./slices/soldPlantsSlice";
 import marketplaceReducer from "./slices/marketplaceSlice";
 import adminReducer from "./admin/adminSlice";
+import cartReducer from "./slices/cartSlice";
+import orderReducer from "./slices/orderSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +18,8 @@ const store = configureStore({
     soldPlants: soldPlantsReducer,
     marketplace: marketplaceReducer,
     admin: adminReducer,
+    cart: cartReducer,
+    order: orderReducer,
   },
 });
 

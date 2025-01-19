@@ -6,8 +6,10 @@ const BASE_URL = "http://localhost:8080/marketplace";
 const initialState = {
   posts: [],
   trendingPosts: [],
+  singlePost: null,
   loading: false,
   error: null,
+  data: [],
 };
 
 export const getAllPosts = createAsyncThunk(
@@ -21,28 +23,62 @@ export const getAllPosts = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      return error.message;
+      throw error;
     }
   }
 );
 
+export const getPostById = (postId) => (dispatch, getState) => {
+  const state = getState();
+
+  console.log(state.marketplace?.data);
+
+  for (const gardener of state?.marketplace?.data) {
+    for (const listing of gardener?.listings) {
+      if (listing?._id == postId) {
+        dispatch({
+          type: "marketplace/setSinglePost",
+          payload: { post: listing, gardener },
+        });
+        return;
+      }
+    }
+  }
+};
+
 const marketplaceSlice = createSlice({
   name: "marketplace",
   initialState,
-  reducers: {},
+  reducers: {
+    setSinglePost(state, action) {
+      state.singlePost = action.payload;
+    },
+    setSinglePostError(state, action) {
+      state.error = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllPosts.pending, (state) => {
         state.loading = true;
       })
       .addCase(getAllPosts.fulfilled, (state, action) => {
+        console.log("API Response:", action.payload);
         state.loading = false;
-        state.posts = action.payload;
-        state.trendingPosts = [
-          state.posts[0].listings[5],
-          state.posts[0].listings[7],
-          state.posts[0].listings[10],
-        ];
+        state.data = action.payload;
+
+        if (Array.isArray(action.payload)) {
+          state.posts = action.payload?.flatMap(
+            (gardener) => gardener.listings
+          );
+
+          if (state.posts?.length > 0) {
+            state.trendingPosts = state?.posts?.slice(0, 3);
+          }
+        } else {
+          state.posts = [];
+          state.error = "Invalid data format received";
+        }
       })
       .addCase(getAllPosts.rejected, (state, action) => {
         state.loading = false;
@@ -51,4 +87,5 @@ const marketplaceSlice = createSlice({
   },
 });
 
+export const { setSinglePost, setSinglePostError } = marketplaceSlice.actions;
 export default marketplaceSlice.reducer;
