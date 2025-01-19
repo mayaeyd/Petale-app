@@ -9,11 +9,14 @@ import "swiper/css/effect-fade";
 import "swiper/css/effect-fade";
 import "./style.css";
 
-const ImageGallery = ({ images }) => {
+const ImageGallery = ({ images, isStatic }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="gallery-section">
+    <div
+      className="gallery-section"
+      style={{ position: isStatic ? "static" : "fixed" }}
+    >
       {/* Main Swiper */}
       <Swiper
         navigation={true}
