@@ -93,7 +93,7 @@ export default function CartPage() {
                 </div>
                 <div className="cart-page-table-item">
                   <div className="cart-page-table-price">
-                    ${item?.totalPrice}
+                    ${item?.totalPrice.toFixed(2)}
                   </div>
                 </div>
               </div>
@@ -104,7 +104,9 @@ export default function CartPage() {
               <div className="cart-page-table-item"></div>
               <div className="cart-page-table-item"></div>
               <div className="cart-page-table-item">
-                <div className="cart-page-table-price">${cart?.totalPrice}</div>
+                <div className="cart-page-table-price">
+                  ${cart?.totalPrice.toFixed(2)}
+                </div>
               </div>
             </div>
           </div>

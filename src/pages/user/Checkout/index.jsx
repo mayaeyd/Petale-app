@@ -120,12 +120,14 @@ const Checkout = () => {
                     textAlign: "end",
                   }}
                 >
-                  {cart?.totalPrice +
+                  {(
+                    Number(cart?.totalPrice) +
                     (selectedDelivery === "standard"
-                      ? 5
+                      ? 5.0
                       : selectedDelivery === "express"
-                      ? 10
-                      : 0)}
+                      ? 10.0
+                      : 0)
+                  ).toFixed(2)}
                 </p>
               </div>
             </div>

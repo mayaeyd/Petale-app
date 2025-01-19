@@ -3,12 +3,10 @@ import AdminNavbar from "../../../components/common/AdminNavbar";
 import "./style.css";
 import { useSelector } from "react-redux";
 import SortableTable from "../../../components/common/SortableTable";
-import PinkButtonRound from "../../../components/base/PinkButtonRound";
 import { useNavigate } from "react-router-dom";
 
 const Orders = () => {
   const { orders } = useSelector((state) => state.order);
-  const navigate = useNavigate();
 
   const headers = [
     { key: "orderDate", label: "Order Date", sortable: true },
@@ -22,7 +20,6 @@ const Orders = () => {
     { key: "address", label: "Delivery Address", sortable: true },
   ];
 
-  // Flatten the nested orders structure into a single array of orders
   const rows = orders?.flatMap((gardener) =>
     gardener.orders.map((order) => ({
       id: order._id,
@@ -33,14 +30,10 @@ const Orders = () => {
       gardenName: order.gardenName,
       plantName: order.name,
       quantity: order.quantity,
-      totalPrice: `$${order.totalPrice}`,
+      totalPrice: `$${order.totalPrice.toFixed(2)}`,
       address: order.deliveryAddress,
     }))
   );
-
-  const handleViewDetails = (row) => {
-    navigate(`/admin/orders/${row.id}`);
-  };
 
   return (
     <>
