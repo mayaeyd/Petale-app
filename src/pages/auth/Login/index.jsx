@@ -22,10 +22,12 @@ const Login = () => {
   const navigate = useNavigate();
   const { loading, error, user } = useSelector((state) => state.auth);
 
-  // useEffect to handle navigation after successful login
   useEffect(() => {
+    if (loading) return;
     if (user && user.role) {
       if (!user.isBanned) {
+        console.log(user.role === "user");
+
         switch (user.role) {
           case "gardener":
             navigate("/gardener/growing-plants");
@@ -44,7 +46,7 @@ const Login = () => {
         localStorage.clear();
       }
     }
-  }, [user, navigate]);
+  }, [user, navigate, loading]);
 
   const handleClick = async () => {
     try {
