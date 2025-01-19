@@ -22,8 +22,6 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   const handlePlaceOrder = () => {
-    console.log(address, selectedDelivery);
-
     if (!address || !selectedDelivery) {
       setErrorMessage(
         "Please fill out all fields and select a delivery method"
@@ -107,12 +105,27 @@ const Checkout = () => {
               </div>
               <div>
                 {cart?.items.map((item) => (
-                  <p style={{ fontFamily: "Proxima Nova Regular" }}>
+                  <p
+                    style={{
+                      fontFamily: "Proxima Nova Regular",
+                      textAlign: "end",
+                    }}
+                  >
                     {item.totalPrice.toFixed(2)}
                   </p>
                 ))}
-                <p style={{ fontFamily: "Proxima Nova Regular" }}>
-                  {cart?.totalPrice}
+                <p
+                  style={{
+                    fontFamily: "Proxima Nova Regular",
+                    textAlign: "end",
+                  }}
+                >
+                  {cart?.totalPrice +
+                    (selectedDelivery === "standard"
+                      ? 5
+                      : selectedDelivery === "express"
+                      ? 10
+                      : 0)}
                 </p>
               </div>
             </div>
