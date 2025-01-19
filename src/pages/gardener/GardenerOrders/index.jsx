@@ -11,15 +11,9 @@ export default function GardenerOrdersPage() {
       <GardenerNavbar />
       <div className="gardeners-orders-page-container">
         <div className="gardeners-orders-page-header">
-          <h1
-            style={{
-              color: "#333",
-            }}
-          >
-            Your Orders
-          </h1>
+          <h1>Orders</h1>
           <h4>
-            <span>{user?.gardenerProfile?.orders?.length || 0} Orders</span>
+            <span>{user?.gardenerProfile?.orders?.length || 0} orders</span>
           </h4>
         </div>
 
