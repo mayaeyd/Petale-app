@@ -42,8 +42,14 @@ const GardenerNavbar = () => {
             viewBox="0 0 34 34"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet" // This helps maintain the aspect ratio
           >
-            <circle cx="17" cy="17" r="17" fill="#D9D9D9" />
+            <circle cx="17" cy="17" r="16.5" fill="#D9D9D9" /> // Slightly
+            reduced radius
+            <path
+              d="M17 8.5C19.21 8.5 21 10.29 21 12.5C21 14.71 19.21 16.5 17 16.5C14.79 16.5 13 14.71 13 12.5C13 10.29 14.79 8.5 17 8.5ZM17 20.5C22.25 20.5 27 23.13 27 25.5V27.5H7V25.5C7 23.13 11.75 20.5 17 20.5Z"
+              fill="#808080"
+            />
           </svg>
           <div className="gardener-name">
             <h3>
