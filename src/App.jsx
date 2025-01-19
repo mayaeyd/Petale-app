@@ -31,8 +31,13 @@ import SoldPlantsPage from "./pages/gardener/SoldPlantsPage";
 import SoldPlantDetails from "./pages/gardener/SoldPlantDetails";
 import ListingDetails from "./pages/admin/ListingDetails";
 import OrderDetails from "./pages/admin/OrderDetails";
-import HomePage from "./pages/home/HomePage";
 import Checkout from "./pages/user/Checkout";
+import HomePage from "./pages/home/HomePage";
+import UserMarketPlace from "./pages/user/UserMarketPlace";
+import ViewPlant from "./pages/user/ViewPlant";
+import CartPage from "./pages/user/CartPage";
+import OrdersPage from "./pages/user/Orders";
+import GardenerOrdersPage from "./pages/gardener/GardenerOrders";
 
 const App = () => {
   return (
@@ -46,7 +51,11 @@ const App = () => {
         <Route path="/user" element={<UsersRoutes />}>
           <Route path="/user/home" element={<UserHomePage />} />
           <Route path="/user/predict-flower" element={<FlowerRecognition />} />
+          <Route path="/user/marketplace" element={<UserMarketPlace />} />
+          <Route path="/user/plant/:id" element={<ViewPlant />} />
+          <Route path="/user/cart" element={<CartPage />} />
           <Route path="/user/checkout" element={<Checkout />} />
+          <Route path="/user/order" element={<OrdersPage />} />
         </Route>
         <Route path="/gardener" element={<GardenersRoutes />}>
           <Route
@@ -71,6 +80,7 @@ const App = () => {
             path="/gardener/sold-plants/:id"
             element={<SoldPlantDetails />}
           />
+          <Route path="/gardener/orders" element={<GardenerOrdersPage />} />
         </Route>
         <Route path="/admin" element={<AdminRoutes />}>
           <Route path="/admin/dashboard" element={<Dashboard />} />
