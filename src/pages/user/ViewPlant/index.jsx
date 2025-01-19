@@ -10,7 +10,6 @@ import PinkButtonSquared from "../../../components/base/PinkButtonSquared";
 import {
   addItemToCart,
   removeItemFromCart,
-  updateItemQuantity,
 } from "../../../redux/slices/cartSlice";
 
 export default function ViewPlant() {
