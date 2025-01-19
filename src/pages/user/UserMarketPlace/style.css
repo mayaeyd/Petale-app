@@ -1,0 +1,19 @@
+.marketplace-container-user {
+  padding: 40px 15px;
+}
+
+.marketplace-container-user > h1 {
+  font-family: "Cormorant Semibold";
+  font-size: 1.9em;
+  color: #383838;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.marketplace-container-user > div:last-child {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
