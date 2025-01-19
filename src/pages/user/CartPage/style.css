@@ -26,3 +26,66 @@
   width: fit-content;
   font-weight: normal;
 }
+
+.cart-page-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto;
+
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+
+  background-color: #4b5842;
+  font-family: "Proxima Nova Light";
+  border-radius: 10px;
+  color: white;
+  max-width: 1000px;
+  margin-top: 40px;
+}
+
+.quantity-button {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+.quantity-button:hover {
+  background-color: #e9e9e9;
+}
+
+.cart-page-table-header,
+.cart-page-table-row,
+.cart-page-table-footer {
+  display: contents;
+}
+
+.cart-page-table-item {
+  padding: 30px;
+  text-align: center;
+  font-family: "Proxima Nova Light";
+}
+
+.cart-page-table-item:first-child {
+  text-align: left;
+}
+
+.cart-page-table-header .cart-page-table-item {
+  font-weight: bold;
+}
+
+.cart-page-table-footer {
+  font-weight: bold;
+}
+
+.cart-page-table-footer .cart-page-table-item {
+  border: none;
+  text-align: right;
+}
+
+.cart-page-table-item {
+  border-bottom: 0.7px solid white;
+}
