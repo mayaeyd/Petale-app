@@ -10,7 +10,9 @@ const GuestNavbar = () => {
 
   return (
     <nav>
-      <LogoText />
+      <div className="guest-logo-container">
+        <LogoText />
+      </div>
       <div className="guest-buttons-container">
         <OutlinedButton
           color="white"

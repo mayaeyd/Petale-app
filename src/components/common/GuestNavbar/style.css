@@ -9,3 +9,10 @@
   width: 100px;
   margin: 0;
 }
+
+.guest-logo-container {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+}
