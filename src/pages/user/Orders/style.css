@@ -1,0 +1,28 @@
+.orders-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Proxima Nova Thin";
+}
+
+.orders-page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.orders-page-header div h1 {
+  font-family: "Cormorant Semibold";
+  font-size: 1.9em;
+  color: #383838;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+.orders-page-header div h4 {
+  font-size: 1.2em;
+  color: #383838;
+  margin-bottom: 10px;
+  width: fit-content;
+  font-weight: normal;
+}
