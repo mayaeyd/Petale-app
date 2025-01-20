@@ -10,7 +10,6 @@ export const loadCartFromLocalStorage = () => {
 
 export const saveCartToLocalStorage = (cart) => {
   try {
-    console.log(cart);
     localStorage.setItem("cart", JSON.stringify(cart)); // Save cart state to local storage
   } catch (err) {
     console.error("Could not save cart to local storage", err);

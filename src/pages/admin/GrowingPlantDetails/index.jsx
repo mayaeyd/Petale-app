@@ -24,7 +24,7 @@ const GrowingPlantDetails = () => {
   });
 
   useEffect(() => {
-    const newSocket = io("http://192.168.44.162:8080");
+    const newSocket = io("http://192.168.0.192:8080");
 
     newSocket.on("sensor_data", (data) => {
       setSensorData(data);

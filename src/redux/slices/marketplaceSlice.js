@@ -31,8 +31,6 @@ export const getAllPosts = createAsyncThunk(
 export const getPostById = (postId) => (dispatch, getState) => {
   const state = getState();
 
-  console.log(state.marketplace?.data);
-
   for (const gardener of state?.marketplace?.data) {
     for (const listing of gardener?.listings) {
       if (listing?._id == postId) {
@@ -63,7 +61,6 @@ const marketplaceSlice = createSlice({
         state.loading = true;
       })
       .addCase(getAllPosts.fulfilled, (state, action) => {
-        console.log("API Response:", action.payload);
         state.loading = false;
         state.data = action.payload;
 

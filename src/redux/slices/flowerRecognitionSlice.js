@@ -14,7 +14,6 @@ export const predictFlower = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.log("Error:", error);
       return rejectWithValue(error.message);
     }
   }

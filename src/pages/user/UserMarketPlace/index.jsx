@@ -9,7 +9,6 @@ import { addItemToCart } from "../../../redux/slices/cartSlice";
 export default function UserMarketPlace() {
   const { posts } = useSelector((state) => state.marketplace);
   const navigate = useNavigate();
-  console.log(posts);
 
   const dispatch = useDispatch();
   return (

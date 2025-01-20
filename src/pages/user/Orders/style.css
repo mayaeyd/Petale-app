@@ -31,12 +31,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto auto auto auto auto;
-
   width: 80%;
   margin: 0 auto;
   padding: 20px;
-
-  /* background-color: #4b5842; */
+  background-color: #4b5842;
   font-family: "Proxima Nova Light";
   border-radius: 10px;
   color: white;
@@ -77,6 +75,10 @@
   font-weight: bold;
 }
 
+.orders-page-table-header > div:first-child {
+  padding-left: 100px;
+}
+
 .orders-page-table-footer {
   font-weight: bold;
 }
@@ -92,6 +94,19 @@
 .order-card {
   font-family: "Proxima Nova Thin";
   margin-bottom: 20px;
+}
+
+.order-header > h3,
+.order-header > p {
+  color: #383838;
+  max-width: 100%;
+  width: 100%;
+  text-align: start;
+  font-family: "Proxima Nova Thin";
+}
+
+.order-header > p {
+  font-size: 1em;
 }
 
 .orders-page-table-quantity {

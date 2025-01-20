@@ -71,6 +71,7 @@
 .admin-navbar > div:last-child {
   width: 80%;
   align-self: center;
+  margin-top: 120px;
 }
 
 .admin-navbar > div:last-child > button {

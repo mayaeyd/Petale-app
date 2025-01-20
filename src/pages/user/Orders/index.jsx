@@ -36,35 +36,35 @@ export default function OrdersPage() {
                 </div>
 
                 <div className="order-items-list">
-                  <div className="cart-page-table">
-                    <div className="cart-page-table-header">
-                      <div className="cart-page-table-item">Item</div>
-                      <div className="cart-page-table-item">Price</div>
-                      <div className="cart-page-table-item">Quantity</div>
-                      <div className="cart-page-table-item">Total</div>
+                  <div className="orders-page-table">
+                    <div className="orders-page-table-header">
+                      <div className="orders-page-table-item">Item</div>
+                      <div className="orders-page-table-item">Price</div>
+                      <div className="orders-page-table-item">Quantity</div>
+                      <div className="orders-page-table-item">Total</div>
                     </div>
                     {order.orderItems.map((item) => (
-                      <div key={item?.id} className="cart-page-table-row">
-                        <div className="cart-page-table-item">
-                          <div className="cart-page-table-product-info">
+                      <div key={item?.id} className="orders-page-table-row">
+                        <div className="orders-page-table-item">
+                          <div className="orders-page-table-product-info">
                             <div>
                               <h5>{item?.name}</h5>
                               <h2>{item?.type}</h2>
                             </div>
                           </div>
                         </div>
-                        <div className="cart-page-table-item">
-                          <div className="cart-page-table-price">
+                        <div className="orders-page-table-item">
+                          <div className="orders-page-table-price">
                             ${item?.price}
                           </div>
                         </div>
-                        <div className="cart-page-table-item">
-                          <div className="cart-page-table-quantity">
+                        <div className="orders-page-table-item">
+                          <div className="orders-page-table-quantity">
                             <h4>{item?.quantity}</h4>
                           </div>
                         </div>
-                        <div className="cart-page-table-item">
-                          <div className="cart-page-table-price">
+                        <div className="orders-page-table-item">
+                          <div className="orders-page-table-price">
                             ${item?.quantity * item?.price}
                           </div>
                         </div>

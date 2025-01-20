@@ -27,7 +27,7 @@ const GrowingPlantInfo = () => {
   });
 
   useEffect(() => {
-    const newSocket = io("http://192.168.44.162:8080");
+    const newSocket = io("http://192.168.0.192:8080");
 
     newSocket.on("sensor_data", (data) => {
       setSensorData(data);
@@ -50,7 +50,7 @@ const GrowingPlantInfo = () => {
   return (
     <>
       <div className="plant-info-container">
-        <div>
+        <div style={{ marginTop: "50px" }}>
           <div className="sensor-data-container">
             <h2>Environmental Metrics</h2>
             <div className="sensor-data">
@@ -138,7 +138,7 @@ const GrowingPlantInfo = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div style={{ marginTop: "70px" }}>
           <PinkButtonRound
             endIcon={<Droplets />}
             label="Water Now"
