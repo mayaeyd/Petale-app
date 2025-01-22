@@ -55,3 +55,47 @@ nav img {
 .nav-icons svg:hover {
   background-color: rgba(255, 255, 255, 0.13);
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top right;
+  transition: all 0.2s cubic-bezier(0.24, 0.22, 0.015, 1.56);
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+  top: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.dropdown-content a {
+  color: #383838;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: "Proxima Nova Light";
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
