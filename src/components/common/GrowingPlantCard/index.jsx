@@ -6,7 +6,14 @@ const GrowingPlantCard = ({ name, date, ...props }) => {
 
   return (
     <div className="growing-plt-card" {...props}>
-      <h2>{name}</h2>
+      <h2>
+        {name
+          .split(" ")
+          .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          )
+          .join(" ")}
+      </h2>
       <p>{plantedDate}</p>
     </div>
   );

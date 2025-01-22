@@ -18,7 +18,15 @@ const GardenerPlantCard = ({
         <div className="cart-button">{children}</div>
       </div>
       <div className="card-info-container">
-        <h2>{title}</h2>
+        <h2>
+          {title
+            .split(" ")
+            .map(
+              (word) =>
+                word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+            )
+            .join(" ")}
+        </h2>
         <p className="card-description">{description}</p>
         <p>From ${price.toFixed(2)}</p>
       </div>

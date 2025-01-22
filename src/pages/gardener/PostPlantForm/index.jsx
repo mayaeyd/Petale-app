@@ -112,6 +112,7 @@ const PostPlantForm = ({ newPlant }) => {
         <Input
           inputColor="#666"
           label="Price for One"
+          type="number"
           onChange={(e) => setPrice(e.target.value)}
           value={price}
         />
