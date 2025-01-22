@@ -12,8 +12,8 @@ const UserNavbar = () => {
     <nav>
       <div className="nav-links">
         <ul>
-          <li>Home</li>
-          <li>
+          <li onClick={() => navigate("/user/home")}>Home</li>
+          <li class="user-dropdown">
             Shop
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,6 +29,12 @@ const UserNavbar = () => {
             >
               <path d="m6 9 6 6 6-6" />
             </svg>
+            <div
+              class="user-dropdown-content"
+              style={{ right: "50%", transform: "translateX(50%)" }}
+            >
+              <a href="/user/marketplace">All Plants</a>
+            </div>
           </li>
         </ul>
       </div>
@@ -53,7 +59,7 @@ const UserNavbar = () => {
           <circle cx="19" cy="21" r="1" />
           <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
         </svg>
-        <div class="dropdown">
+        <div class="user-dropdown">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -69,7 +75,7 @@ const UserNavbar = () => {
             <circle cx="12" cy="8" r="5" />
             <path d="M20 21a8 8 0 0 0-16 0" />
           </svg>
-          <div class="dropdown-content">
+          <div class="user-dropdown-content">
             <a href="/user/order">Orders</a>
             <a
               onClick={() => {
