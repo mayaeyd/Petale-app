@@ -79,7 +79,12 @@ const Footer = () => {
       <div className="footer-sec-2">
         <div className="subscription-sec">
           <FooterInput />
-          <PinkButtonSquared label="SUBSCRIBE NOW" />
+          <PinkButtonSquared
+            label="SUBSCRIBE NOW"
+            onClick={() => {
+              return;
+            }}
+          />
         </div>
         <p>
           Stay updated with the latest flowers, exclusive deals, and gardening

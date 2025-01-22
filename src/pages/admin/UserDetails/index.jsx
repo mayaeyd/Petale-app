@@ -71,7 +71,7 @@ const UserDetails = () => {
 
   const rows = orders.map((order) => ({
     quantity: order.quantity,
-    total: `$${order.totalPrice}`,
+    total: `$${order.totalPrice.toFixed(2)}`,
     address: order.buyerAddress,
     date: formatDate(order.purchaseDate),
     id: order.listingId,

@@ -27,7 +27,7 @@ export default function GardenerOrdersPage() {
                   <strong>Quantity:</strong> {order.quantity}
                 </p>
                 <p>
-                  <strong>Total Price:</strong> ${order.totalPrice}
+                  <strong>Total Price:</strong> ${order.totalPrice.toFixed(2)}
                 </p>
                 <p>
                   <strong>Delivery Address:</strong> {order.deliveryAddress}

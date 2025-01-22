@@ -20,7 +20,7 @@ const GardenerPlantCard = ({
       <div className="card-info-container">
         <h2>{title}</h2>
         <p className="card-description">{description}</p>
-        <p>From ${price}</p>
+        <p>From ${price.toFixed(2)}</p>
       </div>
     </div>
   );
